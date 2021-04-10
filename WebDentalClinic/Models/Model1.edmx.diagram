@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f751cca5dd2a4b4888b935a51ca061ee" Name="Diagram1">
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.BENHNHAN" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.CHITIETLICHHEN" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.CHITIETPHIEUKHAMBENH" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.CHUCVU" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.DICHVU" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.HOADONTHANHTOAN" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.LICHHEN" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.LOAIDICHVU" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.NHANVIEN" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.PHIEUKHAMBENH" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.sysdiagram" Width="1.5" PointX="5.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.TAIKHOANBENHNHAN" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.TAIKHOANNHANVIEN" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_BENHNHAN_TAIKHOANBENHNHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_PHIEUKHAMBENH_BENHNHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_CHITIETLICHHEN_DICHVU" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_CHITIETLICHHEN_LICHHEN" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_CHITIETLICHHEN_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_CHITIETPHIEUKHAMBENH_DICHVU" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_CHITIETPHIEUKHAMBENH_HOADONTHANHTOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_CHITIETPHIEUKHAMBENH_PHIEUKHAMBENH" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_NHANVIEN_CHUCVU" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_DICHVU_LOAIDICHVU" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_NHANVIEN_TAIKHOANNHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_PHIEUKHAMBENH_NHANVIEN1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
