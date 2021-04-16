@@ -1,6 +1,10 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@if (TempData["testmsg"] != null)
+{
+    @Html.Raw(TempData["testmsg"])
+}
 
 
 <section class="banner" role="banner">

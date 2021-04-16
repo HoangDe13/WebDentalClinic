@@ -1,2 +1,34 @@
 ﻿@model WebDentalClinic.Models.TAIKHOANBENHNHAN
 
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    <link rel="stylesheet" type="text/css" href="~/Content/Contact.css" />
+}
+<div class="container contact-form">
+    <h2 style="color:white">Đăng nhập</h2>
+    <hr>
+    <div class="col-md-6">
+
+        <div class="card-body">
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TenTaiKhoan)
+                    @Html.TextBoxFor(m => m.TenTaiKhoan, "", new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.mat)
+                    @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Login" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

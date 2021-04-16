@@ -1,0 +1,32 @@
+﻿@model WebDentalClinic.Models.TAIKHOANBENHNHAN
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css{
+    <link rel="stylesheet" type="text/css" href="~/Content/Contact.css" />
+}
+
+<div class="container contact-form">
+
+    <h2 style="color:white">Tài khoản</h2>
+    <hr>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Welcome
+            </div>
+            <div class="card-body">
+                @if (Session["TenTaiKhoan"] != null)
+                {
+                    <p>Name: @Session["TenTaiKhoan"].ToString()</p>
+                    <a href="@Url.Action("Logout","Home")" class="btn btn-warning">Logout</a>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
