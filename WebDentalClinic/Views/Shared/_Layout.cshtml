@@ -8,8 +8,10 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/main.css")
+
     @Styles.Render("~/Content/bootstrap.min.css")
     @Styles.Render("~/Content/bootstrap.css")
+
     @Styles.Render("~/Content/flexslider.css")
     @Styles.Render("~/Content/jquery.fancybox.css")
     @Styles.Render("~/Content/responsive.css")
@@ -17,7 +19,7 @@
     @Styles.Render("~/Content/animate.min.css")
     @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @RenderSection("css", false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" style="  background-color: white; border-color: white;opacity:0.85;">
@@ -77,5 +79,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+   
 </body>
 </html>
