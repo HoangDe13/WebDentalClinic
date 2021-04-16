@@ -4,10 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/main.css")
- 
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/bootstrap.css")
     @Styles.Render("~/Content/flexslider.css")
     @Styles.Render("~/Content/jquery.fancybox.css")
     @Styles.Render("~/Content/responsive.css")
@@ -18,7 +20,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top"style="  background-color: #03a9f4; border-color: #03a9f4;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="  background-color: white; border-color: white;opacity:0.85;">
         <div class="container">
             <div class="navbar-header" style="">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,25 +28,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse"style="float:left">
-                <ul class="nav navbar-nav" >
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
-                </ul>
+                @Html.ActionLink("Dental Clinic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
             </div>
-            <div class="navbar-collapse collapse"style="float:right">
+            <div class="navbar-collapse collapse" style="float:left">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Login", "Login", "Home")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Home")</li>
+                    <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Giới Thiệu", "About", "Home")</li>
+                    <li>@Html.ActionLink("Dịch Vụ Nha Khoa", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Liên Hệ", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Đặt Lịch Hẹn", "Contact", "Home")</li>
                 </ul>
+
             </div>
+            <div class="navbar-collapse collapse" style="float:right">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Đăng Nhập", "Login", "Home")</li>
+                    <li>@Html.ActionLink("Đăng Kí", "Register", "Home")</li>
+                </ul>
             </div>
         </div>
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -52,7 +57,23 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/modernizr.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.contact.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.devrama.slider.min-0.9.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slider-banner').DrSlider({
+                'transition': 'fade',
+                showNavigation: false,
+                progressColor: "#03A9F4"
+            });
+        });
+    </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
