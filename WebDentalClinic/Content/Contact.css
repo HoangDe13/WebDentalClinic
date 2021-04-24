@@ -6,7 +6,7 @@
     color: white;
     
 }
-.bodi {
+body {
     background-image: url(images/06.jpg);
     background-size: cover;
 }
