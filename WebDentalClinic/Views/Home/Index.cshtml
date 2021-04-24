@@ -2,41 +2,72 @@
     ViewBag.Title = "Home Page";
 }
 
+<div class="slideshow-container">
+    <div class="container">
+        <div class="col-md-12">
 
-<section class="banner" role="banner">
-    <div class="banner" id="banner">
-        <div class="slider-banner">
-            <div data-lazy-background="~/content/images/slides/1.jpg">
-                <h3 data-pos="['68%', '-40%', '60%', '12%']" data-duration="700" data-effect="move">
-                    Dental Clinic
-                </h3> <br>
-                <p data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                </p>
-            </div>
-            <div data-lazy-background="~/content/images/slides/3.jpg">
-                <h3 data-pos="['75%', '-40%', '60%', '12%']" data-duration="700" data-effect="move">
-                    Beautiful Smile
-                </h3> <br>
-                <p data-pos="['75%', '110%', '75%', '12%']" data-duration="700" data-effect="move">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                </p>
+            <div class="mySlides fade">
+               
+                <img src="~/Content/images/slides/3.jpg" style="width:110%;">
+
             </div>
 
+            <div class="mySlides fade">
+
+                <img src="~/Content/images/slides/2.jpg" style="width:110% ">
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="~/Content/images/slides/1.jpg" style="width:110%;">
+            </div>
         </div>
-        <!-- banner text -->
     </div>
-</section>
-<!-- header section -->
+    <br>
+
+</div>
+<div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 3000); // Change image every 2 seconds
+    }
+</script>
+
+
 <!-- intro section -->
 <section id="intro" class="section intro">
     <div class="container">
         <div class="col-md-8 col-md-offset-2 text-center">
-            <h3>Welcome to Smile Zone</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Chào Mừng đến với Dental Clinic</h3>
+            <p>
+                Chúng tôi tự hào mang đến chất lượng y khoa chuẩn Đức, được các chuyên gia trong và ngoài nước công nhận. Với đội ngũ y bác sĩ có kinh nghiệm, tay nghề cao. Cơ sở vật chất, vật tư y tế đạt chuẩn nha khoa quốc tế.
+                Dental Clinic cam kết về chất lượng hàng đầu trong mọi chữa trị cho bệnh nhân. Đến với chúng tôi để được trải nghiệm một tiêu chuẩn Đức lần đầu tiên trong ngành nha khoa giữa lòng Sài Gòn.
+            </p>
             <div class="site-info">
-                <div class="phoneInfo"><h6>Call Today: </h6><a href="#">123–123–2323</a>; <a href="#">123–123–2323</a></div>
-                <div class="timeInfo"><h6>Opening Hours: </h6> <em>Mon–Fri: 9am–6pm; Sun: 10am–1pm</em></div>
+                <div class="phoneInfo"><h6>Liên hệ ngay: </h6><a href="#">123–123–2323</a>; <a href="#">123–123–2323</a></div>
+                <div class="timeInfo"><h6>Giờ mở cửa: </h6> <em>Thứ 2 - Thứ 7: 9 giờ - 16 giờ ; Chủ Nhật : Đóng cửa</em></div>
             </div>
         </div>
     </div>
@@ -46,50 +77,71 @@
 <section id="services" class="services service-section">
     <div class="container">
         <div class="section-header">
-            <h2 class="wow fadeInDown animated">Treatments</h2>
-            <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+            <h2 class="wow fadeInDown animated">DỊCH VỤ NHA KHOA</h2>
+            <p class="wow fadeInDown animated">Dental Clinic chuyên điều trị các vấn đề về răng, chăm sóc răng miệng uy tín tại tpHCM với mức giá phù hợp.</p>
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-6 services text-center">
-                <span class="icon icon-happy"></span>
+                <span class="icon"><img src="~/Content/images/Services/tooth-whitening.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Cosmetic</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
+                    <h5>Răng thẩm mỹ</h5>
+                    <p>Bọc răng sứ là một giải pháp khắc phục các khiếm khuyết của răng như sứt mẻ, răng thưa, nhiễm màu kháng sinh, bệnh lý sâu răng, viêm tủy, mòn men... </p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
-                <span class="icon icon-layers"></span>
+                <span class="icon"><img src="~/Content/images/Services/implant.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Oral Surgery</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
+                    <h5>Trồng răng - Cấy ghép Implant</h5>
+                    <p>Cấy ghép implant là quá trình cấy ghép một "chân răng giả" bằng titan xương hàm, cầu răng hay một hàm giả nhằm thay thế cho các răng đã mất... </p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
-                <span class="icon icon-wine"></span>
+                <span class="icon"><img src="~/Content/images/Services/tooth-whitening (1).png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Replacement</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
+                    <h5>Tẩy trắng răng</h5>
+                    <p>Tẩy trắng với công nghệ Laser Whitening hiện đại của Mỹ chỉ trong 1 giờ chúng tôi mang đến cho bạn một hàm răng trắng tự nhiên, đều màu,...</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
-                <span class="icon icon-hotairballoon"></span>
+                <span class="icon"><img src="~/Content/images/Services/tooth.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Orthodontics</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
+                    <h5>Điều trị nha chu</h5>
+                    <p>Viêm nha chu là một vấn đề về răng miệng phổ biến và nghiêm trọng. Khi những mảng bám tích tụ lâu ngày không được loại bỏ, chúng sẽ cứng dần và tạo nên vôi răng...</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
-                <span class="icon icon-heart"></span>
+                <span class="icon"><img src="~/Content/images/Services/toothache.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Child Dental </h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
+                    <h5>Nhổ răng khôn </h5>
+                    <p>Nhổ răng khôn là một quá trình phẫu thuật nha khoa hực hiện bởi nha sĩ hoặc bác sĩ phẫu thuật răng miệng để nhổ một hoặc nhiều răng khôn của bạn...</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
-                <span class="icon icon-scope"></span>
+                <span class="icon"><img src="~/Content/images/Services/braces.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Restorative</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
+                    <h5>Niềng răng</h5>
+                    <p>Niềng răng hoặc chỉnh nha là một trong những biện pháp phổ biến nhằm mang lại một hàm răng thẳng hàng, đều và đẹp. Ngày càng được nhiều người quan tâm và thực hiện...</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 services text-center">
+                <span class="icon"><img src="~/Content/images/Services/dental.png" style="width:50px" /></span>
+                <div class="services-content">
+                    <h5>Trám răng</h5>
+                    <p>Trám răng là thủ thuật nha khoa dùng vật liệu nhân tạo để khắc phục tình trạng răng sâu, sứt mỡ nhẹ… trở về hình dáng ban đầu...</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 services text-center">
+                <span class="icon"><img src="~/Content/images/Services/baby-teeth.png" style="width:50px" /></span>
+                <div class="services-content">
+                    <h5>Răng trẻ em</h5>
+                    <p>Dental Clinic cung cấp các dịch vụ nha khoa trẻ em từ phong phú từ khám định kỳ, nhổ răng, hàn răng, chỉnh nha. Nụ cười hồn nhiên của trẻ... </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 services text-center">
+                <span class="icon"><img src="~/Content/images/Services/dentist-chair.png" style="width:50px" /></span>
+                <div class="services-content">
+                    <h5>Nha khoa tổng quát</h5>
+                    <p>Dental Clinic còn cung cấp những dịch vụ điều trị các vấn đề về răng với kỹ thuật cao, công nghệ chuẩn Đức. Luôn đặt chất lượng điều trị lên hàng đầu...</p>
                 </div>
             </div>
         </div>
@@ -98,28 +150,22 @@
 <!-- services section -->
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
-    <div class="image-container col-sm-6 col-xs-12 pull-left">
-        <div class="background-image-holder">
-
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-6 col-xs-12 content">
+     <div class="container-fluid">
+        
+           <div class="col-md-12 content">
+             <div class="editContent">
+                  <h3>Tại sao phải kiểm tra răng thường xuyên ?</h3>
+                     </div>
                 <div class="editContent">
-                    <h3>Why Dentist</h3>
-                </div>
-                <div class="editContent">
-                    <strong>Personalized Care</strong>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <strong>Specialist Driven</strong>
-                    <p>Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                </div>
-                <a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
-            </div>
-        </div><!-- /.row-->
-    </div><!-- /.container -->
+                   <strong>Bảo vệ răng miệng luôn chắc khỏe.</strong>
+                      <p>Răng là bộ phận phải hoạt động hàng ngày khi chúng ta thực hiện việc nhai nuốt thức ăn. Điều đó cũng có nghĩa đây là bộ phận rất quan trọng để bảo đảm sức khỏe cho chúng ta hàng ngày. Khi bạn phải đối mặt với bất kỳ bệnh răng miệng nào, trước hết sẽ cảm thấy khó chịu, ảnh hưởng không nhỏ đến tinh thần và sức khỏe tổng quát của cơ thể. Một hàm răng chắc khỏe là một trong những yếu tố giúp bạn sống khỏe hơn.</p>
+                      <strong>Phát hiện kịp thời các vấn đề về răng.</strong>
+                    <p>Khám nha khoa định kỳ để chăm sóc răng tốt hơn, ngăn ngừa các bệnh lý phức tạp giúp sức khỏe cơ thể và tinh thần cho bạn.</p>
+                   </div>
+                  <a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
+                        </div>
+                    </div><!-- /.row-->
+                
 </section>
 
 
@@ -128,15 +174,15 @@
     <div class="container">
         <div class="row">
             <div id="content24" data-section="content-24" class="data-section">
-                <div class="col-md-6">
-                    <h3 class="eidtContent">Content Video</h3>
-                    <p class="eidtContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                    <p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <h3 class="eidtContent">Giới Thiệu Video</h3>
+                    <p class="eidtContent">Dental Clinic là nhà cung cấp hàng đầu tất cả các dịch vụ nha khoa từ đơn giản đến phức tạp, từ điều trị bệnh lý thông thường tới các dịch vụ thẩm mỹ đòi hỏi kỹ thuật cao.  giúp chăm sóc toàn diện sức khỏe và nét đẹp răng miệng của khách hàng..</p>
+                    <p class="editContent">Các dịch vụ hiện có tại Dental Clinic: Cấy ghép Implant, niềng răng, chỉnh nha, răng sứ thẩm mỹ, thiết kế nụ cười, nhổ răng không đau, tẩy trắng răng, cạo vôi và đánh bóng, trám răng sâu, nội nha chữa tủy, điều trị viêm nha chu,….</p>
+                      </div>
+                <div class="col-md-8">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/146742515?badge=0" allowfullscreen=""></iframe>
+                        <iframe style="border-radius:30px 30px 30px 30px;" width="560" height="315" src="https://www.youtube.com/embed/U24WMWyMr08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                           
                     </div>
                 </div>
             </div>
@@ -148,13 +194,13 @@
 <section id="gallery" class="gallery section">
     <div class="container-fluid">
         <div class="section-header">
-            <h2 class="wow fadeInDown animated">Gallery</h2>
-            <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+            <h2 class="wow fadeInDown animated">Trang Thiết Bị Nha Khoa Dental Clinic</h2>
+            <p class="wow fadeInDown animated">Tự hào là một trong số ít phòng khám nha tại Việt Nam được các chuyên gia hàng đầu thế giới lựa chọn chuyển giao công nghệ mới, tân tiến nhất Châu Âu.  <br> Dental Clinic trang bị hệ thống thiết bị, máy móc hiện đại nhất được nhập khẩu toàn bộ từ nước ngoài phục vụ cho việc chuẩn đoán và điều trì nhằm mang lại sự hài lòng nhất cho khách hàng.</p>
         </div>
         <div class="row no-gutter">
             <div class="col-lg-3 col-md-6 col-sm-6 work">
-                <a href="images/portfolio/01.jpg" class="work-box">
-                    <img src="images/portfolio/01.jpg" alt="">
+                <a href="~/Content/images/gallery/csvc1.jpg" class="work-box">
+                    <img src="~/Content/images/gallery/csvc1.jpg" alt="">
                     <div class="overlay">
                         <div class="overlay-caption">
                             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -164,8 +210,8 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 work">
-                <a href="~/Content/images/portfolio/02.jpg" class="work-box">
-                    <img src="~/Content/images/portfolio/02.jpg" alt="">
+                <a href="~/Content/images/gallery/csvc2.jpg" class="work-box">
+                    <img src="~/Content/images/gallery/csvc2.jpg" alt="">
                     <div class="overlay">
                         <div class="overlay-caption">
                             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -175,8 +221,8 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 work">
-                <a href="~/Content/images/portfolio/03.jpg" class="work-box">
-                    <img src="~/Content/images/portfolio/03.jpg" alt="">
+                <a href="~/Content/images/gallery/csvc3.jpg" class="work-box">
+                    <img src="~/Content/images/gallery/csvc3.jpg" alt="">
                     <div class="overlay">
                         <div class="overlay-caption">
                             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -186,8 +232,8 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 work">
-                <a href="~/Content/images/portfolio/04.jpg" class="work-box">
-                    <img src="~/Content/images/portfolio/04.jpg" alt="">
+                <a href="~/Content/images/gallery/csvc4.jpg" class="work-box">
+                    <img src="~/Content/images/gallery/csvc4.jpg" alt="">
                     <div class="overlay">
                         <div class="overlay-caption">
                             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -197,8 +243,8 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 work">
-                <a href="~/Content/images/portfolio/05.jpg" class="work-box">
-                    <img src="~/Content/images/portfolio/05.jpg" alt="">
+                <a href="~/Content/images/gallery/csvc5.jpg" class="work-box">
+                    <img src="~/Content/images/gallery/csvc5.jpg" alt="">
                     <div class="overlay">
                         <div class="overlay-caption">
                             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -208,8 +254,8 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 work">
-                <a href="~/Content/images/portfolio/06.jpg" class="work-box">
-                    <img src="~/Content/images/portfolio/06.jpg" alt="">
+                <a href="~/Content/images/gallery/csvc6.jpg" class="work-box">
+                    <img src="~/Content/images/gallery/csvc6.jpg" alt="">
                     <div class="overlay">
                         <div class="overlay-caption">
                             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -219,8 +265,8 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 work">
-                <a href="~/Content/images/portfolio/07.jpg" class="work-box">
-                    <img src="~/Content/images/portfolio/07.jpg" alt="">
+                <a href="~/Content/images/gallery/csvc7.jpg" class="work-box">
+                    <img src="~/Content/images/gallery/csvc7.jpg" alt="">
                     <div class="overlay">
                         <div class="overlay-caption">
                             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -230,8 +276,8 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 work">
-                <a href="~/Content/images/portfolio/08.jpg" class="work-box">
-                    <img src="~/Content/images/portfolio/08.jpg" alt="">
+                <a href="~/Content/images/gallery/csvc8.jpg" class="work-box">
+                    <img src="~/Content/images/gallery/csvc8.jpg" alt="">
                     <div class="overlay">
                         <div class="overlay-caption">
                             <p><span class="icon icon-magnifying-glass"></span></p>
@@ -248,8 +294,8 @@
 <section id="teams" class="section teams">
     <div class="container">
         <div class="section-header">
-            <h2 class="wow fadeInDown animated">Our Team</h2>
-            <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+            <h2 class="wow fadeInDown animated">Đội Ngũ Y Bác Sĩ</h2>
+            <p class="wow fadeInDown animated">Chúng tôi tự hào với đội ngũ y bác sĩ hàng đầu Việt Nam với kĩ năng chuyên môn cao. <br> Cam kết mang đến sự hài lòng về nụ cười của mình.</p>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-6">
@@ -258,7 +304,10 @@
                     <div class="person-content">
                         <h4>Jonh Dow</h4>
                         <h5 class="role">Doctor</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
+                        <p>
+                            Bác sĩ chuyên sâu về cấy ghép Implant, tiểu phẫu và phục hình thẩm mỹ răng sứ và mặt dán sứ.
+                            Tu nghiệp chuyên sâu về cấy ghép răng Implant tại Bệnh viện Răng Hàm Mặt TP.HCM.
+                        </p>
                     </div>
                     <ul class="social-icons clearfix">
                         <li><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -273,7 +322,11 @@
                     <div class="person-content">
                         <h4>Markus Linn</h4>
                         <h5 class="role">Doctor</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
+                        <p>
+                            Tốt nghiệp khoa Răng Hàm Măt đại học Y khoa Quảng Tây Trung Quốc.
+                            Hoàn thành chương trình thạc sĩ tại đại học Y Hà Nội
+                            Hơn 6 năm kinh nghiệm.
+                        </p>
                     </div>
                     <ul class="social-icons clearfix">
                         <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
@@ -288,7 +341,11 @@
                     <div class="person-content">
                         <h4>Chris Jemes</h4>
                         <h5 class="role">Doctor</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
+                        <p>
+                            Bác sĩ chuyên sâu về điều trị chỉnh nha
+                            Tu nghiệp chuyên sâu chỉnh nha tại Bệnh viện Răng Hàm Mặt TP.HCM
+                            Tu nghiệp nhiều khóa chỉnh nha ngắn hạn tại 3M, 3D.
+                        </p>
                     </div>
                     <ul class="social-icons clearfix">
                         <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
@@ -303,7 +360,11 @@
                     <div class="person-content">
                         <h4>Vintes Mars</h4>
                         <h5 class="role">Doctor</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
+                        <p>
+                            Chuyên gia cấy ghép răng Implant, ghép xương, chỉnh hình răng thẩm mỹ, khuôn mặt.
+                            Giám đốc bệnh viện Thẩm mỹ Hàn Quốc 2016- 2018.
+                            Chuyên sâu chỉnh hình mũi và mắt, cằm tại Thẩm mỹ Úc Châu 2010 - 2015.
+                        </p>
                     </div>
                     <ul class="social-icons clearfix">
                         <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
@@ -316,71 +377,6 @@
     </div>
 </section>
 <!-- our team section -->
-<section id="pricing5" data-section="pricing-5" class="data-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="wow fadeInDown animated">Pricing</h2>
-            <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-md-offset-1">
-                <div class="table">
-                    <h3 class="editContent">Basic</h3>
-                    <h2 class="editContent">$13</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
-
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-green-transparent-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="table long-table">
-                    <h3 class="editContent">Premium</h3>
-                    <h2 class="editContent">$23</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
-
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-blue-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-                <div class="table">
-                    <h3 class="editContent">Developer</h3>
-                    <h2 class="editContent">$33</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
-
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-green-transparent-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Testimonials section -->
 <section id="testimonials" class="section testimonials no-padding">
     <div class="container-fluid">
@@ -454,4 +450,4 @@
             progressColor: "#03A9F4"
         });
     });
-</script> 
+</script>
