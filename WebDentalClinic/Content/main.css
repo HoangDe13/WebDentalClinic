@@ -391,14 +391,16 @@ display: inline-block;
 	background-color: #03A9F4;
 	
 }
-.intro h3 {
-	color: #fff;
-	margin-top: 0;
-}
-.intro p { 
-	color: #fff;
-	font-weight: 400;
-}
+	.intro h3 {
+		color: #fff;
+		font-weight: 600;
+		margin-top: 0;
+	}
+	.intro p {
+		color: #fff;
+		font-weight: 400;
+		font-size: 15px;
+	}
 /* -----------------------------------------------------------------------------
 Common Styles
 ------------------------------------------------------------------------------- */
@@ -406,8 +408,8 @@ Common Styles
 text-align: center;	
 padding-bottom: 30px;
 }
-.section-header h2{
-	
+.section-header h4{
+font-weight:bold;
 }
 .section-header p{
 	
@@ -964,11 +966,12 @@ img {
 
 /* Slideshow container */
 .slideshow-container {
-	width: 1000px;
+	width: 500px;
 	height: 500px;
 	position: relative;
-	margin:0px;
+	
 	margin-top:-50px;
+	margin-left:-70px;
 }
 
 /* Caption text */
@@ -1039,4 +1042,11 @@ img {
 	.text {
 		font-size: 11px
 	}
+	.slideshow-container{
+		margin-top:20px;
+	}
+}
+.Card{
+	border:double;
+	border-radius:20px;
 }
