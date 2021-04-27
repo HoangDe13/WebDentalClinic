@@ -38,5 +38,29 @@ namespace WebDentalClinic.Controllers
 
             return View();
         }
+        public ActionResult IntroDental()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult IntroInfrastructure()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult IntroDoctor()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Service()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

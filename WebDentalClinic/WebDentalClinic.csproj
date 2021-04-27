@@ -243,6 +243,7 @@
     <Content Include="Content\images\team-2.jpg" />
     <Content Include="Content\images\team-3.jpg" />
     <Content Include="Content\images\team-4.jpg" />
+    <Content Include="Content\images\thiet-ke-khu-vuc-le-tan.mp4" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\responsive.css" />
@@ -319,6 +320,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\IntroDental.cshtml" />
+    <Content Include="Views\Home\IntroInfrastructure.cshtml" />
+    <Content Include="Views\Home\IntroDoctor.cshtml" />
+    <Content Include="Views\Home\Service.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
