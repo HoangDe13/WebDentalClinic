@@ -200,6 +200,7 @@
     <Content Include="Content\font-icon.css" />
     <Content Include="Content\images\06.jpg" />
     <Content Include="Content\images\blank.gif" />
+    <Content Include="Content\images\dangnhap.mp4" />
     <Content Include="Content\images\fancybox_loading%402x.gif" />
     <Content Include="Content\images\fancybox_loading.gif" />
     <Content Include="Content\images\fancybox_overlay.png" />
