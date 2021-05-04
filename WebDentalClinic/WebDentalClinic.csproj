@@ -129,8 +129,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+
     <Compile Include="Controllers\LichHenController.cs" />
+
+    <Compile Include="Controllers\ServiceController.cs" />
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,9 +201,13 @@
     <Content Include="Content\images\06.jpg" />
     <Content Include="Content\images\41665df6037592629ecd0c1e8833b463.jpg" />
     <Content Include="Content\images\blank.gif" />
+
     <Content Include="Content\images\dental.jpg" />
     <Content Include="Content\images\dental.mp4" />
     <Content Include="Content\images\Dentistry.jpg" />
+
+    <Content Include="Content\images\dangnhap.mp4" />
+
     <Content Include="Content\images\fancybox_loading%402x.gif" />
     <Content Include="Content\images\fancybox_loading.gif" />
     <Content Include="Content\images\fancybox_overlay.png" />
@@ -323,6 +332,10 @@
     <Content Include="Views\Home\IntroInfrastructure.cshtml" />
     <Content Include="Views\Home\IntroDoctor.cshtml" />
     <Content Include="Views\Home\Service.cshtml" />
+    <Content Include="Views\Shared\Layout_Nurse.cshtml" />
+    <Content Include="Views\CreateProfile\Index.cshtml" />
+    <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
