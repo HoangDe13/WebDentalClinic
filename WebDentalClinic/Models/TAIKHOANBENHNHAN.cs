@@ -14,7 +14,7 @@ namespace WebDentalClinic.Models
     
     public partial class TAIKHOANBENHNHAN
     {
-        public string MaBenhNhan { get; set; }
+        public int MaBenhNhan { get; set; }
         public string TenTaiKhoan { get; set; }
         public string MatKhau { get; set; }
     

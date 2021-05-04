@@ -12,26 +12,29 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PHIEUKHAMBENH
+    public partial class PHIEUKHAM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PHIEUKHAMBENH()
+        public PHIEUKHAM()
         {
-            this.CHITIETPHIEUKHAMBENHs = new HashSet<CHITIETPHIEUKHAMBENH>();
+            this.CHITIETPHIEUKHAMs = new HashSet<CHITIETPHIEUKHAM>();
+            this.HOADONs = new HashSet<HOADON>();
         }
     
-        public string MaPhieuKham { get; set; }
-        public string MaNhanVien { get; set; }
-        public string MaBenhNhan { get; set; }
+        public int MaPhieuKham { get; set; }
+        public Nullable<int> MaNhanVien { get; set; }
+        public Nullable<int> MaBenhNhan { get; set; }
         public Nullable<System.DateTime> NgayKham { get; set; }
         public Nullable<System.TimeSpan> GioKham { get; set; }
         public Nullable<System.DateTime> NgayTaiKham { get; set; }
         public string MoTaTrieuChung { get; set; }
-        public Nullable<int> TinhTrang { get; set; }
+        public string TinhTrang { get; set; }
     
         public virtual BENHNHAN BENHNHAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETPHIEUKHAMBENH> CHITIETPHIEUKHAMBENHs { get; set; }
+        public virtual ICollection<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

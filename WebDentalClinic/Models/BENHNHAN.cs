@@ -17,18 +17,18 @@ namespace WebDentalClinic.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BENHNHAN()
         {
-            this.PHIEUKHAMBENHs = new HashSet<PHIEUKHAMBENH>();
+            this.PHIEUKHAMs = new HashSet<PHIEUKHAM>();
         }
     
-        public string MaBenhNhan { get; set; }
+        public int MaBenhNhan { get; set; }
         public string HoTen { get; set; }
         public string GioiTinh { get; set; }
-        public Nullable<System.DateTime> NamSinh { get; set; }
-        public Nullable<int> SoDienThoai { get; set; }
+        public Nullable<int> NamSinh { get; set; }
+        public string SoDienThoai { get; set; }
         public string DiaChi { get; set; }
     
         public virtual TAIKHOANBENHNHAN TAIKHOANBENHNHAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUKHAMBENH> PHIEUKHAMBENHs { get; set; }
+        public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
     }
 }

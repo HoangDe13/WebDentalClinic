@@ -14,18 +14,15 @@ namespace WebDentalClinic.Models
     
     public partial class LICHHEN
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LICHHEN()
-        {
-            this.CHITIETLICHHENs = new HashSet<CHITIETLICHHEN>();
-        }
+        public int MaLichHen { get; set; }
+        public string HoTen { get; set; }
+        public string SoDienThoai { get; set; }
+        public Nullable<System.DateTime> NgayHen { get; set; }
+        public string GioHen { get; set; }
+        public string TinhTrang { get; set; }
+        public Nullable<int> MaNhanVien { get; set; }
+        public string GhiChu { get; set; }
     
-        public string MaLichHen { get; set; }
-        public Nullable<System.DateTime> NgayKham { get; set; }
-        public Nullable<System.TimeSpan> GioKham { get; set; }
-        public Nullable<int> TinhTrang { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETLICHHEN> CHITIETLICHHENs { get; set; }
+        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

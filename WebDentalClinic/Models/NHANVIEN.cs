@@ -17,24 +17,24 @@ namespace WebDentalClinic.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NHANVIEN()
         {
-            this.CHITIETLICHHENs = new HashSet<CHITIETLICHHEN>();
-            this.PHIEUKHAMBENHs = new HashSet<PHIEUKHAMBENH>();
+            this.LICHHENs = new HashSet<LICHHEN>();
+            this.PHIEUKHAMs = new HashSet<PHIEUKHAM>();
         }
     
-        public string MaNhanVien { get; set; }
+        public int MaNhanVien { get; set; }
         public string HoTen { get; set; }
-        public string GioiTinh { get; set; }
-        public Nullable<System.DateTime> NamSinh { get; set; }
-        public Nullable<int> SoDienThoai { get; set; }
+        public Nullable<int> GioiTinh { get; set; }
+        public Nullable<int> NamSinh { get; set; }
+        public string SoDienThoai { get; set; }
         public string DiaChi { get; set; }
         public string Email { get; set; }
-        public string MaChucVu { get; set; }
+        public Nullable<int> MaChucVu { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETLICHHEN> CHITIETLICHHENs { get; set; }
         public virtual CHUCVU CHUCVU { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LICHHEN> LICHHENs { get; set; }
         public virtual TAIKHOANNHANVIEN TAIKHOANNHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUKHAMBENH> PHIEUKHAMBENHs { get; set; }
+        public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
     }
 }
