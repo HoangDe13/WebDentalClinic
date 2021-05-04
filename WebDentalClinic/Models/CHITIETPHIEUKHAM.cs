@@ -12,19 +12,15 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CHITIETPHIEUKHAMBENH
+    public partial class CHITIETPHIEUKHAM
     {
-        public string MaChiTietPhieuKham { get; set; }
-        public string MaHoaDon { get; set; }
-        public string MaPhieuKham { get; set; }
-        public string MaDichVu { get; set; }
-        public string TenDichVu { get; set; }
-        public Nullable<int> DonGia { get; set; }
+        public int MaChiTietPhieuKham { get; set; }
+        public Nullable<int> MaPhieuKham { get; set; }
+        public Nullable<int> MaDichVu { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public string GhiChu { get; set; }
     
         public virtual DICHVU DICHVU { get; set; }
-        public virtual HOADONTHANHTOAN HOADONTHANHTOAN { get; set; }
-        public virtual PHIEUKHAMBENH PHIEUKHAMBENH { get; set; }
+        public virtual PHIEUKHAM PHIEUKHAM { get; set; }
     }
 }
