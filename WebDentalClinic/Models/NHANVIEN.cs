@@ -11,7 +11,8 @@ namespace WebDentalClinic.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class NHANVIEN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -36,5 +37,7 @@ namespace WebDentalClinic.Models
         public virtual TAIKHOANNHANVIEN TAIKHOANNHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
+        [NotMapped]
+        public List<NHANVIEN> listNV { get; set; }
     }
 }
