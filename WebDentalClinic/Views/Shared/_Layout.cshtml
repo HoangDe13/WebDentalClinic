@@ -52,8 +52,6 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/main.css")
-
-
     @Styles.Render("~/Content/bootstrap.min.css")
     @Styles.Render("~/Content/bootstrap.css")
 
@@ -95,7 +93,7 @@
                     </li>
                     <li>@Html.ActionLink("Dịch Vụ Nha Khoa", "Service", "Home")</li>
                     <li>@Html.ActionLink("Liên Hệ", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Đặt Lịch Hẹn", "Create", "LichHen")</li>
+                    <li>@Html.ActionLink("Đặt Lịch Hẹn", "CreateLichHen", "LichHen")</li>
                 </ul>
 
             </div>
@@ -108,37 +106,36 @@
 
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
 
-        <hr />
-    </div>
+    @RenderBody()
+
+    <hr />
+
     <!-- Footer section -->
     <footer class="footer">
         <div class="container-fluid">
             <div id="map-row" class="row">
                 <div class="col-xs-12">
-                    <img src="~/Content/images/41665df6037592629ecd0c1e8833b463.jpg" width="100%" height="410px" style="border:0;" allowfullscreen="" loading="lazy"/>
-                        <div id="map-overlay" class="col-xs-5 col-xs-offset-6" style="height=500px;">
-                         <h2 style="margin-top:0;color:#fff;">Dental Clinic</h2>
-                         <p style=" text-align:left;color:white"><i class="glyphicon glyphicon-map-marker"></i>115 Sư Vạn Hạnh, phường 13, Quận 10, TP.HCM</p>
-                         <p style="text-align:left;color:white"><a href="mailto:NhaKhoa@gmail.com"><i class="glyphicon glyphicon-user"></i>NhaKhoa@gmail.com</a></p>
+                    <div id="map-overlay" class="col-xs-5 col-xs-offset-6">
+                        <h2 style="margin-top:0;color:#fff;">Dental Clinic</h2>
+                        <p style=" text-align:left;color:white"><i class="glyphicon glyphicon-map-marker"></i>115 Sư Vạn Hạnh, phường 13, Quận 10, TP.HCM</p>
+                        <p style="text-align:left;color:white"><a href="mailto:NhaKhoa@gmail.com"><i class="glyphicon glyphicon-user"></i>NhaKhoa@gmail.com</a></p>
 
-                         <p style="text-align:left;color:white"><a href="tel://0337929246"><i class="glyphicon glyphicon-phone"></i>037.8899299</a></p>
-                       
-                         <ul class="social-icons clearfix">
-                             <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-                             <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li>
-                             <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li>
-                         </ul>
-                         <p style="text-align:left;color:white">&copy; 2021-DentalClinic</p>
-                     </div>
+                        <p style="text-align:left;color:white"><a href="tel://0378899299"><i class="glyphicon glyphicon-phone"></i>037.8899299</a></p>
+
+                        <ul class="social-icons clearfix">
+                            <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
+                            <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li>
+                            <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li>
+                        </ul>
+                        <p style="text-align:left;color:white">&copy; 2021-DentalClinic</p>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
     <!-- Footer section -->
-    
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
@@ -156,8 +153,7 @@
                 progressColor: "#03A9F4"
             });
         });
-    </script>
-
+   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
