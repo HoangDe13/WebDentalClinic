@@ -27,15 +27,15 @@ namespace WebDentalClinic.Models
         }
 
         [Display(Name = "Mã Nhân Viên")]
-        public string MaNhanVien { get; set; }
+        public int MaNhanVien { get; set; }
         [Display(Name = "Họ Tên")]
         public string HoTen { get; set; }
         [Display(Name = "Giới Tính")]
-        public string GioiTinh { get; set; }
+        public int GioiTinh { get; set; }
         [Display(Name = "Năm Sinh")]
-        public Nullable<System.DateTime> NamSinh { get; set; }
+        public int NamSinh { get; set; }
         [Display(Name = "Số Điện Thoại")]
-        public Nullable<int> SoDienThoai { get; set; }
+        public string SoDienThoai { get; set; }
         [Display(Name = "Địa Chỉ")]
 
         public string DiaChi { get; set; }
@@ -43,7 +43,7 @@ namespace WebDentalClinic.Models
         public string Email { get; set; }
 
         [Display(Name = "Chức Vụ")]
-        public string MaChucVu { get; set; }
+        public int MaChucVu { get; set; }
 
     
         public virtual CHUCVU CHUCVU { get; set; }

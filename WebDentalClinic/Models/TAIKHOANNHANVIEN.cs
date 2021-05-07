@@ -16,11 +16,11 @@ namespace WebDentalClinic.Models
     public partial class TAIKHOANNHANVIEN
     {
 
-        [Display(Name = "M� B?nh Nh�n")]
-        public string MaNhanVien { get; set; }
-        [Display(Name = "T�n T�i Kho?n")]
-        public Nullable<int> TenTaiKhoan { get; set; }
-        [Display(Name = "M?t Kh?u")]
+        [Display(Name = "Mã Bệnh Nhân")]
+        public int MaNhanVien { get; set; }
+        [Display(Name = "Tên Tài Khoản")]
+        public string TenTaiKhoan { get; set; }
+        [Display(Name = "Mật Khẩu")]
 
         public string MatKhau { get; set; }
     
