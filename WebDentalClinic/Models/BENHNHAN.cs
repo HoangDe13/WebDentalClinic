@@ -29,19 +29,19 @@ namespace WebDentalClinic.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Mã Bệnh Nhân")]
         public int MaBenhNhan { get; set; }
-
+        [Required]
         [Display(Name = "Họ Tên")]
-
         public string HoTen { get; set; }
+        [Required]
         [Display(Name = "Giới Tính")]
         public string GioiTinh { get; set; }
-
-       [Display(Name = "Năm Sinh")]
-        public Nullable<int> NamSinh { get; set; }
+        [Required]
+        [Display(Name = "Năm Sinh")]
+        public DateTime NamSinh { get; set; }
+        [Required]
         [Display(Name = "Số Điện Thoại")]
         public string SoDienThoai { get; set; }
-
-     
+        [Required]
         [Display(Name = "Địa Chỉ")]
         public string DiaChi { get; set; }
     
