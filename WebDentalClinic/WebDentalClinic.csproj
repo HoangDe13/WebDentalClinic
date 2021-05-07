@@ -129,9 +129,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+
+    <Compile Include="Controllers\RegisterEmloyeeController.cs" />
+
     <Compile Include="Controllers\LichHenController.cs" />
+
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -351,8 +356,14 @@
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
+
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Create.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Index.cshtml" />
+
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
     <Content Include="Views\LichHen\SelectBacSi.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
