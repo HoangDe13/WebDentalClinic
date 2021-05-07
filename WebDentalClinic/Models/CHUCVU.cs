@@ -11,7 +11,12 @@ namespace WebDentalClinic.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class CHUCVU
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +24,10 @@ namespace WebDentalClinic.Models
         {
             this.NHANVIENs = new HashSet<NHANVIEN>();
         }
-    
+
+        [Key, Column(Order = 1)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+
         public int MaChucVu { get; set; }
         public string TenChucVu { get; set; }
     

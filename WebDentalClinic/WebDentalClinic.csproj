@@ -132,11 +132,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-
     <Compile Include="Controllers\RegisterEmloyeeController.cs" />
-
     <Compile Include="Controllers\LichHenController.cs" />
-
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,6 +147,8 @@
     <Compile Include="Models\CHUCVU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DB_Entities_BENHNHAN.cs" />
+    <Compile Include="Models\DB_Entities_TAIKHOANBENHNHAN.cs" />
     <Compile Include="Models\DICHVU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -356,14 +355,11 @@
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
-
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Create.cshtml" />
     <Content Include="Views\RegisterEmloyee\Index.cshtml" />
-
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
     <Content Include="Views\LichHen\SelectBacSi.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -433,5 +429,5 @@
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
     <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
-</Target>
+  </Target>
 </Project>

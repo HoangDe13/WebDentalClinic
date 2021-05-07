@@ -11,9 +11,17 @@ namespace WebDentalClinic.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class HOADON
     {
+        [Key, Column(Order = 1)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+
         public int MaHoaDon { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
         public Nullable<int> MaPhieuKham { get; set; }

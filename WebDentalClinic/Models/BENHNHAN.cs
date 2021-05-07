@@ -12,6 +12,11 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.ComponentModel.DataAnnotations.Schema;
+
 
     public partial class BENHNHAN
     {
@@ -20,7 +25,8 @@ namespace WebDentalClinic.Models
         {
             this.PHIEUKHAMs = new HashSet<PHIEUKHAM>();
         }
-
+        [Key, Column(Order = 1)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Mã Bệnh Nhân")]
         public int MaBenhNhan { get; set; }
 

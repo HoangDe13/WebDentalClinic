@@ -12,10 +12,15 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class TAIKHOANNHANVIEN
     {
-
+        [Key, Column(Order = 1)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Mã Bệnh Nhân")]
         public int MaNhanVien { get; set; }
         [Display(Name = "Tên Tài Khoản")]
