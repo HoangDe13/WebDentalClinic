@@ -132,7 +132,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+
     <Compile Include="Controllers\RegisterEmloyeeController.cs" />
+
+    <Compile Include="Controllers\LichHenController.cs" />
+
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -140,10 +144,7 @@
     <Compile Include="Models\BENHNHAN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CHITIETLICHHEN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CHITIETPHIEUKHAMBENH.cs">
+    <Compile Include="Models\CHITIETPHIEUKHAM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHUCVU.cs">
@@ -152,13 +153,10 @@
     <Compile Include="Models\DICHVU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HOADONTHANHTOAN.cs">
+    <Compile Include="Models\HOADON.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LICHHEN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LOAIDICHVU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -179,7 +177,7 @@
     <Compile Include="Models\NHANVIEN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PHIEUKHAMBENH.cs">
+    <Compile Include="Models\PHIEUKHAM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
@@ -202,8 +200,16 @@
     <Content Include="Content\Contact.css" />
     <Content Include="Content\flexslider.css" />
     <Content Include="Content\font-icon.css" />
+    <Content Include="Content\images\Backgroudkhung.jpg" />
+    <Content Include="Content\images\dental-implant-polygonal-genetic-engineering-abstract-blue-banner_90744-18.jpg" />
+    <Content Include="Content\images\footer.jpg" />
+    <Content Include="Content\images\hero-home.jpg" />
     <Content Include="Content\images\06.jpg" />
+    <Content Include="Content\images\41665df6037592629ecd0c1e8833b463.jpg" />
     <Content Include="Content\images\blank.gif" />
+    <Content Include="Content\images\dental.jpg" />
+    <Content Include="Content\images\dental.mp4" />
+    <Content Include="Content\images\Dentistry.jpg" />
     <Content Include="Content\images\dangnhap.mp4" />
     <Content Include="Content\images\fancybox_loading%402x.gif" />
     <Content Include="Content\images\fancybox_loading.gif" />
@@ -219,6 +225,7 @@
     <Content Include="Content\images\gallery\csvc7.jpg" />
     <Content Include="Content\images\gallery\csvc8.jpg" />
     <Content Include="Content\images\ImagesByMarkSebastian.txt" />
+    <Content Include="Content\images\istockphoto-886097884-612x612.jpg" />
     <Content Include="Content\images\KhamRang.jpg" />
     <Content Include="Content\images\pattern.png" />
     <Content Include="Content\images\Services\baby-teeth.png" />
@@ -244,11 +251,16 @@
     <Content Include="Content\images\slides\1.jpg" />
     <Content Include="Content\images\slides\2.jpg" />
     <Content Include="Content\images\slides\3.jpg" />
+    <Content Include="Content\images\slides\i1.jfif" />
+    <Content Include="Content\images\slides\i2.jpg" />
+    <Content Include="Content\images\slides\i3.png" />
+    <Content Include="Content\images\slides\i4.jpg" />
     <Content Include="Content\images\team-1.jpg" />
     <Content Include="Content\images\team-2.jpg" />
     <Content Include="Content\images\team-3.jpg" />
     <Content Include="Content\images\team-4.jpg" />
     <Content Include="Content\images\thiet-ke-khu-vuc-le-tan.mp4" />
+    <Content Include="Content\images\Top-Dentists-2020-Opener.jpg" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\responsive.css" />
@@ -272,13 +284,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\BebasNeue-webfont.eot" />
     <Content Include="fonts\BebasNeue-webfont.ttf" />
     <Content Include="fonts\BebasNeue-webfont.woff" />
@@ -288,6 +293,13 @@
     <Content Include="fonts\flexslider-icon.eot" />
     <Content Include="fonts\flexslider-icon.ttf" />
     <Content Include="fonts\flexslider-icon.woff" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -305,6 +317,17 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\jquery.contact.js" />
+    <Content Include="Scripts\js\jquery.devrama.lazyload.min-0.9.3.js" />
+    <Content Include="Scripts\js\jquery.devrama.slider-0.9.4.js" />
+    <Content Include="Scripts\js\jquery.devrama.slider.min-0.9.4.js" />
+    <Content Include="Scripts\js\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\js\jquery.flexslider-min.js" />
+    <Content Include="Scripts\js\jquery.min.js" />
+    <Content Include="Scripts\js\main.js" />
+    <Content Include="Scripts\js\modernizr.js" />
+    <Content Include="Scripts\js\retina.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\modernizr.js" />
@@ -333,9 +356,14 @@
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
+
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Create.cshtml" />
     <Content Include="Views\RegisterEmloyee\Index.cshtml" />
+
+    <Content Include="Views\LichHen\CreateLichHen.cshtml" />
+    <Content Include="Views\LichHen\SelectBacSi.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

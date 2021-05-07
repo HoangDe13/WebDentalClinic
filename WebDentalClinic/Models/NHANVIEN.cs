@@ -11,16 +11,21 @@ namespace WebDentalClinic.Models
 {
     using System;
     using System.Collections.Generic;
+
     using System.ComponentModel.DataAnnotations;
+
+    using System.ComponentModel.DataAnnotations.Schema;
+
 
     public partial class NHANVIEN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NHANVIEN()
         {
-            this.CHITIETLICHHENs = new HashSet<CHITIETLICHHEN>();
-            this.PHIEUKHAMBENHs = new HashSet<PHIEUKHAMBENH>();
+            this.LICHHENs = new HashSet<LICHHEN>();
+            this.PHIEUKHAMs = new HashSet<PHIEUKHAM>();
         }
+
         [Display(Name = "Mã Nhân Viên")]
         public string MaNhanVien { get; set; }
         [Display(Name = "Họ Tên")]
@@ -32,17 +37,22 @@ namespace WebDentalClinic.Models
         [Display(Name = "Số Điện Thoại")]
         public Nullable<int> SoDienThoai { get; set; }
         [Display(Name = "Địa Chỉ")]
+
         public string DiaChi { get; set; }
         [Display(Name = "Email")]
         public string Email { get; set; }
+
         [Display(Name = "Chức Vụ")]
         public string MaChucVu { get; set; }
+
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETLICHHEN> CHITIETLICHHENs { get; set; }
         public virtual CHUCVU CHUCVU { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LICHHEN> LICHHENs { get; set; }
         public virtual TAIKHOANNHANVIEN TAIKHOANNHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUKHAMBENH> PHIEUKHAMBENHs { get; set; }
+        public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
+        [NotMapped]
+        public List<NHANVIEN> listNV { get; set; }
     }
 }

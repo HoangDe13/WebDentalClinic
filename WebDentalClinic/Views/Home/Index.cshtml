@@ -1,59 +1,40 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="slideshow-container">
-    <div class="container">
-        <div class="col-md-12">
-
-            <div class="mySlides fade">
-               
-                <img src="~/Content/images/slides/3.jpg" style="width:110%;">
-
+<!-- Testimonials section -->
+<section id="testimonials" style="margin-top:-50px;" >
+   
+       
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <div class="col-md-12">
+                            
+                                <img src="~/Content/images/slides/1.jpg">
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-md-12">
+                           
+                                <img src="~/Content/images/slides/2.jpg">
+                           
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-md-12">
+                           
+                                <img src="~/Content/images/slides/3.jpg">
+                            
+                        </div>
+                    </li>
+                   
+                </ul>
             </div>
-
-            <div class="mySlides fade">
-
-                <img src="~/Content/images/slides/2.jpg" style="width:110% ">
-            </div>
-
-            <div class="mySlides fade">
-
-                <img src="~/Content/images/slides/1.jpg" style="width:110%;">
-            </div>
-        </div>
-    </div>
-    <br>
-
-</div>
-<div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-</div>
-
-
-<script>
-    var slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1 }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        setTimeout(showSlides, 3000); // Change image every 2 seconds
-    }
-</script>
+       
+    
+</section>
+<!-- Testimonials section -->
 
 
 <!-- intro section -->
@@ -84,64 +65,64 @@
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/tooth-whitening.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Răng thẩm mỹ</h5>
+                    <h4>Răng thẩm mỹ</h4>
                     <p>Bọc răng sứ là một giải pháp khắc phục các khiếm khuyết của răng như sứt mẻ, răng thưa, nhiễm màu kháng sinh, bệnh lý sâu răng, viêm tủy, mòn men... </p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/implant.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Trồng răng - Cấy ghép Implant</h5>
+                    <h4>Trồng răng - Cấy ghép Implant</h4>
                     <p>Cấy ghép implant là quá trình cấy ghép một "chân răng giả" bằng titan xương hàm, cầu răng hay một hàm giả nhằm thay thế cho các răng đã mất... </p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/tooth-whitening (1).png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Tẩy trắng răng</h5>
+                    <h4>Tẩy trắng răng</h4>
                     <p>Tẩy trắng với công nghệ Laser Whitening hiện đại của Mỹ chỉ trong 1 giờ chúng tôi mang đến cho bạn một hàm răng trắng tự nhiên, đều màu,...</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/tooth.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Điều trị nha chu</h5>
-                    <p>Viêm nha chu là một vấn đề về răng miệng phổ biến và nghiêm trọng. Khi những mảng bám tích tụ lâu ngày không được loại bỏ, chúng sẽ cứng dần và tạo nên vôi răng...</p>
+                    <h4>Điều trị nha chu</h4>
+                    <p>Viêm nha chu là một vấn đề về răng miệng nghiêm trọng. Khi những mảng bám tích tụ lâu ngày không được loại bỏ, chúng sẽ cứng dần và tạo nên vôi răng...</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/toothache.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Nhổ răng khôn </h5>
+                    <h4>Nhổ răng khôn </h4>
                     <p>Nhổ răng khôn là một quá trình phẫu thuật nha khoa hực hiện bởi nha sĩ hoặc bác sĩ phẫu thuật răng miệng để nhổ một hoặc nhiều răng khôn của bạn...</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/braces.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Niềng răng</h5>
-                    <p>Niềng răng hoặc chỉnh nha là một trong những biện pháp phổ biến nhằm mang lại một hàm răng thẳng hàng, đều và đẹp. Ngày càng được nhiều người quan tâm và thực hiện...</p>
+                    <h4>Niềng răng</h4>
+                    <p>Niềng răng là một trong những biện pháp phổ biến nhằm mang lại một hàm răng thẳng hàng, đều và đẹp. Ngày càng được nhiều người quan tâm và thực hiện...</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/dental.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Trám răng</h5>
+                    <h4>Trám răng</h4>
                     <p>Trám răng là thủ thuật nha khoa dùng vật liệu nhân tạo để khắc phục tình trạng răng sâu, sứt mỡ nhẹ… trở về hình dáng ban đầu...</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/baby-teeth.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Răng trẻ em</h5>
+                    <h4>Răng trẻ em</h4>
                     <p>Dental Clinic cung cấp các dịch vụ nha khoa trẻ em từ phong phú từ khám định kỳ, nhổ răng, hàn răng, chỉnh nha. Nụ cười hồn nhiên của trẻ... </p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 services text-center">
                 <span class="icon"><img src="~/Content/images/Services/dentist-chair.png" style="width:50px" /></span>
                 <div class="services-content">
-                    <h5>Nha khoa tổng quát</h5>
-                    <p>Dental Clinic còn cung cấp những dịch vụ điều trị các vấn đề về răng với kỹ thuật cao, công nghệ chuẩn Đức. Luôn đặt chất lượng điều trị lên hàng đầu...</p>
+                    <h4>Nha khoa tổng quát</h4>
+                    <p>Dental Clinic cung cấp những dịch vụ điều trị các vấn đề về răng với kỹ thuật cao, công nghệ chuẩn Đức. Luôn đặt chất lượng điều trị lên hàng đầu...</p>
                 </div>
             </div>
         </div>
@@ -150,22 +131,22 @@
 <!-- services section -->
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
-     <div class="container-fluid">
-        
-           <div class="col-md-12 content">
-             <div class="editContent">
-                  <h3>Tại sao phải kiểm tra răng thường xuyên ?</h3>
-                     </div>
-                <div class="editContent">
-                   <strong>Bảo vệ răng miệng luôn chắc khỏe.</strong>
-                      <p>Răng là bộ phận phải hoạt động hàng ngày khi chúng ta thực hiện việc nhai nuốt thức ăn. Điều đó cũng có nghĩa đây là bộ phận rất quan trọng để bảo đảm sức khỏe cho chúng ta hàng ngày. Khi bạn phải đối mặt với bất kỳ bệnh răng miệng nào, trước hết sẽ cảm thấy khó chịu, ảnh hưởng không nhỏ đến tinh thần và sức khỏe tổng quát của cơ thể. Một hàm răng chắc khỏe là một trong những yếu tố giúp bạn sống khỏe hơn.</p>
-                      <strong>Phát hiện kịp thời các vấn đề về răng.</strong>
-                    <p>Khám nha khoa định kỳ để chăm sóc răng tốt hơn, ngăn ngừa các bệnh lý phức tạp giúp sức khỏe cơ thể và tinh thần cho bạn.</p>
-                   </div>
-                  <a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
-                        </div>
-                    </div><!-- /.row-->
-                
+    <div class="container-fluid">
+
+        <div class="col-md-12 content">
+            <div class="editContent">
+                <h3>Tại sao phải kiểm tra răng thường xuyên ?</h3>
+            </div>
+            <div class="editContent">
+                <strong>Bảo vệ răng miệng luôn chắc khỏe.</strong>
+                <p>Răng là bộ phận phải hoạt động hàng ngày khi chúng ta thực hiện việc nhai nuốt thức ăn. Điều đó cũng có nghĩa đây là bộ phận rất quan trọng để bảo đảm sức khỏe cho chúng ta hàng ngày. Khi bạn phải đối mặt với bất kỳ bệnh răng miệng nào, trước hết sẽ cảm thấy khó chịu, ảnh hưởng không nhỏ đến tinh thần và sức khỏe tổng quát của cơ thể. Một hàm răng chắc khỏe là một trong những yếu tố giúp bạn sống khỏe hơn.</p>
+                <strong>Phát hiện kịp thời các vấn đề về răng.</strong>
+                <p>Khám nha khoa định kỳ để chăm sóc răng tốt hơn, ngăn ngừa các bệnh lý phức tạp giúp sức khỏe cơ thể và tinh thần cho bạn.</p>
+            </div>
+            <a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
+        </div>
+    </div><!-- /.row-->
+
 </section>
 
 
@@ -178,11 +159,11 @@
                     <h3 class="eidtContent">Giới Thiệu Video</h3>
                     <p class="eidtContent">Dental Clinic là nhà cung cấp hàng đầu tất cả các dịch vụ nha khoa từ đơn giản đến phức tạp, từ điều trị bệnh lý thông thường tới các dịch vụ thẩm mỹ đòi hỏi kỹ thuật cao.  giúp chăm sóc toàn diện sức khỏe và nét đẹp răng miệng của khách hàng..</p>
                     <p class="editContent">Các dịch vụ hiện có tại Dental Clinic: Cấy ghép Implant, niềng răng, chỉnh nha, răng sứ thẩm mỹ, thiết kế nụ cười, nhổ răng không đau, tẩy trắng răng, cạo vôi và đánh bóng, trám răng sâu, nội nha chữa tủy, điều trị viêm nha chu,….</p>
-                      </div>
+                </div>
                 <div class="col-md-8">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe style="border-radius:30px 30px 30px 30px;" width="560" height="315" src="https://www.youtube.com/embed/U24WMWyMr08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
-                           
+                        <iframe style="border-radius:30px 30px 30px 30px;" width="560" height="315" src="https://www.youtube.com/embed/U24WMWyMr08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                     </div>
                 </div>
             </div>
@@ -309,7 +290,7 @@
                             Tu nghiệp chuyên sâu về cấy ghép răng Implant tại Bệnh viện Răng Hàm Mặt TP.HCM.
                         </p>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -324,7 +305,7 @@
                             Hơn 6 năm kinh nghiệm.
                         </p>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -339,7 +320,7 @@
                             Tu nghiệp nhiều khóa chỉnh nha ngắn hạn tại 3M, 3D.
                         </p>
                     </div>
-                  
+
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -354,69 +335,14 @@
                             Chuyên sâu chỉnh hình mũi và mắt, cằm tại Thẩm mỹ Úc Châu 2010 - 2015.
                         </p>
                     </div>
-                  
+
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- our team section -->
-<!-- Testimonials section -->
-<section id="testimonials" class="section testimonials no-padding">
-    <div class="container-fluid">
-        <div class="row no-gutter">
-            <div class="flexslider">
-                <ul class="slides">
-                    <li>
-                        <div class="col-md-12">
-                            <blockquote>
-                                <h1>
-                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
-                                    semper aliquam quis mattis consectetur adipiscing elit.."
-                                </h1>
-                                <p>Chris Mentsl</p>
-                            </blockquote>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="col-md-12">
-                            <blockquote>
-                                <h1>
-                                    "Praesent eget risus vitae massa Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
-                                    semper aliquam quis mattis consectetur adipiscing elit.."
-                                </h1>
-                                <p>Kristean velnly</p>
-                            </blockquote>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="col-md-12">
-                            <blockquote>
-                                <h1>
-                                    "Consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
-                                    semper aliquam quis mattis consectetur adipiscing elit.."
-                                </h1>
-                                <p>Markus Denny</p>
-                            </blockquote>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="col-md-12">
-                            <blockquote>
-                                <h1>
-                                    "Vitae massa semper aliquam Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
-                                    semper aliquam quis mattis consectetur adipiscing elit.."
-                                </h1>
-                                <p>John Doe</p>
-                            </blockquote>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonials section -->
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="~/Scripts/js/bootstrap.min.js"></script>

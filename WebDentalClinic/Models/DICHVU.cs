@@ -17,20 +17,15 @@ namespace WebDentalClinic.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DICHVU()
         {
-            this.CHITIETLICHHENs = new HashSet<CHITIETLICHHEN>();
-            this.CHITIETPHIEUKHAMBENHs = new HashSet<CHITIETPHIEUKHAMBENH>();
+            this.CHITIETPHIEUKHAMs = new HashSet<CHITIETPHIEUKHAM>();
         }
     
-        public string MaDichVu { get; set; }
+        public int MaDichVu { get; set; }
         public string TenDichVu { get; set; }
-        public string ThongTinDichVu { get; set; }
         public Nullable<int> DonGia { get; set; }
-        public string MaLoaiDichVu { get; set; }
+        public string LoaiDichVu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETLICHHEN> CHITIETLICHHENs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETPHIEUKHAMBENH> CHITIETPHIEUKHAMBENHs { get; set; }
-        public virtual LOAIDICHVU LOAIDICHVU { get; set; }
+        public virtual ICollection<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }
     }
 }

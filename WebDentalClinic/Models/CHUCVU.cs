@@ -20,7 +20,7 @@ namespace WebDentalClinic.Models
             this.NHANVIENs = new HashSet<NHANVIEN>();
         }
     
-        public string MaChucVu { get; set; }
+        public int MaChucVu { get; set; }
         public string TenChucVu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

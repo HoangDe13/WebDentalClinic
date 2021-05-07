@@ -62,5 +62,6 @@ namespace WebDentalClinic.Controllers
 
             return View();
         }
+
     }
 }

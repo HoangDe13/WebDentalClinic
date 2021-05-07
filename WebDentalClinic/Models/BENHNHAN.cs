@@ -18,23 +18,29 @@ namespace WebDentalClinic.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BENHNHAN()
         {
-            this.PHIEUKHAMBENHs = new HashSet<PHIEUKHAMBENH>();
+            this.PHIEUKHAMs = new HashSet<PHIEUKHAM>();
         }
+
         [Display(Name = "Mã Bệnh Nhân")]
-        public string MaBenhNhan { get; set; }
+        public int MaBenhNhan { get; set; }
+
         [Display(Name = "Họ Tên")]
+
         public string HoTen { get; set; }
         [Display(Name = "Giới Tính")]
         public string GioiTinh { get; set; }
-        [Display(Name = "Năm Sinh")]
-        public Nullable<System.DateTime> NamSinh { get; set; }
+
+       [Display(Name = "Năm Sinh")]
+        public Nullable<int> NamSinh { get; set; }
         [Display(Name = "Số Điện Thoại")]
-        public Nullable<int> SoDienThoai { get; set; }
+        public string SoDienThoai { get; set; }
+
+     
         [Display(Name = "Địa Chỉ")]
         public string DiaChi { get; set; }
     
         public virtual TAIKHOANBENHNHAN TAIKHOANBENHNHAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUKHAMBENH> PHIEUKHAMBENHs { get; set; }
+        public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
     }
 }
