@@ -12,9 +12,11 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class LICHHEN
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaLichHen { get; set; }
         [Required(ErrorMessage ="Vui lòng nhập họ tên")]
         [StringLength(50, MinimumLength = 3)]

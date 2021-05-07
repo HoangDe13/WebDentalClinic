@@ -25,11 +25,12 @@ namespace WebDentalClinic.Controllers
         {
             try
             {
-                
-                lh.TinhTrang = "Chưa xác nhận";
+                lh.MaLichHen = 0;
+                String.Format("0:yyyy/mm/dd", lh.NgayHen);
+                lh.TinhTrang = "CXN";
                 db.LICHHENs.Add(lh);
                 db.SaveChanges();
-                return RedirectToAction("Create");
+                return RedirectToAction("CreateLichHen");
             }
             catch
             {
