@@ -45,6 +45,7 @@
 
                         <div class="wrap-input100 validate-input">
                             <input class="input100" type="text" name="HoTen" placeholder="Họ Tên">
+                            @Html.ValidationMessageFor(model => model.BENHNHAN.HoTen, "", new { @class = "text-danger" })
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -52,6 +53,8 @@
                         </div>
                         <div class="wrap-input100 validate-input">
                             <input class="input100" type="number" name="SoDienThoai" placeholder="Số Điện Thoại">
+                            @Html.ValidationMessageFor(model => model.BENHNHAN.SoDienThoai, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.TenTaiKhoan, "", new { @class = "text-danger" })
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
@@ -60,6 +63,7 @@
 
                         <div class="wrap-input100 validate-input">
                             <input class="input100" type="text" name="DiaChi" placeholder="Địa Chỉ">
+                            @Html.ValidationMessageFor(model => model.BENHNHAN.DiaChi, "", new { @class = "text-danger" })
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-map" aria-hidden="true"></i>
@@ -68,6 +72,7 @@
 
                         <div class="wrap-input100 validate-input">
                             <input class="input100" type="number" name="NamSinh" placeholder="Năm Sinh">
+                            @Html.ValidationMessageFor(model => model.BENHNHAN.NamSinh, "", new { @class = "text-danger" })
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -75,6 +80,7 @@
                         </div>
                         <div class="wrap-input100 validate-input" data-validate="Password is required">
                             <input class="input100" type="password" name="MatKhau" placeholder="Mật Khẩu">
+                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
