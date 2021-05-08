@@ -9,44 +9,46 @@
           <Key>
             <PropertyRef Name="MaBenhNhan" />
           </Key>
-          <Property Name="MaBenhNhan" Type="int" Nullable="false" />
+          <Property Name="MaBenhNhan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
-          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="GioiTinh" Type="int" />
           <Property Name="NamSinh" Type="int" />
           <Property Name="SoDienThoai" Type="nchar" MaxLength="10" />
-          <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CHITIETPHIEUKHAM">
           <Key>
             <PropertyRef Name="MaChiTietPhieuKham" />
           </Key>
-          <Property Name="MaChiTietPhieuKham" Type="int" Nullable="false" />
+          <Property Name="MaChiTietPhieuKham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaPhieuKham" Type="int" />
           <Property Name="MaDichVu" Type="int" />
           <Property Name="SoLuong" Type="int" />
-          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CHUCVU">
           <Key>
             <PropertyRef Name="MaChucVu" />
           </Key>
-          <Property Name="MaChucVu" Type="int" Nullable="false" />
+          <Property Name="MaChucVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenChucVu" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DICHVU">
           <Key>
             <PropertyRef Name="MaDichVu" />
           </Key>
-          <Property Name="MaDichVu" Type="int" Nullable="false" />
+          <Property Name="MaDichVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenDichVu" Type="nvarchar" MaxLength="50" />
           <Property Name="DonGia" Type="int" />
           <Property Name="LoaiDichVu" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
             <PropertyRef Name="MaHoaDon" />
           </Key>
-          <Property Name="MaHoaDon" Type="int" Nullable="false" />
+          <Property Name="MaHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NgayLap" Type="datetime" />
           <Property Name="MaPhieuKham" Type="int" />
         </EntityType>
@@ -54,20 +56,20 @@
           <Key>
             <PropertyRef Name="MaLichHen" />
           </Key>
-          <Property Name="MaLichHen" Type="int" Nullable="false" />
+          <Property Name="MaLichHen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
           <Property Name="SoDienThoai" Type="nchar" MaxLength="10" />
           <Property Name="NgayHen" Type="date" />
           <Property Name="GioHen" Type="nchar" MaxLength="10" />
-          <Property Name="TinhTrang" Type="nchar" MaxLength="10" />
+          <Property Name="TinhTrang" Type="nvarchar" MaxLength="20" />
           <Property Name="MaNhanVien" Type="int" />
-          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
-          <Property Name="MaNhanVien" Type="int" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
           <Property Name="GioiTinh" Type="int" />
           <Property Name="NamSinh" Type="int" />
@@ -75,16 +77,17 @@
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nchar" MaxLength="50" />
           <Property Name="MaChucVu" Type="int" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PHIEUKHAM">
           <Key>
             <PropertyRef Name="MaPhieuKham" />
           </Key>
-          <Property Name="MaPhieuKham" Type="int" Nullable="false" />
+          <Property Name="MaPhieuKham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaNhanVien" Type="int" />
           <Property Name="MaBenhNhan" Type="int" />
           <Property Name="NgayKham" Type="date" />
-          <Property Name="GioKham" Type="time" Precision="7" />
+          <Property Name="GioKham" Type="nchar" MaxLength="10" />
           <Property Name="NgayTaiKham" Type="date" />
           <Property Name="MoTaTrieuChung" Type="nvarchar" MaxLength="50" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
@@ -99,34 +102,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="TAIKHOANBENHNHAN">
-          <Key>
-            <PropertyRef Name="MaBenhNhan" />
-          </Key>
-          <Property Name="MaBenhNhan" Type="int" Nullable="false" />
-          <Property Name="TenTaiKhoan" Type="nchar" MaxLength="10" />
-          <Property Name="MatKhau" Type="nchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="TAIKHOANNHANVIEN">
-          <Key>
-            <PropertyRef Name="MaNhanVien" />
-          </Key>
-          <Property Name="MaNhanVien" Type="int" Nullable="false" />
-          <Property Name="TenTaiKhoan" Type="nchar" MaxLength="10" />
-          <Property Name="MatKhau" Type="nchar" MaxLength="50" />
-        </EntityType>
-        <Association Name="FK_BENHNHAN_TAIKHOANBENHNHAN">
-          <End Role="TAIKHOANBENHNHAN" Type="Self.TAIKHOANBENHNHAN" Multiplicity="1" />
-          <End Role="BENHNHAN" Type="Self.BENHNHAN" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TAIKHOANBENHNHAN">
-              <PropertyRef Name="MaBenhNhan" />
-            </Principal>
-            <Dependent Role="BENHNHAN">
-              <PropertyRef Name="MaBenhNhan" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CHITIETPHIEUKHAM_DICHVU">
           <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="0..1" />
           <End Role="CHITIETPHIEUKHAM" Type="Self.CHITIETPHIEUKHAM" Multiplicity="*" />
@@ -184,18 +159,6 @@
             </Principal>
             <Dependent Role="NHANVIEN">
               <PropertyRef Name="MaChucVu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_NHANVIEN_TAIKHOANNHANVIEN">
-          <End Role="TAIKHOANNHANVIEN" Type="Self.TAIKHOANNHANVIEN" Multiplicity="1" />
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TAIKHOANNHANVIEN">
-              <PropertyRef Name="MaNhanVien" />
-            </Principal>
-            <Dependent Role="NHANVIEN">
-              <PropertyRef Name="MaNhanVien" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -233,12 +196,6 @@
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUKHAM" EntityType="Self.PHIEUKHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TAIKHOANBENHNHAN" EntityType="Self.TAIKHOANBENHNHAN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TAIKHOANNHANVIEN" EntityType="Self.TAIKHOANNHANVIEN" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_BENHNHAN_TAIKHOANBENHNHAN" Association="Self.FK_BENHNHAN_TAIKHOANBENHNHAN">
-            <End Role="TAIKHOANBENHNHAN" EntitySet="TAIKHOANBENHNHAN" />
-            <End Role="BENHNHAN" EntitySet="BENHNHAN" />
-          </AssociationSet>
           <AssociationSet Name="FK_CHITIETPHIEUKHAM_DICHVU" Association="Self.FK_CHITIETPHIEUKHAM_DICHVU">
             <End Role="DICHVU" EntitySet="DICHVU" />
             <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAM" />
@@ -259,10 +216,6 @@
             <End Role="CHUCVU" EntitySet="CHUCVU" />
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
           </AssociationSet>
-          <AssociationSet Name="FK_NHANVIEN_TAIKHOANNHANVIEN" Association="Self.FK_NHANVIEN_TAIKHOANNHANVIEN">
-            <End Role="TAIKHOANNHANVIEN" EntitySet="TAIKHOANNHANVIEN" />
-            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
-          </AssociationSet>
           <AssociationSet Name="FK_PHIEUKHAM_BENHNHAN" Association="Self.FK_PHIEUKHAM_BENHNHAN">
             <End Role="BENHNHAN" EntitySet="BENHNHAN" />
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAM" />
@@ -281,24 +234,24 @@
           <Key>
             <PropertyRef Name="MaBenhNhan" />
           </Key>
-          <Property Name="MaBenhNhan" Type="Int32" Nullable="false" />
+          <Property Name="MaBenhNhan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="Int32" />
           <Property Name="NamSinh" Type="Int32" />
           <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TAIKHOANBENHNHAN" Relationship="Self.FK_BENHNHAN_TAIKHOANBENHNHAN" FromRole="BENHNHAN" ToRole="TAIKHOANBENHNHAN" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PHIEUKHAMs" Relationship="Self.FK_PHIEUKHAM_BENHNHAN" FromRole="BENHNHAN" ToRole="PHIEUKHAM" />
         </EntityType>
         <EntityType Name="CHITIETPHIEUKHAM">
           <Key>
             <PropertyRef Name="MaChiTietPhieuKham" />
           </Key>
-          <Property Name="MaChiTietPhieuKham" Type="Int32" Nullable="false" />
+          <Property Name="MaChiTietPhieuKham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaPhieuKham" Type="Int32" />
           <Property Name="MaDichVu" Type="Int32" />
           <Property Name="SoLuong" Type="Int32" />
-          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DICHVU" Relationship="Self.FK_CHITIETPHIEUKHAM_DICHVU" FromRole="CHITIETPHIEUKHAM" ToRole="DICHVU" />
           <NavigationProperty Name="PHIEUKHAM" Relationship="Self.FK_CHITIETPHIEUKHAM_PHIEUKHAM" FromRole="CHITIETPHIEUKHAM" ToRole="PHIEUKHAM" />
         </EntityType>
@@ -306,7 +259,7 @@
           <Key>
             <PropertyRef Name="MaChucVu" />
           </Key>
-          <Property Name="MaChucVu" Type="Int32" Nullable="false" />
+          <Property Name="MaChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NHANVIEN_CHUCVU" FromRole="CHUCVU" ToRole="NHANVIEN" />
         </EntityType>
@@ -314,17 +267,18 @@
           <Key>
             <PropertyRef Name="MaDichVu" />
           </Key>
-          <Property Name="MaDichVu" Type="Int32" Nullable="false" />
+          <Property Name="MaDichVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenDichVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DonGia" Type="Int32" />
           <Property Name="LoaiDichVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="CHITIETPHIEUKHAMs" Relationship="Self.FK_CHITIETPHIEUKHAM_DICHVU" FromRole="DICHVU" ToRole="CHITIETPHIEUKHAM" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
             <PropertyRef Name="MaHoaDon" />
           </Key>
-          <Property Name="MaHoaDon" Type="Int32" Nullable="false" />
+          <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NgayLap" Type="DateTime" Precision="3" />
           <Property Name="MaPhieuKham" Type="Int32" />
           <NavigationProperty Name="PHIEUKHAM" Relationship="Self.FK_HOADON_PHIEUKHAM" FromRole="HOADON" ToRole="PHIEUKHAM" />
@@ -333,21 +287,21 @@
           <Key>
             <PropertyRef Name="MaLichHen" />
           </Key>
-          <Property Name="MaLichHen" Type="Int32" Nullable="false" />
+          <Property Name="MaLichHen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="NgayHen" Type="DateTime" Precision="0" />
           <Property Name="GioHen" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="TinhTrang" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TinhTrang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="MaNhanVien" Type="Int32" />
-          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_LICHHEN_NHANVIEN" FromRole="LICHHEN" ToRole="NHANVIEN" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
-          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="Int32" />
           <Property Name="NamSinh" Type="Int32" />
@@ -355,20 +309,20 @@
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="MaChucVu" Type="Int32" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CHUCVU" Relationship="Self.FK_NHANVIEN_CHUCVU" FromRole="NHANVIEN" ToRole="CHUCVU" />
           <NavigationProperty Name="LICHHENs" Relationship="Self.FK_LICHHEN_NHANVIEN" FromRole="NHANVIEN" ToRole="LICHHEN" />
-          <NavigationProperty Name="TAIKHOANNHANVIEN" Relationship="Self.FK_NHANVIEN_TAIKHOANNHANVIEN" FromRole="NHANVIEN" ToRole="TAIKHOANNHANVIEN" />
           <NavigationProperty Name="PHIEUKHAMs" Relationship="Self.FK_PHIEUKHAM_NHANVIEN" FromRole="NHANVIEN" ToRole="PHIEUKHAM" />
         </EntityType>
         <EntityType Name="PHIEUKHAM">
           <Key>
             <PropertyRef Name="MaPhieuKham" />
           </Key>
-          <Property Name="MaPhieuKham" Type="Int32" Nullable="false" />
+          <Property Name="MaPhieuKham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaNhanVien" Type="Int32" />
           <Property Name="MaBenhNhan" Type="Int32" />
           <Property Name="NgayKham" Type="DateTime" Precision="0" />
-          <Property Name="GioKham" Type="Time" Precision="7" />
+          <Property Name="GioKham" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="NgayTaiKham" Type="DateTime" Precision="0" />
           <Property Name="MoTaTrieuChung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -387,36 +341,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="TAIKHOANBENHNHAN">
-          <Key>
-            <PropertyRef Name="MaBenhNhan" />
-          </Key>
-          <Property Name="MaBenhNhan" Type="Int32" Nullable="false" />
-          <Property Name="TenTaiKhoan" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="BENHNHAN" Relationship="Self.FK_BENHNHAN_TAIKHOANBENHNHAN" FromRole="TAIKHOANBENHNHAN" ToRole="BENHNHAN" />
-        </EntityType>
-        <EntityType Name="TAIKHOANNHANVIEN">
-          <Key>
-            <PropertyRef Name="MaNhanVien" />
-          </Key>
-          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="TenTaiKhoan" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_NHANVIEN_TAIKHOANNHANVIEN" FromRole="TAIKHOANNHANVIEN" ToRole="NHANVIEN" />
-        </EntityType>
-        <Association Name="FK_BENHNHAN_TAIKHOANBENHNHAN">
-          <End Role="TAIKHOANBENHNHAN" Type="Self.TAIKHOANBENHNHAN" Multiplicity="1" />
-          <End Role="BENHNHAN" Type="Self.BENHNHAN" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TAIKHOANBENHNHAN">
-              <PropertyRef Name="MaBenhNhan" />
-            </Principal>
-            <Dependent Role="BENHNHAN">
-              <PropertyRef Name="MaBenhNhan" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PHIEUKHAM_BENHNHAN">
           <End Role="BENHNHAN" Type="Self.BENHNHAN" Multiplicity="0..1" />
           <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="*" />
@@ -489,18 +413,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_NHANVIEN_TAIKHOANNHANVIEN">
-          <End Role="TAIKHOANNHANVIEN" Type="Self.TAIKHOANNHANVIEN" Multiplicity="1" />
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TAIKHOANNHANVIEN">
-              <PropertyRef Name="MaNhanVien" />
-            </Principal>
-            <Dependent Role="NHANVIEN">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PHIEUKHAM_NHANVIEN">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
           <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="*" />
@@ -523,12 +435,6 @@
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="PHIEUKHAMs" EntityType="Self.PHIEUKHAM" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="TAIKHOANBENHNHANs" EntityType="Self.TAIKHOANBENHNHAN" />
-          <EntitySet Name="TAIKHOANNHANVIENs" EntityType="Self.TAIKHOANNHANVIEN" />
-          <AssociationSet Name="FK_BENHNHAN_TAIKHOANBENHNHAN" Association="Self.FK_BENHNHAN_TAIKHOANBENHNHAN">
-            <End Role="TAIKHOANBENHNHAN" EntitySet="TAIKHOANBENHNHANs" />
-            <End Role="BENHNHAN" EntitySet="BENHNHANs" />
-          </AssociationSet>
           <AssociationSet Name="FK_PHIEUKHAM_BENHNHAN" Association="Self.FK_PHIEUKHAM_BENHNHAN">
             <End Role="BENHNHAN" EntitySet="BENHNHANs" />
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
@@ -553,10 +459,6 @@
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="LICHHEN" EntitySet="LICHHENs" />
           </AssociationSet>
-          <AssociationSet Name="FK_NHANVIEN_TAIKHOANNHANVIEN" Association="Self.FK_NHANVIEN_TAIKHOANNHANVIEN">
-            <End Role="TAIKHOANNHANVIEN" EntitySet="TAIKHOANNHANVIENs" />
-            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
-          </AssociationSet>
           <AssociationSet Name="FK_PHIEUKHAM_NHANVIEN" Association="Self.FK_PHIEUKHAM_NHANVIEN">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
@@ -577,6 +479,7 @@
                 <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
                 <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -606,6 +509,7 @@
                 <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="LoaiDichVu" ColumnName="LoaiDichVu" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -643,6 +547,7 @@
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -668,24 +573,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TAIKHOANBENHNHANs">
-            <EntityTypeMapping TypeName="WebPhongKhamNhaKhoaModel.TAIKHOANBENHNHAN">
-              <MappingFragment StoreEntitySet="TAIKHOANBENHNHAN">
-                <ScalarProperty Name="MaBenhNhan" ColumnName="MaBenhNhan" />
-                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
-                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TAIKHOANNHANVIENs">
-            <EntityTypeMapping TypeName="WebPhongKhamNhaKhoaModel.TAIKHOANNHANVIEN">
-              <MappingFragment StoreEntitySet="TAIKHOANNHANVIEN">
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
-                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
