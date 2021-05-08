@@ -30,11 +30,11 @@ namespace WebDentalClinic.Models
         public string DiaChi { get; set; }
         public string Email { get; set; }
         public Nullable<int> MaChucVu { get; set; }
+        public string MatKhau { get; set; }
     
         public virtual CHUCVU CHUCVU { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LICHHEN> LICHHENs { get; set; }
-        public virtual TAIKHOANNHANVIEN TAIKHOANNHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
         [NotMapped]

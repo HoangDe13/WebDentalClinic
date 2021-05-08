@@ -178,12 +178,6 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TAIKHOANBENHNHAN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TAIKHOANNHANVIEN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -353,6 +347,7 @@
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
     <Content Include="Views\LichHen\SelectBacSi.cshtml" />
+    <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
