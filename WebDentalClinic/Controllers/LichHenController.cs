@@ -25,11 +25,12 @@ namespace WebDentalClinic.Controllers
         {
             try
             {
-                
-                lh.TinhTrang = "Chưa xác nhận";
+                lh.MaLichHen = 0;
+                String.Format("0:yyyy/mm/dd", lh.NgayHen);
+                lh.TinhTrang = "CXN";
                 db.LICHHENs.Add(lh);
                 db.SaveChanges();
-                return RedirectToAction("Create");
+                return RedirectToAction("DatLichThanhCong","LichHen");
             }
             catch
             {
@@ -42,6 +43,10 @@ namespace WebDentalClinic.Controllers
             NHANVIEN ct = new NHANVIEN();
             ct.listNV = db.NHANVIENs.ToList<NHANVIEN>();
             return PartialView(ct);
+        }
+        public ActionResult DatLichThanhCong()
+        {
+            return View();
         }
     }
 }

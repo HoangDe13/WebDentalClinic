@@ -25,7 +25,7 @@ namespace WebDentalClinic.Models
         public Nullable<int> MaNhanVien { get; set; }
         public Nullable<int> MaBenhNhan { get; set; }
         public Nullable<System.DateTime> NgayKham { get; set; }
-        public Nullable<System.TimeSpan> GioKham { get; set; }
+        public string GioKham { get; set; }
         public Nullable<System.DateTime> NgayTaiKham { get; set; }
         public string MoTaTrieuChung { get; set; }
         public string TinhTrang { get; set; }

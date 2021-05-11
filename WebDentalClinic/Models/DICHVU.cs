@@ -28,6 +28,7 @@ namespace WebDentalClinic.Models
         public Nullable<int> DonGia { get; set; }
         [Display(Name = "Loại Dịch Vụ")]
         public string LoaiDichVu { get; set; }
+        public string GhiChu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }

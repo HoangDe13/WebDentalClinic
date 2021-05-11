@@ -34,7 +34,5 @@ namespace WebDentalClinic.Models
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<PHIEUKHAM> PHIEUKHAMs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<TAIKHOANBENHNHAN> TAIKHOANBENHNHANs { get; set; }
-        public virtual DbSet<TAIKHOANNHANVIEN> TAIKHOANNHANVIENs { get; set; }
     }
 }

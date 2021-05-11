@@ -16,12 +16,12 @@ namespace WebDentalClinic.Models
     public partial class LICHHEN
     {
         public int MaLichHen { get; set; }
-        [Required(ErrorMessage ="Vui lòng nhập họ tên")]
+        [Required(ErrorMessage = "Vui lòng nhập họ tên")]
         [StringLength(50, MinimumLength = 3)]
-        [Display(Name ="Họ và Tên")]
+        [Display(Name = "Họ và Tên")]
         public string HoTen { get; set; }
         [Display(Name = "Số Điện Thoại")]
-        [Required(ErrorMessage ="Vui lòng nhập số điện thoại")]
+        [Required(ErrorMessage = "Vui lòng nhập số điện thoại")]
         [StringLength(10)]
         [Phone]
         public string SoDienThoai { get; set; }
