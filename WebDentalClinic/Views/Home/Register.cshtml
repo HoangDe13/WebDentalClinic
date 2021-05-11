@@ -1,5 +1,4 @@
-﻿
-@model WebDentalClinic.Models.TAIKHOANBENHNHAN
+﻿@model WebDentalClinic.Models.TAIKHOANBENHNHAN
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +53,7 @@
                         <div class="wrap-input100 validate-input">
                             <input class="input100" type="number" name="SoDienThoai" placeholder="Số Điện Thoại">
                             @Html.ValidationMessageFor(model => model.BENHNHAN.SoDienThoai, "", new { @class = "text-danger" })
-                            @Html.ValidationMessageFor(model => model.TenTaiKhoan, "", new { @class = "text-danger" })
+                     
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-phone" aria-hidden="true"></i>

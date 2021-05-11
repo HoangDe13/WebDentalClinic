@@ -1,5 +1,9 @@
-﻿@model WebDentalClinic.Models.TAIKHOANBENHNHAN
+﻿@model WebDentalClinic.Models.NHANVIEN
 
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,27 +28,18 @@
 
     <!--===============================================================================================-->
 </head>
-<body>
 
+<body>
+    <h2>Đăng Nhập Nhân Viên</h2>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
 
-                <div class="col-md-6">
 
-                    <div class="login100-pic js-tilt" data-tilt>
-                        <video width="100%" autoplay style="border-radius:20px 20px 20px 20px">
-                            <source src="../Content/images/dangnhap.mp4" type="audio/mp4">
-                        </video>
-                    </div>
-
-
-
-                </div>
-                <div class="col-md-5 col-sm-12">
+                <div class="col-md-12 col-sm-12">
                     <form class="login100-form validate-form">
                         <span class="login100-form-title">
-                            <h2 style="font-family:'Times New Roman';">Đăng Nhập</h2>
+                            <p style="font-family:'Times New Roman';">Đăng Nhập</p>
                         </span>
 
                         <div class="wrap-input100 validate-input">
@@ -104,14 +99,13 @@
     <!--===============================================================================================-->
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
     <script>
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
     </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
 
 </body>
 </html>
-
 
