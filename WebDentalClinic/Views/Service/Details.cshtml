@@ -1,0 +1,51 @@
+﻿@model WebDentalClinic.Models.DICHVU
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DICHVU</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDichVu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDichVu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDichVu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDichVu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiDichVu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiDichVu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

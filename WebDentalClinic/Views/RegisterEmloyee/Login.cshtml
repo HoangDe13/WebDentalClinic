@@ -1,5 +1,9 @@
+﻿@model WebDentalClinic.Models.NHANVIEN
 
-
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,72 +25,33 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
     <!--===============================================================================================-->
 </head>
-<body>
 
+<body>
+    <h2>Đăng Nhập Nhân Viên</h2>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <div class="col-md-8">
-                    <div class="login100-pic js-tilt" data-tilt>
-                        <video width="85%" autoplay style="margin-top:50px;border-radius:20px 20px 20px 20px">
-                            <source src="../Content/images/dangnhap.mp4" type="audio/mp4">
-                        </video>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
+
+
+                <div class="col-md-12 col-sm-12">
                     <form class="login100-form validate-form">
                         <span class="login100-form-title">
-                            <h2 style="font-family:'Times New Roman';">Đăng Kí</h2>
+                            <p style="font-family:'Times New Roman';">Đăng Nhập</p>
                         </span>
 
-
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="text" name="HoTen" placeholder="Họ Tên">
-                            @Html.ValidationMessageFor(model => model.BENHNHAN.HoTen, "", new { @class = "text-danger" })
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                            </span>
-                        </div>
                         <div class="wrap-input100 validate-input">
                             <input class="input100" type="number" name="SoDienThoai" placeholder="Số Điện Thoại">
-                            @Html.ValidationMessageFor(model => model.BENHNHAN.SoDienThoai, "", new { @class = "text-danger" })
-                     
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </span>
                         </div>
 
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="text" name="DiaChi" placeholder="Địa Chỉ">
-                            @Html.ValidationMessageFor(model => model.BENHNHAN.DiaChi, "", new { @class = "text-danger" })
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-map" aria-hidden="true"></i>
-                            </span>
-                        </div>
-
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="number" name="NamSinh" placeholder="Năm Sinh">
-                            @Html.ValidationMessageFor(model => model.BENHNHAN.NamSinh, "", new { @class = "text-danger" })
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                            </span>
-                        </div>
                         <div class="wrap-input100 validate-input" data-validate="Password is required">
                             <input class="input100" type="password" name="MatKhau" placeholder="Mật Khẩu">
-                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
-                            </span>
-                        </div>
-                        <div class="wrap-input100 validate-input" data-validate="Password is required">
-                            <input class="input100" type="password" name="NhapLaiMatKhau" placeholder="Nhập Lại Mật Khẩu">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
@@ -95,15 +60,31 @@
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
-                                Đăng Kí
+                                Đăng Nhập
                             </button>
                         </div>
 
+                        <div class="text-center p-t-12">
+                            <span class="txt1">
+                                Forgot
+                            </span>
+                            <a class="txt2" href="#">
+                                Username / Password?
+                            </a>
+                        </div>
+
+                        <div class="text-center p-t-136">
+                            <a class="txt2" href="~/Home/Register">
+                                Create your Account
+                                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
 
 
@@ -118,15 +99,13 @@
     <!--===============================================================================================-->
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
     <script>
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
     </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
 
 </body>
 </html>
-
-
 
