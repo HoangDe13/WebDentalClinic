@@ -34,22 +34,36 @@ namespace WebDentalClinic.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
-            if (Session["MaBenhNhan"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
-
+           
             return View();
         }
         public ActionResult Register()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
+        }
+        
+            [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(BENHNHAN bn)
+        {
+            
+                var check = database.BENHNHANs.FirstOrDefault(s => s.SoDienThoai == bn.SoDienThoai);
+
+                if (check == null)
+                {
+                   
+                    database.Configuration.ValidateOnSaveEnabled = false;
+                    database.BENHNHANs.Add(bn);
+                    database.SaveChanges();
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    
+                    return Content("Đăng Kí Thất Bại");
+                }
+
+
         }
         public ActionResult IntroDental()
         {
@@ -75,32 +89,25 @@ namespace WebDentalClinic.Controllers
 
             return View();
         }
-
-        [HttpPost]
+       
+            [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string email, string password)
+        public ActionResult LoginUser(BENHNHAN BN)
         {
-        //    if (ModelState.IsValid)
-        //    {
-
-
-        //        var f_password = GetMD5(password);
-        //        var data = database.BENHNHANs.Where(s => s.SoDienThoai.Equals(email) && s.Password.Equals(f_password)).ToList();
-        //        if (data.Count() > 0)
-        //        {
-        //            //add session
-        //            Session["HoTen"] = data.FirstOrDefault().FirstName + " " + data.FirstOrDefault().LastName;
-        //            Session["SoDienThoai"] = data.FirstOrDefault().Email;
-        //            Session["MaBenhNhan"] = data.FirstOrDefault().idUser;
-        //            return RedirectToAction("Index");
-        //        }
-        //        else
-        //        {
-        //            ViewBag.error = "Login failed";
-        //            return RedirectToAction("Login");
-        //        }
-        //    }
-            return View();
+            
+            var check = database.BENHNHANs.Where(s => s.SoDienThoai == BN.SoDienThoai && s.MatKhau == BN.MatKhau).FirstOrDefault();
+            if (check == null)
+            {
+                ViewBag.ErrorInfo = "Sai info";
+                return Content("Sai Thông Tin Đăng Nhập");
+            }
+            else
+            {
+                database.Configuration.ValidateOnSaveEnabled = false;
+                Session["SoDienThoai"] = BN.SoDienThoai;
+                Session["MatKhau"] = BN.MatKhau;
+                return RedirectToAction("Index", "Home");
+            }
         }
 
 
@@ -110,20 +117,20 @@ namespace WebDentalClinic.Controllers
             Session.Clear();//remove session
             return RedirectToAction("Login");
         }
-        public static string GetMD5(string str)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] fromData = Encoding.UTF8.GetBytes(str);
-            byte[] targetData = md5.ComputeHash(fromData);
-            string byte2String = null;
+        //public static string GetMD5(string str)
+        //{
+        //    MD5 md5 = new MD5CryptoServiceProvider();
+        //    byte[] fromData = Encoding.UTF8.GetBytes(str);
+        //    byte[] targetData = md5.ComputeHash(fromData);
+        //    string byte2String = null;
 
-            for (int i = 0; i < targetData.Length; i++)
-            {
-                byte2String += targetData[i].ToString("x2");
+        //    for (int i = 0; i < targetData.Length; i++)
+        //    {
+        //        byte2String += targetData[i].ToString("x2");
 
-            }
-            return byte2String;
-        }
+        //    }
+        //    return byte2String;
+        //}
 
     }
 }

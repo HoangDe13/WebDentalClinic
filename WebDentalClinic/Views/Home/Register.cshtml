@@ -1,30 +1,15 @@
+﻿@model WebDentalClinic.Models.BENHNHAN
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Login V1</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!--===============================================================================================-->
-</head>
-<body>
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
@@ -37,96 +22,81 @@
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <form class="login100-form validate-form">
-                        <span class="login100-form-title">
-                            <h2 style="font-family:'Times New Roman';">Đăng Kí</h2>
-                        </span>
+                        <div class="form-horizontal">
+                            <h2 style="font-family:'Times New Roman'">Đăng Kí</h2>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="text" name="HoTen" placeholder="Họ Tên">
-                            @Html.ValidationMessageFor(model => model.BENHNHAN.HoTen, "", new { @class = "text-danger" })
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                            </span>
-                        </div>
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="number" name="SoDienThoai" placeholder="Số Điện Thoại">
-                            @Html.ValidationMessageFor(model => model.BENHNHAN.SoDienThoai, "", new { @class = "text-danger" })
-                     
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                            </span>
-                        </div>
+                            <div class="form-group">
 
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="text" name="DiaChi" placeholder="Địa Chỉ">
-                            @Html.ValidationMessageFor(model => model.BENHNHAN.DiaChi, "", new { @class = "text-danger" })
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-map" aria-hidden="true"></i>
-                            </span>
-                        </div>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control", placeholder = "Họ Tên" } })
+                                    @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
-                        <div class="wrap-input100 validate-input">
-                            <input class="input100" type="number" name="NamSinh" placeholder="Năm Sinh">
-                            @Html.ValidationMessageFor(model => model.BENHNHAN.NamSinh, "", new { @class = "text-danger" })
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                            </span>
-                        </div>
-                        <div class="wrap-input100 validate-input" data-validate="Password is required">
-                            <input class="input100" type="password" name="MatKhau" placeholder="Mật Khẩu">
-                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
-                            </span>
-                        </div>
-                        <div class="wrap-input100 validate-input" data-validate="Password is required">
-                            <input class="input100" type="password" name="NhapLaiMatKhau" placeholder="Nhập Lại Mật Khẩu">
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
-                            </span>
-                        </div>
+                            <div class="form-group">
 
-                        <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                                Đăng Kí
-                            </button>
-                        </div>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.GioiTinh, new { htmlAttributes = new { @class = "form-control", placeholder = "Giới Tính" } })
+                                    @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.NamSinh, new { htmlAttributes = new { @class = "form-control", placeholder = "Năm Sinh" } })
+                                    @Html.ValidationMessageFor(model => model.NamSinh, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { @class = "form-control", placeholder = "Số Điện Thoại" } })
+                                    @Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control", placeholder = "Địa Chỉ" } })
+                                    @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", placeholder = "Mật Khẩu", type = "password" } })
+                                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control", @placeholder = "Nhập Lại Mật Khẩu" })
+                                    @Html.ValidationMessageFor(m => m.Confirmpwd, "", new { @class = "badge badge-danger" })
+                                </div>
+                                </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Đăng Kí" class="btn btn-default" style="background-color:darkgreen; color:white" />
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+}
 
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
-
-
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    <script>
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-    </script>
-    <!--===============================================================================================-->
-    <script src="js/main.js"></script>
-
-</body>
-</html>
-
-
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
