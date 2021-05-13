@@ -58,31 +58,31 @@ namespace WebDentalClinic.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string SDT, string password)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
 
-            //    var data = database.NHANVIENs.Where(s => s.SoDienThoai.Equals(SDT) && s.Password.Equals(password)).ToList();
-            //    if (data.Count() > 0)
-            //    {
-            //        //add session
+                var data = database.NHANVIENs.Where(s => s.SoDienThoai.Equals(SDT) && s.MatKhau.Equals(password)).ToList();
+                if (data.Count() > 0)
+                {
+                    //add session
 
-            //        var PQ1 = database.NHANVIENs.Where(s => s.CHUCVU.Equals(1));
-            //        var PQ2 = database.NHANVIENs.Where(s => s.CHUCVU.Equals(0));
-            //        if (PQ1.Count() > 0)
-            //        {
-            //            return RedirectToAction("Index");
-            //        }
-            //        else if (PQ2.Count() > 0)
-            //        {
-            //            return RedirectToAction("Index");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        ViewBag.error = "Login failed";
-            //        return RedirectToAction("Login");
-            //    }
-            //}
+                    var PQ1 = database.NHANVIENs.Where(s => s.CHUCVU.Equals(1));
+                    var PQ2 = database.NHANVIENs.Where(s => s.CHUCVU.Equals(0));
+                    if (PQ1.Count() > 0)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else if (PQ2.Count() > 0)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
+                else
+                {
+                    ViewBag.error = "Login failed";
+                    return RedirectToAction("Login");
+                }
+            }
             return View();
         }
 
