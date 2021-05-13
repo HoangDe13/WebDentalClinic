@@ -341,7 +341,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\IntroDental.cshtml" />
     <Content Include="Views\Home\IntroInfrastructure.cshtml" />
     <Content Include="Views\Home\IntroDoctor.cshtml" />
@@ -349,14 +348,20 @@
     <Content Include="Views\Shared\Layout_Nurse.cshtml" />
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
-    <Content Include="Views\Service\Index.cshtml" />
 
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Create.cshtml" />
     <Content Include="Views\RegisterEmloyee\Index.cshtml" />
-
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
     <Content Include="Views\LichHen\SelectBacSi.cshtml" />
+    <Content Include="Views\Service\Create.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\Edit.cshtml" />
+    <Content Include="Views\Service\Delete.cshtml" />
+    <Content Include="Views\Service\Details.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Login.cshtml" />
+    <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
