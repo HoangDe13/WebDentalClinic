@@ -107,7 +107,7 @@ namespace WebDentalClinic.Controllers
                 Session["SoDienThoai"] = BN.SoDienThoai;
                 Session["MatKhau"] = BN.MatKhau;
                 Session["BenhNhan"] = BN;
-                return RedirectToAction("Index", "");
+                return RedirectToAction("Index", "Customer");
             }
         }
 
