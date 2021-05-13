@@ -13,7 +13,7 @@ namespace WebDentalClinic.Controllers
         // GET: Service
         public ActionResult Index()
         {
-            return View();
+            return View(database.DICHVUs.ToList());
         }
         public ActionResult Create()
         {
@@ -68,17 +68,7 @@ namespace WebDentalClinic.Controllers
                 return Content(" this data is using in other table , error Delete");
             }
         }
-        public ActionResult Index(String _name)
-        {
-            if (_name == null)
-            {
-                return View(database.DICHVUs.ToList());
-            }
-            else
-            {
-                return View(database.DICHVUs.Where(s => s.TenDichVu.Contains(_name)).ToList());
-            }
-        }
+    
         public PartialViewResult CategoryPartial()
         {
             return PartialView(database.DICHVUs.ToList());
