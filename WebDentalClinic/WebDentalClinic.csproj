@@ -134,12 +134,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
 
+    <Compile Include="Controllers\CustomerController.cs" />
+
     <Compile Include="Controllers\HomeController.cs" />
-
     <Compile Include="Controllers\RegisterEmloyeeController.cs" />
-
     <Compile Include="Controllers\LichHenController.cs" />
-
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -363,7 +362,6 @@
     <Content Include="Views\Shared\Layout_Nurse.cshtml" />
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
-
     <Content Include="Views\RegisterEmloyee\Create.cshtml" />
     <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
@@ -382,6 +380,21 @@
     <Content Include="Views\LichHen\Edit.cshtml" />
 
     <Content Include="Views\Home\Register.cshtml" />
+
+    <Content Include="Views\Customer\About.cshtml" />
+    <Content Include="Views\Customer\Contact.cshtml" />
+    <Content Include="Views\Customer\CreateLichHen.cshtml" />
+    <Content Include="Views\Customer\DatLichThanhCongCus.cshtml" />
+    <Content Include="Views\Customer\EditProfile.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\IntroDental.cshtml" />
+    <Content Include="Views\Customer\IntroDoctor.cshtml" />
+    <Content Include="Views\Customer\IntroInfrastructure.cshtml" />
+    <Content Include="Views\Customer\LichSuKham.cshtml" />
+    <Content Include="Views\Customer\Profile.cshtml" />
+    <Content Include="Views\Customer\SelectBacSi.cshtml" />
+    <Content Include="Views\Customer\Service.cshtml" />
+    <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
 
   </ItemGroup>
   <ItemGroup>

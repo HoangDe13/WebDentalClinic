@@ -1,12 +1,14 @@
 ﻿
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <style>
-
+        span{
+            color:black;
+        }
         .dropbtn {
             background-color: white;
             color: black;
@@ -72,6 +74,7 @@
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("css", false)
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" style="  background-color: white; border-color: white;opacity:0.75;">
         <div class="container">
@@ -81,11 +84,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Dental Clinic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Dental Clinic", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+            <h4 class="fomat-hello" style="text-align: right; font-family:'Times New Roman'">
+               
+                
+                    <span>Xin Chào @Session["HoTen"]</span>
+                
+            </h4>
             <div class="navbar-collapse collapse" style="float:left">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Trang Chủ", "Index", "Customer")</li>
                     <li class="dropdown">
                         <button class="dropbtn">
                             Giới Thiệu
@@ -104,21 +113,12 @@
                     <li>@Html.ActionLink("Đặt Lịch Hẹn", "CreateLichHen", "Customer")</li>
                     <li>@Html.ActionLink("Lịch Sử Khám Bệnh", "LichSuKham", "Customer")</li>
                     <li>@Html.ActionLink("Thông Tin Cá Nhân", "Profile", "Customer")</li>
-                    <li class="fomat-hello">
-                        @if(Session["HoTen"]==null)
-                        {
-                            <span>Xin Chào</span>
-                        }
-                        else
-                        {
-                            <span>Xin Chào @Session["HoTen"]</span>
-                        }
-                    </li>
+
                 </ul>
 
-                
+
+            </div>
         </div>
-    </div>
         </div>
     @RenderBody()
 

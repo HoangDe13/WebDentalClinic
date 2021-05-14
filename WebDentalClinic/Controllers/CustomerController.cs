@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,8 +20,6 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult Profile()
         {
-           
-            Session["BENHNHAN"] = 1;
             return View();
         }
         public ActionResult About()
@@ -110,13 +109,15 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult EditProfile()
         {
-            var idBN = db.BENHNHANs.Where(s => s.MaBenhNhan == 1).FirstOrDefault();
+            int maBN= (int)Session["MaBenhNhan"];
+            var idBN = db.BENHNHANs.Where(s => s.MaBenhNhan == maBN).FirstOrDefault();
             return View(idBN);
         }
         [HttpPost]
         public ActionResult EditProfile(BENHNHAN std)
         {
-            db.Entry(std).State = EntityState.Modified;
+
+            db.Entry(std).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

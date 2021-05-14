@@ -61,7 +61,7 @@ namespace WebDentalClinic.Controllers
             if (ModelState.IsValid)
             {
 
-                var data = database.NHANVIENs.Where(s => s.SoDienThoai.Equals(SDT) && s.MatKhau.Equals(password)).ToList();
+                var data = database.NHANVIENs.Where(s => s.SoDienThoai.Equals(SDT));
                 if (data.Count() > 0)
                 {
                     //add session
