@@ -105,7 +105,14 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult LichSuKham()
         {
-            return View();
+            return View(db.PHIEUKHAMs.ToList());
+        }
+        public ActionResult ChiTietphieukham(int id)
+        {
+            //int a = pk.MaPhieuKham;
+            //return View(db.CHITIETPHIEUKHAMs.Where(s => s.MaChiTietPhieuKham == a).FirstOrDefault());
+            PHIEUKHAM pk = db.PHIEUKHAMs.Include(s => s.CHITIETPHIEUKHAMs).Where(s => s.MaPhieuKham == id).FirstOrDefault();
+            return View(pk);
         }
         public ActionResult EditProfile()
         {
