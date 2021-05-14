@@ -105,9 +105,10 @@ namespace WebDentalClinic.Controllers
             {
                 database.Configuration.ValidateOnSaveEnabled = false;
                 Session["SoDienThoai"] = BN.SoDienThoai;
-                Session["MatKhau"] = BN.MatKhau;
-                Session["BenhNhan"] = BN;
-                return RedirectToAction("Index", "Customer");
+                Session["MaBenhNhan"] = check.MaBenhNhan;
+                Session["HoTen"] = check.HoTen;
+                Session["BENHNHAN"] = check;
+                return RedirectToAction("Profile", "Customer");
             }
         }
 

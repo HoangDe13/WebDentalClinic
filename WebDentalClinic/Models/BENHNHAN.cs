@@ -12,6 +12,7 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class BENHNHAN
     {
@@ -34,9 +35,11 @@ namespace WebDentalClinic.Models
         public string DiaChi { get; set; }
         [Display(Name = "Mật Khẩu")]
         public string MatKhau { get; set; }
+        [Display(Name ="Xác Nhận Mật Khẩu")]
         [Required(ErrorMessage = "Nhập Lại Mật Khẩu")]
         [Compare("MatKhau", ErrorMessage = "Sai mật Khẩu, Vui Lòng Nhập Lại")]
         [DataType(DataType.Password)]
+        [NotMapped]
         public string Confirmpwd { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
