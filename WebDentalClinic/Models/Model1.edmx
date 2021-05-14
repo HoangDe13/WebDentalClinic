@@ -4,23 +4,24 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WebPhongKhamNhaKhoaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WebPhongKhamNhaKhoaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BENHNHAN">
           <Key>
             <PropertyRef Name="MaBenhNhan" />
           </Key>
-          <Property Name="MaBenhNhan" Type="int" Nullable="false" />
+          <Property Name="MaBenhNhan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
-          <Property Name="NamSinh" Type="int" />
+          <Property Name="NamSinh" Type="datetime" />
           <Property Name="SoDienThoai" Type="nchar" MaxLength="10" />
           <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="MatKhau" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CHITIETPHIEUKHAM">
           <Key>
             <PropertyRef Name="MaChiTietPhieuKham" />
           </Key>
-          <Property Name="MaChiTietPhieuKham" Type="int" Nullable="false" />
+          <Property Name="MaChiTietPhieuKham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaPhieuKham" Type="int" />
           <Property Name="MaDichVu" Type="int" />
           <Property Name="SoLuong" Type="int" />
@@ -30,14 +31,14 @@
           <Key>
             <PropertyRef Name="MaChucVu" />
           </Key>
-          <Property Name="MaChucVu" Type="int" Nullable="false" />
+          <Property Name="MaChucVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenChucVu" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DICHVU">
           <Key>
             <PropertyRef Name="MaDichVu" />
           </Key>
-          <Property Name="MaDichVu" Type="int" Nullable="false" />
+          <Property Name="MaDichVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenDichVu" Type="nvarchar" MaxLength="50" />
           <Property Name="DonGia" Type="int" />
           <Property Name="LoaiDichVu" Type="nvarchar" MaxLength="50" />
@@ -46,7 +47,7 @@
           <Key>
             <PropertyRef Name="MaHoaDon" />
           </Key>
-          <Property Name="MaHoaDon" Type="int" Nullable="false" />
+          <Property Name="MaHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NgayLap" Type="datetime" />
           <Property Name="MaPhieuKham" Type="int" />
         </EntityType>
@@ -54,7 +55,7 @@
           <Key>
             <PropertyRef Name="MaLichHen" />
           </Key>
-          <Property Name="MaLichHen" Type="int" Nullable="false" />
+          <Property Name="MaLichHen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
           <Property Name="SoDienThoai" Type="nchar" MaxLength="10" />
           <Property Name="NgayHen" Type="date" />
@@ -67,10 +68,10 @@
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
-          <Property Name="MaNhanVien" Type="int" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
-          <Property Name="GioiTinh" Type="int" />
-          <Property Name="NamSinh" Type="int" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="NamSinh" Type="date" />
           <Property Name="SoDienThoai" Type="nchar" MaxLength="10" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nchar" MaxLength="50" />
@@ -80,7 +81,7 @@
           <Key>
             <PropertyRef Name="MaPhieuKham" />
           </Key>
-          <Property Name="MaPhieuKham" Type="int" Nullable="false" />
+          <Property Name="MaPhieuKham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaNhanVien" Type="int" />
           <Property Name="MaBenhNhan" Type="int" />
           <Property Name="NgayKham" Type="date" />
@@ -99,34 +100,14 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="TAIKHOANBENHNHAN">
-          <Key>
-            <PropertyRef Name="MaBenhNhan" />
-          </Key>
-          <Property Name="MaBenhNhan" Type="int" Nullable="false" />
-          <Property Name="TenTaiKhoan" Type="nchar" MaxLength="10" />
-          <Property Name="MatKhau" Type="nchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="TAIKHOANNHANVIEN">
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
-          <Property Name="MaNhanVien" Type="int" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenTaiKhoan" Type="nchar" MaxLength="10" />
           <Property Name="MatKhau" Type="nchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_BENHNHAN_TAIKHOANBENHNHAN">
-          <End Role="TAIKHOANBENHNHAN" Type="Self.TAIKHOANBENHNHAN" Multiplicity="1" />
-          <End Role="BENHNHAN" Type="Self.BENHNHAN" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TAIKHOANBENHNHAN">
-              <PropertyRef Name="MaBenhNhan" />
-            </Principal>
-            <Dependent Role="BENHNHAN">
-              <PropertyRef Name="MaBenhNhan" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CHITIETPHIEUKHAM_DICHVU">
           <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="0..1" />
           <End Role="CHITIETPHIEUKHAM" Type="Self.CHITIETPHIEUKHAM" Multiplicity="*" />
@@ -223,6 +204,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="WebPhongKhamNhaKhoaModelStoreContainer">
           <EntitySet Name="BENHNHAN" EntityType="Self.BENHNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHITIETPHIEUKHAM" EntityType="Self.CHITIETPHIEUKHAM" Schema="dbo" store:Type="Tables" />
@@ -233,12 +245,7 @@
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUKHAM" EntityType="Self.PHIEUKHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TAIKHOANBENHNHAN" EntityType="Self.TAIKHOANBENHNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAIKHOANNHANVIEN" EntityType="Self.TAIKHOANNHANVIEN" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_BENHNHAN_TAIKHOANBENHNHAN" Association="Self.FK_BENHNHAN_TAIKHOANBENHNHAN">
-            <End Role="TAIKHOANBENHNHAN" EntitySet="TAIKHOANBENHNHAN" />
-            <End Role="BENHNHAN" EntitySet="BENHNHAN" />
-          </AssociationSet>
           <AssociationSet Name="FK_CHITIETPHIEUKHAM_DICHVU" Association="Self.FK_CHITIETPHIEUKHAM_DICHVU">
             <End Role="DICHVU" EntitySet="DICHVU" />
             <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAM" />
@@ -272,8 +279,7 @@
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebPhongKhamNhaKhoaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -284,11 +290,11 @@
           <Property Name="MaBenhNhan" Type="Int32" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="NamSinh" Type="Int32" />
+          <Property Name="NamSinh" Type="DateTime" annotation:StoreGeneratedPattern="None" Precision="3" />
           <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TAIKHOANBENHNHAN" Relationship="Self.FK_BENHNHAN_TAIKHOANBENHNHAN" FromRole="BENHNHAN" ToRole="TAIKHOANBENHNHAN" />
           <NavigationProperty Name="PHIEUKHAMs" Relationship="Self.FK_PHIEUKHAM_BENHNHAN" FromRole="BENHNHAN" ToRole="PHIEUKHAM" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="CHITIETPHIEUKHAM">
           <Key>
@@ -349,8 +355,8 @@
           </Key>
           <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="Int32" />
-          <Property Name="NamSinh" Type="Int32" />
+          <Property Name="GioiTinh" Type="String" />
+          <Property Name="NamSinh" Type="DateTime" />
           <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
@@ -387,15 +393,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="TAIKHOANBENHNHAN">
-          <Key>
-            <PropertyRef Name="MaBenhNhan" />
-          </Key>
-          <Property Name="MaBenhNhan" Type="Int32" Nullable="false" />
-          <Property Name="TenTaiKhoan" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="BENHNHAN" Relationship="Self.FK_BENHNHAN_TAIKHOANBENHNHAN" FromRole="TAIKHOANBENHNHAN" ToRole="BENHNHAN" />
-        </EntityType>
         <EntityType Name="TAIKHOANNHANVIEN">
           <Key>
             <PropertyRef Name="MaNhanVien" />
@@ -405,18 +402,6 @@
           <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_NHANVIEN_TAIKHOANNHANVIEN" FromRole="TAIKHOANNHANVIEN" ToRole="NHANVIEN" />
         </EntityType>
-        <Association Name="FK_BENHNHAN_TAIKHOANBENHNHAN">
-          <End Role="TAIKHOANBENHNHAN" Type="Self.TAIKHOANBENHNHAN" Multiplicity="1" />
-          <End Role="BENHNHAN" Type="Self.BENHNHAN" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TAIKHOANBENHNHAN">
-              <PropertyRef Name="MaBenhNhan" />
-            </Principal>
-            <Dependent Role="BENHNHAN">
-              <PropertyRef Name="MaBenhNhan" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PHIEUKHAM_BENHNHAN">
           <End Role="BENHNHAN" Type="Self.BENHNHAN" Multiplicity="0..1" />
           <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="*" />
@@ -523,12 +508,7 @@
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="PHIEUKHAMs" EntityType="Self.PHIEUKHAM" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="TAIKHOANBENHNHANs" EntityType="Self.TAIKHOANBENHNHAN" />
           <EntitySet Name="TAIKHOANNHANVIENs" EntityType="Self.TAIKHOANNHANVIEN" />
-          <AssociationSet Name="FK_BENHNHAN_TAIKHOANBENHNHAN" Association="Self.FK_BENHNHAN_TAIKHOANBENHNHAN">
-            <End Role="TAIKHOANBENHNHAN" EntitySet="TAIKHOANBENHNHANs" />
-            <End Role="BENHNHAN" EntitySet="BENHNHANs" />
-          </AssociationSet>
           <AssociationSet Name="FK_PHIEUKHAM_BENHNHAN" Association="Self.FK_PHIEUKHAM_BENHNHAN">
             <End Role="BENHNHAN" EntitySet="BENHNHANs" />
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
@@ -561,6 +541,36 @@
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
           </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -571,6 +581,7 @@
           <EntitySetMapping Name="BENHNHANs">
             <EntityTypeMapping TypeName="WebPhongKhamNhaKhoaModel.BENHNHAN">
               <MappingFragment StoreEntitySet="BENHNHAN">
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
                 <ScalarProperty Name="MaBenhNhan" ColumnName="MaBenhNhan" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
@@ -671,15 +682,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TAIKHOANBENHNHANs">
-            <EntityTypeMapping TypeName="WebPhongKhamNhaKhoaModel.TAIKHOANBENHNHAN">
-              <MappingFragment StoreEntitySet="TAIKHOANBENHNHAN">
-                <ScalarProperty Name="MaBenhNhan" ColumnName="MaBenhNhan" />
-                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
-                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TAIKHOANNHANVIENs">
             <EntityTypeMapping TypeName="WebPhongKhamNhaKhoaModel.TAIKHOANNHANVIEN">
               <MappingFragment StoreEntitySet="TAIKHOANNHANVIEN">
@@ -689,6 +691,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="WebPhongKhamNhaKhoaModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="WebPhongKhamNhaKhoaModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="WebPhongKhamNhaKhoaModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="WebPhongKhamNhaKhoaModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="WebPhongKhamNhaKhoaModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="WebPhongKhamNhaKhoaModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="WebPhongKhamNhaKhoaModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

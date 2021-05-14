@@ -81,7 +81,6 @@
                                 @*<input class="input100" type="tel" name="SoDienThoai" placeholder="Số Điện Thoại" pattern="[0-9]{10}" maxlength="10">*@
                                 @Html.TextBoxFor(m => m.SoDienThoai, "", new { @class = "input100", @placeholder = "Số Điện Thoại" })
                                 @Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "text-danger" })
-                                @Html.ValidationMessageFor(model => model.TAIKHOANBENHNHAN.TenTaiKhoan, "", new { @class = "text-danger" })
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
@@ -100,7 +99,7 @@
 
                             <div class="wrap-input100 validate-input">
                                 @*<input class="input100" type="date" name="NamSinh" placeholder="Năm Sinh">*@
-                                @Html.TextBoxFor(m => m.GioiTinh, "", new { @class = "input100", @type = "date" })
+                                @Html.TextBoxFor(m => m.NamSinh, "", new { @class = "input100", @type = "date", @placeholder = "Năm sinh" })
                                 @Html.ValidationMessageFor(model => model.NamSinh, "", new { @class = "text-danger" })
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
@@ -108,16 +107,18 @@
                                 </span>
                             </div>
                             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                                <input class="input100" type="password" name="MatKhau" placeholder="Mật Khẩu">
-                                @Html.ValidationMessageFor(model => model.TAIKHOANBENHNHAN.MatKhau, "", new { @class = "text-danger" })
+                                @*<input class="input100" type="password" name="MatKhau" placeholder="Mật Khẩu">*@
+                                @Html.TextBoxFor(m => m.MatKhau, "", new { @class = "input100", @type = "password", @placeholder = "Mật khẩu" })
+                                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                 </span>
                             </div>
                             <div class="wrap-input100 validate-input" data-validate="Password is required">
-                                <input class="input100" type="password" name="NhapLaiMatKhau" placeholder="Nhập Lại Mật Khẩu">
-                                @Html.ValidationMessageFor(model => model.TAIKHOANBENHNHAN.XacNhanMatKhau, "", new { @class = "text-danger" })
+                                @*<input class="input100" type="password" name="NhapLaiMatKhau" placeholder="Nhập Lại Mật Khẩu">*@
+                                @Html.TextBoxFor(m => m.XacNhanMatKhau, "", new { @class = "input100", @type = "password", @placeholder = "Xác nhận mật khẩu" })
+                                @Html.ValidationMessageFor(model => model.XacNhanMatKhau, "", new { @class = "text-danger" })
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
                                     <i class="fa fa-lock" aria-hidden="true"></i>

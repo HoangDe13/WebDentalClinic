@@ -44,8 +44,18 @@ namespace WebDentalClinic.Models
         [Required]
         [Display(Name = "Địa Chỉ")]
         public string DiaChi { get; set; }
-    
-        public virtual TAIKHOANBENHNHAN TAIKHOANBENHNHAN { get; set; }
+        [Required]
+        [Display(Name ="Mật khẩu")]
+        public string MatKhau { get; set; }
+
+        [NotMapped]
+        [Required]
+        [Display(Name = "Xác nhận mật khẩu")]
+        [System.ComponentModel.DataAnnotations.Compare("MatKhau")]
+        public string XacNhanMatKhau { get; set; }
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
     }

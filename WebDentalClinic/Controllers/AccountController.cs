@@ -18,7 +18,7 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult Index()
         {
-            return View(database.TAIKHOANBENHNHANs.ToList());
+            return View(database.BENHNHANs.ToList());
         }
     }
 }

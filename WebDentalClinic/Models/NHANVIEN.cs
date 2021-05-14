@@ -33,9 +33,9 @@ namespace WebDentalClinic.Models
         [Display(Name = "Họ Tên")]
         public string HoTen { get; set; }
         [Display(Name = "Giới Tính")]
-        public int GioiTinh { get; set; }
+        public string GioiTinh { get; set; }
         [Display(Name = "Năm Sinh")]
-        public int NamSinh { get; set; }
+        public DateTime NamSinh { get; set; }
         [Display(Name = "Số Điện Thoại")]
         public string SoDienThoai { get; set; }
         [Display(Name = "Địa Chỉ")]

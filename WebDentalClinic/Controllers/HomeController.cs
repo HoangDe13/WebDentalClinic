@@ -11,8 +11,7 @@ namespace WebDentalClinic.Controllers
 {
     public class HomeController : Controller
     {
-        private DB_Entities_TAIKHOANBENHNHAN _dbTKBN = new DB_Entities_TAIKHOANBENHNHAN();
-        private DB_Entities_BENHNHAN _dbBN = new DB_Entities_BENHNHAN();
+        WebPhongKhamNhaKhoaEntities database = new WebPhongKhamNhaKhoaEntities();
         public ActionResult Index()
         {
             return View();
@@ -37,6 +36,29 @@ namespace WebDentalClinic.Controllers
 
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LoginUser(BENHNHAN _benhNhan)
+        {
+            var f_password = GetMD5(_benhNhan.MatKhau);
+            var check = database.BENHNHANs.Where(s => s.SoDienThoai == _benhNhan.SoDienThoai && s.MatKhau.Equals(f_password)).FirstOrDefault();
+            if (check == null)
+            {
+                ViewBag.ErrorInfo = "Sai info";
+                return Content("Sai Thông Tin Đăng Nhập");
+            }
+            else
+            {
+                database.Configuration.ValidateOnSaveEnabled = false;
+                Session["SoDienThoai"] = _benhNhan.SoDienThoai;
+                Session["MaBenhNhan"] = check.MaBenhNhan;
+                Session["HoTen"] = check.HoTen;
+                Session["BENHNHAN"] = check;
+                return RedirectToAction("Account");
+            }
+
+        }
+
         public ActionResult Register()
         {
             ViewBag.Message = "Your contact page.";
@@ -46,26 +68,22 @@ namespace WebDentalClinic.Controllers
         //POST: Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(BENHNHAN _benhNhan, TAIKHOANBENHNHAN _taiKhoanBenhnhan)
+        public ActionResult Register(BENHNHAN _benhNhan)
         {
             if (ModelState.IsValid)
             {
-                var check = _dbBN.benhNhan.FirstOrDefault(s => s.SoDienThoai == _benhNhan.SoDienThoai);
-                var check2 = _dbTKBN.taiKhoanBenhNhan.FirstOrDefault(s => s.TenTaiKhoan == _taiKhoanBenhnhan.TenTaiKhoan);
-                if (check == null && check2 == null)
+                var check = database.BENHNHANs.FirstOrDefault(s => s.SoDienThoai == _benhNhan.SoDienThoai);
+                if (check == null)
                 {
-                    _taiKhoanBenhnhan.MatKhau = GetMD5(_taiKhoanBenhnhan.MatKhau);
-                    _dbBN.Configuration.ValidateOnSaveEnabled = false;
-                    _dbBN.benhNhan.Add(_benhNhan);
-                    _dbBN.SaveChanges();
-                    _dbTKBN.Configuration.ValidateOnSaveEnabled = false;
-                    _dbTKBN.taiKhoanBenhNhan.Add(_taiKhoanBenhnhan);
-                    _dbTKBN.SaveChanges();
+                    _benhNhan.MatKhau = GetMD5(_benhNhan.MatKhau);
+                    database.Configuration.ValidateOnSaveEnabled = false;
+                    database.BENHNHANs.Add(_benhNhan);
+                    database.SaveChanges();
                     return RedirectToAction("Login");
                 }
                 else
                 {
-                    ViewBag.error = "Tài khoản đã tồn tại";
+                    ViewBag.error = "Số điện thoại đã tồn tại";
                     return View();
                 }
             }
@@ -110,6 +128,12 @@ namespace WebDentalClinic.Controllers
             }
             return byte2String;
         }
+        public ActionResult Logout()
+        {
+            Session.Clear();//remove session
+            return RedirectToAction("Login");
+        }
+
 
 
     }
