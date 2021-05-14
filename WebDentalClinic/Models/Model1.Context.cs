@@ -26,17 +26,13 @@ namespace WebDentalClinic.Models
         }
     
         public virtual DbSet<BENHNHAN> BENHNHANs { get; set; }
-        public virtual DbSet<CHITIETLICHHEN> CHITIETLICHHENs { get; set; }
-        public virtual DbSet<CHITIETPHIEUKHAMBENH> CHITIETPHIEUKHAMBENHs { get; set; }
+        public virtual DbSet<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }
         public virtual DbSet<CHUCVU> CHUCVUs { get; set; }
         public virtual DbSet<DICHVU> DICHVUs { get; set; }
-        public virtual DbSet<HOADONTHANHTOAN> HOADONTHANHTOANs { get; set; }
+        public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<LICHHEN> LICHHENs { get; set; }
-        public virtual DbSet<LOAIDICHVU> LOAIDICHVUs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
-        public virtual DbSet<PHIEUKHAMBENH> PHIEUKHAMBENHs { get; set; }
+        public virtual DbSet<PHIEUKHAM> PHIEUKHAMs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<TAIKHOANBENHNHAN> TAIKHOANBENHNHANs { get; set; }
-        public virtual DbSet<TAIKHOANNHANVIEN> TAIKHOANNHANVIENs { get; set; }
     }
 }

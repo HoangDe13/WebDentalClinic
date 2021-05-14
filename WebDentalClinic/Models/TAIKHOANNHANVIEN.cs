@@ -11,11 +11,17 @@ namespace WebDentalClinic.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TAIKHOANNHANVIEN
     {
-        public string MaNhanVien { get; set; }
-        public Nullable<int> TenTaiKhoan { get; set; }
+
+        [Display(Name = "Mã Bệnh Nhân")]
+        public int MaNhanVien { get; set; }
+        [Display(Name = "Tên Tài Khoản")]
+        public string TenTaiKhoan { get; set; }
+        [Display(Name = "Mật Khẩu")]
+
         public string MatKhau { get; set; }
     
         public virtual NHANVIEN NHANVIEN { get; set; }

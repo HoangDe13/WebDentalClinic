@@ -1,0 +1,62 @@
+﻿@model WebDentalClinic.Models.BENHNHAN
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    var BN = Session["BENHNHAN"];
+}
+
+
+<div>
+   
+    <hr />
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <h4>Thông Tin Bệnh Nhân</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <input type="text" value="@BN" readonly class="form-control" />
+
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GioiTinh, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NamSinh, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SoDienThoai, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        </div>
+
+
+                        @Html.ActionLink("Cập Nhật Thông Tin", "EditProfile", new { /* id = Model.PrimaryKey */ })
+
+
+                    </div>
+        </div>
+    </div>
+
+   </div>
+        </div>
+</div>
+
