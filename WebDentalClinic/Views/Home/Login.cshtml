@@ -43,12 +43,13 @@
 
 
                 </div>
-                <div class="col-md-4 col-sm-12">
-                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
-                    {
+                <div class="col-md-3 col-sm-12">
+                    
+                    <form class="login100-form validate-form">
+                        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                        {
 
-                        @Html.AntiForgeryToken()
-                        <form class="login100-form validate-form">
+                            @Html.AntiForgeryToken()
                             <span class="login100-form-title">
                                 <h2 style="font-family:'Times New Roman';">Đăng Nhập</h2>
                             </span>
@@ -75,8 +76,8 @@
 
                             <div class="container-login100-form-btn">
                                 @*<button class="login100-form-btn">
-                                    Đăng Nhập
-                                </button>*@
+                    Đăng Nhập
+                </button>*@
                                 <input class="login100-form-btn" type="submit" name="Login" value="Đăng nhập" />
                             </div>
 
@@ -95,8 +96,9 @@
                                     <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                                 </a>
                             </div>
+                        }
                         </form>
-                    }
+                    
                     </div>
             </div>
         </div>

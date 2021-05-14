@@ -40,13 +40,14 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 col-sm-12">
+                <div class="col-md-3 col-sm-12">
 
-                    @using (Html.BeginForm("Register", "Home", FormMethod.Post))
-                    {
-                        //@Html.ValidationSummary()
-                        @Html.AntiForgeryToken()
-                        <form class="login100-form validate-form">
+                    
+                    <form class="login100-form validate-form">
+                        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+                        {
+                            //@Html.ValidationSummary()
+                            @Html.AntiForgeryToken()
                             <span class="login100-form-title">
                                 <h2 style="font-family:'Times New Roman';">Đăng Kí</h2>
                             </span>
@@ -127,13 +128,13 @@
 
                             <div class="wrap-login100-form-btn">
                                 @*<button  class="login100-form-btn">
-                                    Đăng Kí
-                                </button>*@
+                    Đăng Kí
+                </button>*@
                                 <input class="login100-form-btn" type="submit" name="Register" value="Đăng ký" />
                             </div>
-
+                        }
                         </form>
-                    }
+                    
                 </div>
             </div>
         </div>
