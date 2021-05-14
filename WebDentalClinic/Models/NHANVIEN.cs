@@ -46,13 +46,13 @@ namespace WebDentalClinic.Models
 
         [Display(Name = "Chức Vụ")]
         public int MaChucVu { get; set; }
+        [Required]
+        [Display(Name = "Mật khẩu")]
+        public string MatKhau { get; set; }
 
-    
         public virtual CHUCVU CHUCVU { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LICHHEN> LICHHENs { get; set; }
-        public virtual TAIKHOANNHANVIEN TAIKHOANNHANVIEN { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
         [NotMapped]
         public List<NHANVIEN> listNV { get; set; }

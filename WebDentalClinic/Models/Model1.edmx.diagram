@@ -14,14 +14,12 @@
         <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.NHANVIEN" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.PHIEUKHAM" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.sysdiagram" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebPhongKhamNhaKhoaModel.TAIKHOANNHANVIEN" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_PHIEUKHAM_BENHNHAN" ManuallyRouted="false" />
         <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_CHITIETPHIEUKHAM_DICHVU" ManuallyRouted="false" />
         <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_CHITIETPHIEUKHAM_PHIEUKHAM" ManuallyRouted="false" />
         <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_NHANVIEN_CHUCVU" ManuallyRouted="false" />
         <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_HOADON_PHIEUKHAM" ManuallyRouted="false" />
         <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_LICHHEN_NHANVIEN" ManuallyRouted="false" />
-        <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_NHANVIEN_TAIKHOANNHANVIEN" ManuallyRouted="false" />
         <AssociationConnector Association="WebPhongKhamNhaKhoaModel.FK_PHIEUKHAM_NHANVIEN" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

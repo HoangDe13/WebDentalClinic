@@ -12,7 +12,7 @@
           <Property Name="MaBenhNhan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
-          <Property Name="NamSinh" Type="datetime" />
+          <Property Name="NamSinh" Type="date" />
           <Property Name="SoDienThoai" Type="nchar" MaxLength="10" />
           <Property Name="DiaChi" Type="nvarchar(max)" />
           <Property Name="MatKhau" Type="nchar" MaxLength="50" />
@@ -76,6 +76,7 @@
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nchar" MaxLength="50" />
           <Property Name="MaChucVu" Type="int" />
+          <Property Name="MatKhau" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PHIEUKHAM">
           <Key>
@@ -99,14 +100,6 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="TAIKHOANNHANVIEN">
-          <Key>
-            <PropertyRef Name="MaNhanVien" />
-          </Key>
-          <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenTaiKhoan" Type="nchar" MaxLength="10" />
-          <Property Name="MatKhau" Type="nchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_CHITIETPHIEUKHAM_DICHVU">
           <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="0..1" />
@@ -165,18 +158,6 @@
             </Principal>
             <Dependent Role="NHANVIEN">
               <PropertyRef Name="MaChucVu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_NHANVIEN_TAIKHOANNHANVIEN">
-          <End Role="TAIKHOANNHANVIEN" Type="Self.TAIKHOANNHANVIEN" Multiplicity="1" />
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TAIKHOANNHANVIEN">
-              <PropertyRef Name="MaNhanVien" />
-            </Principal>
-            <Dependent Role="NHANVIEN">
-              <PropertyRef Name="MaNhanVien" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -245,7 +226,6 @@
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUKHAM" EntityType="Self.PHIEUKHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TAIKHOANNHANVIEN" EntityType="Self.TAIKHOANNHANVIEN" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CHITIETPHIEUKHAM_DICHVU" Association="Self.FK_CHITIETPHIEUKHAM_DICHVU">
             <End Role="DICHVU" EntitySet="DICHVU" />
             <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAM" />
@@ -264,10 +244,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_NHANVIEN_CHUCVU" Association="Self.FK_NHANVIEN_CHUCVU">
             <End Role="CHUCVU" EntitySet="CHUCVU" />
-            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
-          </AssociationSet>
-          <AssociationSet Name="FK_NHANVIEN_TAIKHOANNHANVIEN" Association="Self.FK_NHANVIEN_TAIKHOANNHANVIEN">
-            <End Role="TAIKHOANNHANVIEN" EntitySet="TAIKHOANNHANVIEN" />
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
           </AssociationSet>
           <AssociationSet Name="FK_PHIEUKHAM_BENHNHAN" Association="Self.FK_PHIEUKHAM_BENHNHAN">
@@ -290,7 +266,7 @@
           <Property Name="MaBenhNhan" Type="Int32" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="NamSinh" Type="DateTime" annotation:StoreGeneratedPattern="None" Precision="3" />
+          <Property Name="NamSinh" Type="DateTime" annotation:StoreGeneratedPattern="None" Precision="0" />
           <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PHIEUKHAMs" Relationship="Self.FK_PHIEUKHAM_BENHNHAN" FromRole="BENHNHAN" ToRole="PHIEUKHAM" />
@@ -355,16 +331,16 @@
           </Key>
           <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="String" />
-          <Property Name="NamSinh" Type="DateTime" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="NamSinh" Type="DateTime" Precision="0" />
           <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="MaChucVu" Type="Int32" />
           <NavigationProperty Name="CHUCVU" Relationship="Self.FK_NHANVIEN_CHUCVU" FromRole="NHANVIEN" ToRole="CHUCVU" />
           <NavigationProperty Name="LICHHENs" Relationship="Self.FK_LICHHEN_NHANVIEN" FromRole="NHANVIEN" ToRole="LICHHEN" />
-          <NavigationProperty Name="TAIKHOANNHANVIEN" Relationship="Self.FK_NHANVIEN_TAIKHOANNHANVIEN" FromRole="NHANVIEN" ToRole="TAIKHOANNHANVIEN" />
           <NavigationProperty Name="PHIEUKHAMs" Relationship="Self.FK_PHIEUKHAM_NHANVIEN" FromRole="NHANVIEN" ToRole="PHIEUKHAM" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="PHIEUKHAM">
           <Key>
@@ -392,15 +368,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="TAIKHOANNHANVIEN">
-          <Key>
-            <PropertyRef Name="MaNhanVien" />
-          </Key>
-          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="TenTaiKhoan" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_NHANVIEN_TAIKHOANNHANVIEN" FromRole="TAIKHOANNHANVIEN" ToRole="NHANVIEN" />
         </EntityType>
         <Association Name="FK_PHIEUKHAM_BENHNHAN">
           <End Role="BENHNHAN" Type="Self.BENHNHAN" Multiplicity="0..1" />
@@ -474,18 +441,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_NHANVIEN_TAIKHOANNHANVIEN">
-          <End Role="TAIKHOANNHANVIEN" Type="Self.TAIKHOANNHANVIEN" Multiplicity="1" />
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TAIKHOANNHANVIEN">
-              <PropertyRef Name="MaNhanVien" />
-            </Principal>
-            <Dependent Role="NHANVIEN">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PHIEUKHAM_NHANVIEN">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
           <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="*" />
@@ -508,7 +463,6 @@
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="PHIEUKHAMs" EntityType="Self.PHIEUKHAM" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="TAIKHOANNHANVIENs" EntityType="Self.TAIKHOANNHANVIEN" />
           <AssociationSet Name="FK_PHIEUKHAM_BENHNHAN" Association="Self.FK_PHIEUKHAM_BENHNHAN">
             <End Role="BENHNHAN" EntitySet="BENHNHANs" />
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
@@ -532,10 +486,6 @@
           <AssociationSet Name="FK_LICHHEN_NHANVIEN" Association="Self.FK_LICHHEN_NHANVIEN">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="LICHHEN" EntitySet="LICHHENs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_NHANVIEN_TAIKHOANNHANVIEN" Association="Self.FK_NHANVIEN_TAIKHOANNHANVIEN">
-            <End Role="TAIKHOANNHANVIEN" EntitySet="TAIKHOANNHANVIENs" />
-            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
           </AssociationSet>
           <AssociationSet Name="FK_PHIEUKHAM_NHANVIEN" Association="Self.FK_PHIEUKHAM_NHANVIEN">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
@@ -646,6 +596,7 @@
           <EntitySetMapping Name="NHANVIENs">
             <EntityTypeMapping TypeName="WebPhongKhamNhaKhoaModel.NHANVIEN">
               <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
@@ -679,15 +630,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TAIKHOANNHANVIENs">
-            <EntityTypeMapping TypeName="WebPhongKhamNhaKhoaModel.TAIKHOANNHANVIEN">
-              <MappingFragment StoreEntitySet="TAIKHOANNHANVIEN">
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
-                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
