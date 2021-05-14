@@ -11,8 +11,11 @@ namespace WebDentalClinic.Models
 {
     using System;
     using System.Collections.Generic;
+
     using System.ComponentModel.DataAnnotations;
+
     using System.ComponentModel.DataAnnotations.Schema;
+
 
     public partial class NHANVIEN
     {
@@ -22,17 +25,22 @@ namespace WebDentalClinic.Models
             this.LICHHENs = new HashSet<LICHHEN>();
             this.PHIEUKHAMs = new HashSet<PHIEUKHAM>();
         }
-        [Display(Name="Mã Nhân Viên")]
+
+
+        [Display(Name = "Mã Nhân Viên")]
+
         public int MaNhanVien { get; set; }
         [Display(Name = "Họ Tên")]
         public string HoTen { get; set; }
         [Display(Name = "Giới Tính")]
+
         public Nullable<int> GioiTinh { get; set; }
         [Display(Name = "Năm Sinh")]
         public Nullable<int> NamSinh { get; set; }
         [Display(Name = "Số Điện Thoại")]
         public string SoDienThoai { get; set; }
         [Display(Name = "Địa Chỉ")]
+
         public string DiaChi { get; set; }
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -40,7 +48,6 @@ namespace WebDentalClinic.Models
         public Nullable<int> MaChucVu { get; set; }
         [Display(Name = "Mật Khẩu")]
         public string MatKhau { get; set; }
-    
         public virtual CHUCVU CHUCVU { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LICHHEN> LICHHENs { get; set; }

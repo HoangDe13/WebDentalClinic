@@ -15,8 +15,8 @@ namespace WebDentalClinic.Controllers
         WebPhongKhamNhaKhoaEntities database = new WebPhongKhamNhaKhoaEntities();
         public ActionResult Create()
         {
-            TAIKHOANNHANVIEN tk = new TAIKHOANNHANVIEN();
-            return View(tk);
+           
+            return View();
         }
         public ActionResult Index()
         {

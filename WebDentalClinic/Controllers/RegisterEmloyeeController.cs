@@ -70,7 +70,9 @@ namespace WebDentalClinic.Controllers
             {
                 var ss = nv.MaChucVu.Equals(1);
 
+
                 if (ss == true)
+
                 {
                     return RedirectToAction("Index","RegisterEmloyee");
                 }
