@@ -12,6 +12,7 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
 
     public partial class LICHHEN
     {
@@ -41,4 +42,5 @@ namespace WebDentalClinic.Models
     
         public virtual NHANVIEN NHANVIEN { get; set; }
     }
+    
 }
