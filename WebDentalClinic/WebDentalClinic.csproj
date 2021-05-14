@@ -129,9 +129,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+
+    <Compile Include="Controllers\RegisterEmloyeeController.cs" />
+
     <Compile Include="Controllers\LichHenController.cs" />
+
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -337,7 +342,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\IntroDental.cshtml" />
     <Content Include="Views\Home\IntroInfrastructure.cshtml" />
     <Content Include="Views\Home\IntroDoctor.cshtml" />
@@ -345,13 +349,26 @@
     <Content Include="Views\Shared\Layout_Nurse.cshtml" />
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
-    <Content Include="Views\Service\Index.cshtml" />
+
+    <Content Include="Views\RegisterEmloyee\Create.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
     <Content Include="Views\LichHen\SelectBacSi.cshtml" />
+    <Content Include="Views\Service\Create.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\Edit.cshtml" />
+    <Content Include="Views\Service\Delete.cshtml" />
+    <Content Include="Views\Service\Details.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Login.cshtml" />
     <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\LichHen\CheckLich.cshtml" />
     <Content Include="Views\LichHen\Delete.cshtml" />
     <Content Include="Views\LichHen\Edit.cshtml" />
+=======
+    <Content Include="Views\Home\Register.cshtml" />
+>>>>>>> 45c08a94ea77d58c09608954a6f7e0be785c189a
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
