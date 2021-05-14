@@ -362,7 +362,7 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Login.cshtml" />
     <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
-<<<<<<< HEAD
+ HEAD
     <Content Include="Views\LichHen\CheckLich.cshtml" />
     <Content Include="Views\LichHen\Delete.cshtml" />
     <Content Include="Views\LichHen\Edit.cshtml" />
