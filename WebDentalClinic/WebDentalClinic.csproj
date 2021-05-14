@@ -128,14 +128,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-
     <Compile Include="Controllers\DentistController.cs" />
-
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
-
     <Compile Include="Controllers\CustomerController.cs" />
-
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterEmloyeeController.cs" />
     <Compile Include="Controllers\LichHenController.cs" />
@@ -344,7 +340,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-
     <Content Include="Views\Shared\_LayoutDentist.cshtml" />
     <Content Include="Views\Dentist\Index.cshtml" />
     <Content Include="Views\Dentist\Account.cshtml" />
@@ -353,7 +348,6 @@
     <Content Include="Views\Dentist\InvoiceHistory.cshtml" />
     <Content Include="Views\Dentist\Invoice.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationList.cshtml" />
-
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\IntroDental.cshtml" />
     <Content Include="Views\Home\IntroInfrastructure.cshtml" />
@@ -374,13 +368,10 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Login.cshtml" />
     <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
- HEAD
     <Content Include="Views\LichHen\CheckLich.cshtml" />
     <Content Include="Views\LichHen\Delete.cshtml" />
     <Content Include="Views\LichHen\Edit.cshtml" />
-
     <Content Include="Views\Home\Register.cshtml" />
-
     <Content Include="Views\Customer\About.cshtml" />
     <Content Include="Views\Customer\Contact.cshtml" />
     <Content Include="Views\Customer\CreateLichHen.cshtml" />
@@ -395,7 +386,6 @@
     <Content Include="Views\Customer\SelectBacSi.cshtml" />
     <Content Include="Views\Customer\Service.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
