@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
-    var BN = Session["BENHNHAN"];
+    var BN = Session["BENHNHAN"] as WebDentalClinic.Models.BENHNHAN;
+
+
+
 }
 
 
@@ -12,51 +15,62 @@
     <hr />
     <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100">
+            <div class="col-md-6">
+                <div class="wrap-login100"style="text-align:center;">
 
-                <div class="col-md-12">
-                    <div class="form-horizontal">
-                        <h4>Thông Tin Bệnh Nhân</h4>
-                        <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-md-12">
+                        <div class="form-horizontal">
+                            <h4>Thông Tin Bệnh Nhân</h4>
+                            <hr />
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <input type="text" value="@BN" readonly class="form-control" />
+                            <div class="form-group">
+                                <p class="control-label col-md-4">Họ Tên : </p>
+                                <input type="text" value="@BN.HoTen" readonly class="form-control" />
+
+
+                            </div>
+                            <div class="form-group">
+                                <p class="control-label col-md-4">Giới Tính : </p>
+                                @if (BN.GioiTinh == 0)
+                                {
+                                    <input type="text" value="Nữ" readonly class="form-control" />
+                                }
+                                else
+                                {
+                                    <input type="text" value="Nam" readonly class="form-control" />
+                                }
+
+                            </div>
+                            <div class="form-group">
+
+                                <p class="control-label col-md-4">Năm Sinh : </p>
+                                <input type="text" value="@BN.NamSinh" readonly class="form-control" />
+
+                            </div>
+                            <div class="form-group">
+                                <p class="control-label col-md-4">Số Điện Thoại : </p>
+                                <input type="text" value="@BN.SoDienThoai" readonly class="form-control" />
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <p class="control-label col-md-4">Địa Chỉ : </p>
+                                <input type="text" value="@BN.DiaChi" readonly class="form-control" />
+
+                            </div>
+
+
+                            <button class="btn btn-default" style="text-decoration:none">@Html.ActionLink("Cập Nhật Thông Tin", "EditProfile", new { /* id = Model.PrimaryKey */ })</button>
+
 
 
                         </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.GioiTinh, htmlAttributes: new { @class = "control-label col-md-2" })
-
-
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.NamSinh, htmlAttributes: new { @class = "control-label col-md-2" })
-
-
-
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.SoDienThoai, htmlAttributes: new { @class = "control-label col-md-2" })
-
-
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                        </div>
-
-
-                        @Html.ActionLink("Cập Nhật Thông Tin", "EditProfile", new { /* id = Model.PrimaryKey */ })
-
-
                     </div>
-        </div>
-    </div>
+                </div>
 
-   </div>
+            </div>
         </div>
 </div>
 
+    </div>
