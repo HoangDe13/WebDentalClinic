@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebDentalClinic.Models.LICHHEN>
+
+@{
+    ViewBag.Title = "MedicalExaminationList";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+<CENTER><h2>DANH SÁCH KHÁM BỆNH</h2></CENTER>
+<hr />
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayKham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioKham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayKham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioKham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaLichHen }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaLichHen }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaLichHen })
+        </td>*@
+    </tr>
+}
+
+</table>

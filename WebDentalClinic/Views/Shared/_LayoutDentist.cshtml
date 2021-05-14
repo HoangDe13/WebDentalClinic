@@ -1,0 +1,62 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/main.css")
+
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/bootstrap.css")
+
+    @Styles.Render("~/Content/flexslider.css")
+    @Styles.Render("~/Content/jquery.fancybox.css")
+    @Styles.Render("~/Content/responsive.css")
+    @Styles.Render("~/Content/font-icon.css")
+    @Styles.Render("~/Content/animate.min.css")
+    @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("css", false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Dental Clinic", "Index", "Dentist", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Trang chủ", "Index", "Dentist")</li>
+                    <li>@Html.ActionLink("Khám bệnh", "MedicalExamination", "Dentist")</li>
+                    <li>@Html.ActionLink("Danh sách khám bệnh", "MedicalExaminationList", "Dentist")</li>
+                    <li>@Html.ActionLink("Tạo Hóa đơn", "Invoice", "Dentist")</li>
+                    @*Đây là chuẩn bị cho việc thanh toán*@
+                    <li>@Html.ActionLink("Hóa đơn", "InvoiceHistory", "Dentist")</li>
+                    @*Đây là lịch sử hóa đơn đã thanh toán*@
+                    <li>@Html.ActionLink("Tài khoản", "Account", "Dentist")</li>
+                    <li>@Html.ActionLink("Đăng xuất", "Logout", "Dentist")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
