@@ -108,6 +108,7 @@ namespace WebDentalClinic.Controllers
                 Session["MatKhau"] = BN.MatKhau;
                 return RedirectToAction("Index", "Home");
             }
+
         }
 
 

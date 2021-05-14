@@ -345,11 +345,9 @@
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
     <Content Include="Views\RegisterEmloyee\Create.cshtml" />
-    <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
     <Content Include="Views\LichHen\SelectBacSi.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\RegisterEmloyee\Login.cshtml" />
     <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
@@ -357,6 +355,9 @@
     <Content Include="Views\Service\Details.cshtml" />
     <Content Include="Views\Service\Edit.cshtml" />
     <Content Include="Views\Service\Delete.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Index.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Login.cshtml" />
+    <Content Include="Views\Shared\LayoutLoginEmloyee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
