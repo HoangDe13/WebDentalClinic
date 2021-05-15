@@ -16,6 +16,10 @@ namespace WebDentalClinic.Controllers
             NHANVIEN nv = new NHANVIEN();   
             return View();
         }
+        public ActionResult Details(int id)
+        {
+            return View(database.NHANVIENs.Where(s => s.MaNhanVien == id).FirstOrDefault());
+        }
         public ActionResult Index()
         {
             return View(database.NHANVIENs.ToList());
@@ -46,7 +50,38 @@ namespace WebDentalClinic.Controllers
 
 
         }
-        
+        public ActionResult Edit(int id)
+        {
+            return View(database
+                .NHANVIENs.Where(s => s.MaNhanVien == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult Edit( NHANVIEN nv)
+        {
+            database.Entry(nv).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Delete(int id)
+        {
+            return View(database.NHANVIENs.Where(s => s.MaNhanVien == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult Delete(int id, NHANVIEN dv)
+        {
+            try
+            {
+                dv = database.NHANVIENs.Where(s => s.MaNhanVien == id).FirstOrDefault();
+                database.NHANVIENs.Remove(dv);
+                database.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return Content(" this data is using in other table , error Delete");
+            }
+        }
+
         public ActionResult Login()
         {
             return View();
@@ -59,6 +94,7 @@ namespace WebDentalClinic.Controllers
         public ActionResult Login(NHANVIEN nv)
         {
 
+
             var check = database.NHANVIENs.Where(s => s.SoDienThoai == nv.SoDienThoai && s.MatKhau == nv.MatKhau).FirstOrDefault();
             if (check == null)
             { //add session
@@ -68,15 +104,14 @@ namespace WebDentalClinic.Controllers
             }
             else
             {
-                var ss = nv.MaChucVu.Equals(1);
 
-
-                if (ss == true)
+                var cv= database.NHANVIENs.Where(s => s.SoDienThoai == nv.SoDienThoai ).FirstOrDefault();
+                if (cv.MaChucVu.Equals(1))
 
                 {
-                    return RedirectToAction("Index","RegisterEmloyee");
+                    return RedirectToAction("Index","Dentist");
                 }
-                else if (ss ==false)
+                else if (cv.MaChucVu.Equals(2))
                 {
                     return RedirectToAction("Index", "RegisterEmloyee");
                 }

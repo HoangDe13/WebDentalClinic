@@ -30,12 +30,12 @@ namespace WebDentalClinic.Controllers
             
             ViewBag.Message = "Your  page.";
 
-            return View(database.PHIEUKHAMBENHs.ToList());
+            return View(database.PHIEUKHAMs.ToList());
         }
 
         public ActionResult MedicalExaminationList()
         {
-            var DatetimeList = from a in database.LICHHENs where a.NgayKham == DateTime.Now select a;
+            var DatetimeList = from a in database.LICHHENs where a.NgayHen == DateTime.Now select a;
             
             ViewBag.Message = "Your  page.";
 
