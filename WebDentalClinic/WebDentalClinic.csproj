@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -106,9 +109,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -133,10 +133,13 @@
     <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+
     <Compile Include="Controllers\ListLichHenController.cs" />
+
     <Compile Include="Controllers\RegisterEmloyeeController.cs" />
     <Compile Include="Controllers\LichHenController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Data\DentalClinic.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -356,17 +359,28 @@
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
     <Content Include="Views\RegisterEmloyee\Create.cshtml" />
-    <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
     <Content Include="Views\LichHen\SelectBacSi.cshtml" />
-    <Content Include="Views\Service\Create.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\Create.cshtml" />
+    <Content Include="Views\Service\Details.cshtml" />
     <Content Include="Views\Service\Edit.cshtml" />
     <Content Include="Views\Service\Delete.cshtml" />
-    <Content Include="Views\Service\Details.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Login.cshtml" />
+
     <Content Include="Views\LichHen\DatLichThanhCongYta.cshtml" />
+
+
+    <Content Include="Views\Shared\LayoutLoginEmloyee.cshtml" />
+
+    <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
+
+    <Content Include="Views\LichHen\CheckLich.cshtml" />
+
     <Content Include="Views\LichHen\Delete.cshtml" />
     <Content Include="Views\LichHen\Edit.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
@@ -379,14 +393,26 @@
     <Content Include="Views\Customer\IntroDental.cshtml" />
     <Content Include="Views\Customer\IntroDoctor.cshtml" />
     <Content Include="Views\Customer\IntroInfrastructure.cshtml" />
-    <Content Include="Views\Customer\LichSuKham.cshtml" />
+
+ 
     <Content Include="Views\Customer\Profile.cshtml" />
     <Content Include="Views\Customer\SelectBacSi.cshtml" />
     <Content Include="Views\Customer\Service.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
+
     <Content Include="Views\ListLichHen\ListLichhen.cshtml" />
     <Content Include="Views\ListLichHen\CreateLichHenYTA.cshtml" />
     <Content Include="Views\ListLichHen\DatLichThanhCong.cshtml" />
+
+
+
+    <Content Include="Views\Customer\LichSuKham.cshtml" />
+    <Content Include="Views\Customer\ChiTietphieukham.cshtml" />
+
+    <Content Include="Views\ListLichHen\ListLichHen.cshtml" />
+
+
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

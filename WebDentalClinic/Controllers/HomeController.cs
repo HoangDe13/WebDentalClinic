@@ -110,6 +110,7 @@ namespace WebDentalClinic.Controllers
                 Session["BENHNHAN"] = check;
                 return RedirectToAction("Profile", "Customer");
             }
+
         }
 
 

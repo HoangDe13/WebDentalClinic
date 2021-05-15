@@ -12,6 +12,7 @@ namespace WebDentalClinic.Controllers
         // GET: ListLichHen
         WebPhongKhamNhaKhoaEntities db = new WebPhongKhamNhaKhoaEntities();
 
+
         public ActionResult ListLichhen()
         {
             return View(db.LICHHENs.ToList());
@@ -71,5 +72,6 @@ namespace WebDentalClinic.Controllers
         {
             return View();
         }
+
     }
 }

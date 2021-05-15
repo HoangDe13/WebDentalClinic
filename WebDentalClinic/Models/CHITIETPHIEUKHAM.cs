@@ -11,10 +11,13 @@ namespace WebDentalClinic.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CHITIETPHIEUKHAM
     {
+        [Key]
         public int MaChiTietPhieuKham { get; set; }
+        
         public Nullable<int> MaPhieuKham { get; set; }
         public Nullable<int> MaDichVu { get; set; }
         public Nullable<int> SoLuong { get; set; }
