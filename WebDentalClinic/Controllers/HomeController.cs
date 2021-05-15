@@ -24,6 +24,25 @@ namespace WebDentalClinic.Controllers
 
 
         }
+        public ActionResult ForgotPassword(BENHNHAN _benhNhan)
+        {
+           /* var f_password = GetMD5(_benhNhan.MatKhau);*/
+            var check = database.BENHNHANs.Where(s => s.SoDienThoai == _benhNhan.SoDienThoai).FirstOrDefault();
+            if (check != null)
+            {
+                ViewBag.ErrorInfo = "Sai info";
+                
+                return View();
+            }
+            else
+            {
+                /*_benhNhan.MatKhau = GetMD5(_benhNhan.MatKhau);*/
+                database.Configuration.ValidateOnSaveEnabled = false;
+                database.BENHNHANs.Add(_benhNhan);
+                database.SaveChanges();
+                return RedirectToAction("Login");
+            }
+        }
 
         public ActionResult About()
         {
@@ -48,11 +67,11 @@ namespace WebDentalClinic.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(BENHNHAN _benhNhan)
         {
-            var f_password = GetMD5(_benhNhan.MatKhau);
-            var check = database.BENHNHANs.Where(s => s.SoDienThoai == _benhNhan.SoDienThoai && s.MatKhau == f_password).FirstOrDefault();
+            /*var f_password = GetMD5(_benhNhan.MatKhau);*/
+            var check = database.BENHNHANs.Where(s => s.SoDienThoai == _benhNhan.SoDienThoai && s.MatKhau == _benhNhan.MatKhau).FirstOrDefault();
             if (check == null)
             {
-                ViewBag.ErrorInfo = "Sai info";
+                ViewBag.ErrorInfo = "Sai số điện thoại";
                 TempData["msg2"] = "<script>alert('Đăng nhập thất bại');</script>";
                 return View();
             }
@@ -86,7 +105,7 @@ namespace WebDentalClinic.Controllers
                 var check = database.BENHNHANs.FirstOrDefault(s => s.SoDienThoai == _benhNhan.SoDienThoai);
                 if (check == null)
                 {
-                    _benhNhan.MatKhau = GetMD5(_benhNhan.MatKhau);
+                    /*_benhNhan.MatKhau = GetMD5(_benhNhan.MatKhau);*/
                     database.Configuration.ValidateOnSaveEnabled = false;
                     database.BENHNHANs.Add(_benhNhan);
                     database.SaveChanges();
@@ -125,7 +144,7 @@ namespace WebDentalClinic.Controllers
             return View();
         }
         //create a string MD5
-        public static string GetMD5(string str)
+        /*public static string GetMD5(string str)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
             byte[] fromData = Encoding.UTF8.GetBytes(str);
@@ -138,7 +157,7 @@ namespace WebDentalClinic.Controllers
 
             }
             return byte2String;
-        }
+        }*/
         public ActionResult Logout()
         {
             Session.Clear();//remove session
