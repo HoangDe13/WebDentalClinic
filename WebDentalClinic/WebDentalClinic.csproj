@@ -152,7 +152,6 @@
     <Compile Include="Models\CHUCVU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DentistModel\MedicalExaminationList.cs" />
     <Compile Include="Models\DICHVU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -373,11 +372,15 @@
     <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Login.cshtml" />
 
+    <Content Include="Views\LichHen\DatLichThanhCongYta.cshtml" />
+
+
     <Content Include="Views\Shared\LayoutLoginEmloyee.cshtml" />
 
     <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
 
     <Content Include="Views\LichHen\CheckLich.cshtml" />
+
     <Content Include="Views\LichHen\Delete.cshtml" />
     <Content Include="Views\LichHen\Edit.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
@@ -397,11 +400,17 @@
     <Content Include="Views\Customer\Service.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
 
+    <Content Include="Views\ListLichHen\ListLichhen.cshtml" />
+    <Content Include="Views\ListLichHen\CreateLichHenYTA.cshtml" />
+    <Content Include="Views\ListLichHen\DatLichThanhCong.cshtml" />
+
+
 
     <Content Include="Views\Customer\LichSuKham.cshtml" />
     <Content Include="Views\Customer\ChiTietphieukham.cshtml" />
 
     <Content Include="Views\ListLichHen\ListLichHen.cshtml" />
+
 
 
   </ItemGroup>
