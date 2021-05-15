@@ -11,7 +11,8 @@ namespace WebDentalClinic.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class PHIEUKHAM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,8 +20,10 @@ namespace WebDentalClinic.Models
         {
             this.CHITIETPHIEUKHAMs = new HashSet<CHITIETPHIEUKHAM>();
             this.HOADONs = new HashSet<HOADON>();
+
         }
-    
+
+        [Key]
         public int MaPhieuKham { get; set; }
         public Nullable<int> MaNhanVien { get; set; }
         public Nullable<int> MaBenhNhan { get; set; }
@@ -36,5 +39,8 @@ namespace WebDentalClinic.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
+        public virtual CHITIETPHIEUKHAM CHITIETPHIEUKHAM2 { get; set; }//a
+
+        
     }
 }
