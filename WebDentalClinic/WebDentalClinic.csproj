@@ -360,17 +360,23 @@
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\UpdateProfile.cshtml" />
     <Content Include="Views\RegisterEmloyee\Create.cshtml" />
-    <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\LichHen\CreateLichHen.cshtml" />
     <Content Include="Views\LichHen\SelectBacSi.cshtml" />
-    <Content Include="Views\Service\Create.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\Create.cshtml" />
+    <Content Include="Views\Service\Details.cshtml" />
     <Content Include="Views\Service\Edit.cshtml" />
     <Content Include="Views\Service\Delete.cshtml" />
-    <Content Include="Views\Service\Details.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Login.cshtml" />
+
+    <Content Include="Views\Shared\LayoutLoginEmloyee.cshtml" />
+
     <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
+
     <Content Include="Views\LichHen\CheckLich.cshtml" />
     <Content Include="Views\LichHen\Delete.cshtml" />
     <Content Include="Views\LichHen\Edit.cshtml" />
@@ -391,10 +397,12 @@
     <Content Include="Views\Customer\Service.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
 
+
     <Content Include="Views\Customer\LichSuKham.cshtml" />
     <Content Include="Views\Customer\ChiTietphieukham.cshtml" />
 
     <Content Include="Views\ListLichHen\ListLichHen.cshtml" />
+
 
   </ItemGroup>
   <ItemGroup>

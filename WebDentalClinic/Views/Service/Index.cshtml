@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm Mới Dịch Vụ", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,6 +23,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LoaiDichVu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GhiChu)
         </th>
         <th></th>
     </tr>
@@ -42,9 +45,12 @@
             @Html.DisplayFor(modelItem => item.LoaiDichVu)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.GhiChu)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh Sửa", "Edit", new { id =item.MaDichVu }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaDichVu }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.MaDichVu  })
         </td>
     </tr>
 }

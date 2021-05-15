@@ -26,14 +26,17 @@ namespace WebDentalClinic.Models
             this.PHIEUKHAMs = new HashSet<PHIEUKHAM>();
         }
 
+
         [Display(Name = "Mã Nhân Viên")]
+
         public int MaNhanVien { get; set; }
         [Display(Name = "Họ Tên")]
         public string HoTen { get; set; }
         [Display(Name = "Giới Tính")]
-        public int GioiTinh { get; set; }
+
+        public Nullable<int> GioiTinh { get; set; }
         [Display(Name = "Năm Sinh")]
-        public int NamSinh { get; set; }
+        public Nullable<int> NamSinh { get; set; }
         [Display(Name = "Số Điện Thoại")]
         public string SoDienThoai { get; set; }
         [Display(Name = "Địa Chỉ")]
@@ -41,7 +44,9 @@ namespace WebDentalClinic.Models
         public string DiaChi { get; set; }
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Display(Name = "Chức Vụ")]
         public Nullable<int> MaChucVu { get; set; }
+        [Display(Name = "Mật Khẩu")]
         public string MatKhau { get; set; }
         public virtual CHUCVU CHUCVU { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

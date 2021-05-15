@@ -56,34 +56,34 @@ namespace WebDentalClinic.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string SDT, string password)
+        public ActionResult Login(NHANVIEN nv)
         {
-            if (ModelState.IsValid)
-            {
 
-                var data = database.NHANVIENs.Where(s => s.SoDienThoai.Equals(SDT));
-                if (data.Count() > 0)
-                {
-                    //add session
+            var check = database.NHANVIENs.Where(s => s.SoDienThoai == nv.SoDienThoai && s.MatKhau == nv.MatKhau).FirstOrDefault();
+            if (check == null)
+            { //add session
 
-                    var PQ1 = database.NHANVIENs.Where(s => s.CHUCVU.Equals(1));
-                    var PQ2 = database.NHANVIENs.Where(s => s.CHUCVU.Equals(0));
-                    if (PQ1.Count() > 0)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                    else if (PQ2.Count() > 0)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                }
-                else
-                {
-                    ViewBag.error = "Login failed";
-                    return RedirectToAction("Login");
-                }
+                ViewBag.error = "Login failed";
+                return Content(" sai thông tin đăng nhập");
             }
-            return View();
+            else
+            {
+                var ss = nv.MaChucVu.Equals(1);
+
+
+                if (ss == true)
+
+                {
+                    return RedirectToAction("Index","RegisterEmloyee");
+                }
+                else if (ss ==false)
+                {
+                    return RedirectToAction("Index", "RegisterEmloyee");
+                }
+               return Content("Sai thông tin đăng nhập");
+            }
+
+         
         }
 
 
