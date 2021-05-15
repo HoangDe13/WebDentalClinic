@@ -14,7 +14,15 @@ namespace WebDentalClinic.Controllers
         WebPhongKhamNhaKhoaEntities database = new WebPhongKhamNhaKhoaEntities();
         public ActionResult Index()
         {
+            if (Session["MaBenhNhan"] != null)
+            {
+                
+                TempData["msg3"] = "<script>alert('Đăng nhập thành công');</script>";
+                return View();
+            }
             return View();
+
+
         }
 
         public ActionResult About()
@@ -38,14 +46,15 @@ namespace WebDentalClinic.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LoginUser(BENHNHAN _benhNhan)
+        public ActionResult Login(BENHNHAN _benhNhan)
         {
             var f_password = GetMD5(_benhNhan.MatKhau);
-            var check = database.BENHNHANs.Where(s => s.SoDienThoai == _benhNhan.SoDienThoai && s.MatKhau.Equals(f_password)).FirstOrDefault();
+            var check = database.BENHNHANs.Where(s => s.SoDienThoai == _benhNhan.SoDienThoai && s.MatKhau == f_password).FirstOrDefault();
             if (check == null)
             {
                 ViewBag.ErrorInfo = "Sai info";
-                return Content("Sai Thông Tin Đăng Nhập");
+                TempData["msg2"] = "<script>alert('Đăng nhập thất bại');</script>";
+                return View();
             }
             else
             {
@@ -54,7 +63,9 @@ namespace WebDentalClinic.Controllers
                 Session["MaBenhNhan"] = check.MaBenhNhan;
                 Session["HoTen"] = check.HoTen;
                 Session["BENHNHAN"] = check;
-                return RedirectToAction("Account");
+                
+                return RedirectToAction("Index");
+                
             }
 
         }
@@ -83,7 +94,7 @@ namespace WebDentalClinic.Controllers
                 }
                 else
                 {
-                    ViewBag.error = "Số điện thoại đã tồn tại";
+                    TempData["msg"] = "<script>alert('Số điện thoại đã được đăng ký');</script>";
                     return View();
                 }
             }

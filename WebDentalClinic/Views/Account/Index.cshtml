@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebDentalClinic.Models.TAIKHOANBENHNHAN>
+﻿@model IEnumerable<WebDentalClinic.Models.NHANVIEN>
 
 @{
     ViewBag.Title = "Index";
@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.MaBenhNhan)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TenTaiKhoan)
+            @Html.DisplayNameFor(model => model.SoDienThoai)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MatKhau)
@@ -30,7 +30,7 @@
             @Html.DisplayFor(modelItem => item.MaBenhNhan)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TenTaiKhoan)
+            @Html.DisplayFor(modelItem => item.SoDienThoai)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MatKhau)
