@@ -48,6 +48,7 @@ namespace WebDentalClinic.Models
         public Nullable<int> MaChucVu { get; set; }
         [Display(Name = "Mật Khẩu")]
         public string MatKhau { get; set; }
+       
         public virtual CHUCVU CHUCVU { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LICHHEN> LICHHENs { get; set; }
