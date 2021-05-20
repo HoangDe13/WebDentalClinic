@@ -1,0 +1,5 @@
+﻿@model WebDentalClinic.Models.NHANVIEN
+
+
+
+@Html.DropDownListFor(model => model.MaNhanVien, new SelectList(Model.listNV.OrderBy(model => model.HoTen), "MaNhanVien", "HoTen"), "--Chọn Nhân Viên--")

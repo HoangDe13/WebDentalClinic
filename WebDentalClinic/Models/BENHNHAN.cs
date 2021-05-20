@@ -45,5 +45,6 @@ namespace WebDentalClinic.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
+        public List<BENHNHAN> listBN { get; set; }
     }
 }

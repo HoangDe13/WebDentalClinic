@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -62,9 +64,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -133,9 +135,8 @@
     <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-
     <Compile Include="Controllers\ListLichHenController.cs" />
-
+    <Compile Include="Controllers\PhieuKhamController.cs" />
     <Compile Include="Controllers\RegisterEmloyeeController.cs" />
     <Compile Include="Controllers\LichHenController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
@@ -385,8 +386,6 @@
     <Content Include="Views\Customer\IntroDental.cshtml" />
     <Content Include="Views\Customer\IntroDoctor.cshtml" />
     <Content Include="Views\Customer\IntroInfrastructure.cshtml" />
-
- 
     <Content Include="Views\Customer\Profile.cshtml" />
     <Content Include="Views\Customer\SelectBacSi.cshtml" />
     <Content Include="Views\Customer\Service.cshtml" />
@@ -397,6 +396,14 @@
     <Content Include="Views\CreateProfile\Create.cshtml" />
     <Content Include="Views\CreateProfile\Index.cshtml" />
     <Content Include="Views\CreateProfile\Edit.cshtml" />
+    <Content Include="Views\PhieuKham\Create.cshtml" />
+    <Content Include="Views\PhieuKham\Delete.cshtml" />
+    <Content Include="Views\PhieuKham\Details.cshtml" />
+    <Content Include="Views\PhieuKham\Edit.cshtml" />
+    <Content Include="Views\PhieuKham\Index.cshtml" />
+    <Content Include="Views\PhieuKham\SelectBenhNhan.cshtml" />
+    <Content Include="Views\PhieuKham\SelectNhanVien.cshtml" />
+    <Content Include="Views\PhieuKham\IndexBacSi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
