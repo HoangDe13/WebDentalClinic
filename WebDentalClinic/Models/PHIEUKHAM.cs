@@ -24,6 +24,7 @@ namespace WebDentalClinic.Models
         }
 
         [Key]
+
         [Display(Name = "Mã Phiếu Khám")]
         public int MaPhieuKham { get; set; }
         [Display(Name = "Bác Sĩ")]
@@ -43,6 +44,7 @@ namespace WebDentalClinic.Models
         [Display(Name = "Triệu Chúng")]
         public string MoTaTrieuChung { get; set; }
         [Display(Name ="Tinh Trạng")]
+
         public string TinhTrang { get; set; }
     
         public virtual BENHNHAN BENHNHAN { get; set; }

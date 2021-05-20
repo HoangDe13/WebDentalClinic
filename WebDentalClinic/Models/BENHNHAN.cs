@@ -34,6 +34,7 @@ namespace WebDentalClinic.Models
         [Display(Name = "Địa Chỉ")]
         public string DiaChi { get; set; }
         [Display(Name = "Mật Khẩu")]
+        [DataType(DataType.Password)]
         public string MatKhau { get; set; }
         [Display(Name ="Xác Nhận Mật Khẩu")]
         [Required(ErrorMessage = "Nhập Lại Mật Khẩu")]
@@ -44,5 +45,6 @@ namespace WebDentalClinic.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
+        public List<BENHNHAN> listBN { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/LayoutLoginEmloyee.cshtml";
+    var BN = Session["MaBenhNhan"];
 }
 
 @using (Html.BeginForm("Login", "RegisterEmloyee"))
@@ -63,11 +64,11 @@
                                     </a>
                                 </div>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+  
 }
-
