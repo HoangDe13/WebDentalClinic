@@ -34,24 +34,25 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.GioiTinh, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div style="text-align:left">
+                                    @if (Model.GioiTinh == 1)
+                                    {
+                                        @Html.RadioButtonFor(model => model.GioiTinh, "1", new { @checked = true })
+                                        @Html.Label("Nam")
+                                        
+                                        @Html.RadioButtonFor(model => model.GioiTinh, "0")
+                                        @Html.Label("Nữ")
 
-                                @if (Model.GioiTinh == 1)
-                                {
-                                    @Html.RadioButtonFor(model => model.GioiTinh, "1", new { @checked = true })
-                                    @Html.Label("Nam")
-                                    @Html.RadioButtonFor(model => model.GioiTinh, "0")
-                                    @Html.Label("Nữ")
+                                    }
+                                    else
+                                    {
+                                        @Html.RadioButtonFor(model => model.GioiTinh, 1)
+                                        @Html.Label("Nam")
+                                        @Html.RadioButtonFor(model => model.GioiTinh, 0, new { @checked = true })
+                                        @Html.Label("Nữ")
 
-                                }
-                                else
-                                {
-                                    @Html.RadioButtonFor(model => model.GioiTinh, 1)
-                                    @Html.Label("Nam")
-                                    @Html.RadioButtonFor(model => model.GioiTinh, 0, new { @checked = true })
-                                    @Html.Label("Nữ")
-
-                                }
-
+                                    }
+                                </div>
                             </div>
 
                             <div class="form-group">
