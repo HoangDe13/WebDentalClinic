@@ -5,11 +5,12 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebDentalClinic.Models;
 
 namespace WebDentalClinic.Controllers
 {
-    
+
     public class CustomerController : Controller
     {
         WebPhongKhamNhaKhoaEntities db = new WebPhongKhamNhaKhoaEntities();
@@ -89,11 +90,12 @@ namespace WebDentalClinic.Controllers
                 lh.TinhTrang = "CXN";
                 db.LICHHENs.Add(lh);
                 db.SaveChanges();
-                return RedirectToAction("DatLichThanhCong", "LichHen");
+                return RedirectToAction("DatLichThanhCongCus", "Customer");
             }
             catch
             {
-                return Content("Đăng kí lịch hẹn thất bại");
+                ModelState.AddModelError("NgayHen", "Vui Lòng Chọn Sau Ngày Hôm Nay ");
+                return View(lh);
             }
 
         }
@@ -124,7 +126,7 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult EditProfile()
         {
-            int maBN= (int)Session["MaBenhNhan"];
+            int maBN = (int)Session["MaBenhNhan"];
             var idBN = db.BENHNHANs.Where(s => s.MaBenhNhan == maBN).FirstOrDefault();
             return View(idBN);
         }
@@ -136,6 +138,17 @@ namespace WebDentalClinic.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangePassword(BENHNHAN BN)
@@ -157,5 +170,5 @@ namespace WebDentalClinic.Controllers
          
         }
 
-    }
+   }
 }

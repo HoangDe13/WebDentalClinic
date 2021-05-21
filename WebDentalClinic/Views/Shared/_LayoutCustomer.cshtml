@@ -9,6 +9,14 @@
         span{
             color:black;
         }
+        span a{
+            color: black;
+            font-size:18px;
+        }
+            span a:hover {
+                color: black;
+                text-decoration:none;
+            }
         .dropbtn {
             background-color: white;
             color: black;
@@ -89,8 +97,9 @@
             <h4 class="fomat-hello" style="text-align: right; font-family:'Times New Roman'">
                
                 
-                    <span>Xin Chào @Session["HoTen"]</span>
-                
+                <span>Xin Chào @Session["HoTen"] &emsp;</span>|
+                    <span> @Html.ActionLink("Đăng Xuất", "LogOut", "Customer") <i class="glyphicon glyphicon-log-out"></i></span>
+                    
             </h4>
             <div class="navbar-collapse collapse" style="float:left">
                 <ul class="nav navbar-nav">
