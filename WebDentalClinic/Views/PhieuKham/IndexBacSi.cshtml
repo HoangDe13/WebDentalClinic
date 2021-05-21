@@ -10,9 +10,7 @@
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MaNhanVien)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.MaBenhNhan)
         </th>
@@ -30,6 +28,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNhanVien)
         </th>
         <th></th>
     </tr>
@@ -60,8 +61,8 @@
     </td>
     <td>
         @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaPhieuKham }) |
-        @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaPhieuKham }) |
-        @Html.ActionLink("Xóa", "Delete", new { id = item.MaPhieuKham })
+        @* @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaPhieuKham }) |
+        @Html.ActionLink("Xóa", "Delete", new { id = item.MaPhieuKham })*@
     </td>
 </tr>
 }

@@ -5,93 +5,102 @@
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
 
-<h2>Xóa Hồ Sơ Nhân Viên</h2>
 
-<h3>Bạn đã chắc chắn rằng xóa hồ sơ chứ?</h3>
-<div>
-    <h4>Thông Tin</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaNhanVien)
-        </dt>
+<h2 class="login100-form-title" style="width:100%;">Xóa Hồ Sơ Nhân Viên</h2>
+<div class="limiter">
+    <div class="col-md-12 col-sm-12">
+        <form>
+            <div class="col-md-12 col-md-offset-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.MaNhanVien)
-        </dd>
+                <hr />
+                <h4>Bạn Chắc Chắn Xóa hồ sơ nhân viên này Chứ?</h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HoTen)
-        </dt>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaNhanVien)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HoTen)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.MaNhanVien)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GioiTinh)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HoTen)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GioiTinh)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.HoTen)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NamSinh)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GioiTinh)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NamSinh)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.GioiTinh)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoDienThoai)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NamSinh)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoDienThoai)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.NamSinh)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SoDienThoai)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.SoDienThoai)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DiaChi)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.DiaChi)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MaChucVu)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaChucVu)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MatKhau)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaChucVu)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MatKhau)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.MaChucVu)
+                    </dd>
 
-    </dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MatKhau)
+                    </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                    <dd>
+                        @Html.DisplayFor(model => model.MatKhau)
+                    </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+
+                        @Html.ActionLink("Danh Sách Nhân Viên", "Index", null, new { @class = "btn btn-info" })
+                        <input type="submit" value="Xóa" class="btn btn-danger" /> 
+                    </div>
+                }
+            </div>
+            </form>
+</div>
 </div>

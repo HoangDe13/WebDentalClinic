@@ -7,15 +7,15 @@
 
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+<form class="login100-form">
     <div class="form-horizontal">
-        <h2>Tạo Hồ Sơ Bệnh Nhân</h2>
+        <h2  style="margin-left:250px;">Tạo Hồ Sơ Bệnh Nhân</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    
+
         <div class="form-group">
             @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-4" })
             <div class="col-md-8">
@@ -73,16 +73,17 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-5 col-md-12">
+            <div class="col-md-offset-4 col-md-12">
                 <input type="submit" value="Tạo Mới" class="btn btn-default" style="background-color:darkgreen;color:white;" />
+                <br />
+                @Html.ActionLink("Danh Sách Bệnh Nhân", "Index",null, new { @class = "btn btn-primary" })
             </div>
         </div>
+
     </div>
+</form>
 }
 
-<div>
-    @Html.ActionLink("Danh Sách Bệnh Nhân", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

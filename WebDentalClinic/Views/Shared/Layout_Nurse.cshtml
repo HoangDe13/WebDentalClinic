@@ -78,7 +78,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                @Html.ActionLink("Dental Clinic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Dental Clinic", "Index", "CreateProfile", new { area = "" }, new { @class = "navbar-brand" })
 
             </div>
             <div class="navbar-collapse collapse" style="float:left">
@@ -94,8 +94,25 @@
 
                             <ul>
                                 <li>@Html.ActionLink("Thêm Hồ Sơ", "Create", "CreateProfile")</li>
-                                <li>@Html.ActionLink("Cập Nhật Hồ Sơ", "Index", "CreateProfile")</li>
-                                <li>@Html.ActionLink("Tạo Phiếu Khám", "UpdateProfile", "CreateProfile")</li>
+                                <li>@Html.ActionLink("Danh Sách Hồ Sơ", "Index", "CreateProfile")</li>
+                          
+
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li class="dropdown">
+
+                        <button class="dropbtn">
+                            Phiếu Khám
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+
+                            <ul>
+                                <li>@Html.ActionLink("Tạo Phiếu Khám", "Create", "PhieuKham")</li>
+                                <li>@Html.ActionLink("Danh Sách Phiếu Khám", "Index", "PhieuKham")</li>
+
 
                             </ul>
                         </div>
@@ -105,18 +122,18 @@
                     <li>@Html.ActionLink("Dịch Vụ", "Index", "Service")</li>
                     <li>@Html.ActionLink("Lịch Hẹn", "CheckLich", "LichHen")</li>
                     <li>@Html.ActionLink("Hóa Đơn", "Contact", "Home")</li>
-                    
+
                     <li class="dropdown">
 
                         <button class="dropbtn">
-                           Nhân Viên
+                            Nhân Viên
                             <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
 
                             <ul>
                                 <li>@Html.ActionLink("Thêm Nhân Viên", "Create", "RegisterEmloyee")</li>
-                                <li>@Html.ActionLink("Cập Nhật Nhân viên", "Index", "RegisterEmloyee")</li>
+                                <li>@Html.ActionLink("Danh Sách Nhân viên", "Index", "RegisterEmloyee")</li>
 
                             </ul>
                         </div>
@@ -129,7 +146,7 @@
 
         </div>
     </div>
-    <div class="container body-content">
+    <div >
         @RenderBody()
 
         <hr />

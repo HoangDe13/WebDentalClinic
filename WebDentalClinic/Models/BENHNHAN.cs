@@ -21,18 +21,24 @@ namespace WebDentalClinic.Models
         {
             this.PHIEUKHAMs = new HashSet<PHIEUKHAM>();
         }
-    
+        [Display(Name = "Mã Bệnh Nhân")]
         public int MaBenhNhan { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Họ Tên")]
         public string HoTen { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Giới Tính")]
         public Nullable<int> GioiTinh { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Năm Sinh")]
         public Nullable<int> NamSinh { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Số Điện Thoại")]
         public string SoDienThoai { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Địa Chỉ")]
         public string DiaChi { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Mật Khẩu")]
         [DataType(DataType.Password)]
         public string MatKhau { get; set; }

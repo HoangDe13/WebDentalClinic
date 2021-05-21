@@ -5,56 +5,64 @@
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
 
-<h2>Chi Tiết Dịch Vụ</h2>
 
 <div>
-    
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaDichVu)
-        </dt>
+    <h2 class="login100-form-title" style="width:100%;">Chi Tiết Dịch Vụ</h2>
+    <div class="limiter">
+        <div class="col-md-12 col-sm-12">
+            <form>
+                <div class="col-md-12 col-md-offset-4">
+                                        <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MaDichVu)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaDichVu)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.MaDichVu)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDichVu)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TenDichVu)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenDichVu)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.TenDichVu)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DonGia)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DonGia)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DonGia)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.DonGia)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LoaiDichVu)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LoaiDichVu)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoaiDichVu)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.LoaiDichVu)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GhiChu)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.GhiChu)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GhiChu)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.GhiChu)
+                        </dd>
 
-    </dl>
+                    </dl>
 
+
+                    <p>
+                        @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = Model.MaDichVu }, new { @class = "btn btn-success" }) |
+                        @Html.ActionLink("Danh Sách Dịch Vụ", "Index", null, new { @class = "btn btn-info" })
+                    </p>
+                </div>
+                </form>
+                </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Chỉnh Sửa", "Edit",  new {id=Model.MaDichVu }) |
-    @Html.ActionLink("Danh Sách Dịch Vụ", "Index")
-</p>
