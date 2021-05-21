@@ -1,0 +1,83 @@
+﻿@model WebDentalClinic.Models.BENHNHAN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+}
+<form class="col-md-12 col-sm-12" >
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+
+                <div style="padding-left:275px;">
+                    <h2>Thông Tin Bệnh Nhân</h2>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MaBenhNhan)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MaBenhNhan)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.HoTen)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.HoTen)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.GioiTinh)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.GioiTinh)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NamSinh)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NamSinh)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SoDienThoai)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SoDienThoai)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DiaChi)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DiaChi)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MatKhau)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MatKhau)
+                        </dd>
+
+
+
+                    </dl>
+                    <hr />
+                    @Html.ActionLink("Cập Nhật Thông Tin ", "Edit", new { id = Model.MaBenhNhan }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Danh Sách Bệnh Nhân", "Index", null, new { @class = "btn btn-primary" })
+                </div>
+                </div>
+            </div>
+        </div>
+</form>
+

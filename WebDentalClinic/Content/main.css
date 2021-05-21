@@ -12,7 +12,7 @@ p {
 	color: #6c7279;
 }
 h1, h2, h3, h4, h5, h6{
-	font-family: 'Lato', sans-serif;
+	font-family:'Times New Roman';
 }
 h1 {
 	font-size: 65px;
@@ -21,6 +21,7 @@ h1 {
 h2 {
 	font-size: 40px;
 	color: #383838;
+	font-family:'Times New Roman';
 }
 h3 {
 	font-size: 28px;
@@ -52,10 +53,13 @@ h5 {
 	border: 1px solid #03A9F4;
 	padding: 10px 15px;
 }
-.btn:hover, .btn:focus {
-	background-color: #03A9F4;
-	color: #fff;
-}
+	.btn btn-primary{
+		background-color:darkgreen;
+	}
+	.btn:hover, .btn:focus {
+		background-color: #03A9F4;
+		color: #fff;
+	}
 .btn-large {
 	padding: 15px 40px;
 }

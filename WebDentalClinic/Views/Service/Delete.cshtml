@@ -5,61 +5,71 @@
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
 
-<h2>Xóa Dịch Vụ</h2>
+<h2 class="login100-form-title" style="width:100%;">Xóa Dịch Vụ</h2>
+<div class="limiter">
+    <div class="col-md-12 col-sm-12">
+        <form >
+            <div class="col-md-12 col-md-offset-4">
 
-<h3>Bạn Chắc Chắn Xóa Chứ?</h3>
-<div>
-   
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaDichVu)
-        </dt>
+                <hr />
+                <h4>Bạn Chắc Chắn Xóa dịch vụ này Chứ?</h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaDichVu)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDichVu)
-        </dt>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaDichVu)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenDichVu)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.MaDichVu)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DonGia)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TenDichVu)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DonGia)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.TenDichVu)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LoaiDichVu)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DonGia)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoaiDichVu)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.DonGia)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GhiChu)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LoaiDichVu)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GhiChu)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.LoaiDichVu)
+                    </dd>
 
-    </dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GhiChu)
+                    </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                    <dd>
+                        @Html.DisplayFor(model => model.GhiChu)
+                    </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa Khỏi Danh Sách" class="btn btn-default" /> |
-            @Html.ActionLink("Xóa", "Index")
-        </div>
-    }
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        @Html.ActionLink("Danh Sách Dịch Vụ", "Index", null, new { @class = "btn btn-info" })
+                        <input type="submit" value="Xóa" class="btn btn-danger" /> 
+
+                    </div>
+                }
+            </div>
+        </form>
+    </div>
 </div>
+

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WebDentalClinic.Models.LICHHEN>
+@*@model WebDentalClinic.Models.Check*@
+@{
+    ViewBag.Title = "CreateLichHen";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+}
+<div class="container body-content">
+    <p>
+        @Html.ActionLink("Tạo mới lịch hẹn", "CreateLichHen",null,new{ @class="btn btn-sucess" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaLichHen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoDienThoai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayHen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TinhTrang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaNhanVien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GhiChu)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaLichHen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoDienThoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayHen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioHen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TinhTrang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNhanVien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GhiChu)
+                </td>
+                <td>
+                    @using (Html.BeginForm("Update_Check", "LichHen"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Xác nhận" class="btn btn-default" /> |
+                        </div>
+                    }
+                    @*@Html.ActionLink("Xác Nhận", "Edit", new { id = item.MaLichHen }) |*@
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaLichHen })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

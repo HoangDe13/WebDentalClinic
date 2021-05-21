@@ -30,22 +30,29 @@ namespace WebDentalClinic.Models
         [Display(Name = "Mã Nhân Viên")]
 
         public int MaNhanVien { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Họ Tên")]
         public string HoTen { get; set; }
         [Display(Name = "Giới Tính")]
-
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         public Nullable<int> GioiTinh { get; set; }
         [Display(Name = "Năm Sinh")]
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         public Nullable<int> NamSinh { get; set; }
         [Display(Name = "Số Điện Thoại")]
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         public string SoDienThoai { get; set; }
         [Display(Name = "Địa Chỉ")]
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
 
         public string DiaChi { get; set; }
         [Display(Name = "Email")]
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Chức Vụ")]
         public Nullable<int> MaChucVu { get; set; }
+        [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Mật Khẩu")]
         public string MatKhau { get; set; }
        
