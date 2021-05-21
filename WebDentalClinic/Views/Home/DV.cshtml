@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WebDentalClinic.Models.DICHVU>
+
+@{
+    ViewBag.Title = "DV";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DV</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-6 services text-center">
+            <span class="icon"><img src="~/Content/images/Services/tooth-whitening.png" style="width:50px" /></span>
+            <div class="services-content">
+                <h5> @Html.DisplayFor(modelItem => item.TenDichVu)</h5>
+                <p> @Html.DisplayFor(modelItem => item.DonGia) </p>
+            </div>
+        </div>
+    }
+       </div>
+

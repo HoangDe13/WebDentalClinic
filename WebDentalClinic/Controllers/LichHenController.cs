@@ -31,11 +31,12 @@ namespace WebDentalClinic.Controllers
                 lh.TinhTrang = "CXN";
                 db.LICHHENs.Add(lh);
                 db.SaveChanges();
-                return RedirectToAction("DatLichThanhCong","LichHen");
+                return RedirectToAction("DatLichThanhCongYta","LichHen");
             }
             catch
             {
-                return Content("Đăng kí lịch hẹn thất bại");
+                ModelState.AddModelError("NgayHen","Vui Lòng Chọn Sau Ngày Hôm Nay ");
+                return View(lh);
             }
 
         }
@@ -45,7 +46,7 @@ namespace WebDentalClinic.Controllers
             ct.listNV = db.NHANVIENs.ToList<NHANVIEN>();
             return PartialView(ct);
         }
-        public ActionResult DatLichThanhCong()
+        public ActionResult DatLichThanhCongYta()
         {
             return View();
         }

@@ -58,7 +58,8 @@ namespace WebDentalClinic.Controllers
             }
             catch
             {
-                return Content("Đăng kí lịch hẹn thất bại");
+                ModelState.AddModelError("NgayHen", "Vui Lòng Chọn Sau Ngày Hôm Nay ");
+                return View(lh);
             }
 
         }
