@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using WebDentalClinic.Models;
+
 
 namespace WebDentalClinic.Controllers
 {
@@ -41,8 +43,13 @@ namespace WebDentalClinic.Controllers
         {
             return View();
         }
-        
-            [HttpPost]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(BENHNHAN bn)
         {
@@ -59,8 +66,7 @@ namespace WebDentalClinic.Controllers
                 }
                 else
                 {
-                    
-                    return Content("Đăng Kí Thất Bại");
+                    return View();
                 }
 
 
@@ -99,7 +105,7 @@ namespace WebDentalClinic.Controllers
             if (check == null)
             {
                 ViewBag.ErrorInfo = "Sai info";
-                return Content("Sai Thông Tin Đăng Nhập");
+                return View() ;
             }
             else
             {
@@ -113,18 +119,30 @@ namespace WebDentalClinic.Controllers
 
         }
 
-
-        //Logout
-        public ActionResult Logout()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ForgotPassword(BENHNHAN BN)
         {
-            Session.Clear();//remove session
-            return RedirectToAction("Login");
+            var check = database.BENHNHANs.Where(s => s.SoDienThoai == BN.SoDienThoai).FirstOrDefault();
+            if (check != null)
+            {
+                database.Configuration.ValidateOnSaveEnabled = false;
+                check.MatKhau = BN.MatKhau;
+                database.SaveChanges();
+                return RedirectToAction("Login");            
+            }
+            else {
+                ViewBag.ErrorInfo = "Sai số điện thoại";
+                return View();
+            }
         }
+
         public ActionResult DV()
         {
 
             return View(database.DICHVUs.ToList());
         }
+
         //public static string GetMD5(string str)
         //{
         //    MD5 md5 = new MD5CryptoServiceProvider();

@@ -19,7 +19,7 @@ namespace WebDentalClinic.Controllers
         {
             return View(database.PHIEUKHAMs.ToList()); ;
         }
-
+    
         public ActionResult Create()
         {
             return View();
