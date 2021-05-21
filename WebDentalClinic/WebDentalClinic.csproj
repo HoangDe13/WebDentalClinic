@@ -370,16 +370,10 @@
     <Content Include="Views\Service\Delete.cshtml" />
     <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Login.cshtml" />
-
-
     <Content Include="Views\LichHen\DatLichThanhCongYta.cshtml" />
-
-
-
     <Content Include="Views\Shared\LayoutLoginEmloyee.cshtml" />
     <Content Include="Views\LichHen\DatLichThanhCong.cshtml" />
     <Content Include="Views\LichHen\CheckLich.cshtml" />
-
     <Content Include="Views\LichHen\Delete.cshtml" />
     <Content Include="Views\LichHen\Edit.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
@@ -387,7 +381,7 @@
     <Content Include="Views\Customer\Contact.cshtml" />
     <Content Include="Views\Customer\CreateLichHen.cshtml" />
     <Content Include="Views\Customer\DatLichThanhCongCus.cshtml" />
-    <Content Include="Views\Customer\EditProfile.cshtml" />
+    <Content Include="Views\Customer\ChangePassword.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\IntroDental.cshtml" />
     <Content Include="Views\Customer\IntroDoctor.cshtml" />
@@ -396,7 +390,6 @@
     <Content Include="Views\Customer\SelectBacSi.cshtml" />
     <Content Include="Views\Customer\Service.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
-
     <Content Include="Views\RegisterEmloyee\Edit.cshtml" />
     <Content Include="Views\RegisterEmloyee\Delete.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
@@ -411,22 +404,14 @@
     <Content Include="Views\PhieuKham\SelectBenhNhan.cshtml" />
     <Content Include="Views\PhieuKham\SelectNhanVien.cshtml" />
     <Content Include="Views\PhieuKham\IndexBacSi.cshtml" />
-
-
     <Content Include="Views\ListLichHen\ListLichhen.cshtml" />
     <Content Include="Views\ListLichHen\CreateLichHenYTA.cshtml" />
     <Content Include="Views\ListLichHen\DatLichThanhCong.cshtml" />
-
-
-
     <Content Include="Views\Customer\LichSuKham.cshtml" />
     <Content Include="Views\Customer\ChiTietphieukham.cshtml" />
-
     <Content Include="Views\ListLichHen\ListLichHen.cshtml" />
-
-
-
-
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Customer\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
