@@ -16,6 +16,7 @@ namespace WebDentalClinic.Models
 
     public partial class LICHHEN
     {
+        [Display(Name = "Mã Lịch Hẹn")]
         public int MaLichHen { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập họ tên")]
         [StringLength(50, MinimumLength = 3)]
@@ -34,6 +35,7 @@ namespace WebDentalClinic.Models
         [DataType(DataType.Time)]
         [Required(ErrorMessage = "Vui lòng chọn giờ")]
         public string GioHen { get; set; }
+        [Display(Name ="Tình Trạng")]
         public string TinhTrang { get; set; }
         [Display(Name = "Bác Sĩ")]
         public Nullable<int> MaNhanVien { get; set; }
