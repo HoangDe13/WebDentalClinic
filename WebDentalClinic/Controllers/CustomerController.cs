@@ -75,6 +75,10 @@ namespace WebDentalClinic.Controllers
         {
             return View();
         }
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult CreateLichHen(LICHHEN lh)
         {
@@ -132,5 +136,26 @@ namespace WebDentalClinic.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(BENHNHAN BN)
+        {                     
+                var check = db.BENHNHANs.Where(s => s.MatKhau == BN.MatKhau).FirstOrDefault();
+                if (check != null)
+                {
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    check.MatKhau = BN.MatKhauMoi;
+                    db.SaveChanges();
+                    return RedirectToAction("Profile");
+
+            }
+                else
+                {
+                    ViewBag.ErrorInfo = "Sai mật khẩu hiện tại";
+                    return View();
+            }
+         
+        }
+
     }
 }
