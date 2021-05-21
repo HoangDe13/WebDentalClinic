@@ -1,71 +1,75 @@
-﻿@model IEnumerable < WebDentalClinic.Models.PHIEUKHAM>
+﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
 @{
     ViewBag.Title = "LichSuKham";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
 
-<br /><br /><hr />
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MaPhieuKham)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaNhanVien)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaBenhNhan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayKham)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GioKham)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayTaiKham)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MoTaTrieuChung)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TinhTrang)
-        </th>
-        <th></th>
-    </tr>
+<br />
+<br />
+<hr />
+<div class="limiter"style="margin-top:50px">
+   
+        <div class="wrap-login100">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaPhieuKham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaNhanVien)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaBenhNhan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayKham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GioKham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayTaiKham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MoTaTrieuChung)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TinhTrang)
-            </td>
-            <td>
-                @Html.ActionLink("Chi Tiết", "ChiTietphieukham", new { id=item.MaPhieuKham }) 
-            </td>
-        </tr>
-    }
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MaPhieuKham)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MaNhanVien)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MaBenhNhan)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NgayKham)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GioKham)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NgayTaiKham)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MoTaTrieuChung)
+                    </th>
 
-</table>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaPhieuKham)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayKham)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GioKham)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayTaiKham)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MoTaTrieuChung)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Chi Tiết", "ChiTietphieukham", new { id = item.MaPhieuKham })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+</div>

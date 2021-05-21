@@ -29,6 +29,7 @@ namespace WebDentalClinic.Models
         public string SoDienThoai { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Ngày Hẹn")]
+        
         [Required(ErrorMessage = "Vui lòng chọn ngày")]
         public Nullable<System.DateTime> NgayHen { get; set; }
         [Display(Name = "Giờ Hẹn")]

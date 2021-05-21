@@ -1,72 +1,51 @@
-﻿@model WebDentalClinic.Models.PHIEUKHAM
+﻿@model IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
 
 @{
     ViewBag.Title = "ChiTietphieukham";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
-<div>
-    <br /><br />
-    <h4> Chi Tiết Phiếu Khám </h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            <p> Ngày Khám :</p>
-        </dt>
+<h2 style="text-align:center;margin-top:70px;font-family:'Times New Roman'">Thông Tin Chi Tiết Phiếu Khám Bệnh</h2>
+<h4>
+    @Html.ActionLink("Trở Lại", "LichSuKham")
+</h4>
+<div class="limiter" style="height:800px">
+    <div class="container-login100">
+        <div class="wrap-login100">
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayKham)
-        </dd>
+            <table class="table">
+                <tr>
 
-        <dt>
-            <p> Giờ Khám :</p>
-        </dt>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MaDichVu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SoLuong)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GhiChu)
+                    </th>
+                    
+                </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.GioKham)
-        </dd>
+                @foreach (var item in Model)
+                {
+                    <tr>
 
-        <dt>
-            <p> Ngày Tái Khám :</p>
-        </dt>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoLuong)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GhiChu)
+                        </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayTaiKham)
-        </dd>
+                    </tr>
+                }
 
-        <dt>
-            <p> Mô Tả Triệu Chứng :</p>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTaTrieuChung)
-        </dd>
-
-        <dt>
-            <p> Tình Trạng :</p>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TinhTrang)
-        </dd>
-
-        <dt>
-            <p> Họ Tên Bệnh Nhân :</p>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BENHNHAN.HoTen)
-        </dd>
-
-        <dt>
-            <p> Họ Tên Bác Sĩ Khám :</p>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NHANVIEN.HoTen)
-        </dd>
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            </table>
+        </div>
+    </div>
+    </div>

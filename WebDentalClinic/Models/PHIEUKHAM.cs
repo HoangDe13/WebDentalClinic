@@ -25,7 +25,9 @@ namespace WebDentalClinic.Models
 
         [Key]
 
+        [Display(Name = "Mã Phiếu Khám")]
         public int MaPhieuKham { get; set; }
+
         [Required(ErrorMessage = "Vui lòng chọn tên nhân viên")]
         [Display(Name ="Tên Nhân Viên")]
         public Nullable<int> MaNhanVien { get; set; }
@@ -41,10 +43,12 @@ namespace WebDentalClinic.Models
         public string GioKham { get; set; }
         [Display(Name = "Ngày Tái Khám")]
         [DataType(DataType.Date)]
+
         public Nullable<System.DateTime> NgayTaiKham { get; set; }
-        [Display(Name = "Mô Tả Triệu Chứng")]
+        [Display(Name = "Triệu Chúng")]
         public string MoTaTrieuChung { get; set; }
-        [Display(Name = "Tình Trạng")]
+        [Display(Name ="Tinh Trạng")]
+
         public string TinhTrang { get; set; }
     
         public virtual BENHNHAN BENHNHAN { get; set; }

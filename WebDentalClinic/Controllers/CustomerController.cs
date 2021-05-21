@@ -75,6 +75,10 @@ namespace WebDentalClinic.Controllers
         {
             return View();
         }
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult CreateLichHen(LICHHEN lh)
         {
@@ -104,15 +108,19 @@ namespace WebDentalClinic.Controllers
             return View();
         }
         public ActionResult LichSuKham()
+
         {
-            return View(db.PHIEUKHAMs.ToList());
+            int maBN = (int)Session["MaBenhNhan"];
+            var listPK = db.PHIEUKHAMs.OrderByDescending(x => x.MaBenhNhan).Where(x => x.MaBenhNhan == maBN);
+            return View(listPK);
         }
         public ActionResult ChiTietphieukham(int id)
         {
             //int a = pk.MaPhieuKham;
             //return View(db.CHITIETPHIEUKHAMs.Where(s => s.MaChiTietPhieuKham == a).FirstOrDefault());
-            PHIEUKHAM pk = db.PHIEUKHAMs.Include(s => s.CHITIETPHIEUKHAMs).Where(s => s.MaPhieuKham == id).FirstOrDefault();
-            return View(pk);
+
+            var listPK = db.CHITIETPHIEUKHAMs.OrderByDescending(x => x.MaDichVu).Where(x => x.MaPhieuKham == id);
+            return View(listPK);
         }
         public ActionResult EditProfile()
         {
@@ -128,5 +136,26 @@ namespace WebDentalClinic.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(BENHNHAN BN)
+        {                     
+                var check = db.BENHNHANs.Where(s => s.MatKhau == BN.MatKhau).FirstOrDefault();
+                if (check != null)
+                {
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    check.MatKhau = BN.MatKhauMoi;
+                    db.SaveChanges();
+                    return RedirectToAction("Profile");
+
+            }
+                else
+                {
+                    ViewBag.ErrorInfo = "Sai mật khẩu hiện tại";
+                    return View();
+            }
+         
+        }
+
     }
 }

@@ -54,7 +54,7 @@ namespace WebDentalClinic.Controllers
                 lh.TinhTrang = "CXN";
                 db.LICHHENs.Add(lh);
                 db.SaveChanges();
-                return RedirectToAction("DatLichThanhCong", "LichHen");
+                return RedirectToAction("DatLichThanhCong", "ListLichHen");
             }
             catch
             {
@@ -68,7 +68,7 @@ namespace WebDentalClinic.Controllers
             ct.listNV = db.NHANVIENs.ToList<NHANVIEN>();
             return PartialView(ct);
         }
-        public ActionResult DatLichThanhCongYta()
+        public ActionResult DatLichThanhCong()
         {
             return View();
         }
