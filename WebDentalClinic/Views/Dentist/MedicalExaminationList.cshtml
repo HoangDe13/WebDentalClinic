@@ -1,18 +1,15 @@
-﻿@model IEnumerable<WebDentalClinic.Models.LICHHEN>
+﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
 
 @{
     ViewBag.Title = "MedicalExaminationList";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
 
-<CENTER><h2>DANH SÁCH KHÁM BỆNH</h2></CENTER>
-<hr />
+<center><h2>DANH SÁCH KHÁM BỆNH</h2></center>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
 
-<table class="table">
+
+<table class="table" border="1">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.NgayKham)
@@ -21,28 +18,53 @@
             @Html.DisplayNameFor(model => model.GioKham)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.NgayTaiKham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTaTrieuChung)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.TinhTrang)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+        </th>
+        <th>
+            Trạng thái
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.NgayKham)
+            <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GioKham)
+            <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TinhTrang)
+            <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
         </td>
-
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaLichHen }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaLichHen }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaLichHen })
-        </td>*@
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+        </td>
+        <td>
+            <select name="confirm" id="confirm">
+                <option value="Confirm">Xác nhận</option>
+                <option value="Unconfirm">Chưa xác nhận</option>
+            </select>
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id=item.MaPhieuKham }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.MaPhieuKham }) |
+            @Html.ActionLink("Hủy Lịch", "Cancel", new { id=item.MaPhieuKham })
+        </td>
     </tr>
 }
 
