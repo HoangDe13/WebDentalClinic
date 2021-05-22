@@ -408,21 +408,13 @@
     <Content Include="Views\Customer\LichSuKham.cshtml" />
     <Content Include="Views\Customer\ChiTietphieukham.cshtml" />
     <Content Include="Views\ListLichHen\ListLichHen.cshtml" />
-
     <Content Include="Views\Home\DV.cshtml" />
-
-
-
-
-
-
     <Content Include="Views\PhieuKham\Create.cshtml" />
     <Content Include="Views\CreateProfile\Details.cshtml" />
-
     <Content Include="Views\Home\ForgotPassword.cshtml" />
     <Content Include="Views\Customer\EditProfile.cshtml" />
-
-
+    <Content Include="Views\ListLichHen\Edit.cshtml" />
+    <Content Include="Views\Customer\Profile1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

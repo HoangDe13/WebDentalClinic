@@ -21,7 +21,10 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult Profile()
         {
-            return View();
+
+            int id = (int)Session["MaBenhNhan"];
+            var benhnhan = db.BENHNHANs.Where(s => s.MaBenhNhan == id).FirstOrDefault();
+            return View(benhnhan);
         }
         public ActionResult About()
         {
@@ -74,6 +77,8 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult CreateLichHen()
         {
+            int idbenhnhan = (int)Session["MaBenhNhan"];
+            Session["BenhNhanLichHen"] = db.BENHNHANs.Where(s => s.MaBenhNhan == idbenhnhan).FirstOrDefault();
             return View();
         }
         public ActionResult ChangePassword()
@@ -133,10 +138,19 @@ namespace WebDentalClinic.Controllers
         [HttpPost]
         public ActionResult EditProfile(BENHNHAN std)
         {
+            try
+            {
 
+            
             db.Entry(std).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
+            }
+            catch
+            {
+                ModelState.AddModelError("Confirmpwd", "Vui lòng kiểm tra mật khẩu");
+                return View(std);
+            }
         }
 
         public ActionResult LogOut()
@@ -149,7 +163,7 @@ namespace WebDentalClinic.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [HttpPost]
+      /*  [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangePassword(BENHNHAN BN)
         {                     
@@ -168,7 +182,7 @@ namespace WebDentalClinic.Controllers
                     return View();
             }
          
-        }
+        }*/
 
    }
 }

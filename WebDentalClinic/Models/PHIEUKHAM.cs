@@ -40,6 +40,7 @@ namespace WebDentalClinic.Models
         [Required(ErrorMessage = "Vui lòng chọn ngày")]
         public Nullable<System.DateTime> NgayKham { get; set; }
         [Display(Name = "Giờ Khám")]
+        [DataType(DataType.Time)]
         public string GioKham { get; set; }
         [Display(Name = "Ngày Tái Khám")]
         [DataType(DataType.Date)]
