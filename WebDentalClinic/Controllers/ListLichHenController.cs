@@ -18,13 +18,34 @@ namespace WebDentalClinic.Controllers
             return View(db.LICHHENs.ToList());
         }
         
-        public ActionResult Edit(int id)
+        public ActionResult Confirm(int id)
         {
             var lh = db.LICHHENs.Where(s => s.MaLichHen == id).FirstOrDefault();
+           
             lh.TinhTrang = "DXN";
             db.Entry(lh).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("ListLichHen", "ListLichHen");
+        }
+        public ActionResult Edit(int id)
+        {
+            var lichhen = db.LICHHENs.Where(s => s.MaLichHen == id).FirstOrDefault();
+            return View(lichhen);
+        }
+        [HttpPost]
+        public ActionResult Edit(LICHHEN lh)
+        {
+            try
+            {
+                db.Entry(lh).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ListLichHen", "ListLichHen");
+            }
+            catch
+            {
+                ModelState.AddModelError("NgayHen", "Vui Lòng Chọn Sau Ngày Hôm Nay ");
+                return View(lh);
+            }
         }
         public ActionResult Delete(int id)
         {
