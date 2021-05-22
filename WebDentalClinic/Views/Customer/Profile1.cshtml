@@ -1,0 +1,83 @@
+﻿@model WebDentalClinic.Models.BENHNHAN
+
+@{
+    ViewBag.Title = "Profile1";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<h2>Profile1</h2>
+
+<div>
+    <h4>BENHNHAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaBenhNhan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaBenhNhan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NamSinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamSinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoDienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Confirmpwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Confirmpwd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
