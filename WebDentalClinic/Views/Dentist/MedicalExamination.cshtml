@@ -1,4 +1,6 @@
-﻿@model WebDentalClinic.Models.PHIEUKHAM
+
+﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
+
 
 @{
     ViewBag.Title = "MedicalExamination";
@@ -19,82 +21,132 @@
 
             <p style="color:white">Ngày giờ khám hiện tại: </p>
             <select name="dateOfExamination" style="max-width:700px; margin-bottom:7px; color:black; margin-top:auto">
-                <option>@Html.DisplayFor(model => model.NgayKham)</option>
+                <option></option>
             </select>
 
             <h2>Lịch sử khám</h2>
+
+            @*
+                Cái này để nháp
+                <div class="form-group">
+                @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+
+            </div>*@
 
             <div class="col-md-10">
                 <div class="form-group">
                     <p style="color:white">Lịch sử đã khám: </p>
                     <select name="dateOfExamination" style="max-width:700px; margin-bottom:7px; color:black; margin-top:auto">
-                        <option>@Html.DisplayFor(model => model.NgayKham)</option>
+                        <option></option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Dịch vụ</label>
-                    <input type="text" class="form-control" style="max-width:600px" />
-                </div>
-                <div class="form-group">
-                    <label>Triệu chứng</label>
-                    <input type="text" class="form-control" style="max-width:600px" />
-                </div>
-                <h2 style="color:white">Toa thuốc</h2>
-                <div class="form-group">
-                    <label>Tên thuốc</label>
-                    <input type="text" class="form-control" style="max-width:600px" />
-                </div>
-                <div class="form-group">
-                    <label>Số lượng</label>
-                    <input type="number" class="form-control" style="max-width:600px" />
-                </div>
-                <div class="form-group">
-                    <label>Liều dùng</label>
-                    <input type="text" class="form-control" style="max-width:600px" />
-                </div>
-                <div class="form-group">
-                    <label>Ghi Chú</label>
-                    <textarea class="form-control" cols="60" rows="5" style="max-width:600px"></textarea>
+
+                    <table class="table" border="1">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NgayKham)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.GhiChu)
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+                                </td>
+                                <td>
+                                    <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+                                </td>
+                                <td>
+                                    <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)</center>
+                                </td>
+                                <td>
+                                    <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.GhiChu)</center>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
                 </div>
             </div>
 
         </div>
 
-        <h2 style="color:white">Cập nhật thông tin điều trị</h2>
+        <h2 style="color:white">CẬP NHẬT THÔNG TIN ĐIỀU TRỊ</h2>
 
         <div class="col-md-6">
-            <div class="form-group">
-                <label>Dịch vụ</label>
-                <input type="text" class="form-control" style="max-width:600px" />
-            </div>
-            <div class="form-group">
-                <label>Triệu chứng</label>
-                <input type="text" class="form-control" style="max-width:600px" />
-            </div>
-            <h2 style="color:white">Cập nhật Toa thuốc</h2>
-            <div class="form-group">
-                <label>Tên thuốc</label>
-                <input type="text" class="form-control" style="max-width:600px" />
-            </div>
-            <div class="form-group">
-                <label>Số lượng</label>
-                <input type="number" class="form-control" style="max-width:600px" />
-            </div>
-            <div class="form-group">
-                <label>Liều dùng</label>
-                <input type="text" class="form-control" style="max-width:600px" />
-            </div>
-            <div class="form-group">
-                <label>Hẹn tái khám</label>
-                <input type="datetime" class="form-control" style="max-width:600px" />
-            </div>
-            <div class="form-group">
-                <label>Ghi Chú</label>
-                <textarea class="form-control" cols="60" rows="5" style="max-width:600px"></textarea>
-            </div>
+            <table class="table2" border="1">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NgayKham)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GioKham)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MoTaTrieuChung)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TinhTrang)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NgayTaiKham)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.GhiChu)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+                        </td>
+                        <td>
+                            <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+                        </td>
+                         <td>
+                            <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+                        </td>
+                        <td>
+                            <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)</center>
+                        </td>
+                        <td>
+                            <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
+                        </td>
+                        <td>
+                            <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
+                        </td>
+                        <td>
+                            <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.GhiChu)</center>
+                        </td>
+                    </tr>
+                }
+
+            </table>
 
             <div class="form-group">
-                <button style="width:300px" class="btn btn-primary btn-block ">Xác nhận thay đổi</button>
+                <input type="submit" value="Xác nhận thay đổi" class="btn btn-success" />
             </div>
         </div>
     </div>
