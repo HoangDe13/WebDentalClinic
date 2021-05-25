@@ -162,8 +162,34 @@ namespace WebDentalClinic.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
-     
+        public ActionResult ChangePass(int id,string pass)
+        {
+            ChangePW c = new ChangePW();
+            c.Id = id;
+            
+            return View(c);
+        }
+      [HttpPost]
+       public ActionResult ChangePass(ChangePW cp)
+        {
+            int id = cp.Id;
+            var BenhNhan = db.BENHNHANs.Where(s => s.MaBenhNhan == id).FirstOrDefault();
+            if(BenhNhan.MatKhau==cp.PasswordOld)
+            {
+                    
+                    BenhNhan.MatKhau = cp.PasswordNew;
+                    BenhNhan.Confirmpwd = BenhNhan.MatKhau;
+                    db.Entry(BenhNhan).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("passwordOld", "Vui lòng kiểm tra mật khẩu");
+                return View(cp);
+            }
+        }
+        
 
    }
 }
