@@ -1,4 +1,4 @@
-﻿@model WebDentalClinic.Models.HOADONTHANHTOAN
+﻿@model IEnumerable<WebDentalClinic.Models.HOADON>
 
 @{
     ViewBag.Title = "InvoiceHistory";
@@ -11,7 +11,8 @@
 
 <div class="container contact-form">
 
-    <h2>Tra cứu hóa đơn</h2>
+    <center><h2>HÓA ĐƠN ĐÃ THANH TOÁN</h2></center>
+
     <hr>
 
     <div class="row ">
@@ -21,47 +22,70 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                <label>Chọn ngày giờ đã thanh toán </label>
+                <label>Chọn ngày đã thanh toán </label>
             </div>
             <select name="dateOfInvoice" style="max-width:300px; color:black; margin-top:auto">
-                <option>@Html.DisplayFor(model => model.NgayLap)</option>
-                
-            </select>
-
-            <div class="form-group">
-                <button style="width:100px; margin-left:20px; margin-top:7px" class="btn btn-primary btn-block ">Tìm kiếm</button>
-            </div>
-        </div>
-
-        <div class="col-md-8">
-
-
-            <div class="col-md-10">
-                <div class="form-group">
-                    <label>Mã hóa đơn</label>
-                    <input type="text" class="form-control" style="max-width:600px;" />
-                </div>
-                <div class="form-group">
-                    <label>Ngày thánh toán</label>
-                    <input type="datetime" class="form-control" style="max-width:600px" />
-                </div>
-                <div class="form-group">
-                    <label>Dịch vụ đã khám</label>
-                    <input type="text" class="form-control" style="max-width:600px" />
-                </div>
-
-                <div class="form-group">
-                    <label>Ghi Chú</label>
-                    <textarea class="form-control" cols="60" rows="5" style="max-width:600px"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Thành tiền</label>
-                    <input type="number" class="form-control" style="max-width:600px" />
-                </div>
-            </div>
-
+                <option>
+                    @foreach (var item in Model)
+                    {@Html.DisplayFor(modelItem => item.NgayLap)}
+            </option>
+        </select>
+        <div class="form-group">
+            <button style="width:100px; margin-left:20px; margin-top:10px" class="btn btn-primary btn-block ">Tìm kiếm</button>
         </div>
 
     </div>
+
+
+    <div class="col-md-8">
+
+
+        <table class="table" border="1">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaHoaDon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayLap)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TongTien)
+                </th>
+            </tr>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.MaHoaDon)</center>
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.NgayLap)</center>
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)</center>
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia)</center>
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.TongTien)</center>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+    </div>
+
 </div>
 
+</div>

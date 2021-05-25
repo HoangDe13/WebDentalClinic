@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebDentalClinic.Models;
 
 namespace WebDentalClinic.Controllers
@@ -25,26 +26,33 @@ namespace WebDentalClinic.Controllers
         }
 
 
-        public ActionResult MedicalExamination(int id)
+        public ActionResult MedicalExamination(PHIEUKHAM pk, BENHNHAN bn)
         {
+            // Không biết nên đang dọc
+            bn.MaBenhNhan = 0;
+            pk.MaPhieuKham = 0;
+            database.BENHNHANs.Add(bn);
+            database.PHIEUKHAMs.Add(pk);
+            //database.SaveChanges();
+            return RedirectToAction("MedicalExamination", "Dentist");
+
+        }
+
+        public ActionResult MedicalExaminationList()
+        {
+            var DatetimeList = from a in database.PHIEUKHAMs where a.NgayKham == DateTime.Now select a;
             
             ViewBag.Message = "Your  page.";
 
             return View(database.PHIEUKHAMs.ToList());
         }
 
-        public ActionResult MedicalExaminationList()
-        {
-            var DatetimeList = from a in database.LICHHENs where a.NgayHen == DateTime.Now select a;
-            
-            ViewBag.Message = "Your  page.";
-
-            return View(database.LICHHENs.ToList());
-        }
-
         public ActionResult Logout()
         {
-            ViewBag.Message = "Your logout page.";
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
 
             return RedirectToAction("Index", "Home");
         }
@@ -52,7 +60,7 @@ namespace WebDentalClinic.Controllers
         public ActionResult InvoiceHistory()
         {
             ViewBag.Message = "Your Invoice History Page.";
-            return View();
+            return View(database.HOADONs.ToList());
         }
 
 
