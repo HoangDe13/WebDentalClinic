@@ -9,11 +9,24 @@
 <hr />
 
 <div class="form-group">
-    <label>Chọn ngày giờ khám bệnh</label>
+    <label>Chọn ngày khám bệnh</label>
+</div>
+
+<select name="dateOfExamination" style="max-width:300px; color:black; margin-top:auto">
+    <option>
+        @foreach (var item in Model)
+        {@Html.DisplayFor(modelItem => item.NgayKham)}
+    </option>
+</select>
+
+<div class="form-group">
+    <label>Chọn giờ khám bệnh</label>
 </div>
 <select name="dateOfExamination" style="max-width:300px; color:black; margin-top:auto">
-    <option>@foreach (var item in Model)
-    {@Html.DisplayFor(modelItem => item.NgayKham)}</option>
+    <option>
+        @foreach (var item in Model)
+        {@Html.DisplayFor(modelItem => item.GioKham)}
+    </option>
 </select>
 
 <div class="form-group">

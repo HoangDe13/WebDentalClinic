@@ -48,17 +48,7 @@ namespace WebDentalClinic.Models
         [DataType(DataType.Password)]
         [NotMapped]
         public string Confirmpwd { get; set; }
-      /*  [NotMapped]
-        [Display(Name = "Mật Khẩu Mới")]
-        [DataType(DataType.Password)]
-        public string MatKhauMoi { get; set; }
-        [Display(Name = "Xác Nhận Mật Khẩu Mới")]
-        [Required(ErrorMessage = "Nhập Lại Mật Khẩu")]
-        [Compare("MatKhauMoi", ErrorMessage = "Sai mật khẩu, Vui Lòng Nhập Lại")]
-        [DataType(DataType.Password)]
-        [NotMapped]
-        public string Confirmpwdnew { get; set; }
-*/
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUKHAM> PHIEUKHAMs { get; set; }
