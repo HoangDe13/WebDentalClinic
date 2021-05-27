@@ -416,6 +416,7 @@
     <Content Include="Views\ListLichHen\Edit.cshtml" />
     <Content Include="Views\Customer\Profile1.cshtml" />
     <Content Include="Views\Customer\ChangePass.cshtml" />
+    <Content Include="Views\Dentist\MedicalExaminationHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,4 @@
-@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
+@model  WebDentalClinic.Models.PHIEUKHAM
 
 @{
     ViewBag.Title = "MedicalExamination";
@@ -9,19 +9,19 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Contact.css" />
 }
 
-<div class="container contact-form">
+@*<div class="container contact-form">
 
     <h2>CHI TIẾT KHÁM BỆNH</h2>
-    <hr>
+    <hr>*@
 
 
-    <div class="row ">
+    @*    <div class="row ">
         <div class="col-md-6">
 
             <p style="color:white">Ngày khám hiện tại: </p>
             <select name="dateOfExamination" style="max-width:700px; margin-bottom:7px; color:black; margin-top:auto">
                 <option>
-                    >@foreach (var item in Model)
+                    @foreach (var item in Model)
                     {@Html.DisplayFor(modelItem => item.NgayKham)}
                 </option>
             </select>
@@ -30,148 +30,222 @@
             <p style="color:white">Giờ khám hiện tại: </p>
             <select name="dateOfExamination" style="max-width:700px; margin-bottom:7px; color:black; margin-top:auto">
                 <option>
-                    >@foreach (var item in Model)
-                    {@Html.DisplayFor(modelItem => item.GioKham)}
+                     @foreach (var item in Model)
+                     {@Html.DisplayFor(modelItem => item.GioKham)}w
                 </option>
-            </select>
+            </select>*@
 
-            <h2>Lịch sử khám</h2>
-
-            @*
-                    Cái này để nháp
-                <div class="form-group">
-                    @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
-                    @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
-                </div>
-
-            *@
-
-            <div class="col-md-10">
-                <div class="form-group">
-                    <p style="color:white">Lịch sử đã khám: </p>
-                    <select name="dateOfExamination" style="max-width:700px; margin-bottom:7px; color:black; margin-top:auto">
-                        <option></option>
-                    </select>
-                </div>
-                <div class="form-group">
-
-                    <table class="table" border="1">
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.NgayKham)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.GioKham)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.GhiChu)
-                            </th>
-                            <th></th>
-                        </tr>
-
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
-                                </td>
-                                <td>
-                                    <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
-                                </td>
-                                <td>
-                                    <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
-                                </td>
-                                <td>
-                                    <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)</center>
-                                </td>
-                                <td>
-                                    <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.GhiChu)</center>
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Chi Tiết", "ChiTietphieukham", new { id = item.MaPhieuKham })
-                                </td>
-                            </tr>
-                        }
-
-                    </table>
-                </div>
-            </div>
-
+    <!--<h2>Lịch sử khám</h2>-->
+    @*
+            Cái này để nháp
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
         </div>
 
-        <h2 style="color:white">CẬP NHẬT THÔNG TIN ĐIỀU TRỊ</h2>
+    *@
 
-        <div class="col-md-6">
-            <table class="table2" border="1">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NgayKham)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GioKham)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MoTaTrieuChung)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TinhTrang)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NgayTaiKham)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.GhiChu)
-                    </th>
-                </tr>
+    <!--<div class="col-md-10">
+        <div class="form-group">
+            <p style="color:white">Lịch sử đã khám: </p>
+            <select name="dateOfExamination" style="max-width:700px; margin-bottom:7px; color:black; margin-top:auto">
+                <option></option>
+            </select>
+        </div>
+        <div class="form-group">
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
-                        </td>
-                        <td>
-                            <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
-                        </td>
-                        <td>
-                            <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
-                        </td>
-                        <td>
-                            <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)</center>
-                        </td>
-                        <td>
-                            <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
-                        </td>
-                        <td>
-                            <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
-                        </td>
-                        <td>
-                            <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.GhiChu)</center>
-                        </td>
-                    </tr>
-                }
+            <table class="table" border="1">-->
+    @*                <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayKham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioKham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM.GhiChu)
+            </th>
+            <th></th>
+        </tr>*@
 
-            </table>
+    @*                      @foreach (var item in Model)
+        {*@
+    @*       <tr>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM.DICHVU.TenDichVu)</center>
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM.GhiChu)</center>
+            </td>
+        </tr>*@
+    @*               }*@
 
-            <div class="form-group">
-                <input type="submit" value="Xác nhận thay đổi" class="btn btn-success" />
+    <!--</table>
+        </div>
+    </div>-->
+
+
+@*    <h2 class="login100-form-title" style="width:100%;" ">CẬP NHẬT THÔNG TIN ĐIỀU TRỊ</h2>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayKham, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayKham, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayKham, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.GioKham, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GioKham, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GioKham, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BENHNHAN.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BENHNHAN.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BENHNHAN.HoTen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MoTaTrieuChung, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MoTaTrieuChung, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MoTaTrieuChung, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayTaiKham, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayTaiKham, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayTaiKham, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CHITIETPHIEUKHAM.GhiChu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CHITIETPHIEUKHAM.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CHITIETPHIEUKHAM.GhiChu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Xác nhận thay đổi" class="btn btn-success" />
+        </div>
+    </div>
+</div>*@
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2 class="login100-form-title" style="width:100%;">CẬP NHẬT THÔNG TIN ĐIỀU TRỊ</h2>
+        <div class="limiter">
+            <div class="col-md-12 col-sm-12">
+
+                <div class="col-md-12 col-md-offset-3">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.MaPhieuKham)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NgayKham, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NgayKham, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NgayKham, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.GioKham, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.GioKham, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GioKham, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BENHNHAN.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.BENHNHAN.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BENHNHAN.HoTen, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MoTaTrieuChung, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MoTaTrieuChung, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MoTaTrieuChung, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NgayTaiKham, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NgayTaiKham, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NgayTaiKham, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CHITIETPHIEUKHAM.GhiChu, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CHITIETPHIEUKHAM.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CHITIETPHIEUKHAM.GhiChu, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.ActionLink("Danh Sánh Phiếu Khám", "MedicalExaminationList", null, new { @class = "btn btn-info" })
+                            <input type="submit" value="Cập Nhật" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+}
 
 
 

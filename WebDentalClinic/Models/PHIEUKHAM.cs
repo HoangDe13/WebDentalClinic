@@ -58,7 +58,7 @@ namespace WebDentalClinic.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
-        public virtual CHITIETPHIEUKHAM CHITIETPHIEUKHAM2 { get; set; }//a
+        public virtual CHITIETPHIEUKHAM CHITIETPHIEUKHAM { get; set; }//a
 
         
     }
