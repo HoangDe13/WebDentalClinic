@@ -38,13 +38,13 @@ namespace WebDentalClinic.Controllers
 
         }
 
-        public ActionResult MedicalExaminationList()
+        public ActionResult MedicalExaminationList(PHIEUKHAM id)
         {
             var DatetimeList = from a in database.PHIEUKHAMs where a.NgayKham == DateTime.Now select a;
-            
+            id.MaPhieuKham = 1;
             ViewBag.Message = "Your  page.";
 
-            return View(database.PHIEUKHAMs.ToList());
+            return View();
         }
 
         public ActionResult Logout()

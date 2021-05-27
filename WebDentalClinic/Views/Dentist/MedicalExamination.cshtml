@@ -1,6 +1,4 @@
-
-﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
-
+@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
 
 @{
     ViewBag.Title = "MedicalExamination";
@@ -13,28 +11,41 @@
 
 <div class="container contact-form">
 
-    <h2>Chi tiết khám bệnh</h2>
+    <h2>CHI TIẾT KHÁM BỆNH</h2>
     <hr>
+
 
     <div class="row ">
         <div class="col-md-6">
 
-            <p style="color:white">Ngày giờ khám hiện tại: </p>
+            <p style="color:white">Ngày khám hiện tại: </p>
             <select name="dateOfExamination" style="max-width:700px; margin-bottom:7px; color:black; margin-top:auto">
-                <option></option>
+                <option>
+                    >@foreach (var item in Model)
+                    {@Html.DisplayFor(modelItem => item.NgayKham)}
+                </option>
+            </select>
+
+
+            <p style="color:white">Giờ khám hiện tại: </p>
+            <select name="dateOfExamination" style="max-width:700px; margin-bottom:7px; color:black; margin-top:auto">
+                <option>
+                    >@foreach (var item in Model)
+                    {@Html.DisplayFor(modelItem => item.GioKham)}
+                </option>
             </select>
 
             <h2>Lịch sử khám</h2>
 
             @*
-                Cái này để nháp
+                    Cái này để nháp
                 <div class="form-group">
-                @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                </div>
 
-                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
-
-            </div>*@
+            *@
 
             <div class="col-md-10">
                 <div class="form-group">
@@ -51,6 +62,9 @@
                                 @Html.DisplayNameFor(model => model.NgayKham)
                             </th>
                             <th>
+                                @Html.DisplayNameFor(model => model.GioKham)
+                            </th>
+                            <th>
                                 @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
                             </th>
                             <th>
@@ -59,6 +73,7 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.GhiChu)
                             </th>
+                            <th></th>
                         </tr>
 
                         @foreach (var item in Model)
@@ -68,6 +83,9 @@
                                     <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
                                 </td>
                                 <td>
+                                    <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+                                </td>
+                                <td>
                                     <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
                                 </td>
                                 <td>
@@ -75,6 +93,9 @@
                                 </td>
                                 <td>
                                     <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.GhiChu)</center>
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Chi Tiết", "ChiTietphieukham", new { id = item.MaPhieuKham })
                                 </td>
                             </tr>
                         }
@@ -125,7 +146,7 @@
                         <td>
                             <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
                         </td>
-                         <td>
+                        <td>
                             <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
                         </td>
                         <td>
