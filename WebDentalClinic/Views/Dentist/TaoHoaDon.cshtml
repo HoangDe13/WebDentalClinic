@@ -1,0 +1,154 @@
+﻿@model WebDentalClinic.Models.HOADON
+
+
+@{
+    ViewBag.Title = "TaoHoaDon";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <center><h4>HÓA ĐƠN</h4></center>
+    <hr />
+
+    <div class="limiter">
+
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <h2 class="login100-form-title" style="width:100%;">Tạo Hóa Đơn</h2>
+                <div class="col-md-12 col-md-offset-3">
+                    <form class="login100-form validate-form">
+
+                        <hr />
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MaHoaDon, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @Html.EditorFor(model => model.MaHoaDon, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MaHoaDon, "", new { @class = "text-danger" })
+
+                                @*@Html.ActionLink("Tra Cứu", "HoaDon", "TaoHoaDon")*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NgayLap, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NgayLap, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NgayLap, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PHIEUKHAM.BENHNHAN.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PHIEUKHAM.BENHNHAN.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PHIEUKHAM.BENHNHAN.HoTen, "", new { @class = "text-danger" })
+                                @Html.ActionLink("Tra Cứu", "Index", "CreateProfile")
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MaPhieuKham, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.MaPhieuKham, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MaPhieuKham, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @{Html.RenderAction("SelectDichVu", "Dentist");}
+                            </div>
+
+                            @*@Html.ActionLink("Tra Cứu", "XemDichVu", "Dentist")*@
+                        </div>
+                        @*<div>
+                            <table>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong)
+                                    </th>
+
+
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong)
+                                        </td>
+
+                                    </tr>
+                                }
+                            </table>
+                        </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        @*Chưa biết tính tổng tiền*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TongTien, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TongTien, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                @Html.ActionLink("Danh sách hóa đơn", "HoaDon", null, new { @class = "btn btn-info" })
+                                <input type="submit" value="Tạo Hóa Đơn" class="btn btn-success" />
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

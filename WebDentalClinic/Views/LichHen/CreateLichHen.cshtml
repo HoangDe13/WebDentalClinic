@@ -40,7 +40,7 @@
                             @Html.LabelFor(model => model.NgayHen, htmlAttributes: new { @class = "control-label col-md-2" })
 
                             @Html.EditorFor(model => model.NgayHen, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NgayHen, "", new { @class = "text-danger" })
+
 
                         </div>
 
@@ -56,9 +56,10 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.MaNhanVien, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                            @{Html.RenderAction("SelectBacSi", "LichHen");
+                            @{
+                                Html.RenderAction("SelectBacSi", "LichHen");
                             }
+
 
                         </div>
 
@@ -69,10 +70,10 @@
                             @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
 
                         </div>
-
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-6">
-                                <input type="submit" value="Đặt Lịch Hẹn" class="btn btn-default" />
+                                <input type="submit" value="Đặt Lịch Hẹn" class="btn btn-success" />
                             </div>
                         </div>
                     </div>

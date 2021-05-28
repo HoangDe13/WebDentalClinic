@@ -5,11 +5,12 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebDentalClinic.Models;
 
 namespace WebDentalClinic.Controllers
 {
-    
+
     public class CustomerController : Controller
     {
         WebPhongKhamNhaKhoaEntities db = new WebPhongKhamNhaKhoaEntities();
@@ -20,7 +21,10 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult Profile()
         {
-            return View();
+
+            int id = (int)Session["MaBenhNhan"];
+            var benhnhan = db.BENHNHANs.Where(s => s.MaBenhNhan == id).FirstOrDefault();
+            return View(benhnhan);
         }
         public ActionResult About()
         {
@@ -73,6 +77,8 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult CreateLichHen()
         {
+            int idbenhnhan = (int)Session["MaBenhNhan"];
+            Session["BenhNhanLichHen"] = db.BENHNHANs.Where(s => s.MaBenhNhan == idbenhnhan).FirstOrDefault();
             return View();
         }
         public ActionResult ChangePassword()
@@ -89,11 +95,12 @@ namespace WebDentalClinic.Controllers
                 lh.TinhTrang = "CXN";
                 db.LICHHENs.Add(lh);
                 db.SaveChanges();
-                return RedirectToAction("DatLichThanhCong", "LichHen");
+                return RedirectToAction("DatLichThanhCongCus", "Customer");
             }
             catch
             {
-                return Content("Đăng kí lịch hẹn thất bại");
+                ModelState.AddModelError("NgayHen", "Vui Lòng Chọn Sau Ngày Hôm Nay ");
+                return View(lh);
             }
 
         }
@@ -124,38 +131,67 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult EditProfile()
         {
-            int maBN= (int)Session["MaBenhNhan"];
+            int maBN = (int)Session["MaBenhNhan"];
             var idBN = db.BENHNHANs.Where(s => s.MaBenhNhan == maBN).FirstOrDefault();
             return View(idBN);
         }
         [HttpPost]
         public ActionResult EditProfile(BENHNHAN std)
         {
+            try
+            {
 
+            
             db.Entry(std).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
+            }
+            catch
+            {
+                ModelState.AddModelError("Confirmpwd", "Vui lòng kiểm tra mật khẩu");
+                return View(std);
+            }
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult ChangePassword(BENHNHAN BN)
-        //{
-        //    var check = db.BENHNHANs.Where(s => s.MatKhau == BN.MatKhau).FirstOrDefault();
-        //    if (check != null)
-        //    {
-        //        db.Configuration.ValidateOnSaveEnabled = false;
-        //        check.MatKhau = BN.MatKhauMoi;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Profile");
 
-        //    }
-        //    else
-        //    {
-        //        ViewBag.ErrorInfo = "Sai mật khẩu hiện tại";
-        //        return View();
-        //    }
 
-        //}
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
 
-    }
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult ChangePass(int id,string pass)
+        {
+            ChangePW c = new ChangePW();
+            c.Id = id;
+            
+            return View(c);
+        }
+      [HttpPost]
+       public ActionResult ChangePass(ChangePW cp)
+        {
+            int id = cp.Id;
+            var BenhNhan = db.BENHNHANs.Where(s => s.MaBenhNhan == id).FirstOrDefault();
+            if(BenhNhan.MatKhau==cp.PasswordOld)
+            {
+                    
+                    BenhNhan.MatKhau = cp.PasswordNew;
+                    BenhNhan.Confirmpwd = BenhNhan.MatKhau;
+                    db.Entry(BenhNhan).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("passwordOld", "Vui lòng kiểm tra mật khẩu");
+                return View(cp);
+            }
+        }
+        
+
+
+   }
 }

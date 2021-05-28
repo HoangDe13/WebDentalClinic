@@ -17,7 +17,7 @@ namespace WebDentalClinic.Models
         public int MaHoaDon { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
         public Nullable<int> MaPhieuKham { get; set; }
-    
+        public int TongTien { get; set; }
         public virtual PHIEUKHAM PHIEUKHAM { get; set; }
     }
 }
