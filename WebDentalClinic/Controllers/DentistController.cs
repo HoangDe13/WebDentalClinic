@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebDentalClinic.Models;
-using System.Data.Entity.Migrations.Model;
 
 namespace WebDentalClinic.Controllers
 {
@@ -20,28 +19,46 @@ namespace WebDentalClinic.Controllers
         }
 
 
-
-
-        public ActionResult MedicalExamination(PHIEUKHAM pk, BENHNHAN bn)
+        public ActionResult MedicalExamination(int id)
         {
-            // Không biết nên đang dọc
-            bn.MaBenhNhan = 0;
-            pk.MaPhieuKham = 0;
-            database.BENHNHANs.Add(bn);
-            database.PHIEUKHAMs.Add(pk);
-            //database.SaveChanges();
-            return RedirectToAction("MedicalExamination", "Dentist");
+
+            return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult MedicalExamination(int id, PHIEUKHAM pk, CHITIETPHIEUKHAM ctPK)
+        {
+            database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("MedicalExaminationList");
+        }
+        public ActionResult MedicalExaminationHistory()
+        {
+
+            return View(database.PHIEUKHAMs.ToList());
 
         }
 
         public ActionResult MedicalExaminationList()
         {
-            var DatetimeList = from a in database.PHIEUKHAMs where a.NgayKham == DateTime.Now select a;
+            /* var DatetimeList = from a in database.PHIEUKHAMs where a.NgayKham == DateTime.Now select a;
+             id.MaPhieuKham = 1;
+             ViewBag.Message = "Your  page.";*/
 
-            ViewBag.Message = "Your  page.";
-
-            return View(database.PHIEUKHAMs.ToList());
+            return View(database.PHIEUKHAMs.ToList()); ;
         }
+        /*        [HttpGet]
+                public ActionResult MedicalExaminationList(string searchString, PHIEUKHAM pk, int id)
+                {
+
+                    var links = from l in database.BENHNHANs // lấy toàn bộ liên kết
+                                select l;
+
+                    if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+                    {
+                        links = links.Where(s => s.HoTen.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                    }
+                    return View(links);
+                }*/
 
         public ActionResult Logout()
         {
@@ -55,7 +72,6 @@ namespace WebDentalClinic.Controllers
 
 
 
-
         public ActionResult HoaDon()
         {
             return View(database.HOADONs.ToList());
@@ -66,20 +82,19 @@ namespace WebDentalClinic.Controllers
             return View();
         }
 
-        public ActionResult TinhTongTien(int id)
+        public ActionResult TinhTongTien()
         {
-            return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
+            var session = HttpContext.Session.GetEnumerator();
+            return View();
         }
 
-        [HttpPost]
-        public ActionResult TinhTongTien(int id, PHIEUKHAM pk, PHIEUKHAM maPK)
-        {
-            //maPK = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
-            int tongTien = 0;
-            pk = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
-            
-            return View(tongTien);
-        }
+        //[HttpPost]
+        //public ActionResult TinhTongTien(HoaDonViewModel hoaDonViewModel)
+        //{
+
+
+        //    return View();
+        //}
         public ActionResult XemDichVu(int id, PHIEUKHAM pk)
         {
 
@@ -121,13 +136,19 @@ namespace WebDentalClinic.Controllers
                 return Content(" This data is using in other table , error Delete");
             }
         }
-        public ActionResult SelectDichVu()
+        public ActionResult SelectDichVu(DICHVU pk)
         {
 
-            DICHVU ct = new DICHVU();
-            ct.listDV = database.DICHVUs.ToList<DICHVU>();
-            return PartialView(ct);
+            pk.listDV = database.DICHVUs.ToList<DICHVU>();
+            return PartialView(pk);
         }
 
-    } 
+        public ActionResult ChiTietHoaDon(int id)
+        {
+            return View(database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault());
+        }
+
+
+
+    }
 }
