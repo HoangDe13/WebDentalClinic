@@ -160,6 +160,7 @@
     <Compile Include="Models\HOADON.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HoaDonViewModel.cs" />
     <Compile Include="Models\LICHHEN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

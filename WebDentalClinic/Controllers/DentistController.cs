@@ -82,19 +82,18 @@ namespace WebDentalClinic.Controllers
             return View();
         }
 
-        public ActionResult TinhTongTien(int id)
+        public ActionResult TinhTongTien()
         {
-            return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
+            var session=HttpContext.Session.GetEnumerator()
+            return View();
         }
 
         [HttpPost]
-        public ActionResult TinhTongTien(int id, PHIEUKHAM pk, PHIEUKHAM maPK)
+        public ActionResult TinhTongTien(HoaDonViewModel hoaDonViewModel)
         {
-            //maPK = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
-            int tongTien = 0;
-            pk = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
+            
 
-            return View(tongTien);
+            return View();
         }
         public ActionResult XemDichVu(int id, PHIEUKHAM pk)
         {

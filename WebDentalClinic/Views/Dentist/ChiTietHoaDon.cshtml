@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.GhiChu)
         </th>
+        <th>
+            Thành tiền
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -40,7 +43,14 @@
     <td>
         @Html.DisplayFor(modelItem => item.GhiChu)
     </td>
+    <td>
+        @item.SoLuong*@item.DICHVU.DonGia
+    </td>
 </tr>
+    <tr>
+        <td colspan="5" style="text-align:right"><strong>Tổng thành tiền = </strong></td>
+        <td style="display:block"><strong>@Model.Sum(x=>x.SoLuong*x.DICHVU.DonGia)</strong></td>
+    </tr>
 }
 
 </table>
