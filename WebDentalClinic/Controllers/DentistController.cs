@@ -44,7 +44,7 @@ namespace WebDentalClinic.Controllers
              id.MaPhieuKham = 1;
              ViewBag.Message = "Your  page.";*/
 
-            return View(database.PHIEUKHAMs.ToList()); ;
+            return View(database.CHITIETPHIEUKHAMs.ToList()); ;
         }
         /*        [HttpGet]
                 public ActionResult MedicalExaminationList(string searchString, PHIEUKHAM pk, int id)

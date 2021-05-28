@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WebDentalClinic.Models
 {
-    public sealed class CheckDateAttribute: ValidationAttribute
+    public sealed class CheckDateAttribute : ValidationAttribute
     {
         public CheckDateAttribute() { }
         public override bool IsValid(object value)
