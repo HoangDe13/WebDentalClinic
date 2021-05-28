@@ -46,9 +46,9 @@ namespace WebDentalClinic.Models
         [DataType(DataType.Date)]
 
         public Nullable<System.DateTime> NgayTaiKham { get; set; }
-        [Display(Name = "Triệu Chúng")]
+        [Display(Name = "Triệu Chứng")]
         public string MoTaTrieuChung { get; set; }
-        [Display(Name ="Tinh Trạng")]
+        [Display(Name ="Tình Trạng")]
 
         public string TinhTrang { get; set; }
     

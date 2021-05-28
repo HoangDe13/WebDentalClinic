@@ -48,7 +48,7 @@ namespace WebDentalClinic.Controllers
             return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Edit(int id, PHIEUKHAM pk)
+        public ActionResult Edit( PHIEUKHAM pk)
         {
             database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
@@ -109,6 +109,13 @@ namespace WebDentalClinic.Controllers
             NHANVIEN ct = new NHANVIEN();
             ct.listNV = database.NHANVIENs.ToList<NHANVIEN>();
             return PartialView(ct);
+        }
+        public ActionResult LichSuKham()
+
+        {
+            int maBN = (int)Session["MaBenhNhan"];
+            var listPK = database.PHIEUKHAMs.OrderByDescending(x => x.MaBenhNhan).Where(x => x.MaBenhNhan == maBN);
+            return View(listPK);
         }
     }
 }

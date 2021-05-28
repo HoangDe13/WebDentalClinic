@@ -153,6 +153,7 @@ namespace WebDentalClinic.Controllers
             }
         }
 
+
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
@@ -190,6 +191,7 @@ namespace WebDentalClinic.Controllers
             }
         }
         
+
 
    }
 }

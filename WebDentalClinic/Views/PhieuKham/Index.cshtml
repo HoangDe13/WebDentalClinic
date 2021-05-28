@@ -64,9 +64,9 @@
                     @Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.MaPhieuKham }) |
-                    @*   @Html.ActionLink("Details", "Details", new { id = item.MaPhieuKham }) |*@
-                    @Html.ActionLink("Delete", "Delete", new { id = item.MaPhieuKham })
+                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaPhieuKham }) |
+                    @*@Html.ActionLink("Chi Tiết", "LichSuKham", new { id = item.MaPhieuKham }) |*@
+                    @Html.ActionLink("Xoá", "Delete", new { id = item.MaPhieuKham })
                 </td>
             </tr>
         }
