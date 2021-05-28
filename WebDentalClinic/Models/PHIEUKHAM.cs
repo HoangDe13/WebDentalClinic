@@ -29,7 +29,7 @@ namespace WebDentalClinic.Models
         public int MaPhieuKham { get; set; }
 
         [Required(ErrorMessage = "Vui lòng chọn tên nhân viên")]
-        [Display(Name ="Tên Nhân Viên")]
+        [Display(Name ="Mã Nhân Viên")]
         public Nullable<int> MaNhanVien { get; set; }
         [Display(Name = "Mã Bệnh Nhân")]
         [Required(ErrorMessage = "Vui lòng điền mã bệnh nhân")]

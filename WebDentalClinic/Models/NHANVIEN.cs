@@ -31,7 +31,7 @@ namespace WebDentalClinic.Models
 
         public int MaNhanVien { get; set; }
         [Required(ErrorMessage = "Vui lòng điền thông tin")]
-        [Display(Name = "Họ Tên")]
+        [Display(Name = "Họ Tên Nhân Viên")]
         public string HoTen { get; set; }
         [Display(Name = "Giới Tính")]
         [Required(ErrorMessage = "Vui lòng điền thông tin")]
