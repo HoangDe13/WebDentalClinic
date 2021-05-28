@@ -393,9 +393,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\CreateProfile\Create.cshtml" />
     <Content Include="Views\CreateProfile\Index.cshtml" />
-    <Content Include="Views\CreateProfile\Edit.cshtml" />
     <Content Include="Views\PhieuKham\Delete.cshtml" />
-    <Content Include="Views\PhieuKham\Edit.cshtml" />
     <Content Include="Views\PhieuKham\Index.cshtml" />
     <Content Include="Views\PhieuKham\SelectBenhNhan.cshtml" />
     <Content Include="Views\PhieuKham\SelectNhanVien.cshtml" />
@@ -406,17 +404,15 @@
     <Content Include="Views\Customer\LichSuKham.cshtml" />
     <Content Include="Views\Customer\ChiTietphieukham.cshtml" />
     <Content Include="Views\ListLichHen\ListLichHen.cshtml" />
-
-
-
-
-
     <Content Include="Views\PhieuKham\Create.cshtml" />
     <Content Include="Views\CreateProfile\Details.cshtml" />
-
     <Content Include="Views\Home\ForgotPassword.cshtml" />
     <Content Include="Views\Customer\EditProfile.cshtml" />
-
+    <Content Include="Views\CreateProfile\Edit.cshtml" />
+    <Content Include="Views\PhieuKham\Edit.cshtml" />
+    <Content Include="Views\CreateProfile\LichSuKham.cshtml" />
+    <Content Include="Views\CreateProfile\ChiTietphieukham.cshtml" />
+    <Content Include="Views\CreateProfile\CreatePhieuKham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -72,6 +72,18 @@ namespace WebDentalClinic.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult ListLichhen(string searchString)
+        {
+            var links = from l in db.LICHHENs // lấy toàn bộ liên kết
+                        select l;
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.NgayHen.ToString()==searchString); //lọc theo chuỗi tìm kiếm
+            }
+            return View(links);
+        }
 
     }
 }

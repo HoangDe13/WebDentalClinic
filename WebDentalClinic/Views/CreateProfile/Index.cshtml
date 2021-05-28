@@ -13,9 +13,9 @@
 
         <p style="padding-left:100px;">
 
-            Nhập Tên Bệnh Nhân :
-            <span style="border:solid;"> @Html.TextBox("SearchString")</span>
-            <input type="submit" value="Tìm kiếm" />
+            Nhập Số Điện Thoại :
+            <span style="border:solid;"> @Html.Editor("SearchString")</span>
+            <input type="submit" value="Tìm kiếm" class="btn btn-info" />
 
         </p>
 
@@ -27,7 +27,7 @@
         <p>
             @Html.ActionLink("Tạo Mới Bệnh Nhân", "Create", null,new { @class = "btn btn-primary" }) |
             
-            @Html.ActionLink("Tạo Phiếu Khám", "Create", "PhieuKham",null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Tạo Phiếu Khám", "Create", "PhieuKham", new { @class = "btn btn-success"  })
         </p>
         <table class="table">
             <tr>
@@ -80,7 +80,9 @@
                     <td>
                         @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaBenhNhan }) |
 
-                        @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaBenhNhan })
+                        @Html.ActionLink("Chi Tiết", "LichSuKham", new { id = item.MaBenhNhan })
+
+                        @Html.ActionLink("Tạo Phiếu Khám", "CreatePhieuKham", new { id = item.MaBenhNhan }, new { @class = "btn btn-success" })
                     </td>
                 </tr>
             }
