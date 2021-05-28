@@ -146,6 +146,8 @@
     <Compile Include="Models\BENHNHAN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangePW.cs" />
+    <Compile Include="Models\CheckDateAttribute.cs" />
     <Compile Include="Models\CHITIETPHIEUKHAM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
