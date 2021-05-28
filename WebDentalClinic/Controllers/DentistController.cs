@@ -18,12 +18,7 @@ namespace WebDentalClinic.Controllers
             return View();
         }
 
-        public ActionResult Account()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
+        
 
 
      /*   public ActionResult MedicalExamination(*//*PHIEUKHAM pk, BENHNHAN bn*//*)
@@ -84,17 +79,79 @@ namespace WebDentalClinic.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult InvoiceHistory()
+
+
+        public ActionResult HoaDon()
         {
-            ViewBag.Message = "Your Invoice History Page.";
             return View(database.HOADONs.ToList());
         }
 
-
-        public ActionResult Invoice()
+        public ActionResult TaoHoaDon()
         {
-            ViewBag.Message = "Your Invoice History Page.";
             return View();
+        }
+
+        public ActionResult TinhTongTien(int id)
+        {
+            return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
+        }
+
+        [HttpPost]
+        public ActionResult TinhTongTien(int id, PHIEUKHAM pk, PHIEUKHAM maPK)
+        {
+            //maPK = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
+            int tongTien = 0;
+            pk = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
+
+            return View(tongTien);
+        }
+        public ActionResult XemDichVu(int id, PHIEUKHAM pk)
+        {
+
+            return View(database.PHIEUKHAMs.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult TaoHoaDon(HOADON hd)
+        {
+            try
+            {
+                database.HOADONs.Add(hd);
+                database.SaveChanges();
+                return RedirectToAction("HoaDon");
+            }
+            catch
+            {
+                return Content("Error Create New");
+            }
+        }
+        [HttpPost]
+
+        public ActionResult XoaHoaDon(int id)
+        {
+            return View(database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult XoaHoaDon(int id, HOADON hd)
+        {
+            try
+            {
+                hd = database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault();
+                database.HOADONs.Remove(hd);
+                database.SaveChanges();
+                return RedirectToAction("HoaDon");
+            }
+            catch
+            {
+                return Content(" This data is using in other table , error Delete");
+            }
+        }
+        public ActionResult SelectDichVu()
+        {
+
+            PHIEUKHAM ct = new PHIEUKHAM();
+            ct.listDV = database.PHIEUKHAMs.ToList<PHIEUKHAM>();
+            return PartialView(ct);
         }
 
 

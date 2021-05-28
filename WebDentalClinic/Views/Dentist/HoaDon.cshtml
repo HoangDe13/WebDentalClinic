@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebDentalClinic.Models.HOADON>
+
+@{
+    ViewBag.Title = "HoaDon";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+<div class="form-horizontal">
+    <center><h4>HÓA ĐƠN</h4></center>
+    <hr />
+    <p style="margin-top:27px; margin-bottom:27px">
+        @Html.ActionLink("Tạo hóa đơn mới", "TaoHoaDon", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaHoaDon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayLap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaPhieuKham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.NgayKham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM.DICHVU.TenDichVu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TongTien)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaHoaDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PHIEUKHAM.BENHNHAN.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayLap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaPhieuKham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PHIEUKHAM.NgayKham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM.DICHVU.DonGia)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TongTien)
+                </td>
+                <td>
+                    @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

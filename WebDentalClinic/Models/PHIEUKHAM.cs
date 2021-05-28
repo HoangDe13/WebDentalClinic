@@ -59,7 +59,6 @@ namespace WebDentalClinic.Models
         public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
         public virtual CHITIETPHIEUKHAM CHITIETPHIEUKHAM { get; set; }//a
-
-        
+        public List<PHIEUKHAM> listDV { get; internal set; }
     }
 }

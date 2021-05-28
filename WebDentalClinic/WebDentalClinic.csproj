@@ -347,11 +347,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutDentist.cshtml" />
     <Content Include="Views\Dentist\Index.cshtml" />
-    <Content Include="Views\Dentist\Account.cshtml" />
     <Content Include="Views\Dentist\MedicalExamination.cshtml" />
     <Content Include="Views\Dentist\Logout.cshtml" />
-    <Content Include="Views\Dentist\InvoiceHistory.cshtml" />
-    <Content Include="Views\Dentist\Invoice.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationList.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\IntroDental.cshtml" />
@@ -417,6 +414,10 @@
     <Content Include="Views\Customer\Profile1.cshtml" />
     <Content Include="Views\Customer\ChangePass.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationHistory.cshtml" />
+    <Content Include="Views\Dentist\HoaDon.cshtml" />
+    <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
+    <Content Include="Views\Dentist\XoaHoaDon.cshtml" />
+    <Content Include="Views\Dentist\SelectDichVu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
