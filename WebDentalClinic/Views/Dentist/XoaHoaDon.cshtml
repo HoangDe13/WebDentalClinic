@@ -1,0 +1,65 @@
+﻿@model WebDentalClinic.Models.HOADON
+
+@{
+    ViewBag.Title = "XoaHoaDon";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+
+
+<h2 class="login100-form-title" style="width:100%;">Xóa Hóa Đơn</h2>
+<div class="limiter">
+    <div class="col-md-12 col-sm-12">
+
+        <div class="col-md-12 col-md-offset-4">
+
+            <hr />
+            <h4>Bạn Chắc Chắn Xóa hóa đơn này Chứ?</h4>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaHoaDon)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NgayLap)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MaPhieuKham)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TongTien)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", null, new { @class = "btn btn-info" })
+                    <input type="submit" value="XoaHoaDon" class="btn btn-danger" /> |
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

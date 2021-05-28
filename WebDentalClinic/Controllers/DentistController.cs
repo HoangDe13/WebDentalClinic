@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebDentalClinic.Models;
 
 namespace WebDentalClinic.Controllers
@@ -17,52 +18,135 @@ namespace WebDentalClinic.Controllers
             return View();
         }
 
-        public ActionResult Account()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
 
         public ActionResult MedicalExamination(int id)
         {
-            
-            ViewBag.Message = "Your  page.";
+
+            return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult MedicalExamination(int id, PHIEUKHAM pk, CHITIETPHIEUKHAM ctPK)
+        {
+            database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("MedicalExaminationList");
+        }
+        public ActionResult MedicalExaminationHistory()
+        {
 
             return View(database.PHIEUKHAMs.ToList());
+
         }
 
         public ActionResult MedicalExaminationList()
         {
-            var DatetimeList = from a in database.LICHHENs where a.NgayHen == DateTime.Now select a;
-            
-            ViewBag.Message = "Your  page.";
+            /* var DatetimeList = from a in database.PHIEUKHAMs where a.NgayKham == DateTime.Now select a;
+             id.MaPhieuKham = 1;
+             ViewBag.Message = "Your  page.";*/
 
-            return View(database.LICHHENs.ToList());
+            return View(database.PHIEUKHAMs.ToList()); ;
         }
+        /*        [HttpGet]
+                public ActionResult MedicalExaminationList(string searchString, PHIEUKHAM pk, int id)
+                {
+
+                    var links = from l in database.BENHNHANs // lấy toàn bộ liên kết
+                                select l;
+
+                    if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+                    {
+                        links = links.Where(s => s.HoTen.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                    }
+                    return View(links);
+                }*/
 
         public ActionResult Logout()
         {
-            ViewBag.Message = "Your logout page.";
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
 
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult InvoiceHistory()
+
+
+        public ActionResult HoaDon()
         {
-            ViewBag.Message = "Your Invoice History Page.";
+            return View(database.HOADONs.ToList());
+        }
+
+        public ActionResult TaoHoaDon()
+        {
             return View();
         }
 
-
-        public ActionResult Invoice()
+        public ActionResult TinhTongTien()
         {
-            ViewBag.Message = "Your Invoice History Page.";
+            var session = HttpContext.Session.GetEnumerator();
             return View();
         }
 
+        //[HttpPost]
+        //public ActionResult TinhTongTien(HoaDonViewModel hoaDonViewModel)
+        //{
 
+
+        //    return View();
+        //}
+        public ActionResult XemDichVu(int id, PHIEUKHAM pk)
+        {
+
+            return View(database.PHIEUKHAMs.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult TaoHoaDon(HOADON hd)
+        {
+            try
+            {
+                database.HOADONs.Add(hd);
+                database.SaveChanges();
+                return RedirectToAction("HoaDon");
+            }
+            catch
+            {
+                return Content("Error Create New");
+            }
+        }
+        [HttpPost]
+
+        public ActionResult XoaHoaDon(int id)
+        {
+            return View(database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult XoaHoaDon(int id, HOADON hd)
+        {
+            try
+            {
+                hd = database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault();
+                database.HOADONs.Remove(hd);
+                database.SaveChanges();
+                return RedirectToAction("HoaDon");
+            }
+            catch
+            {
+                return Content(" This data is using in other table , error Delete");
+            }
+        }
+        public ActionResult SelectDichVu(DICHVU pk)
+        {
+
+            pk.listDV = database.DICHVUs.ToList<DICHVU>();
+            return PartialView(pk);
+        }
+
+        public ActionResult ChiTietHoaDon(int id)
+        {
+            return View(database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault());
+        }
 
 
 

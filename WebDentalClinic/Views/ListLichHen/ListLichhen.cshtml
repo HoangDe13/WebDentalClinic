@@ -4,11 +4,21 @@
     ViewBag.Title = "ListLichhen";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
+@using (Html.BeginForm("ListLichhen", "ListLichHen", FormMethod.Get))
+{
+    <p style="padding-left:300px;">
 
+        Chọn Ngày :
+
+        @Html.TextBox("SearchString", null, new { @type = "date" })
+        <input type="submit" value="Tìm kiếm" />
+
+    </p>
+}
 
 
 <p>
-    @Html.ActionLink("Tạo Lịch Hẹn", "CreateLichHenYTA")
+    @Html.ActionLink("Tạo Lịch Hẹn", "CreateLichHenYTA", null, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -61,7 +71,7 @@
                 @Html.DisplayFor(modelItem => item.TinhTrang)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MaNhanVien)
+                @Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GhiChu)
@@ -69,7 +79,7 @@
             <td>
                 @Html.ActionLink("Xác Nhận", "Edit", new { id = item.MaLichHen }) |
 
-                @Html.ActionLink("Xóa", "Delete", new {  id=item.MaLichHen  })
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaLichHen })
             </td>
         </tr>
     }
