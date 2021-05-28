@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
+﻿@model IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
 @{
     ViewBag.Title = "MedicalExaminationList";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
@@ -31,31 +31,31 @@
     <table class="table" border="1">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NHANVIEN.HoTen)
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.NHANVIEN.HoTen)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayKham)
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.NgayKham)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GioKham)
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.GioKham)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayTaiKham)
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.NgayTaiKham)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MoTaTrieuChung)
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.MoTaTrieuChung)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.GhiChu)
+                @Html.DisplayNameFor(model => model.GhiChu)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TinhTrang)
+                @Html.DisplayNameFor(model => model.PHIEUKHAM.TinhTrang)
             </th>
 
             <th>
@@ -70,39 +70,39 @@
         {
             <tr>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
+                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.NHANVIEN.HoTen)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.BENHNHAN.HoTen)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.NgayKham)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.GioKham)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
+                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.NgayTaiKham)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
+                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.MoTaTrieuChung)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)</center>
+                    <center>@Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.GhiChu)</center>
+                    <center>@Html.DisplayFor(modelItem => item.GhiChu)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
+                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.TinhTrang)</center>
 
                 </td>
 
