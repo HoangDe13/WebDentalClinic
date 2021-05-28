@@ -9,104 +9,109 @@
 <hr />
 
 
-<div class="form-group">
-    <label>Chọn ngày khám bệnh</label>
+@*<div class="container body-content">
 
-</div>
 
-<select name="dateOfExamination" style="max-width:300px; color:black; margin-top:auto">
-    <option>
+    @using (Html.BeginForm("MedicalExaminationList", "Dentist", FormMethod.Get))
 
-        @Html.DisplayNameFor(model => model.NgayKham)
+    {
 
-    </option>
-</select>
+        <p style="padding-left:100px;">
 
-<div class="form-group">
-    <label>Chọn giờ khám bệnh</label>
-</div>
-<select name="dateOfExamination" style="max-width:300px; color:black; margin-top:auto">
-    <option>
-        @Html.DisplayNameFor(model => model.GioKham)
-    </option>
-</select>
+            Nhập Tên Bệnh Nhân :
+            <span style="border:solid;"> @Html.TextBox("SearchString")</span>
+            <input type="submit" value="Tìm kiếm" />
 
-<div class="form-group">
-    <button style="width:100px; margin-left:20px; margin-top:10px" class="btn btn-primary btn-block ">Tìm kiếm</button>
-</div>
+        </p>
 
-<div>
+    }*@
 
-    <table class="table" border="1">
+    <div>
+
+        <table class="table" border="1">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NHANVIEN.HoTen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayKham)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GioKham)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayTaiKham)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoTaTrieuChung)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM.GhiChu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TinhTrang)
+                </th>
+
+                <th>
+                    Trạng thái
+                </th>
+                <th></th>
+            </tr>
+
+            @*Vẫn chưa có cái phiếu khám cho nó nên bị null*@
+
+            @foreach (var item in Model)
+            {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayKham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GioKham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayTaiKham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MoTaTrieuChung)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TinhTrang)
-            </th>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
 
-            <th>
-                Trạng thái
-            </th>
-            <th></th>
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
+
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
+
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM.GhiChu)</center>
+
+            </td>
+            <td>
+                <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
+
+            </td>
+
+            <td>
+                <select name="confirm" id="confirm">
+                    <option value="Confirm">Xác nhận</option>
+                    <option value="Unconfirm">Chưa xác nhận</option>
+                </select>
+            </td>
+            <td>
+                @*@Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaPhieuKham }) |*@
+                @Html.ActionLink("Chi tiết", "MedicalExamination", new { id = item.MaPhieuKham }) |
+                @* @Html.ActionLink("Hủy Lịch", "Cancel", new { id = item.MaPhieuKham })*@
+            </td>
         </tr>
+            }
 
-        @*Vẫn chưa có cái phiếu khám cho nó nên bị null*@
-
-        @foreach (var item in Model)
-        {
-    <tr>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
-
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
-
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
-
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
-
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
-
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
-
-        </td>
-
-        <td>
-            <select name="confirm" id="confirm">
-                <option value="Confirm">Xác nhận</option>
-                <option value="Unconfirm">Chưa xác nhận</option>
-            </select>
-        </td>
-        <td>
-            @*@Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaPhieuKham }) |*@
-            @Html.ActionLink("Chi tiết", "MedicalExamination", new { id = item.MaPhieuKham }) |
-           @* @Html.ActionLink("Hủy Lịch", "Cancel", new { id = item.MaPhieuKham })*@
-        </td>
-    </tr>
-        }
-
-    </table>
-</div>
+        </table>
+    </div>

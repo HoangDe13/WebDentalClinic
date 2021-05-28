@@ -19,39 +19,17 @@ namespace WebDentalClinic.Controllers
         }
 
         
-
-
-     /*   public ActionResult MedicalExamination(*//*PHIEUKHAM pk, BENHNHAN bn*//*)
-        {
-            *//*  // Không biết nên đang dọc
-              bn.MaBenhNhan = 0;
-              pk.MaPhieuKham = 0;
-              database.BENHNHANs.Add(bn);
-              database.PHIEUKHAMs.Add(pk);
-              //database.SaveChanges();
-              return View();*//*
-            return View(database.PHIEUKHAMs.ToList());
-
-        }*/
         public ActionResult MedicalExamination(int id)
         {
-            /*PHIEUKHAM pk = new PHIEUKHAM();
-            pk.MaPhieuKham = id;
-            var check = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
-            return View(check);*/
+
             return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult MedicalExamination(int id, PHIEUKHAM pk)
+        public ActionResult MedicalExamination(int id, PHIEUKHAM pk, CHITIETPHIEUKHAM ctPK)
         {
-        /*    int id = pk.MaPhieuKham;
             database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
-            return RedirectToAction("MedicalExamination");*/
-
-            database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
-            database.SaveChanges();
-            return RedirectToAction("MedicalExamination");
+            return RedirectToAction("MedicalExaminationList");
         }
         public ActionResult MedicalExaminationHistory()
         {
@@ -68,6 +46,19 @@ namespace WebDentalClinic.Controllers
 
             return View(database.PHIEUKHAMs.ToList()); ;
         }
+/*        [HttpGet]
+        public ActionResult MedicalExaminationList(string searchString, PHIEUKHAM pk, int id)
+        {
+           
+            var links = from l in database.BENHNHANs // lấy toàn bộ liên kết
+                        select l;
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.HoTen.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            return View(links);
+        }*/
 
         public ActionResult Logout()
         {
@@ -146,12 +137,11 @@ namespace WebDentalClinic.Controllers
                 return Content(" This data is using in other table , error Delete");
             }
         }
-        public ActionResult SelectDichVu()
+        public ActionResult SelectDichVu(PHIEUKHAM pk)
         {
 
-            PHIEUKHAM ct = new PHIEUKHAM();
-            ct.listDV = database.PHIEUKHAMs.ToList<PHIEUKHAM>();
-            return PartialView(ct);
+           pk.listDV = database.PHIEUKHAMs.ToList<PHIEUKHAM>();
+            return PartialView(pk);
         }
 
 
