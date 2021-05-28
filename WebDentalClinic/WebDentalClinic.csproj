@@ -418,6 +418,7 @@
     <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
     <Content Include="Views\Dentist\XoaHoaDon.cshtml" />
     <Content Include="Views\Dentist\SelectDichVu.cshtml" />
+    <Content Include="Views\Dentist\ChiTietHoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

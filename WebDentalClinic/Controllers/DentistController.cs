@@ -144,7 +144,10 @@ namespace WebDentalClinic.Controllers
             return PartialView(pk);
         }
 
-
+        public ActionResult ChiTietHoaDon()
+        {
+            return View();
+        }
 
 
 

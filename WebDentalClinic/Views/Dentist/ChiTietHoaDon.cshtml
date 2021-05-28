@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
+
+@{
+    ViewBag.Title = "ChiTietHoaDon";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+<center><h2>CHI TIẾT PHIẾU KHÁM</h2></center>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PHIEUKHAM.GioKham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.PHIEUKHAM.GioKham)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoLuong)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.GhiChu)
+    </td>
+</tr>
+}
+
+</table>
