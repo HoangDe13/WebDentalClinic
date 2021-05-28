@@ -403,19 +403,18 @@
     <Content Include="Views\Customer\LichSuKham.cshtml" />
     <Content Include="Views\Customer\ChiTietphieukham.cshtml" />
     <Content Include="Views\ListLichHen\ListLichHen.cshtml" />
-
     <Content Include="Views\Home\DV.cshtml" />
-
     <Content Include="Views\PhieuKham\Create.cshtml" />
     <Content Include="Views\CreateProfile\Details.cshtml" />
     <Content Include="Views\Home\ForgotPassword.cshtml" />
     <Content Include="Views\Customer\EditProfile.cshtml" />
-
     <Content Include="Views\CreateProfile\Edit.cshtml" />
     <Content Include="Views\PhieuKham\Edit.cshtml" />
     <Content Include="Views\CreateProfile\LichSuKham.cshtml" />
     <Content Include="Views\CreateProfile\ChiTietphieukham.cshtml" />
     <Content Include="Views\CreateProfile\CreatePhieuKham.cshtml" />
+    <Content Include="Views\PhieuKham\DanhSachHoaDon.cshtml" />
+    <Content Include="Views\PhieuKham\CreateHoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
