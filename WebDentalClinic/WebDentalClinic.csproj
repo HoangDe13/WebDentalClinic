@@ -418,6 +418,10 @@
     <Content Include="Views\Dentist\XoaHoaDon.cshtml" />
     <Content Include="Views\Dentist\ChiTietHoaDon.cshtml" />
     <Content Include="Views\Dentist\SelectDichVu.cshtml" />
+    <Content Include="Views\Dentist\AddChiTiet.cshtml" />
+    <Content Include="Views\Dentist\EditChiTiet.cshtml" />
+    <Content Include="Views\Dentist\DeleteChiTiet.cshtml" />
+    <Content Include="Views\Dentist\MedicalExamination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,59 @@
+﻿@model WebDentalClinic.Models.CHITIETPHIEUKHAM
+
+@{
+    ViewBag.Title = "DeleteChiTiet";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+
+
+<h2 class="login100-form-title" style="width:100%;">Xóa Chi Tiết Phiếu Khám</h2>
+<div class="limiter">
+    <div class="col-md-12 col-sm-12">
+
+        <div class="col-md-12 col-md-offset-4">
+
+            <hr />
+            <h4>Bạn Chắc Chắn Xóa chi tiết phiếu khám này Chứ?</h4>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DICHVU.TenDichVu)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SoLuong)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SoLuong)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GhiChu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GhiChu)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    @Html.ActionLink("Danh Sách Phiếu Khám", "MedicalExaminationList", null, new { @class = "btn btn-info" })
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
