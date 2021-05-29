@@ -19,17 +19,36 @@ namespace WebDentalClinic.Controllers
         }
 
 
-        public ActionResult MedicalExamination(int id)
+        public ActionResult EditPhieuKham(int id)
         {
 
             return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult MedicalExamination(int id, PHIEUKHAM pk)
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPhieuKham(int id, PHIEUKHAM pk)
         {
-            database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
+           /* database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
+            database.Configuration.ValidateOnSaveEnabled = false;
+
             database.SaveChanges();
-            return RedirectToAction("MedicalExaminationList");
+            return RedirectToAction("MedicalExaminationList");*/
+
+            var check = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
+            if (check != null)
+            {
+                /*database.Entry(pk).State = System.Data.Entity.EntityState.Modified;*/
+                database.Configuration.ValidateOnSaveEnabled = true;
+                check.TinhTrang = pk.TinhTrang;
+                check.NgayTaiKham = pk.NgayTaiKham;
+                database.SaveChanges();
+                return RedirectToAction("MedicalExaminationList");
+            }
+            else
+            {
+                ViewBag.ErrorInfo = "Sai mã bệnh nhân";
+                return View();
+            }
         }
    /*     [HttpPost]
         public ActionResult MedicalExamination(int id, CHITIETPHIEUKHAM ctPK)
@@ -51,7 +70,7 @@ namespace WebDentalClinic.Controllers
              id.MaPhieuKham = 1;
              ViewBag.Message = "Your  page.";*/
 
-            return View(database.CHITIETPHIEUKHAMs.ToList()); ;
+            return View(database.PHIEUKHAMs.ToList()); ;
         }
         /*        [HttpGet]
                 public ActionResult MedicalExaminationList(string searchString, PHIEUKHAM pk, int id)

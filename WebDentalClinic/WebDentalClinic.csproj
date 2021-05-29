@@ -347,7 +347,7 @@
     <Content Include="Views\Shared\_LayoutDentist.cshtml" />
     <Content Include="Views\Dentist\Index.cshtml" />
     <Content Include="Views\Dentist\Account.cshtml" />
-    <Content Include="Views\Dentist\MedicalExamination.cshtml" />
+    <Content Include="Views\Dentist\EditPhieuKham.cshtml" />
     <Content Include="Views\Dentist\Logout.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationList.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />

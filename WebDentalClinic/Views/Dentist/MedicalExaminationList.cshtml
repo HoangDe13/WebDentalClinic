@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
+﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
 @{
     ViewBag.Title = "MedicalExaminationList";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
@@ -28,39 +28,39 @@
 
 <div>
 
-    <table class="table" border="1">
+    <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.NHANVIEN.HoTen)
+                @Html.DisplayNameFor(model => model.NHANVIEN.HoTen)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
+                @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.NgayKham)
+                @Html.DisplayNameFor(model => model.NgayKham)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.GioKham)
+                @Html.DisplayNameFor(model => model.GioKham)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.NgayTaiKham)
+                @Html.DisplayNameFor(model => model.NgayTaiKham)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.MoTaTrieuChung)
+                @Html.DisplayNameFor(model => model.MoTaTrieuChung)
             </th>
-            <th>
+        @*    <th>
                 @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.GhiChu)
-            </th>
+            </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.TinhTrang)
+                @Html.DisplayNameFor(model => model.TinhTrang)
             </th>
 
-            <th>
+@*            <th>
                 Trạng thái
-            </th>
+            </th>*@
             <th></th>
         </tr>
 
@@ -70,50 +70,51 @@
         {
             <tr>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.NHANVIEN.HoTen)</center>
+                    <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.BENHNHAN.HoTen)</center>
+                    <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.NgayKham)</center>
+                    <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.GioKham)</center>
+                    <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.NgayTaiKham)</center>
+                    <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
 
                 </td>
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.MoTaTrieuChung)</center>
+                    <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
 
                 </td>
-                <td>
+     @*           <td>
                     <center>@Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)</center>
 
                 </td>
                 <td>
                     <center>@Html.DisplayFor(modelItem => item.GhiChu)</center>
 
-                </td>
+                </td>*@
                 <td>
-                    <center>@Html.DisplayFor(modelItem => item.PHIEUKHAM.TinhTrang)</center>
+                    <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
 
                 </td>
 
-                <td>
+       @*         <td>
                     <select name="confirm" id="confirm">
-                        <option value="Confirm">Xác nhận</option>
-                        <option value="Unconfirm">Chưa xác nhận</option>
+                        <option value="Finished">Đã khám</option>
+                        <option value="Unfinish">Chưa khám</option>
+                        <option value="Doing">Đang khám</option>
                     </select>
-                </td>
+                </td>*@
                 <td>
-                    @*@Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaPhieuKham }) |*@
+                    @Html.ActionLink("Chỉnh sửa", "EditPhieuKham", new { id = item.MaPhieuKham }) |
                     @Html.ActionLink("Chi tiết", "MedicalExamination", new { id = item.MaPhieuKham }) |
                     @Html.ActionLink("Tạo hóa đơn", "TaoHoaDon", new { id = item.MaPhieuKham }) |
                     @* @Html.ActionLink("Hủy Lịch", "Cancel", new { id = item.MaPhieuKham })*@
