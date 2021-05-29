@@ -87,23 +87,7 @@
                     <li>@Html.ActionLink("Trang chủ", "Index", "Dentist")</li>
                     @*<li>@Html.ActionLink("Khám bệnh", "MedicalExamination", "Dentist")</li>*@
                     <li>@Html.ActionLink("Danh sách khám bệnh", "MedicalExaminationList", "Dentist")</li>
-                    <li class="dropdown">
-
-                        <button class="dropbtn">
-                            Hóa đơn
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-
-                            <ul>
-                                <li>@Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", "Dentist")</li>
-                                <li>@Html.ActionLink("Tạo Hóa Đơn", "TaoHoaDon", "Dentist")</li>
-
-                            </ul>
-                        </div>
-
-                    </li>
-
+                    <li>@Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", "Dentist")</li>
                     <li>@Html.ActionLink("Đăng xuất", "Logout", "Dentist")</li>
                 </ul>
             </div>

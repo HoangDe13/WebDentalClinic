@@ -25,12 +25,19 @@ namespace WebDentalClinic.Controllers
             return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult MedicalExamination(int id, PHIEUKHAM pk, CHITIETPHIEUKHAM ctPK)
+        public ActionResult MedicalExamination(int id, PHIEUKHAM pk)
         {
             database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
             return RedirectToAction("MedicalExaminationList");
         }
+   /*     [HttpPost]
+        public ActionResult MedicalExamination(int id, CHITIETPHIEUKHAM ctPK)
+        {
+            database.Entry(ctPK).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("MedicalExaminationList");
+        }*/
         public ActionResult MedicalExaminationHistory()
         {
 
@@ -74,12 +81,13 @@ namespace WebDentalClinic.Controllers
 
         public ActionResult HoaDon()
         {
+
             return View(database.HOADONs.ToList());
         }
 
-        public ActionResult TaoHoaDon()
+        public ActionResult TaoHoaDon(int id)
         {
-            return View();
+            return View(database.HOADONs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
         }
 
         public ActionResult TinhTongTien()

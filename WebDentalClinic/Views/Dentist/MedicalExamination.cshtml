@@ -5,17 +5,13 @@
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
 
-@section css{
-    <link rel="stylesheet" type="text/css" href="~/Content/Contact.css" />
-}
-
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h2 class="login100-form-title" style="width:100%;">CẬP NHẬT THÔNG TIN ĐIỀU TRỊ</h2>
+        <h2 class="login100-form-title" style="width:100%;">CAP NHAT THONG TIN DIEU TRI</h2>
         <div class="limiter">
             <div class="col-md-12 col-sm-12">
 
@@ -95,8 +91,8 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            @Html.ActionLink("Danh Sách Phiếu Khám", "MedicalExaminationList", null, new { @class = "btn btn-info" })
-                            <input type="submit" value="Cập Nhật" class="btn btn-primary" />
+                            @Html.ActionLink("Danh Sach Phieu Kham", "MedicalExaminationList", null, new { @class = "btn btn-info" })
+                            <input type="submit" value="Cap Nhat" class="btn btn-primary" />
                         </div>
                     </div>
                 </div>
