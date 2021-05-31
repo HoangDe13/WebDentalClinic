@@ -422,6 +422,8 @@
     <Content Include="Views\Dentist\EditChiTiet.cshtml" />
     <Content Include="Views\Dentist\DeleteChiTiet.cshtml" />
     <Content Include="Views\Dentist\MedicalExamination.cshtml" />
+    <Content Include="Views\Dentist\MedicalExaminationListHistory.cshtml" />
+    <Content Include="Views\Dentist\MedicalExaminationHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

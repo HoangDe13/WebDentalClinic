@@ -1,0 +1,70 @@
+﻿@model  IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
+
+@{
+    ViewBag.Title = "MedicalExaminationHistory";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+
+<center><h2>CHI TIẾT PHIẾU KHÁM</h2></center>
+
+<div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("Lịch Sử Khám Bệnh", "MedicalExaminationListHistory", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GhiChu)
+            </th>
+        </tr>
+
+        @*Vẫn chưa có cái phiếu khám cho nó nên bị null*@
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GhiChu)
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+
+
+
+
+
+
+
+

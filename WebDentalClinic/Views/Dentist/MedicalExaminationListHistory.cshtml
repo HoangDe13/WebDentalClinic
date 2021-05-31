@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
 @{
-    ViewBag.Title = "MedicalExaminationList";
+    ViewBag.Title = "MedicalExaminationListHistory";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
 
-<center><h2>DANH SÁCH KHÁM BỆNH</h2></center>
+<center><h2>LỊCH SỬ KHÁM BỆNH</h2></center>
 
 <hr />
 
@@ -36,8 +36,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.TinhTrang)
             </th>
+
             <th></th>
         </tr>
+
 
         @foreach (var item in Model)
         {
@@ -72,13 +74,9 @@
         </td>
         <td>
             <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
-
         </td>
         <td>
-            @Html.ActionLink("Chỉnh sửa", "EditPhieuKham", new { id = item.MaPhieuKham }) |
-            @Html.ActionLink("Chi tiết", "MedicalExamination", new { id = item.MaPhieuKham }) |
-            @Html.ActionLink("Tạo hóa đơn", "TaoHoaDon", new { id = item.MaPhieuKham }) |
-            @Html.ActionLink("Thêm Chi Tiết Phiếu Khám", "AddChiTiet", new { id = item.MaPhieuKham }) |
+            @Html.ActionLink("Chi tiết", "MedicalExaminationHistory", new { id = item.MaPhieuKham }) 
         </td>
     </tr>
         }
