@@ -419,6 +419,12 @@
     <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
     <Content Include="Views\Dentist\XoaHoaDon.cshtml" />
     <Content Include="Views\Dentist\SelectDichVu.cshtml" />
+    <Content Include="Views\Dentist\EditPhieuKham.cshtml" />
+    <Content Include="Views\Dentist\EditChiTiet.cshtml" />
+    <Content Include="Views\Dentist\AddChiTiet.cshtml" />
+    <Content Include="Views\Dentist\DeleteChiTiet.cshtml" />
+    <Content Include="Views\Dentist\LuuTrangThai.cshtml" />
+    <Content Include="Views\Dentist\TinhTongTien.cshtml" />
     <Content Include="Views\Dentist\ChiTietHoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>

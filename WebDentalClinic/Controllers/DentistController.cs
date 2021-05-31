@@ -147,6 +147,8 @@ namespace WebDentalClinic.Controllers
         //    return View(database.HOADONs.Where(s=>s.MaPhieuKham==id).FirstOrDefault());
         //}
 
+
+
         [HttpPost]
         //public ActionResult TinhTongTien(FormCollection collect)
         //{
@@ -157,6 +159,7 @@ namespace WebDentalClinic.Controllers
 
         //    return View(tongTien);
         //}
+
         public ActionResult TinhTongTien(int soLuong, int donGia)
         {
 
