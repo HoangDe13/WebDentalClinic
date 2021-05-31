@@ -1,4 +1,4 @@
-﻿@model WebDentalClinic.Models.HOADON
+﻿@model  WebDentalClinic.Models.HOADON
 
 @{
     ViewBag.Title = "TaoHoaDon";
@@ -11,66 +11,76 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <center><h4>HÓA ĐƠN</h4></center>
-        <hr />
-
+        <h2 class="login100-form-title" style="width:100%;"></h2>
         <div class="limiter">
+            <div class="col-md-12 col-sm-12">
 
-            <div class="container-login100">
-                <div class="wrap-login100">
-                    <h2 class="login100-form-title" style="width:100%;">TẠO HÓA ĐƠN</h2>
-                    <div class="col-md-12 col-md-offset-3">
-                        <form class="login100-form validate-form">
+                <div class="col-md-12 col-md-offset-3">
 
-                            <hr />
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.MaHoaDon,"Mã Hóa Đơn", htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-5">
-                                    @Html.EditorFor(model => model.MaHoaDon, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.MaHoaDon, "", new { @class = "text-danger" })
-                                    @Html.ActionLink("Chi tiết", "ChiTietHoaDon", "TaoHoaDon")
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.MaHoaDon)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NgayLap, "Ngày lập", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NgayLap, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NgayLap, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                                </div>
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MaPhieuKham, "Mã phiếu khám", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MaPhieuKham, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MaPhieuKham, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NgayLap, "Ngày Lập", htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.NgayLap, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NgayLap, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TongTien, "Tổng tiền", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            
+                            @Html.EditorFor(model => model.TongTien, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TongTien, "Dịch vụ", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10" name="idHoaDon">
+                            @Html.ActionLink("Chi tiết", "TinhTongTien", new { id = Model.MaHoaDon })
+                        </div>
+                    </div>
 
-
-                            @*Chưa biết tính tổng tiền*@
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.TongTien,"Tổng Tiền", htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.TongTien, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    @Html.ActionLink("Danh sách hóa đơn", "HoaDon", null, new { @class = "btn btn-info" })
-                                    <input type="submit" value="Tạo Hóa Đơn" class="btn btn-success" />
-
-
-                                </div>
-                            </div>
-                        </form>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", null, new { @class = "btn btn-info" })
+                            <input type="submit" value="Xác nhận thanh toán" class="btn btn-primary" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-}
 
+}
+<div>
+
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }
+
+
+
+
+
+
+
+
+

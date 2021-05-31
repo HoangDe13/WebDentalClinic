@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
+
+@{
+    ViewBag.Title = "TinhTongTien";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+<center><h2>CHI TIẾT DỊCH VỤ ĐÃ KHÁM</h2></center>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PHIEUKHAM.NgayKham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHIEUKHAM.GioKham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DICHVU.DonGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHIEUKHAM.NgayKham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHIEUKHAM.GioKham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHIEUKHAM.BENHNHAN.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM.DICHVU.TenDichVu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DICHVU.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+
+        </tr>
+    }
+
+    <tr>
+        <td>
+            @Html.ActionLink("Tiếp tục thanh toán", "TaoHoaDon", new { @class = "btn btn-info" })
+        </td>
+
+    </tr>
+
+</table>
