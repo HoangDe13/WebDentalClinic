@@ -30,9 +30,10 @@ namespace WebDentalClinic.Models
         public string LoaiDichVu { get; set; }
         [Display(Name = "Ghi Chú")]
         public string GhiChu { get; set; }
-    
+        public List<DICHVU> listDV { get; internal set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }
-        public List<DICHVU> listDV { get; internal set; }
+
     }
 }
