@@ -1,65 +1,52 @@
-﻿@model IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
+﻿@model WebDentalClinic.Models.PHIEUKHAM
 
 @{
     ViewBag.Title = "TinhTongTien";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
+
+
 <center><h2>CHI TIẾT DỊCH VỤ ĐÃ KHÁM</h2></center>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PHIEUKHAM.NgayKham)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PHIEUKHAM.GioKham)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DICHVU.DonGia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoLuong)
-        </th>
 
-        <th></th>
-    </tr>
+<hr />
 
-    @foreach (var item in Model)
-    {
+<div style="margin-left:200px">
 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PHIEUKHAM.NgayKham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PHIEUKHAM.GioKham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PHIEUKHAM.BENHNHAN.HoTen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM.DICHVU.TenDichVu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DICHVU.DonGia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoLuong)
-            </td>
+    <hr />
+    <dl class="dl-horizontal">
 
-        </tr>
-    }
 
-    <tr>
-        <td>
-            @Html.ActionLink("Tiếp tục thanh toán", "TaoHoaDon", new { @class = "btn btn-info" })
-        </td>
+        <dt>
+            @Html.LabelFor(model => model.BENHNHAN.HoTen, "Họ Tên Khách Hàng")
+        </dt>
 
-    </tr>
+        <dd>
+            @Html.DisplayFor(model => model.BENHNHAN.HoTen)
+        </dd>
 
-</table>
+        <dt>
+            @Html.LabelFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu, "Tên Dịch Vụ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.CHITIETPHIEUKHAM.DICHVU.DonGia, "Đơn Giá")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHITIETPHIEUKHAM.DICHVU.DonGia)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.CHITIETPHIEUKHAM.SoLuong, "Số Lượng")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CHITIETPHIEUKHAM.SoLuong)
+        </dd>
+    </dl>
+</div>
+
+<p style="margin-left:200px">
+    @Html.ActionLink("Quay lại", "TaoHoaDon")
+</p>

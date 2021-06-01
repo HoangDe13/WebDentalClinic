@@ -137,36 +137,34 @@ namespace WebDentalClinic.Controllers
             return View(database.HOADONs.ToList());
         }
 
-        public ActionResult TaoHoaDon(int id)
+        public ActionResult TaoHoaDon()
         {
-            return View(database.HOADONs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
+            
+            return View();
         }
 
-        //public ActionResult TinhTongTien(int id)
-        //{
-        //    return View(database.HOADONs.Where(s=>s.MaPhieuKham==id).FirstOrDefault());
-        //}
+        public ActionResult TinhTongTien()
+        {
+            return View();
+        }
 
 
 
         [HttpPost]
-        //public ActionResult TinhTongTien(FormCollection collect)
-        //{
-
-        //    int tongTien = int.Parse(collect["@Model.Sum(x => x.CHITIETPHIEUKHAM.SoLuong * x.CHITIETPHIEUKHAM.DICHVU.DonGia)"]);
-
-        //    ViewBag.Sum = tongTien.ToString();
-
-        //    return View(tongTien);
-        //}
-
-        public ActionResult TinhTongTien(int soLuong, int donGia)
+        public ActionResult TinhTongTien(FormCollection collect)
         {
 
-            int tongTien = soLuong * donGia;
+            int tongTien = int.Parse(collect["x => x.CHITIETPHIEUKHAM.SoLuong * x.CHITIETPHIEUKHAM.DICHVU.DonGia"]);
+
+            ViewBag.Sum = tongTien.ToString();
 
             return View(tongTien);
         }
+
+        //public ActionResult TinhTongTien(int id)
+        //{
+        //    return View(database.PHIEUKHAMs.Where(s=> s.MaPhieuKham==id).FirstOrDefault());
+        //}
 
 
         public ActionResult XemDichVu(int id, PHIEUKHAM pk)
@@ -180,19 +178,35 @@ namespace WebDentalClinic.Controllers
         {
             try
             {
-                // chưa lấy được giá trị đơn giá, số lượng
-                int donGia = hd.PHIEUKHAM.CHITIETPHIEUKHAM.DICHVU.DonGia.Value;
-                int soLuong = hd.PHIEUKHAM.CHITIETPHIEUKHAM.SoLuong.Value;
+                //DateTime dateTime = DateTime.Now;
+                //hd.NgayLap = dateTime;
 
-                TinhTongTien(donGia,soLuong);
-                database.HOADONs.Add(hd);
-                database.SaveChanges();
-                return RedirectToAction("HoaDon");
+                // chưa lấy được giá trị đơn giá, số lượng
+                //int donGia = hd.PHIEUKHAM.CHITIETPHIEUKHAM.DICHVU.DonGia.Value;
+                //int soLuong = hd.PHIEUKHAM.CHITIETPHIEUKHAM.SoLuong.Value;
+
+                //TinhTongTien(donGia,soLuong);
+
+                DentistController tongTien = new DentistController();
+                tongTien.TinhTongTien();
+
+                var check = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == hd.MaPhieuKham).FirstOrDefault();
+                if(check == null)
+                {
+                    database.HOADONs.Add(hd);
+                    database.SaveChanges();
+                    return RedirectToAction("HoaDon");
+                }
+                else
+                {
+                    return Content("Phiếu khám này đã thanh toán!!!");
+                }
             }
             catch
             {
                 return Content("Error Create New");
             }
+            
         }
         [HttpPost]
 
