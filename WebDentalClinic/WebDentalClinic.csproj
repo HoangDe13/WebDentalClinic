@@ -225,6 +225,7 @@
     <Content Include="Content\images\ImagesByMarkSebastian.txt" />
     <Content Include="Content\images\istockphoto-886097884-612x612.jpg" />
     <Content Include="Content\images\KhamRang.jpg" />
+    <Content Include="Content\images\Logo.png" />
     <Content Include="Content\images\pattern.png" />
     <Content Include="Content\images\Services\baby-teeth.png" />
     <Content Include="Content\images\Services\braces.png" />
@@ -346,6 +347,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutDentist.cshtml" />
     <Content Include="Views\Dentist\Index.cshtml" />
+
+    <Content Include="Views\Dentist\MedicalExamination.cshtml" />
+
     <Content Include="Views\Dentist\Account.cshtml" />
     <Content Include="Views\Dentist\EditPhieuKham.cshtml" />
     <Content Include="Views\Dentist\Logout.cshtml" />
@@ -379,7 +383,6 @@
     <Content Include="Views\Customer\Contact.cshtml" />
     <Content Include="Views\Customer\CreateLichHen.cshtml" />
     <Content Include="Views\Customer\DatLichThanhCongCus.cshtml" />
-    <Content Include="Views\Customer\ChangePassword.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\IntroDental.cshtml" />
     <Content Include="Views\Customer\IntroDoctor.cshtml" />
@@ -404,6 +407,7 @@
     <Content Include="Views\Customer\LichSuKham.cshtml" />
     <Content Include="Views\Customer\ChiTietphieukham.cshtml" />
     <Content Include="Views\ListLichHen\ListLichHen.cshtml" />
+    <Content Include="Views\Home\DV.cshtml" />
     <Content Include="Views\PhieuKham\Create.cshtml" />
     <Content Include="Views\CreateProfile\Details.cshtml" />
     <Content Include="Views\Home\ForgotPassword.cshtml" />
@@ -413,6 +417,10 @@
     <Content Include="Views\CreateProfile\LichSuKham.cshtml" />
     <Content Include="Views\CreateProfile\ChiTietphieukham.cshtml" />
     <Content Include="Views\CreateProfile\CreatePhieuKham.cshtml" />
+
+    <Content Include="Views\PhieuKham\DanhSachHoaDon.cshtml" />
+    <Content Include="Views\PhieuKham\CreateHoaDon.cshtml" />
+
     <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
     <Content Include="Views\Dentist\HoaDon.cshtml" />
     <Content Include="Views\Dentist\XoaHoaDon.cshtml" />
@@ -424,6 +432,7 @@
     <Content Include="Views\Dentist\MedicalExamination.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationListHistory.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationHistory.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

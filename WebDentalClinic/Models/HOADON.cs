@@ -12,6 +12,7 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
     public partial class HOADON
     {
         [Key]
@@ -28,6 +29,7 @@ namespace WebDentalClinic.Models
         public Nullable<int> MaPhieuKham { get; set; }
         [Display(Name = "Tổng Tiền")]
    /*     [Required(ErrorMessage = "Vui lòng nhập tổng tiền")]*/
+
         public int TongTien { get; set; }
     
         public virtual PHIEUKHAM PHIEUKHAM { get; set; }
