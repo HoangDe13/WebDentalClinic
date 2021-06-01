@@ -29,20 +29,10 @@
                     @Html.DisplayNameFor(model => model.MaPhieuKham)
                 </dt>
 
+
                 <dd>
                     @Html.DisplayFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
                 </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia)
-                </dt>
 
                 <dd>
                     @Html.DisplayFor(model => model.TongTien)
@@ -55,7 +45,7 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-actions no-color">
-                    @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", null, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", new { @class = "btn btn-info" })
                     <input type="submit" value="XoaHoaDon" class="btn btn-danger" /> |
 
                 </div>

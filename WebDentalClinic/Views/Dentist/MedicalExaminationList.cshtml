@@ -8,6 +8,27 @@
 
 <hr />
 
+
+@*<div class="container body-content">
+
+
+    @using (Html.BeginForm("MedicalExaminationList", "Dentist", FormMethod.Get))
+
+    {
+
+        <p style="padding-left:100px;">
+
+            Nhập Tên Bệnh Nhân :
+            <span style="border:solid;"> @Html.TextBox("SearchString")</span>
+            <input type="submit" value="Tìm kiếm" />
+
+        </p>
+
+    }*@
+
+
+
+
 <div>
 
     <table class="table">
@@ -33,54 +54,83 @@
             <th>
                 @Html.DisplayNameFor(model => model.MoTaTrieuChung)
             </th>
+            @*    <th>
+                    @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GhiChu)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.TinhTrang)
             </th>
+
+            @*            <th>
+                    Trạng thái
+                </th>*@
             <th></th>
         </tr>
 
+        @*Vẫn chưa có cái phiếu khám cho nó nên bị null*@
+
         @foreach (var item in Model)
         {
-    <tr>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.MaPhieuKham)</center>
+            <tr>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.MaPhieuKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
+                </td>
+                @*           <td>
+                        <center>@Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)</center>
 
-        </td>
-        <td>
-            @Html.ActionLink("Chỉnh sửa", "EditPhieuKham", new { id = item.MaPhieuKham }) |
-            @Html.ActionLink("Chi tiết", "MedicalExamination", new { id = item.MaPhieuKham }) |
-            @Html.ActionLink("Tạo hóa đơn", "TaoHoaDon", new { id = item.MaPhieuKham }) |
-            @Html.ActionLink("Thêm Chi Tiết Phiếu Khám", "AddChiTiet", new { id = item.MaPhieuKham }) |
-        </td>
-    </tr>
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.GhiChu)</center>
+
+                    </td>*@
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
+
+                </td>
+
+                @*         <td>
+                        <select name="confirm" id="confirm">
+                            <option value="Finished">Đã khám</option>
+                            <option value="Unfinish">Chưa khám</option>
+                            <option value="Doing">Đang khám</option>
+                        </select>
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Chỉnh sửa", "EditPhieuKham", new { id = item.MaPhieuKham }) |
+                    @Html.ActionLink("Chi tiết", "MedicalExamination", new { id = item.MaPhieuKham }) |
+                    @Html.ActionLink("Tạo hóa đơn", "TaoHoaDon", new { id = item.MaPhieuKham }) |
+                    @Html.ActionLink("Thêm Chi Tiết Phiếu Khám", "AddChiTiet", new { id = item.MaPhieuKham }) |
+                    @* @Html.ActionLink("Hủy Lịch", "Cancel", new { id = item.MaPhieuKham })*@
+                </td>
+            </tr>
         }
 
     </table>
