@@ -1,7 +1,7 @@
-﻿@model  WebDentalClinic.Models.HOADON
+﻿@model WebDentalClinic.Models.CHITIETPHIEUKHAM
 
 @{
-    ViewBag.Title = "TaoHoaDon";
+    ViewBag.Title = "EditChiTiet";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
 
@@ -11,9 +11,10 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h2 class="login100-form-title" style="width:100%;"></h2>
+        <h2 class="login100-form-title" style="width:100%;">CẬP NHẬT CHI TIẾT PHIẾU KHÁM</h2>
         <div class="limiter">
             <div class="col-md-12 col-sm-12">
+                @Html.ActionLink("Back", "MedicalExaminationList", null, new { @class = "btn btn-info" })
 
                 <div class="col-md-12 col-md-offset-3">
 
@@ -22,42 +23,42 @@
 
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.MaHoaDon)
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NgayLap, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NgayLap, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NgayLap, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                    @Html.HiddenFor(model => model.MaChiTietPhieuKham)
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.MaPhieuKham, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.MaPhieuKham, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.MaPhieuKham, "", new { @class = "text-danger" })
+                         @*   @Html.ActionLink("Tra Cứu", "MedicalExaminationList", "Dentist")*@
                         </div>
                     </div>
-
                     <div class="form-group">
-                        @Html.LabelFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.MaDichVu, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.MaDichVu, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @{Html.RenderAction("SelectDichVu", "Dentist");
                             }
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.TongTien, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.TongTien, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.GhiChu, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", null, new { @class = "btn btn-info" })
-                            <input type="submit" value="Tạo hóa đơn" class="btn btn-primary" />
+                            @Html.ActionLink("Danh Sách Chi Tiết Phiếu Khám", "MedicalExamination", null, new { @class = "btn btn-info" })
+                            <input type="submit" value="Cập Nhật" class="btn btn-primary" />
                         </div>
                     </div>
                 </div>

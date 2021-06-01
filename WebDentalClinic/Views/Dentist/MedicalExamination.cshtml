@@ -1,9 +1,10 @@
-@model  WebDentalClinic.Models.PHIEUKHAM
+﻿@model  IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
 
 @{
     ViewBag.Title = "MedicalExamination";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
+
 
 @section css{
     <link rel="stylesheet" type="text/css" href="~/Content/Contact.css" />
@@ -276,90 +277,57 @@
 
                 <div class="col-md-12 col-md-offset-3">
 
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <center><h2>CHI TIẾT PHIẾU KHÁM</h2></center>
 
+    <div>
 
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.MaPhieuKham)
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.MaNhanVien, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.MaNhanVien, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MaNhanVien, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.MaBenhNhan, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.MaBenhNhan, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MaBenhNhan, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NgayKham, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NgayKham, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NgayKham, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.GioKham, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.GioKham, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.GioKham, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.MoTaTrieuChung, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.MoTaTrieuChung, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MoTaTrieuChung, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.CHITIETPHIEUKHAM2.MaDichVu, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @{Html.RenderAction("SelectDichVu", "Dentist");
-                            }
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NgayTaiKham, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NgayTaiKham, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NgayTaiKham, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.TinhTrang, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TinhTrang, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TinhTrang, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.CHITIETPHIEUKHAM2.GhiChu, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.CHITIETPHIEUKHAM2.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.CHITIETPHIEUKHAM2.GhiChu, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             @Html.ActionLink("Danh Sách Phiếu Khám", "MedicalExaminationList", null, new { @class = "btn btn-info" })
-                            <input type="submit" value="Cập Nhật" class="btn btn-primary" />
+                         @*   @Html.ActionLink("Thêm Chi Tiết Phiếu Khám", "AddChiTiet", null, new { @class = "btn btn-info" })*@
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoLuong)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GhiChu)
+                            </th>
+                        </tr>
 
-}
+                        @*Vẫn chưa có cái phiếu khám cho nó nên bị null*@
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SoLuong)
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.GhiChu)
+
+                                </td>
+
+                                <td>
+                                    @Html.ActionLink("Edit", "EditChiTiet", new { id = item.MaChiTietPhieuKham }) |
+                                    @Html.ActionLink("Delete", "DeleteChiTiet", new { id = item.MaChiTietPhieuKham }) |
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
 <div>
 
 </div>
