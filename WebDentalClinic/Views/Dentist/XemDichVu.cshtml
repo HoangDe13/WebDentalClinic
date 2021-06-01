@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
+
+@{
+    ViewBag.Title = "XemDichVu";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+<center><h2>Xem Dịch Vụ đã chọn</h2></center>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayKham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioKham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHITIETPHIEUKHAM2.SoLuong)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioKham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHITIETPHIEUKHAM2.SoLuong)
+            </td>
+
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaPhieuKham }) |
+
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaPhieuKham })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

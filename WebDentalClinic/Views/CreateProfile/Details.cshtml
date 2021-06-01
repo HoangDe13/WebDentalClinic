@@ -4,12 +4,12 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
-<form class="col-md-12 col-sm-12" >
+
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
+                <form class="col-md-12 col-md-offset-4">
 
-                <div style="padding-left:275px;">
                     <h2>Thông Tin Bệnh Nhân</h2>
                     <hr />
                     <dl class="dl-horizontal">
@@ -74,10 +74,10 @@
                     </dl>
                     <hr />
                     @Html.ActionLink("Cập Nhật Thông Tin ", "Edit", new { id = Model.MaBenhNhan }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Danh Sách Bệnh Nhân", "Index", null, new { @class = "btn btn-primary" })
-                </div>
-                </div>
+                    @Html.ActionLink("Danh Sách Bệnh Nhân", "Index", null, new { @class = "btn btn-info" })
+                </form>
+            </div>
             </div>
         </div>
-</form>
+
 

@@ -95,8 +95,8 @@ namespace WebDentalClinic.Controllers
 
             return View();
         }
-       
-            [HttpPost]
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LoginUser(BENHNHAN BN)
         {
@@ -104,7 +104,7 @@ namespace WebDentalClinic.Controllers
             var check = database.BENHNHANs.Where(s => s.SoDienThoai == BN.SoDienThoai && s.MatKhau == BN.MatKhau).FirstOrDefault();
             if (check == null)
             {
-                ViewBag.ErrorInfo = "Sai info";
+                ViewBag.ErrorInfo = "Sai Thông Tin Đăng Nhập";
                 return View() ;
             }
             else

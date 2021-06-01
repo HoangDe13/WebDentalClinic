@@ -13,6 +13,7 @@ namespace WebDentalClinic.Controllers
         WebPhongKhamNhaKhoaEntities database = new WebPhongKhamNhaKhoaEntities();
         public ActionResult Index()
         {
+            
             return View(database.BENHNHANs.ToList());
         }
         public ActionResult Details(int id)
@@ -30,13 +31,12 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult Edit(int id)
         {
-            return View(database
-                .BENHNHANs.Where(s => s.MaBenhNhan == id).FirstOrDefault());
+            return View(database.BENHNHANs.Where(s => s.MaBenhNhan == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Edit(int id, BENHNHAN dv)
+        public ActionResult Edit(int id, BENHNHAN cate)
         {
-            database.Entry(dv).State = System.Data.Entity.EntityState.Modified;
+            database.Entry(cate).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -44,8 +44,7 @@ namespace WebDentalClinic.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BENHNHAN Nv)
         {
-            if (ModelState.IsValid)
-            {
+            
                 var check = database.BENHNHANs.FirstOrDefault(s => s.SoDienThoai == Nv.SoDienThoai);
                 if (check == null)
                 {
@@ -61,9 +60,27 @@ namespace WebDentalClinic.Controllers
                 }
 
 
-            }
-            return View();
 
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(BENHNHAN BN)
+        {
+            var check = database.BENHNHANs.Where(s => s.MaBenhNhan == BN.MaBenhNhan ).FirstOrDefault();
+            if (check == null)
+            {
+                ViewBag.ErrorInfo = "Không có thông tin";
+                return View();
+            }
+            else
+            {
+                database.Configuration.ValidateOnSaveEnabled = false;
+                
+                Session["MaBenhNhan"] = check.MaBenhNhan;
+                
+                return RedirectToAction("LichSuKham", "CreateProfile");
+            }
 
         }
         [HttpGet]
@@ -74,9 +91,39 @@ namespace WebDentalClinic.Controllers
 
             if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
-                links = links.Where(s => s.HoTen.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                links = links.Where(s => s.SoDienThoai.Contains(searchString)); //lọc theo chuỗi tìm kiếm
             }
             return View(links);
+        }
+        public ActionResult LichSuKham(int id)
+
+        {
+            var listPK = database.PHIEUKHAMs.OrderByDescending(x => x.MaBenhNhan).Where(x => x.MaBenhNhan == id);
+            return View(listPK);
+        }
+        public ActionResult ChiTietphieukham(int id)
+        {
+           
+            var listPK = database.CHITIETPHIEUKHAMs.OrderByDescending(x => x.MaDichVu).Where(x => x.MaPhieuKham == id);
+            return View(listPK);
+        }
+        public ActionResult CreatePhieuKham()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreatePhieuKham(PHIEUKHAM pk)
+        {
+            try
+            {
+                database.PHIEUKHAMs.Add(pk);
+                database.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return Content("Error Create New");
+            }
         }
     }
 }
