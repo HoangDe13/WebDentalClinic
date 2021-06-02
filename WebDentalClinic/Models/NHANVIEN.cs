@@ -31,7 +31,7 @@ namespace WebDentalClinic.Models
 
         public int MaNhanVien { get; set; }
         [Required(ErrorMessage = "Vui lòng điền thông tin")]
-        [Display(Name = "Họ Tên")]
+        [Display(Name = "Họ Tên Nhân Viên")]
         public string HoTen { get; set; }
         [Display(Name = "Giới Tính")]
         [Required(ErrorMessage = "Vui lòng điền thông tin")]
@@ -55,7 +55,7 @@ namespace WebDentalClinic.Models
         [Required(ErrorMessage = "Vui lòng điền thông tin")]
         [Display(Name = "Mật Khẩu")]
         public string MatKhau { get; set; }
-       
+
         public virtual CHUCVU CHUCVU { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LICHHEN> LICHHENs { get; set; }

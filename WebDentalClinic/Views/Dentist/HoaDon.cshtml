@@ -9,33 +9,30 @@
     <center><h4>HÓA ĐƠN</h4></center>
     <hr />
     <p style="margin-top:27px; margin-bottom:27px">
-        @Html.ActionLink("Tạo hóa đơn mới", "TaoHoaDon", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("TẠO HÓA ĐƠN MỚI", "TaoHoaDon", new { @class = "btn btn-success" })
     </p>
+    <hr />
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MaHoaDon)
+                @*@Html.DisplayNameFor(model => model.MaHoaDon)*@
+                MÃ HÓA ĐƠN
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
+                @*@Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)*@
+                HỌ TÊN KHÁCH HÀNG
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayLap)
+                @*@Html.DisplayNameFor(model => model.NgayLap)*@
+                NGÀY LẬP
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MaPhieuKham)
+                @*@Html.DisplayNameFor(model => model.MaPhieuKham)*@
+                MÃ PHIẾU KHÁM
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.NgayKham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TongTien)
+                @*@Html.DisplayNameFor(model => model.TongTien)*@
+                TỔNG TIỀN
             </th>
 
             <th></th>
@@ -58,20 +55,21 @@
                     @Html.DisplayFor(modelItem => item.MaPhieuKham)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PHIEUKHAM.NgayKham)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.TongTien)
                 </td>
+                @*<td>
+                        <div>
+                            <select>
+                                <option>Chưa Thanh Toán</option>
+                                <option>Đã Thanh Toán</option>
+                            </select>
+                            @Html.ActionLink("Lưu Lại", "LưuTrangThai", new {id= item.MaHoaDon})
+                        </div>
+                    </td>*@
+
                 <td>
                     @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })
+
                 </td>
             </tr>
         }

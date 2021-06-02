@@ -36,14 +36,14 @@ namespace WebDentalClinic.Models
         [DataType(DataType.Time)]
         [Required(ErrorMessage = "Vui lòng chọn giờ")]
         public string GioHen { get; set; }
-        [Display(Name ="Tình Trạng")]
+        [Display(Name = "Tình Trạng")]
         public string TinhTrang { get; set; }
         [Display(Name = "Bác Sĩ")]
         public Nullable<int> MaNhanVien { get; set; }
         [Display(Name = "Ghi Chú")]
         public string GhiChu { get; set; }
-    
+
         public virtual NHANVIEN NHANVIEN { get; set; }
     }
-    
+
 }

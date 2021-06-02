@@ -1,8 +1,7 @@
 ﻿@model WebDentalClinic.Models.DICHVU
 
-@{
-    ViewBag.Title = "SelectDichVu";
-}
 
-@Html.DropDownListFor(model => model.MaDichVu, new SelectList(Model.listDV.OrderBy(model => model.TenDichVu), "MaDichVu", "TenDichVu"), "--Xem Dịch Vụ--")
+
+@Html.DropDownListFor(model => model.MaDichVu, new SelectList(Model.listDV.OrderBy(model => model.TenDichVu), "MaDichVu", "TenDichVu"), "--Chọn Dịch Vụ--")
+
 
