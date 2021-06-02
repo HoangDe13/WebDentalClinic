@@ -43,42 +43,42 @@
 
         @foreach (var item in Model)
         {
-    <tr>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.MaPhieuKham)</center>
+            <tr>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.MaPhieuKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
-        </td>
-        <td>
-            @Html.ActionLink("Chi tiết", "MedicalExaminationHistory", new { id = item.MaPhieuKham }) 
-        </td>
-    </tr>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
+                </td>
+                <td>
+                    @Html.ActionLink("Chi tiết", "MedicalExaminationHistory", new { id = item.MaPhieuKham })
+                </td>
+            </tr>
         }
 
     </table>

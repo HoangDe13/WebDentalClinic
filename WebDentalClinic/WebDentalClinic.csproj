@@ -426,6 +426,7 @@
     <Content Include="Views\Dentist\LuuTrangThai.cshtml" />
     <Content Include="Views\Dentist\ChiTietHoaDon.cshtml" />
     <Content Include="Views\Dentist\TinhTongTien.cshtml" />
+    <Content Include="Views\Dentist\MedicalExaminationListHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

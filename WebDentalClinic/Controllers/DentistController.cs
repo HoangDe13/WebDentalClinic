@@ -29,26 +29,17 @@ namespace WebDentalClinic.Controllers
 
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaChiTietPhieuKham == id).FirstOrDefault());
         }
-        public ActionResult AddChiTiet(/*int id*/)
+        public ActionResult AddChiTiet()
         {
-
-            /*  return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());*/
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditPhieuKham(int id, PHIEUKHAM pk)
         {
-            /* database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
-             database.Configuration.ValidateOnSaveEnabled = false;
-
-             database.SaveChanges();
-             return RedirectToAction("MedicalExaminationList");*/
-
             var check = database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
             if (check != null)
             {
-                /*database.Entry(pk).State = System.Data.Entity.EntityState.Modified;*/
                 database.Configuration.ValidateOnSaveEnabled = true;
                 check.TinhTrang = pk.TinhTrang;
                 check.NgayTaiKham = pk.NgayTaiKham;
@@ -103,18 +94,21 @@ namespace WebDentalClinic.Controllers
                 return Content(" this data is using in other table , error Delete");
             }
         }
-        public ActionResult MedicalExaminationHistory()
+        public ActionResult MedicalExaminationListHistory(PHIEUKHAM pk)
         {
 
-            return View(database.PHIEUKHAMs.ToList());
-
+            return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Đã khám").ToList());
         }
 
-        public ActionResult MedicalExaminationList()
+        public ActionResult MedicalExaminationList(PHIEUKHAM pk)
         {
-            return View(database.PHIEUKHAMs.ToList()); ;
+            return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám").ToList());
         }
         public ActionResult MedicalExamination(int id)
+        {
+            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
+        }
+        public ActionResult MedicalExaminationHistory(int id)
         {
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
         }

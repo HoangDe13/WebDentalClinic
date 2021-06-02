@@ -86,8 +86,22 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Trang chủ", "Index", "Dentist")</li>
-                    @*<li>@Html.ActionLink("Khám bệnh", "MedicalExamination", "Dentist")</li>*@
-                    <li>@Html.ActionLink("Danh sách khám bệnh", "MedicalExaminationList", "Dentist")</li>
+                    <li class="dropdown">
+
+                        <button class="dropbtn">
+                            Khám Bệnh
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+
+                            <ul>
+                                <li>@Html.ActionLink("Danh Sách Khám Bệnh", "MedicalExaminationList", "Dentist")</li>
+                                <li>@Html.ActionLink("Lịch Sử Khám Bệnh", "MedicalExaminationListHistory", "Dentist")</li>
+
+
+                            </ul>
+                        </div>
+                    </li>
                     <li>@Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", "Dentist")</li>
                     <li>@Html.ActionLink("Đăng xuất", "Logout", "Dentist")</li>
                 </ul>
