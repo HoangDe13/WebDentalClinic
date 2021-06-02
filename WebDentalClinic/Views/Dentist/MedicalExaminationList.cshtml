@@ -33,12 +33,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.MoTaTrieuChung)
             </th>
+            @*    <th>
+            @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.TinhTrang)
             </th>
+
+            @*            <th>
+            Trạng thái
+        </th>*@
             <th></th>
         </tr>
-
         @foreach (var item in Model)
         {
             <tr>
@@ -70,15 +79,30 @@
                     <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
 
                 </td>
+                @*           <td>
+                        <center>@Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)</center>
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.GhiChu)</center>
+                    </td>*@
                 <td>
                     <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
 
                 </td>
+
+                @*         <td>
+                        <select name="confirm" id="confirm">
+                            <option value="Finished">Đã khám</option>
+                            <option value="Unfinish">Chưa khám</option>
+                            <option value="Doing">Đang khám</option>
+                        </select>
+                    </td>*@
                 <td>
                     @Html.ActionLink("Chỉnh sửa", "EditPhieuKham", new { id = item.MaPhieuKham }) |
                     @Html.ActionLink("Chi tiết", "MedicalExamination", new { id = item.MaPhieuKham }) |
                     @Html.ActionLink("Tạo hóa đơn", "TaoHoaDon", new { id = item.MaPhieuKham }) |
                     @Html.ActionLink("Thêm Chi Tiết Phiếu Khám", "AddChiTiet", new { id = item.MaPhieuKham }) |
+                    @* @Html.ActionLink("Hủy Lịch", "Cancel", new { id = item.MaPhieuKham })*@
                 </td>
             </tr>
         }

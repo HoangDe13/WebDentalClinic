@@ -15,23 +15,15 @@ namespace WebDentalClinic.Models
 
     public partial class HOADON
     {
-        [Key]
-
         [Display(Name = "Mã Hóa Đơn")]
         public int MaHoaDon { get; set; }
         [Display(Name = "Ngày Lập")]
-        [DataType(DataType.Date)]
-
-       /* [Required(ErrorMessage = "Vui lòng chọn ngày")]*/
         public Nullable<System.DateTime> NgayLap { get; set; }
-      /*  [Required(ErrorMessage = "Vui lòng nhập mã phiếu khám")]*/
         [Display(Name = "Mã Phiếu Khám")]
         public Nullable<int> MaPhieuKham { get; set; }
+        
         [Display(Name = "Tổng Tiền")]
-   /*     [Required(ErrorMessage = "Vui lòng nhập tổng tiền")]*/
-
-        public int TongTien { get; set; }
-    
+        public Nullable<int> TongTien { get; set; }
         public virtual PHIEUKHAM PHIEUKHAM { get; set; }
     }
 }

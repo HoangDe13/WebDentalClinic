@@ -18,37 +18,59 @@
 
             <dl class="dl-horizontal">
                 <dt>
-                    @Html.DisplayNameFor(model => model.MaHoaDon)
+                
+                    Mã Hóa Đơn
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.NgayLap)
+                 
+                    @Html.DisplayFor(model => model.MaHoaDon)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.MaPhieuKham)
+                   
+                    Ngày Lập
+                </dt>
+
+                <dd>
+                   
+                    @Html.DisplayFor(model => model.NgayLap)
+                </dd>
+                <dt>
+                  
+                    Mã Phiếu Khám
+                </dt>
+
+                <dd>
+                   
+                    @Html.DisplayFor(model => model.MaPhieuKham)
+                </dd>
+
+                <dt>
+                   
+                    Bệnh Nhân
                 </dt>
 
 
                 <dd>
                     @Html.DisplayFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
                 </dd>
-
+                <dt>
+                    Tổng Tiền
+                </dt>
                 <dd>
                     @Html.DisplayFor(model => model.TongTien)
                 </dd>
-
             </dl>
 
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
-                    @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", new { @class = "btn btn-info" })
-                    <input type="submit" value="XoaHoaDon" class="btn btn-danger" /> |
-
-                </div>
+        <div class="form-actions no-color">
+            @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", new { @class = "btn btn-info" }) |
+            <input type="submit" value="Xóa Hóa Đơn" class="btn btn-danger" />
+        </div>
             }
         </div>
     </div>

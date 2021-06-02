@@ -114,7 +114,7 @@ namespace WebDentalClinic.Controllers
 
                 {
               
-                    return RedirectToAction("Index","Dentist");
+                    return RedirectToAction("MedicalExaminationList","Dentist");
                 }
                 else if (cv.MaChucVu.Equals(2))
                 {
