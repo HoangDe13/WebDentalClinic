@@ -7,7 +7,6 @@
 
 
 
-
 <h2 class="login100-form-title" style="width:100%;">Xóa Hóa Đơn</h2>
 <div class="limiter">
     <div class="col-md-12 col-sm-12">
@@ -19,32 +18,38 @@
 
             <dl class="dl-horizontal">
                 <dt>
-                    @Html.DisplayNameFor(model => model.MaHoaDon)
+                    Mã Hóa Đơn
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MaHoaDon)
+                </dd>
+                <dt>
+                    Ngày Lập
                 </dt>
 
                 <dd>
                     @Html.DisplayFor(model => model.NgayLap)
                 </dd>
+                <dt>
+                    Mã Phiếu Khám
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MaPhieuKham)
+                </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.MaPhieuKham)
+                    Bệnh Nhân
                 </dt>
+
 
                 <dd>
                     @Html.DisplayFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
                 </dd>
                 <dt>
-                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                    Tổng Tiền
                 </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia)
-                </dt>
-
                 <dd>
                     @Html.DisplayFor(model => model.TongTien)
                 </dd>
@@ -56,8 +61,8 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-actions no-color">
-                    @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", null, new { @class = "btn btn-info" })
-                    <input type="submit" value="XoaHoaDon" class="btn btn-danger" /> |
+                    @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", new { @class = "btn btn-info" }) |
+                    <input type="submit" value="Xóa Hóa Đơn" class="btn btn-danger" /> 
 
                 </div>
             }
