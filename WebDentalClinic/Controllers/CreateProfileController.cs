@@ -34,7 +34,7 @@ namespace WebDentalClinic.Controllers
             return View(database.BENHNHANs.Where(s => s.MaBenhNhan == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Edit(int id, BENHNHAN cate)
+        public ActionResult Edit( BENHNHAN cate)
         {
             database.Entry(cate).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();

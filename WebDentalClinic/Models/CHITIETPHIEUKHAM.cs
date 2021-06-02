@@ -6,6 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 namespace WebDentalClinic.Models
 {
     using System;
@@ -19,10 +20,8 @@ namespace WebDentalClinic.Models
 
         public Nullable<int> MaPhieuKham { get; set; }
         [Display(Name = "Dịch Vụ")]
-        [Required(ErrorMessage ="Vui Lòng Chọn Dịch Vụ")]
         public Nullable<int> MaDichVu { get; set; }
         [Display(Name = "Số Lượng")]
-        [Required(ErrorMessage = "Vui Lòng Nhập Số Lương")]
         public Nullable<int> SoLuong { get; set; }
         [Display(Name = "Ghi Chú")]
         public string GhiChu { get; set; }

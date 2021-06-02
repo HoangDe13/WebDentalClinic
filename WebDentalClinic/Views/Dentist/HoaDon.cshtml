@@ -8,9 +8,9 @@
 <div class="form-horizontal">
     <center><h4>HÓA ĐƠN</h4></center>
     <hr />
-    <p style="margin-top:27px; margin-bottom:27px">
-        @Html.ActionLink("TẠO HÓA ĐƠN MỚI", "TaoHoaDon", new { @class = "btn btn-success" })
-    </p>
+        <p style="margin-top:27px; margin-bottom:27px">
+            @Html.ActionLink("TẠO HÓA ĐƠN MỚI", "TaoHoaDon", new { @class = "btn btn-success" })
+        </p>
     <hr />
     <table class="table">
         <tr>
@@ -58,19 +58,19 @@
                     @Html.DisplayFor(modelItem => item.TongTien)
                 </td>
                 @*<td>
-                        <div>
-                            <select>
-                                <option>Chưa Thanh Toán</option>
-                                <option>Đã Thanh Toán</option>
-                            </select>
-                            @Html.ActionLink("Lưu Lại", "LưuTrangThai", new {id= item.MaHoaDon})
-                        </div>
-                    </td>*@
+                    <div>
+                        <select>
+                            <option>Chưa Thanh Toán</option>
+                            <option>Đã Thanh Toán</option>
+                        </select>
+                        @Html.ActionLink("Lưu Lại", "LưuTrangThai", new {id= item.MaHoaDon})
+                    </div>
+                </td>*@
 
-                <td>
-                    @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })
+            <td>
+                @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })
 
-                </td>
+            </td>
             </tr>
         }
 

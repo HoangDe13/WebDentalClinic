@@ -117,5 +117,27 @@ namespace WebDentalClinic.Controllers
             var listPK = database.PHIEUKHAMs.OrderByDescending(x => x.MaBenhNhan).Where(x => x.MaBenhNhan == maBN);
             return View(listPK);
         }
+        public ActionResult DanhSachHoaDon()
+        {
+            return View(database.HOADONs.ToList());
+        }
+        public ActionResult CreateHoaDon()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateHoaDon(HOADON hd)
+        {
+            try
+            {
+                database.HOADONs.Add(hd);
+                database.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return Content("Lối Tạo Hóa Đơn");
+            }
+        }
     }
 }

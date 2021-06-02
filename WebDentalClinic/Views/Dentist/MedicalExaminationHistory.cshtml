@@ -1,7 +1,7 @@
-@model  IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
+﻿@model  IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
 
 @{
-    ViewBag.Title = "MedicalExamination";
+    ViewBag.Title = "MedicalExaminationHistory";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
 
@@ -13,8 +13,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            @Html.ActionLink("Danh Sách Phiếu Khám", "MedicalExaminationList", null, new { @class = "btn btn-info" })
-            @*   @Html.ActionLink("Thêm Chi Tiết Phiếu Khám", "AddChiTiet", null, new { @class = "btn btn-info" })*@
+            @Html.ActionLink("Lịch Sử Khám Bệnh", "MedicalExaminationListHistory", null, new { @class = "btn btn-info" })
         </div>
     </div>
     <table class="table">
@@ -46,11 +45,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.GhiChu)
 
-                </td>
-
-                <td>
-                    @Html.ActionLink("Edit", "EditChiTiet", new { id = item.MaChiTietPhieuKham }) |
-                    @Html.ActionLink("Delete", "DeleteChiTiet", new { id = item.MaChiTietPhieuKham }) |
                 </td>
             </tr>
         }
