@@ -94,15 +94,16 @@ namespace WebDentalClinic.Controllers
                 return Content(" this data is using in other table , error Delete");
             }
         }
-        public ActionResult MedicalExaminationListHistory(PHIEUKHAM pk)
+        public ActionResult MedicalExaminationListHistory()
         {
-
-            return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Đã khám").ToList());
+            int id = (int)Session["MaNhanVien"];
+            return View(database.PHIEUKHAMs.Where(s => s.MaNhanVien == id && s.TinhTrang == "Đã khám").ToList());
         }
 
-        public ActionResult MedicalExaminationList(PHIEUKHAM pk)
+        public ActionResult MedicalExaminationList()
         {
-            return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám").ToList());
+            int id = (int)Session["MaNhanVien"];
+            return View(database.PHIEUKHAMs.Where(s => s.MaNhanVien == id && s.TinhTrang == "Chưa khám" || s.TinhTrang == "" ).ToList());
         }
         public ActionResult MedicalExamination(int id)
         {
