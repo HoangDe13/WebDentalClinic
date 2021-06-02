@@ -104,6 +104,10 @@ namespace WebDentalClinic.Controllers
             }
             else
             {
+                Session["SoDienThoai"] = nv.SoDienThoai;
+                Session["MaNhanVien"] = check.MaNhanVien;
+                Session["HoTen"] = check.HoTen;
+                Session["NHANVIEN"] = check;
 
                 var cv= database.NHANVIENs.Where(s => s.SoDienThoai == nv.SoDienThoai ).FirstOrDefault();
                 if (cv.MaChucVu.Equals(1))
