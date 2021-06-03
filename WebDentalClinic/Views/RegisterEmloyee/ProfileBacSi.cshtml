@@ -1,8 +1,8 @@
 ﻿@model WebDentalClinic.Models.NHANVIEN
 
 @{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+    ViewBag.Title = "ProfileBacSi";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
 
 
@@ -12,18 +12,24 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-  
 
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-<div class="limiter">
+    <div class="container-login100">
+        <div class="col-md-8">
+            <div class="wrap-login100" style="        text-align: center;  padding: 1px 0px 1px 1px;">
 
-        <div class="container-login100">
-            <div class="wrap-login100">
-                <div class="col-md-12 col-sm-12">
-                    <form class="login100-form validate-form">
-                        <h2 class="login100-form-title"style="width:100%;">Thêm Nhân Viên</h2>
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <h2 style="text-align:center;">Thông Tin Cá Nhân</h2>
                         <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MaNhanVien, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.MaNhanVien, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MaNhanVien, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-8">
@@ -34,13 +40,24 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.GioiTinh, htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-8">
+                            <div class="col-md-4">
+                                @if (Model.GioiTinh == 1)
+                                {
+                                    @Html.RadioButtonFor(model => model.GioiTinh, "1", new { @checked = true })
+                                    @Html.Label("Nam")
 
-                                @Html.RadioButtonFor(model => model.GioiTinh, "1")
-                                @Html.Label("Nam")|
-                                @Html.RadioButtonFor(model => model.GioiTinh, "0")
-                                @Html.Label("Nữ")
+                                    @Html.RadioButtonFor(model => model.GioiTinh, "0")
+                                    @Html.Label("Nữ")
 
+                                }
+                                else
+                                {
+                                    @Html.RadioButtonFor(model => model.GioiTinh, 1)
+                                    @Html.Label("Nam")
+                                    @Html.RadioButtonFor(model => model.GioiTinh, 0, new { @checked = true })
+                                    @Html.Label("Nữ")
+
+                                }
                             </div>
                         </div>
 
@@ -57,7 +74,6 @@
                             <div class="col-md-8">
                                 @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "text-danger" })
-                               
                             </div>
                         </div>
 
@@ -77,47 +93,38 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.CHUCVU.TenChucVu, htmlAttributes: new { @class = "control-label col-md-4" })
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.MaChucVu, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-8">
-                                @{Html.RenderAction("SelectChucVu", "RegisterEmloyee");
-                                }
-
+                                @Html.EditorFor(model => model.MaChucVu, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MaChucVu, "", new { @class = "text-danger" })
                             </div>
                         </div>
+
                         <div class="form-group">
                             @Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-8">
-                                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", @type = "Password" } })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
                             </div>
-                        </div>
+                        </div>*@
+
                         <div class="form-group">
-
-                            <div class="col-md-offset-3 col-md-10">
-                                @Html.ActionLink("Danh Sách Nhân Viên", "Index", null, new { @class = "btn btn-info" })
-                                <input type="submit" value="Đăng Kí" class="btn btn-success" style="background-color:forestgreen; width:100% ;margin-left:30px;" />
-
-
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Cập Nhật" class="btn btn-primary" />
                             </div>
-                       
-                              
-                            
-
                         </div>
-                    </form>
-
+                    </div>
+                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
-</div>
-   
-            }
+                    }
 
- 
+                    <div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
 
-            @section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
-            }
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }

@@ -1,0 +1,5 @@
+﻿
+@model WebDentalClinic.Models.CHUCVU
+
+
+@Html.DropDownListFor(model => model.MaChucVu, new SelectList(Model.listCV.OrderBy(model => model.TenChucVu), "MaChucVu", "TenChucVu"), "--Chọn Chức Vụ--")

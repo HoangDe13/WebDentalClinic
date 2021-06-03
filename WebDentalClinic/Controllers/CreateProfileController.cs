@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebDentalClinic.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WebDentalClinic.Controllers
 {
@@ -11,9 +13,17 @@ namespace WebDentalClinic.Controllers
     {
         // GET: CreateProfile
         WebPhongKhamNhaKhoaEntities database = new WebPhongKhamNhaKhoaEntities();
-        public ActionResult Index()
-        {
-            
+
+  
+        public ActionResult Index(/*int? page*/)
+        { 
+        //{if(page==null)
+        //    {
+        //        page = 1;
+        //    }    
+        //    int pageSize = 3;
+        //    int pagenum = (page ?? 1);
+           
             return View(database.BENHNHANs.ToList());
         }
         public ActionResult Details(int id)

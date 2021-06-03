@@ -81,6 +81,12 @@
                 @Html.ActionLink("Dental Clinic", "Index", "CreateProfile", new { area = "" }, new { @class = "navbar-brand" })
 
             </div>
+            <h4 class="fomat-hello" style="text-align: right; font-family:'Times New Roman'">
+
+                    <span>Xin Chào @Session["HoTen"] &emsp;</span>|
+                    <span> @Html.ActionLink("Đăng Xuất", "LogOut", "RegisterEmloyee") <i class="glyphicon glyphicon-log-out"></i></span>
+
+            </h4>
             <div class="navbar-collapse collapse" style="float:left">
                 <ul class="nav navbar-nav">
 
@@ -156,13 +162,16 @@
                         </div>
 
                     </li>
+                    <li>  @Html.ActionLink("Thông Tin Cá Nhân", "profile", "RegisterEmloyee")</li>
                 </ul>
 
             </div>
-         
+
 
         </div>
     </div>
+    <br />
+    <br />
     <div >
         @RenderBody()
 
