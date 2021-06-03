@@ -2,16 +2,15 @@
 
 @{
     ViewBag.Title = "HoaDon";
-    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
 
 <div class="form-horizontal">
     <center><h4>HÓA ĐƠN</h4></center>
     <hr />
-        <p style="margin-top:27px; margin-bottom:27px">
-            @Html.ActionLink("TẠO HÓA ĐƠN MỚI", "TaoHoaDon", new { @class = "btn btn-success" })
-        </p>
+       
     <hr />
+
     <table class="table">
         <tr>
             <th>
@@ -68,8 +67,8 @@
                 </td>*@
 
             <td>
-                @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })
-
+                @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })|
+                @Html.ActionLink("Chi tiết", "ChiTietHoaDonDanhSach", new { id = item.MaPhieuKham })
             </td>
             </tr>
         }
