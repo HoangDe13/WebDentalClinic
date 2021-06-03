@@ -54,7 +54,6 @@
                             @Html.DropDownList("TinhTrang", new List<SelectListItem>
     { new SelectListItem { Text = "Đã khám", Value = "Đã khám"},
       new SelectListItem { Text = "Chưa khám", Value = "Chưa khám"},
-      new SelectListItem { Text = "Đang khám", Value = "Đang khám"}
       }, "Chọn tình trạng", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.TinhTrang, "", new { @class = "text-danger" })
                         </div>
