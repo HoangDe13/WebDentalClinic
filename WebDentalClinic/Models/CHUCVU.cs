@@ -12,6 +12,7 @@ namespace WebDentalClinic.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class CHUCVU
     {
@@ -27,5 +28,7 @@ namespace WebDentalClinic.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NHANVIEN> NHANVIENs { get; set; }
+        [NotMapped]
+        public List<CHUCVU> listCV { get; set; }
     }
 }

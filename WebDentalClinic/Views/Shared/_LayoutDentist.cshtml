@@ -82,6 +82,12 @@
                 </button>
                 @Html.ActionLink("Dental Clinic", "Index", "Dentist", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+            <h4 class="fomat-hello" style="text-align: right; font-family:'Times New Roman'">
+
+                <span>Xin Chào @Session["HoTen"] &emsp;</span>|
+               
+
+            </h4>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Trang chủ", "Index", "Dentist")</li>
@@ -100,8 +106,10 @@
 
                             </ul>
                         </div>
-                    </li>                 
+                    </li>
                     <li>@Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", "Dentist")</li>
+                    <li>@Html.ActionLink("Thông Tin Cá Nhân", "ProfileBacSi", "RegisterEmloyee")</li>
+
                     <li>@Html.ActionLink("Đăng xuất", "Logout", "Dentist")</li>
                 </ul>
             </div>

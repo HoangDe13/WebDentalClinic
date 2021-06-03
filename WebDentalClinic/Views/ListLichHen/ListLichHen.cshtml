@@ -4,6 +4,7 @@
     ViewBag.Title = "ListLichhen";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
+<br />
 @using (Html.BeginForm("ListLichhen", "ListLichHen", FormMethod.Get))
 {
     <p style="padding-left:300px;">
@@ -11,7 +12,7 @@
         Chọn Ngày :
 
         @Html.TextBox("SearchString", null, new { @type = "date" })
-        <input type="submit" value="Tìm kiếm" />
+        <input type="submit" value="Tìm kiếm" class="btn btn-info"/>
 
     </p>
 }
