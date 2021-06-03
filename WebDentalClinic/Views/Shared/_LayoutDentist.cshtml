@@ -7,7 +7,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <style>
         .dropbtn {
-            background-color: white;
+            background-color: #03A9F4;
             color: black;
             padding: 13px;
             font-size: 18px;
@@ -15,7 +15,9 @@
             font-family: 'Times New Roman';
             font-weight: bold;
         }
-
+        .navbar-nav li a:hover{
+            color:navy
+        }
         .dropdown {
             position: relative;
             display: inline-block;
@@ -26,6 +28,7 @@
             position: absolute;
             background-color: #f1f1f1;
             min-width: 160px;
+
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
         }
@@ -40,7 +43,7 @@
 
                 .dropdown-content a:hover {
                     background-color: #ddd;
-                    color: #03A9F4;
+                    color:firebrick;
                     text-decoration: none;
                 }
 
@@ -49,7 +52,7 @@
         }
 
         .dropdown:hover .dropbtn {
-            color: #03A9F4;
+            color:firebrick;
         }
     </style>
 
@@ -57,7 +60,7 @@
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/main.css")
+   
 
     @Styles.Render("~/Content/bootstrap.min.css")
     @Styles.Render("~/Content/bootstrap.css")
@@ -90,25 +93,15 @@
             </h4>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Trang chủ", "Index", "Dentist")</li>
-                    <li class="dropdown">
 
-                        <button class="dropbtn">
-                            Khám Bệnh
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-
-                            <ul>
+                       
                                 <li>@Html.ActionLink("Danh Sách Khám Bệnh", "MedicalExaminationList", "Dentist")</li>
-                                <li>@Html.ActionLink("Lịch Sử Khám Bệnh", "MedicalExaminationListHistory", "Dentist")</li>
 
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li>@Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", "Dentist")</li>
                     <li>@Html.ActionLink("Thông Tin Cá Nhân", "ProfileBacSi", "RegisterEmloyee")</li>
+
+
+                              
+                    <li>@Html.ActionLink("Lịch Sử Khám Bệnh", "MedicalExaminationListHistory", "Dentist")</li>
 
                     <li>@Html.ActionLink("Đăng xuất", "Logout", "Dentist")</li>
                 </ul>

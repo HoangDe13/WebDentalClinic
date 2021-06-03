@@ -128,8 +128,24 @@
                     <li>@Html.ActionLink("Dịch Vụ", "Index", "Service")</li>
                     <li>@Html.ActionLink("Lịch Hẹn", "ListLichHen", "ListLichHen")</li>
 
-                    <li>@Html.ActionLink("Hóa Đơn", "DanhSachHoaDon", "PhieuKham")</li>
+                   
+                    <li class="dropdown">
 
+                        <button class="dropbtn">
+                            Hóa Đơn
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+
+                            <ul>
+                                <li>@Html.ActionLink("Tạo Hóa Đơn", "MedicalExaminationListNurse", "Dentist")</li>
+                                <li>@Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", "Dentist")</li>
+
+
+                            </ul>
+                        </div>
+
+                    </li>
                     <li class="dropdown">
 
                         <button class="dropbtn">

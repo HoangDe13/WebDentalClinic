@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "XoaHoaDon";
-    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
 
 
@@ -18,47 +18,59 @@
 
             <dl class="dl-horizontal">
                 <dt>
-                    @Html.DisplayNameFor(model => model.MaHoaDon)
+                
+                    Mã Hóa Đơn
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.NgayLap)
+                 
+                    @Html.DisplayFor(model => model.MaHoaDon)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.MaPhieuKham)
+                   
+                    Ngày Lập
                 </dt>
+
+                <dd>
+                   
+                    @Html.DisplayFor(model => model.NgayLap)
+                </dd>
+                <dt>
+                  
+                    Mã Phiếu Khám
+                </dt>
+
+                <dd>
+                   
+                    @Html.DisplayFor(model => model.MaPhieuKham)
+                </dd>
+
+                <dt>
+                   
+                    Bệnh Nhân
+                </dt>
+
 
                 <dd>
                     @Html.DisplayFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)
                 </dd>
                 <dt>
-                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.TenDichVu)
+                    Tổng Tiền
                 </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.SoLuong)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.PHIEUKHAM.CHITIETPHIEUKHAM2.DICHVU.DonGia)
-                </dt>
-
                 <dd>
                     @Html.DisplayFor(model => model.TongTien)
                 </dd>
-
             </dl>
 
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
-                    @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", null, new { @class = "btn btn-info" })
-                    <input type="submit" value="XoaHoaDon" class="btn btn-danger" /> |
-
-                </div>
+        <div class="form-actions no-color">
+            @Html.ActionLink("Danh Sách Hóa Đơn", "HoaDon", new { @class = "btn btn-info" }) |
+            <input type="submit" value="Xóa Hóa Đơn" class="btn btn-danger" />
+        </div>
             }
         </div>
     </div>
