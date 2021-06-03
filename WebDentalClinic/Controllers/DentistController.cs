@@ -113,6 +113,17 @@ namespace WebDentalClinic.Controllers
         {
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
         }
+        public ActionResult MedicalExaminationListNurse()
+        {
+            
+           
+            return View(database.PHIEUKHAMs.Where(s=>s.TinhTrang=="Đã Khám").ToList());
+        }
+        public ActionResult MedicalExaminationNurse(int id)
+        {
+            ViewBag.MaPhieuKham = id;
+            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
+        }
         public ActionResult MedicalExaminationHistory(int id)
         {
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
@@ -134,7 +145,7 @@ namespace WebDentalClinic.Controllers
 
             return View(database.HOADONs.ToList());
         }
-
+        
         public ActionResult TaoHoaDon(int id)
         {
             int Tong = 0;
@@ -218,7 +229,7 @@ namespace WebDentalClinic.Controllers
             }
 
         }
-        [HttpPost]
+        
 
         public ActionResult XoaHoaDon(int id)
         {
@@ -249,7 +260,13 @@ namespace WebDentalClinic.Controllers
 
         public ActionResult ChiTietHoaDon(int id)
         {
-            return View(database.HOADONs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
+            ViewBag.MaPhieuKham = id;
+            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
+        }
+        public ActionResult ChiTietHoaDonDanhSach(int id)
+        {
+            ViewBag.MaPhieuKham = id;
+            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
         }
         //[HttpPost]
         //public ActionResult ChiTietHoaDon(HOADON hd)
