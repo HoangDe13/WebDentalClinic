@@ -268,6 +268,19 @@ namespace WebDentalClinic.Controllers
             ViewBag.MaPhieuKham = id;
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
         }
+        [HttpGet]
+        public ActionResult HoaDon(string searchString)
+        {
+            var links = from l in database.HOADONs // lấy toàn bộ liên kết
+                        select l;
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+
+                links = links.Where(s => s.NgayLap.Value.ToString() == searchString); //lọc theo chuỗi tìm kiếm
+            }
+            return View(links);
+        }
         //[HttpPost]
         //public ActionResult ChiTietHoaDon(HOADON hd)
         //{

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
 <div class="container body-content">
-    <h2>Danh Sách Phiếu Khám</h2>
+    <h2 style="text-align:center">Danh Sách Phiếu Khám</h2>
 
     <p>
         @Html.ActionLink("Tạo Phiếu Khám Mới", "Create",null,new { @class="btn btn-success"})
@@ -65,7 +65,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaPhieuKham }) |
-                    @Html.ActionLink("Thanh Toán", "ThanhToanHoaDon", new { id = item.MaPhieuKham }) |
+                    @Html.ActionLink("Thông Tin Khám", "ChiTietPhieuKhamNurse", new { id = item.MaPhieuKham }) |
                     @Html.ActionLink("Xoá", "Delete", new { id = item.MaPhieuKham })
                 </td>
             </tr>

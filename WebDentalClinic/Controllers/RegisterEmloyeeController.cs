@@ -143,12 +143,26 @@ namespace WebDentalClinic.Controllers
             var nhanvien = database.NHANVIENs.Where(s => s.MaNhanVien == id).FirstOrDefault();
             return View(nhanvien);
         }
+        [HttpPost]
+        public ActionResult Profile(NHANVIEN nv)
+        {
+            database.Entry(nv).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("Index");
+        }
         public ActionResult ProfileBacSi()
         {
 
             int id = (int)Session["MaNhanVien"];
             var nhanvien = database.NHANVIENs.Where(s => s.MaNhanVien == id).FirstOrDefault();
             return View(nhanvien);
+        }
+        [HttpPost]
+        public ActionResult ProfileBacSi(NHANVIEN nv)
+        {
+            database.Entry(nv).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("MedicalExaminationList","Dentist");
         }
         //Logout
         public ActionResult Logout()

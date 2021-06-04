@@ -3,75 +3,88 @@
 @{
     ViewBag.Title = "HoaDon";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+
 }
+<br />
+<br />
+@using (Html.BeginForm("HoaDon", "Dentist", FormMethod.Get))
+{
+    <p style="padding-left:300px;">
 
-<div class="form-horizontal">
-    <center><h4>HÓA ĐƠN</h4></center>
-    <hr />
-       
-    <hr />
+        Chọn Ngày :
 
-    <table class="table">
-        <tr>
-            <th>
-                @*@Html.DisplayNameFor(model => model.MaHoaDon)*@
-                MÃ HÓA ĐƠN
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)*@
-                HỌ TÊN KHÁCH HÀNG
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.NgayLap)*@
-                NGÀY LẬP
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.MaPhieuKham)*@
-                MÃ PHIẾU KHÁM
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.TongTien)*@
-                TỔNG TIỀN
-            </th>
+        @Html.TextBox("searchString", null, new { @type = "date" })
+        <input type="submit" value="Tìm kiếm" class="btn btn-info" />
 
-            <th></th>
-        </tr>
+    </p>
+}
+<div class="container body-content">
+    <div class="form-horizontal">
+        <center><h4>HÓA ĐƠN</h4></center>
 
-        @foreach (var item in Model)
-        {
+
+        <table class="table">
             <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.MaHoaDon)*@
+                    MÃ HÓA ĐƠN
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)*@
+                    HỌ TÊN KHÁCH HÀNG
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.NgayLap)*@
+                    NGÀY LẬP
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.MaPhieuKham)*@
+                    MÃ PHIẾU KHÁM
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.TongTien)*@
+                    TỔNG TIỀN
+                </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaHoaDon)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PHIEUKHAM.BENHNHAN.HoTen)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NgayLap)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaPhieuKham)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TongTien)
-                </td>
-                @*<td>
-                    <div>
-                        <select>
-                            <option>Chưa Thanh Toán</option>
-                            <option>Đã Thanh Toán</option>
-                        </select>
-                        @Html.ActionLink("Lưu Lại", "LưuTrangThai", new {id= item.MaHoaDon})
-                    </div>
-                </td>*@
-
-            <td>
-                @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })|
-                @Html.ActionLink("Chi tiết", "ChiTietHoaDonDanhSach", new { id = item.MaPhieuKham })
-            </td>
+                <th></th>
             </tr>
-        }
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaHoaDon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PHIEUKHAM.BENHNHAN.HoTen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NgayLap)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaPhieuKham)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TongTien)
+                    </td>
+                    @*<td>
+                            <div>
+                                <select>
+                                    <option>Chưa Thanh Toán</option>
+                                    <option>Đã Thanh Toán</option>
+                                </select>
+                                @Html.ActionLink("Lưu Lại", "LưuTrangThai", new {id= item.MaHoaDon})
+                            </div>
+                        </td>*@
+
+                    <td>
+                        @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })|
+                        @Html.ActionLink("Chi tiết", "ChiTietHoaDonDanhSach", new { id = item.MaPhieuKham })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    </div>

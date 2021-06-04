@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
+
+@{
+    ViewBag.Title = "ChiTietPhieuKhamNurse";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+}
+
+<h2 style="text-align:center">Thông Tin Khám Bệnh</h2>
+<div class="container body-content">
+    <p>
+        @Html.ActionLink("Quay Lại", "Index", new { @class = "btn btn-sucess" })
+    </p>
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.MaDichVu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GhiChu)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDichVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GhiChu)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    </div>
