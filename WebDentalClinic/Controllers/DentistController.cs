@@ -27,12 +27,10 @@ namespace WebDentalClinic.Controllers
         public ActionResult EditChiTiet(int id)
         {
 
-            ViewBag.MaPhieuKham = id;
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaChiTietPhieuKham == id).FirstOrDefault());
         }
-        public ActionResult AddChiTiet(int id)
+        public ActionResult AddChiTiet()
         {
-            ViewBag.MaPhieuKham = id;
             return View();
         }
         [HttpPost]
@@ -56,7 +54,7 @@ namespace WebDentalClinic.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditChiTiet(CHITIETPHIEUKHAM ctPK)
+        public ActionResult EditChiTiet( CHITIETPHIEUKHAM ctPK)
         {
             database.Entry(ctPK).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
@@ -96,32 +94,18 @@ namespace WebDentalClinic.Controllers
                 return Content(" this data is using in other table , error Delete");
             }
         }
-        public ActionResult MedicalExaminationListHistory()
+        public ActionResult MedicalExaminationListHistory(PHIEUKHAM pk)
         {
-            int id = (int)Session["MaNhanVien"];
-            return View(database.PHIEUKHAMs.Where(s => s.MaNhanVien == id && s.TinhTrang == "Đã khám").ToList());
+                                       
+                return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Đã khám").ToList());                          
         }
 
-        public ActionResult MedicalExaminationList()
+        public ActionResult MedicalExaminationList(PHIEUKHAM pk)
         {
-            int id = (int)Session["MaNhanVien"];
-            ViewBag.MaPhieuKham = id;
-            
-            return View(database.PHIEUKHAMs.Where(s => s.MaNhanVien == id && s.TinhTrang == "Chưa khám" || s.TinhTrang == "" ).ToList());
+            return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám").ToList());
         }
         public ActionResult MedicalExamination(int id)
         {
-            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
-        }
-        public ActionResult MedicalExaminationListNurse()
-        {
-            
-           
-            return View(database.PHIEUKHAMs.Where(s=>s.TinhTrang=="Đã Khám").ToList());
-        }
-        public ActionResult MedicalExaminationNurse(int id)
-        {
-            ViewBag.MaPhieuKham = id;
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
         }
         public ActionResult MedicalExaminationHistory(int id)
@@ -135,7 +119,8 @@ namespace WebDentalClinic.Controllers
             Session.Clear();
             Session.RemoveAll();
             Session.Abandon();
-            return RedirectToAction("Login", "RegisterEmloyee");
+
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -145,51 +130,25 @@ namespace WebDentalClinic.Controllers
 
             return View(database.HOADONs.ToList());
         }
-        
+
         public ActionResult TaoHoaDon(int id)
         {
-            int Tong = 0;
-            List<CHITIETPHIEUKHAM> ListChiTiet = database.CHITIETPHIEUKHAMs.Where(i => i.MaPhieuKham == id).ToList();
-            foreach (var i in ListChiTiet)
-            {
-
-
-                var DV = database.DICHVUs.Where(s => s.MaDichVu == i.MaDichVu).FirstOrDefault();
-                int Gia = int.Parse(DV.DonGia.ToString()) * int.Parse(i.SoLuong.ToString());
-                Tong += Gia;
-
-            }
-            DateTime dateTime = DateTime.UtcNow.Date;
-            ViewBag.Ngay = dateTime.ToString("dd/MM/yyyy");
-            ViewBag.TongGia = Tong;
-            ViewBag.MaPhieuKham = id;
-            return View();
+            return View(database.HOADONs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
         }
 
         public ActionResult TinhTongTien()
         {
+            var session = HttpContext.Session.GetEnumerator();
             return View();
         }
 
-
-
-        [HttpPost]
-        public ActionResult TinhTongTien(FormCollection collect)
-        {
-
-            int tongTien = int.Parse(collect["x => x.CHITIETPHIEUKHAM.SoLuong * x.CHITIETPHIEUKHAM.DICHVU.DonGia"]);
-
-            ViewBag.Sum = tongTien.ToString();
-
-            return View(tongTien);
-        }
-
-        //public ActionResult TinhTongTien(int id)
+        //[HttpPost]
+        //public ActionResult TinhTongTien(HoaDonViewModel hoaDonViewModel)
         //{
-        //    return View(database.PHIEUKHAMs.Where(s=> s.MaPhieuKham==id).FirstOrDefault());
+
+
+        //    return View();
         //}
-
-
         public ActionResult XemDichVu(int id, PHIEUKHAM pk)
         {
 
@@ -201,35 +160,16 @@ namespace WebDentalClinic.Controllers
         {
             try
             {
-                //DateTime dateTime = DateTime.Now;
-                //hd.NgayLap = dateTime;
-
-                // chưa lấy được giá trị đơn giá, số lượng
-                //int donGia = hd.PHIEUKHAM.CHITIETPHIEUKHAM.DICHVU.DonGia.Value;
-                //int soLuong = hd.PHIEUKHAM.CHITIETPHIEUKHAM.SoLuong.Value;
-
-                //TinhTongTien(donGia,soLuong);
-
-                var check = database.HOADONs.Where(s => s.MaPhieuKham == hd.MaPhieuKham).FirstOrDefault();
-                if (check == null)
-                {
-
-                    database.HOADONs.Add(hd);
-                    database.SaveChanges();
-                    return RedirectToAction("HoaDon");
-                }
-                else
-                {
-                    return Content("Phiếu khám này đã thanh toán!!!");
-                }
+                database.HOADONs.Add(hd);
+                database.SaveChanges();
+                return RedirectToAction("HoaDon");
             }
             catch
             {
                 return Content("Error Create New");
             }
-
         }
-        
+        [HttpPost]
 
         public ActionResult XoaHoaDon(int id)
         {
@@ -241,7 +181,6 @@ namespace WebDentalClinic.Controllers
             try
             {
                 hd = database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault();
-
                 database.HOADONs.Remove(hd);
                 database.SaveChanges();
                 return RedirectToAction("HoaDon");
@@ -260,11 +199,16 @@ namespace WebDentalClinic.Controllers
 
         public ActionResult ChiTietHoaDon(int id)
         {
-            ViewBag.MaPhieuKham = id;
-            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
+            return View(database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault());
         }
-        public ActionResult ChiTietHoaDonDanhSach(int id)
+
+        [HttpGet]
+        public ActionResult MedicalExaminationListHistory(string searchString)
         {
+
+            var links = from l in database.PHIEUKHAMs // lấy toàn bộ liên kết
+                        select l;
+
             ViewBag.MaPhieuKham = id;
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
         }
@@ -296,19 +240,13 @@ namespace WebDentalClinic.Controllers
         //    }
         //}
 
-        //public ActionResult LuuTrangThai(HOADON ctPK)
-        //{
-        //    try
-        //    {
-        //        database.HOADONs.Add(ctPK);
-        //        database.SaveChanges();
-        //        return RedirectToAction("HoaDon");
-        //    }
-        //    catch
-        //    {
-        //        return Content("Lưu không thành công!!!");
-        //    }
-        //}
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            return View(links);
+        }
 
     }
 }

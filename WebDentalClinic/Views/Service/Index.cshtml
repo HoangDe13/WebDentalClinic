@@ -4,10 +4,23 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
+<br />
+<br />
+<h2 style="text-align:center">Danh Sách Dịch Vụ</h2>
+
 <div class="container body-content">
+    @using (Html.BeginForm("Index", "Service", FormMethod.Get))
+    {
+        <p style="padding-left:100px;">
 
+            Nhập Tên Dịch Vụ :
 
-    <h2>Danh Sách Dịch Vụ</h2>
+            @Html.TextBox("SearchString")
+            <input type="submit" value="Tìm kiếm" class="btn btn-info" />
+
+        </p>
+    }
+
 
     <p>
         @Html.ActionLink("Thêm Mới Dịch Vụ", "Create", null, new { @class = "btn btn-success" })
@@ -59,4 +72,4 @@
         }
 
     </table>
-    </div>
+</div>
