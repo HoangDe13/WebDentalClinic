@@ -22,7 +22,7 @@ namespace WebDentalClinic.Models
         }
         [Display(Name = "Mã Dịch Vụ")]
         public int MaDichVu { get; set; }
-        [Display(Name="Tên Dịch Vụ")]
+        [Display(Name = "Tên Dịch Vụ")]
         public string TenDichVu { get; set; }
         [Display(Name = "Đơn Giá")]
         public Nullable<int> DonGia { get; set; }

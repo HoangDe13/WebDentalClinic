@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebDentalClinic.Models.CHITIETPHIEUKHAM>
+
+@{
+    ViewBag.Title = "ChiTietHoaDon";
+    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+    int MaPhieuKham = ViewBag.MaPhieuKham;
+}
+<center><h2>CHI TIẾT DỊCH VỤ ĐÃ KHÁM</h2></center>
+<hr />
+<div class="container body-content">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DICHVU.TenDichVu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DICHVU.DonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+
+            @*<th>
+                    Thành tiền
+                </th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DICHVU.DonGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+
+                @*<td>
+                        @item.SoLuong  * @item.DICHVU.DonGia
+                    </td>*@
+            </tr>
+
+        }
+        @*<tr>
+                <td colspan="3" style="text-align:right"><strong>Tổng thành tiền = </strong></td>
+                <td style="display:block"><strong>@Model.Sum(x => x.SoLuong * x.DICHVU.DonGia)</strong></td>
+            </tr>*@
+        <tr>
+            <td>
+                @Html.ActionLink("Quay lại", "MedicalExaminationListNurse", new { id = MaPhieuKham })
+            </td>
+        </tr>
+    </table>
+    </div>

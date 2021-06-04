@@ -1,0 +1,52 @@
+﻿@model WebDentalClinic.Models.PHIEUKHAM
+
+@{
+    ViewBag.Title = "TinhTongTien";
+    Layout = "~/Views/Shared/_LayoutDentist.cshtml";
+}
+
+
+<center><h2>CHI TIẾT DỊCH VỤ ĐÃ KHÁM</h2></center>
+
+<hr />
+
+<div style="margin-left:200px">
+
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.LabelFor(model => model.BENHNHAN.HoTen, "Họ Tên Khách Hàng")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BENHNHAN.HoTen)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu, "Tên Dịch Vụ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHITIETPHIEUKHAM.DICHVU.TenDichVu)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.CHITIETPHIEUKHAM.DICHVU.DonGia, "Đơn Giá")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHITIETPHIEUKHAM.DICHVU.DonGia)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.CHITIETPHIEUKHAM.SoLuong, "Số Lượng")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CHITIETPHIEUKHAM.SoLuong)
+        </dd>
+    </dl>
+</div>
+
+<p style="margin-left:200px">
+    @Html.ActionLink("Quay lại", "TaoHoaDon")
+</p>

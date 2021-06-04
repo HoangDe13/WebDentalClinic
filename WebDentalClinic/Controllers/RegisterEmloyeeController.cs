@@ -108,17 +108,19 @@ namespace WebDentalClinic.Controllers
             }
             else
             {
+                Session["SoDienThoai"] = nv.SoDienThoai;
+                Session["MaNhanVien"] = check.MaNhanVien;
+                Session["HoTen"] = check.HoTen;
+                Session["NHANVIEN"] = check;
 
                 var cv= database.NHANVIENs.Where(s => s.SoDienThoai == nv.SoDienThoai ).FirstOrDefault();
                 if (cv.MaChucVu.Equals(1))
 
                 {
-                    database.Configuration.ValidateOnSaveEnabled = false;
-                    Session["SoDienThoai"] = nv.SoDienThoai;
-                    Session["MaNhanVien"] = check.MaNhanVien;
-                    Session["HoTen"] = check.HoTen;
-                    Session["NHANVIEN"] = check;
-                    return RedirectToAction("Index","Dentist");
+
+              
+                    return RedirectToAction("MedicalExaminationList","Dentist");
+
                 }
                 else if (cv.MaChucVu.Equals(2))
                 {
