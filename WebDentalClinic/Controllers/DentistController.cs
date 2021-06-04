@@ -208,9 +208,13 @@ namespace WebDentalClinic.Controllers
 
             var links = from l in database.PHIEUKHAMs // lấy toàn bộ liên kết
                         select l;
-
-            ViewBag.MaPhieuKham = id;
-            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            return View(links);
+            /*ViewBag.MaPhieuKham = id;*/
+          /*  return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;*/
         }
         [HttpGet]
         public ActionResult HoaDon(string searchString)
@@ -241,12 +245,8 @@ namespace WebDentalClinic.Controllers
         //}
 
 
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                links = links.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
-            }
-            return View(links);
-        }
+          
+        
 
     }
 }
