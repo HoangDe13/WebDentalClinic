@@ -1,8 +1,7 @@
-﻿@model IEnumerable<WebDentalClinic.Models.BENHNHAN>
-@*@model PagedList.IPagedList<WebDentalClinic.Models.BENHNHAN>
-@using PagedList.Mvc;*@
-
-
+﻿@*@model IEnumerable<WebDentalClinic.Models.BENHNHAN>*@
+@using WebDentalClinic.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<KeyValuePair<WebDentalClinic.Models.BENHNHAN, IEnumerable<WebDentalClinic.Models.BENHNHAN>>>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
@@ -33,70 +32,75 @@
 
         @Html.ActionLink("Tạo Phiếu Khám", "Create", "PhieuKham", new { @class = "btn btn-success" })
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                Mã Bệnh Nhân
-            </th>
-            <th>
-                Họ Tên
-            </th>
-            <th>
-                Giới Tính
-            </th>
-            <th>
-                Năm Sinh
-            </th>
-            <th>
-                Số Điện Thoại
-            </th>
-            <th>
-                Địa Chỉ
-            </th>
+    <div class="col-md-12">
+        <table class="table">
 
-
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaBenhNhan)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HoTen)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GioiTinh)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NamSinh)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SoDienThoai)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DiaChi)
-                </td>
+                <th>
+                    Mã Bệnh Nhân
+                </th>
+                <th>
+                    Họ Tên
+                </th>
+                <th>
+                    Giới Tính
+                </th>
+                <th>
+                    Năm Sinh
+                </th>
+                <th>
+                    Số Điện Thoại
+                </th>
+                <th>
+                    Địa Chỉ
+                </th>
 
 
-                <td>
-                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaBenhNhan }) |
-
-                    @Html.ActionLink("Chi Tiết", "LichSuKham", new { id = item.MaBenhNhan })
-
-                </td>
+                <th></th>
             </tr>
-        }
 
-    </table>
-  
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaBenhNhan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HoTen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GioiTinh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NamSinh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoDienThoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaChi)
+                    </td>
+                    <td>
+                        @Html.HiddenFor(modelItem => item.MatKhau)
+                    </td>
 
+                    <td>
+                        @Html.HiddenFor(modelItem => item.Confirmpwd)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaBenhNhan }) |
+
+                        @Html.ActionLink("Chi Tiết", "LichSuKham", new { id = item.MaBenhNhan })
+
+                    </td>
+                </tr>
+            }
+
+
+        </table>
+
+    </div>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
-
-@* 
-Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page }))*@

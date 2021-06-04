@@ -202,7 +202,18 @@ namespace WebDentalClinic.Controllers
             return View(database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault());
         }
 
+        [HttpGet]
+        public ActionResult MedicalExaminationListHistory(string searchString)
+        {
+            var links = from l in database.PHIEUKHAMs // lấy toàn bộ liên kết
+                        select l;
 
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            return View(links);
+        }
 
     }
 }

@@ -3,12 +3,25 @@
     ViewBag.Title = "MedicalExaminationListHistory";
     Layout = "~/Views/Shared/_LayoutDentist.cshtml";
 }
-
+<br />
+<br />
+<br />
 <center><h2>LỊCH SỬ KHÁM BỆNH</h2></center>
 
 <hr />
+@using (Html.BeginForm("MedicalExaminationListHistory", "Dentist", FormMethod.Get))
+{
+    <p style="padding-left:100px;">
 
+        Nhập Tên Bệnh Nhân :
+
+        @Html.TextBox("SearchString")
+        <input type="submit" value="Tìm kiếm" class="btn btn-info" />
+
+    </p>
+}
 <div>
+
 
     <table class="table">
         <tr>
@@ -43,42 +56,42 @@
 
         @foreach (var item in Model)
         {
-    <tr>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.MaPhieuKham)</center>
+            <tr>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.MaPhieuKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
 
-        </td>
-        <td>
-            <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
-        </td>
-        <td>
-            @Html.ActionLink("Chi tiết", "MedicalExaminationHistory", new { id = item.MaPhieuKham }) 
-        </td>
-    </tr>
+                </td>
+                <td>
+                    <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
+                </td>
+                <td>
+                    @Html.ActionLink("Chi tiết", "MedicalExaminationHistory", new { id = item.MaPhieuKham })
+                </td>
+            </tr>
         }
 
     </table>
