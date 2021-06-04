@@ -5,10 +5,12 @@
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
 
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 <h2>Danh Sách Hóa Đơn</h2>
 
 <p>
-    @Html.ActionLink("Tạo Hóa Đơn", "CreateHoaDon", null, new { @class="btn btn-success"})
+    @Html.ActionLink("Tạo Hóa Đơn", "CreateHoaDon", null, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -27,26 +29,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaHoaDon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayLap)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaPhieuKham)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TongTien)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHoaDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayLap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPhieuKham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
 
 </table>

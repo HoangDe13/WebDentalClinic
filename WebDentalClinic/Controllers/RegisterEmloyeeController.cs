@@ -24,6 +24,10 @@ namespace WebDentalClinic.Controllers
         {
             return View(database.NHANVIENs.ToList());
         }
+        public ActionResult IndexBacSi()
+        {
+            return View(database.NHANVIENs.ToList());
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(NHANVIEN Nv)
@@ -78,7 +82,7 @@ namespace WebDentalClinic.Controllers
             }
             catch
             {
-                return Content(" this data is using in other table , error Delete");
+                return Content("Sai Thông Tin Đăng Nhập");
             }
         }
 
@@ -113,11 +117,18 @@ namespace WebDentalClinic.Controllers
                 if (cv.MaChucVu.Equals(1))
 
                 {
+
               
                     return RedirectToAction("MedicalExaminationList","Dentist");
+
                 }
                 else if (cv.MaChucVu.Equals(2))
                 {
+                    database.Configuration.ValidateOnSaveEnabled = false;
+                    Session["SoDienThoai"] = nv.SoDienThoai;
+                    Session["MaNhanVien"] = check.MaNhanVien;
+                    Session["HoTen"] = check.HoTen;
+                    Session["NHANVIEN"] = check;
                     return RedirectToAction("Index", "RegisterEmloyee");
                 }
                return Content("Sai thông tin đăng nhập");
@@ -125,8 +136,34 @@ namespace WebDentalClinic.Controllers
 
          
         }
+        public ActionResult Profile()
+        {
 
+            int id = (int)Session["MaNhanVien"];
+            var nhanvien = database.NHANVIENs.Where(s => s.MaNhanVien == id).FirstOrDefault();
+            return View(nhanvien);
+        }
+        [HttpPost]
+        public ActionResult Profile(NHANVIEN nv)
+        {
+            database.Entry(nv).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult ProfileBacSi()
+        {
 
+            int id = (int)Session["MaNhanVien"];
+            var nhanvien = database.NHANVIENs.Where(s => s.MaNhanVien == id).FirstOrDefault();
+            return View(nhanvien);
+        }
+        [HttpPost]
+        public ActionResult ProfileBacSi(NHANVIEN nv)
+        {
+            database.Entry(nv).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("MedicalExaminationList","Dentist");
+        }
         //Logout
         public ActionResult Logout()
         {
@@ -134,7 +171,12 @@ namespace WebDentalClinic.Controllers
             return RedirectToAction("Login");
         }
 
-
+        public ActionResult SelectChucVu()
+        {
+            CHUCVU ct = new CHUCVU();
+            ct.listCV = database.CHUCVUs.ToList<CHUCVU>();
+            return PartialView(ct);
+        }
 
     }
 }

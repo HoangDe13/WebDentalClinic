@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -49,14 +50,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -265,6 +272,7 @@
     <Content Include="Content\images\Top-Dentists-2020-Opener.jpg" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\BebasNeue-webfont.svg" />
@@ -350,6 +358,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutDentist.cshtml" />
     <Content Include="Views\Dentist\Index.cshtml" />
+    <Content Include="Views\Dentist\MedicalExamination.cshtml" />
+    <Content Include="Views\Dentist\Account.cshtml" />
+    <Content Include="Views\Dentist\EditPhieuKham.cshtml" />
     <Content Include="Views\Dentist\Logout.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationList.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
@@ -410,6 +421,14 @@
     <Content Include="Views\CreateProfile\Details.cshtml" />
     <Content Include="Views\Home\ForgotPassword.cshtml" />
     <Content Include="Views\Customer\EditProfile.cshtml" />
+    <Content Include="Views\CreateProfile\Edit.cshtml" />
+    <Content Include="Views\PhieuKham\Edit.cshtml" />
+    <Content Include="Views\CreateProfile\LichSuKham.cshtml" />
+    <Content Include="Views\CreateProfile\ChiTietphieukham.cshtml" />
+    <Content Include="Views\CreateProfile\CreatePhieuKham.cshtml" />
+    <Content Include="Views\PhieuKham\DanhSachHoaDon.cshtml" />
+    <Content Include="Views\PhieuKham\CreateHoaDon.cshtml" />
+    <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
     <Content Include="Views\ListLichHen\Edit.cshtml" />
     <Content Include="Views\Customer\Profile1.cshtml" />
     <Content Include="Views\Customer\ChangePass.cshtml" />
@@ -424,14 +443,22 @@
     <Content Include="Views\Dentist\LuuTrangThai.cshtml" />
     <Content Include="Views\Dentist\TinhTongTien.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationListHistory.cshtml" />
+    <Content Include="Views\Dentist\MedicalExaminationHistory.cshtml" />
+    <Content Include="Views\RegisterEmloyee\Profile.cshtml" />
+    <Content Include="Views\RegisterEmloyee\SelectChucVu.cshtml" />
+    <Content Include="Views\RegisterEmloyee\ProfileBacSi.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationNurse.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationListNurse.cshtml" />
     <Content Include="Views\Dentist\ChiTietHoaDon.cshtml" />
     <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
     <Content Include="Views\Dentist\ChiTietHoaDonDanhSach.cshtml" />
     <Content Include="Views\Dentist\MedicalExamination.cshtml" />
+
     <Content Include="Views\BaoCao\BaoCaoDoanhThu.cshtml" />
     <Content Include="Views\ListLichHen\ListLichhen.cshtml" />
+
+    <Content Include="Views\PhieuKham\ChiTietPhieuKhamNurse.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -486,7 +513,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
