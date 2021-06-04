@@ -7,24 +7,26 @@ using WebDentalClinic.Models;
 using PagedList;
 using PagedList.Mvc;
 
+
 namespace WebDentalClinic.Controllers
 {
     public class CreateProfileController : Controller
     {
         // GET: CreateProfile
         WebPhongKhamNhaKhoaEntities database = new WebPhongKhamNhaKhoaEntities();
-
+        
   
-        public ActionResult Index(/*int? page*/)
-        { 
-        //{if(page==null)
-        //    {
-        //        page = 1;
-        //    }    
-        //    int pageSize = 3;
-        //    int pagenum = (page ?? 1);
-           
-            return View(database.BENHNHANs.ToList());
+        public ActionResult Index(int? page)
+        {
+            
+                if (page == null)
+                {
+                    page = 1;
+                }
+                int pageSize = 3;
+                int pagenum = (page ?? 1);
+
+                return View(database.BENHNHANs.OrderByDescending(x=> x.HoTen).ToPagedList(pagenum,pageSize));
         }
         public ActionResult Details(int id)
         {
