@@ -57,6 +57,7 @@
 
 
                 <th></th>
+
             </tr>
 
             @foreach (var item in Model)
@@ -92,7 +93,7 @@
                         @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaBenhNhan }) |
 
                         @Html.ActionLink("Chi Tiết", "LichSuKham", new { id = item.MaBenhNhan })
-
+                       @Html.ActionLink("Lập Phiếu Khám", "TaoPhieuKham", new { id = item.MaBenhNhan },new { @class="btn btn-success"})
                     </td>
                 </tr>
             }

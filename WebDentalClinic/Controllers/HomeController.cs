@@ -98,7 +98,7 @@ namespace WebDentalClinic.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LoginUser(BENHNHAN BN)
+        public ActionResult Login(BENHNHAN BN)
         {
             
             var check = database.BENHNHANs.Where(s => s.SoDienThoai == BN.SoDienThoai && s.MatKhau == BN.MatKhau).FirstOrDefault();

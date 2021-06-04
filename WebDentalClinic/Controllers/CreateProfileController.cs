@@ -137,5 +137,12 @@ namespace WebDentalClinic.Controllers
                 return Content("Error Create New");
             }
         }
+        public ActionResult TaoPhieuKham(int id)
+        {
+            DateTime dateTime = DateTime.UtcNow.Date;
+            ViewBag.Ngay = dateTime.ToString("dd/MM/yyyy");
+            ViewBag.MaBenhNhan = id;
+            return View();
+        }
     }
 }
