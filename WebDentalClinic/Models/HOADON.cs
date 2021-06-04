@@ -18,6 +18,8 @@ namespace WebDentalClinic.Models
         [Display(Name = "Mã Hóa Đơn")]
         public int MaHoaDon { get; set; }
         [Display(Name = "Ngày Lập")]
+        /*[DataType(DataType.Date)]*/
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> NgayLap { get; set; }
         [Display(Name = "Mã Phiếu Khám")]
         public Nullable<int> MaPhieuKham { get; set; }

@@ -139,5 +139,11 @@ namespace WebDentalClinic.Controllers
                 return Content("Lối Tạo Hóa Đơn");
             }
         }
+        public ActionResult ChiTietPhieuKhamNurse(int id)
+        {
+            var ChiTiet = database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList();
+
+            return View(ChiTiet);
+        }
     }
 }

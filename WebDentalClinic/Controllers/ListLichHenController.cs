@@ -102,6 +102,7 @@ namespace WebDentalClinic.Controllers
 
             if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
+
                 links = links.Where(s => s.NgayHen.ToString()==searchString); //lọc theo chuỗi tìm kiếm
             }
             return View(links);
