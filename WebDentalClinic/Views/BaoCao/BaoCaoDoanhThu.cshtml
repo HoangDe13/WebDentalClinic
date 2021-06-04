@@ -3,50 +3,68 @@
 @{
     ViewBag.Title = "BaoCaoDoanhThu";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+    string Tong = ViewBag.Tong;
 }
 
-<h2>BaoCaoDoanhThu</h2>
+<h2 style="text-align:center">Báo Cáo Doanh Thu</h2>
 
 
+<br />
+@using (Html.BeginForm("BaoCaoDoanhThu", "BaoCao", FormMethod.Get))
+{
+    <p style="padding-left:300px;">
+
+        Chọn Ngày Bắt Đầu:
+
+        @Html.TextBox("startdate", null, new { @type = "date" })
+        &emsp;
+        Chọn Ngày Kết Thúc:
+        @Html.TextBox("enddate", null, new { @type = "date" })
+        &emsp;
+        <input type="submit" value="Tìm kiếm" class="btn btn-info" />
+
+    </p>
+}
+<h4 style="text-align:center">Tổng Doanh Thu:@if (Tong != null) {@Html.DisplayName(Tong)} else {@Html.DisplayName("0")}</h4>
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.NgayLap)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaPhieuKham)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TongTien)
-        </th>
-        <th></th>
-    </tr>
+<div class="container body-content">
 
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-           
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayLap)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaPhieuKham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TongTien)
-            </td>
-            <td>
-                
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-              
-            </td>
-        </tr>
-    }
 
-</table>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayLap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaPhieuKham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TongTien)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayLap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaPhieuKham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TongTien)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Chi Tiết", "ChiTietBaoCaoDoanhThu", new { id = item.MaPhieuKham }) 
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -4,48 +4,55 @@
     ViewBag.Title = "ChiTietphieukham";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
+<div class="container body-content">
+    <h2 style="text-align:center;margin-top:70px;font-family:'Times New Roman'">Thông Tin Chi Tiết Phiếu Khám Bệnh</h2>
+    <h4>
+        @Html.ActionLink("Trở Lại", "LichSuKham")
+    </h4>
+    <div class="limiter" style="height:800px">
+        <div class="container-login100">
+            <div class="wrap-login100">
 
-<h2 style="text-align:center;margin-top:70px;font-family:'Times New Roman'">Thông Tin Chi Tiết Phiếu Khám Bệnh</h2>
-<h4>
-    @Html.ActionLink("Trở Lại", "LichSuKham")
-</h4>
-<div class="limiter" style="height:800px">
-    <div class="container-login100">
-        <div class="wrap-login100">
-
-            <table class="table">
-                <tr>
-
-                    <th>
-                        @Html.DisplayNameFor(model => model.MaDichVu)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SoLuong)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GhiChu)
-                    </th>
-                    
-                </tr>
-
-                @foreach (var item in Model)
-                {
+                <table class="table">
                     <tr>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SoLuong)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.GhiChu)
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaDichVu)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SoLuong)
+                        </th>
+                        <th>
+                            Đơn Giá
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.GhiChu)
+                        </th>
 
                     </tr>
-                }
 
-            </table>
+                    @foreach (var item in Model)
+                    {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoLuong)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DICHVU.DonGia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GhiChu)
+                    </td>
+
+                </tr>
+                    }
+
+                </table>
+            </div>
         </div>
     </div>
     </div>

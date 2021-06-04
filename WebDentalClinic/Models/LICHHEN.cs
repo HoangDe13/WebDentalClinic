@@ -40,7 +40,7 @@ namespace WebDentalClinic.Models
         public string TinhTrang { get; set; }
         [Display(Name = "Bác Sĩ")]
         public Nullable<int> MaNhanVien { get; set; }
-        [Display(Name = "Ghi Chú")]
+        [Display(Name = "Yêu cầu")]
         public string GhiChu { get; set; }
 
         public virtual NHANVIEN NHANVIEN { get; set; }

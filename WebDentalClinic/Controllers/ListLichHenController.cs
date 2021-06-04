@@ -87,7 +87,7 @@ namespace WebDentalClinic.Controllers
         public ActionResult SelectBacSi()
         {
             NHANVIEN ct = new NHANVIEN();
-            ct.listNV = db.NHANVIENs.ToList<NHANVIEN>();
+            ct.listNV = db.NHANVIENs.Where(s=>s.MaChucVu==1).ToList<NHANVIEN>();
             return PartialView(ct);
         }
         public ActionResult DatLichThanhCong()

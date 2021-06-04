@@ -14,19 +14,41 @@ namespace WebDentalClinic.Controllers
         WebPhongKhamNhaKhoaEntities db = new WebPhongKhamNhaKhoaEntities();
         public ActionResult BaoCaoDoanhThu()
         {
+            int Tong = 0;
             var list = db.HOADONs.ToList();
+            foreach(var l in list)
+            {
+                Tong += int.Parse(l.TongTien.ToString());
+            }
+            string TongGia = Tong.ToString();
+            ViewBag.Tong = TongGia;
             return View(list);
         }
-       /* [HttpGet]
-        public ActionResult BaoCaoDoanhThu(DateTime stat, DateTime end)
+        [HttpGet]
+        public ActionResult BaoCaoDoanhThu(DateTime? startdate, DateTime? enddate)
         {
-            var links = db.HOADONs.ToList();
-           
-            if (!String.IsNullOrEmpty(stat.ToString())&& !String.IsNullOrEmpty(end.ToString())) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            var links = from l in db.HOADONs // lấy toàn bộ liên kết
+                        select l;
+            int Tong = 0;
+            if (startdate != null && enddate != null) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
-                 links = db.HOADONs.Where(s => s.NgayLap >= stat && s.NgayLap <= end).ToList();
-            } //lọc theo chuỗi tìm kiếm
+               /* Tong = 0;*/
+                var list=db.HOADONs.Where(x => x.NgayLap>=startdate && x.NgayLap <= enddate).ToList();
+                foreach(var i in list)
+                {
+                    Tong += int.Parse(i.TongTien.ToString());
+                }
+
+                string TongGia = Tong.ToString();
+                ViewBag.Tong = TongGia;
+                return View(list);
+            }
             return View(links);
-        }*/
+        }
+        public ActionResult ChiTietBaoCaoDoanhThu(int id)
+        {
+            var list = db.CHITIETPHIEUKHAMs.Where(s=>s.MaPhieuKham==id).ToList();
+            return View(list);
+        }
     }
 }
