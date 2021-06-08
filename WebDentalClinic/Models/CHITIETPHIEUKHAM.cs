@@ -17,7 +17,7 @@ namespace WebDentalClinic.Models
     {
         [Key]
         public int MaChiTietPhieuKham { get; set; }
-
+        [Display(Name = "Mã Phiếu Khám")]
         public Nullable<int> MaPhieuKham { get; set; }
         [Display(Name = "Dịch Vụ")]
         [Required(ErrorMessage = "Vui Lòng Chọn Dịch Vụ")]

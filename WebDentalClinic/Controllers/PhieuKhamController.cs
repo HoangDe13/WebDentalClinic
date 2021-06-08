@@ -147,5 +147,26 @@ namespace WebDentalClinic.Controllers
 
             return View(ChiTiet);
         }
+        [HttpGet]
+        public ActionResult Index(string searchString, string searchDate)
+        {
+
+            var links = from l in database.PHIEUKHAMs // lấy toàn bộ liên kết
+                        select l;
+            if (!String.IsNullOrEmpty(searchString) && String.IsNullOrEmpty(searchDate)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            else if (String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchDate)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.NgayKham.ToString().Contains(searchDate)); //lọc theo chuỗi tìm kiếm
+            }
+            else if (!String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchDate))
+            {
+                links = links.Where(s => s.NgayKham.ToString().Contains(searchDate) && s.BENHNHAN.HoTen.ToString().Contains(searchString));
+            }
+
+            return View(links);
+        }
     }
 }

@@ -12,93 +12,101 @@
 <center><h2>LỊCH SỬ KHÁM BỆNH</h2></center>
 
 <hr />
-@using (Html.BeginForm("MedicalExaminationListHistory", "Dentist", FormMethod.Get))
-{
-    <p style="padding-left:100px;">
+<div class="container body-content">
+    @using (Html.BeginForm("MedicalExaminationListHistory", "Dentist", FormMethod.Get))
+    {
+        <p>
 
-        Nhập Tên Bệnh Nhân :
+            Nhập Tên Bệnh Nhân :
+            @Html.TextBox("SearchString")
+            Nhập Ngày :
+            @Html.TextBox("SearchDate", null, new { @type = "date" })
+            <input type="submit" value="Tìm kiếm" class="btn btn-info" />
 
-        @Html.TextBox("SearchString")
-        <input type="submit" value="Tìm kiếm" class="btn btn-info" />
-
-    </p>
-}
-<div>
-
-
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MaPhieuKham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NHANVIEN.HoTen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayKham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GioKham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayTaiKham)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MoTaTrieuChung)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TinhTrang)
-            </th>
-
-            <th></th>
-        </tr>
+        </p>
+    }
+    <div>
 
 
-        @foreach (var item in Model)
-        {
+
+        <table class="table">
             <tr>
-                <td>
-                    <center>@Html.DisplayFor(modelItem => item.MaPhieuKham)</center>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaPhieuKham)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NHANVIEN.HoTen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayKham)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GioKham)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayTaiKham)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoTaTrieuChung)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TinhTrang)
+                </th>
 
-                </td>
-                <td>
-                    <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
-
-                </td>
-                <td>
-                    <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
-
-                </td>
-                <td>
-                    <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
-
-                </td>
-                <td>
-                    <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
-
-                </td>
-                <td>
-                    <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
-
-                </td>
-                <td>
-                    <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
-
-                </td>
-                <td>
-                    <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
-                </td>
-                <td>
-                    @Html.ActionLink("Chi tiết", "MedicalExaminationHistory", new { id = item.MaPhieuKham })
-                </td>
+                <th></th>
             </tr>
-        }
 
-    </table>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.MaPhieuKham)</center>
+
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)</center>
+
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)</center>
+
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.NgayKham)</center>
+
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.GioKham)</center>
+
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.NgayTaiKham)</center>
+
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.MoTaTrieuChung)</center>
+
+                    </td>
+                    <td>
+                        <center>@Html.DisplayFor(modelItem => item.TinhTrang)</center>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Chi tiết", "MedicalExaminationHistory", new { id = item.MaPhieuKham })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    </div>
+
     <br />
     Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-</div>
+
+
