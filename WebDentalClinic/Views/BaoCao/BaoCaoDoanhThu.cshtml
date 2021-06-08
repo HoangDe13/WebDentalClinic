@@ -25,7 +25,10 @@
 
     </p>
 }
-<h4 style="text-align:center">Tổng Doanh Thu:@if (Tong != null) {@Html.DisplayName(Tong)} else {@Html.DisplayName("0")}</h4>
+<h4 style="text-align:center">Tổng Doanh Thu:&nbsp; @if (Tong != null)
+{@Html.DisplayName(Tong)}
+else
+{@Html.DisplayName("0")}</h4>
 
 
 <div class="container body-content">
