@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
-
+@using WebDentalClinic.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList.IPagedList<KeyValuePair<WebDentalClinic.Models.PHIEUKHAM, IEnumerable<WebDentalClinic.Models.PHIEUKHAM>>>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
 <div class="container body-content">
+
     <h2 style="text-align:center">Danh Sách Phiếu Khám</h2>
     @using (Html.BeginForm("Index", "PhieuKham", FormMethod.Get))
     {
@@ -43,45 +46,51 @@
                 @Html.DisplayNameFor(model => model.TinhTrang)
             </th>
 
-            <th>
-                @Html.DisplayNameFor(model => model.NHANVIEN.HoTen)
-            </th>
-            <th></th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NgayKham)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GioKham)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NgayTaiKham)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MoTaTrieuChung)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TinhTrang)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)
-                </td>
-                <td>
-                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaPhieuKham }) |
-                    @Html.ActionLink("Thông Tin Khám", "ChiTietPhieuKhamNurse", new { id = item.MaPhieuKham }) |
-                    @Html.ActionLink("Xoá", "Delete", new { id = item.MaPhieuKham })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.NHANVIEN.HoTen)
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BENHNHAN.HoTen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NgayKham)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GioKham)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NgayTaiKham)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoTaTrieuChung)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TinhTrang)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NHANVIEN.HoTen)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaPhieuKham }) |
+                        @Html.ActionLink("Thông Tin Khám", "ChiTietPhieuKhamNurse", new { id = item.MaPhieuKham }) |
+                        @Html.ActionLink("Xoá", "Delete", new { id = item.MaPhieuKham })
+                    </td>
+                </tr>
+            }
+
+
+        </table>
+        <br />
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
 </div>

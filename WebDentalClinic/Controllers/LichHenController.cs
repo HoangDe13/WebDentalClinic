@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebDentalClinic.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace WebDentalClinic.Controllers
 {
