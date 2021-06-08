@@ -71,9 +71,6 @@ namespace WebDentalClinic.Controllers
                     return View();
                 }
 
-
-
-
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

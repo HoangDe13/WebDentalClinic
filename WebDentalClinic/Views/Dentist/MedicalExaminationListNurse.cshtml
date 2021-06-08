@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
-
+@using WebDentalClinic.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<KeyValuePair<WebDentalClinic.Models.PHIEUKHAM, IEnumerable<WebDentalClinic.Models.PHIEUKHAM>>>
 @{
     ViewBag.Title = "MedicalExaminationListNurse";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
@@ -107,4 +109,7 @@
         }
 
     </table>
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
