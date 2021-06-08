@@ -37,10 +37,10 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.MaBenhNhan, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-5">
-                                    @Html.EditorFor(model => model.MaBenhNhan, new { htmlAttributes = new { @class = "form-control",@Value=idBenhNhan ,@readonly=true} })
+                                    @Html.EditorFor(model => model.MaBenhNhan, new { htmlAttributes = new { @class = "form-control",@Value=idBenhNhan } })
                                     @Html.ValidationMessageFor(model => model.MaBenhNhan, "", new { @class = "text-danger" })
 
-                                   
+                                    @Html.ActionLink("Tra Cứu", "Index", "CreateProfile")
                                 </div>
                             </div>
 
@@ -90,7 +90,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    @Html.ActionLink("Danh Sách Bệnh Nhân", "Index", "PhieuKham", new { @class = "btn btn-info" })
+                                    @Html.ActionLink("Danh Sách Phiếu Khám", "Index", null, new { @class = "btn btn-info" })
                                     <input type="submit" value="Tạo Phiếu Khám" class="btn btn-success" />
 
 

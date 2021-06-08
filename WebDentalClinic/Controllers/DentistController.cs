@@ -28,12 +28,11 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult EditChiTiet(int id)
         {
-            ViewBag.MaPhieuKham=id;
+
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaChiTietPhieuKham == id).FirstOrDefault());
         }
-        public ActionResult AddChiTiet(int id)
+        public ActionResult AddChiTiet()
         {
-            ViewBag.MaPhieuKham = id;
             return View();
         }
         [HttpPost]
@@ -100,17 +99,16 @@ namespace WebDentalClinic.Controllers
         public ActionResult MedicalExaminationListHistory(PHIEUKHAM pk)
         {
                                        
-                return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Đã Khám").ToList());                          
+                return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Đã khám").ToList());                          
         }
 
         public ActionResult MedicalExaminationList(PHIEUKHAM pk)
         {
-            int id = (int)Session["MaNhanVien"];
-            return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám"&&s.MaNhanVien==id).ToList());
+            return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám").ToList());
         }
         public ActionResult MedicalExamination(int id)
         {
-            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); 
+            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;
         }
         public ActionResult MedicalExaminationHistory(int id)
         {
@@ -124,7 +122,7 @@ namespace WebDentalClinic.Controllers
             Session.RemoveAll();
             Session.Abandon();
 
-            return RedirectToAction("Login", "RegisterEmloyee");
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -136,24 +134,8 @@ namespace WebDentalClinic.Controllers
         }
 
         public ActionResult TaoHoaDon(int id)
-            
         {
-            int Tong = 0;
-            List<CHITIETPHIEUKHAM> ListChiTiet = database.CHITIETPHIEUKHAMs.Where(i => i.MaPhieuKham == id).ToList();
-            foreach (var i in ListChiTiet)
-            {
-
-
-                var DV = database.DICHVUs.Where(s => s.MaDichVu == i.MaDichVu).FirstOrDefault();
-                int Gia = int.Parse(DV.DonGia.ToString()) * int.Parse(i.SoLuong.ToString());
-                Tong += Gia;
-
-            }
-            DateTime dateTime = DateTime.UtcNow.Date;
-            ViewBag.Ngay = dateTime.ToString("dd/MM/yyyy");
-            ViewBag.TongGia = Tong;
-            ViewBag.MaPhieuKham = id;
-            return View();
+            return View(database.HOADONs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
         }
 
         public ActionResult TinhTongTien()
@@ -178,24 +160,21 @@ namespace WebDentalClinic.Controllers
         [HttpPost]
         public ActionResult TaoHoaDon(HOADON hd)
         {
-            var check = database.HOADONs.Where(s => s.MaPhieuKham == hd.MaPhieuKham).FirstOrDefault();
-            if (check == null)
+            try
             {
-
                 database.HOADONs.Add(hd);
                 database.SaveChanges();
                 return RedirectToAction("HoaDon");
             }
-            else
+            catch
             {
-                return Content("Phiếu khám này đã thanh toán!!!");
+                return Content("Error Create New");
             }
         }
-       
+        [HttpPost]
 
         public ActionResult XoaHoaDon(int id)
         {
-
             return View(database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault());
         }
         [HttpPost]
@@ -222,54 +201,22 @@ namespace WebDentalClinic.Controllers
 
         public ActionResult ChiTietHoaDon(int id)
         {
-            ViewBag.MaPhieuKham = id;
-            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList());
+            return View(database.HOADONs.Where(s => s.MaHoaDon == id).FirstOrDefault());
         }
-        public ActionResult ChiTietHoaDonDanhSach(int id)
-        {
-            ViewBag.MaPhieuKham = id;
-            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList());
-        }
-        [HttpGet]
-        public ActionResult MedicalExaminationList(string searchString)
-        {
 
-            int id = (int)Session["MaNhanVien"];
-            var links =database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám" && s.MaNhanVien == id).ToList();
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                var search = database.PHIEUKHAMs.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString)&& s.MaNhanVien == id&& s.TinhTrang == "Chưa khám"); //lọc theo chuỗi tìm kiếm
-                return View(search);
-            }
-            return View(links);
-        }
         [HttpGet]
-        public ActionResult MedicalExaminationListHistory(string searchString,string searchDate)
+        public ActionResult MedicalExaminationListHistory(string searchString)
         {
 
             var links = from l in database.PHIEUKHAMs // lấy toàn bộ liên kết
                         select l;
-            if (!String.IsNullOrEmpty(searchString)&& String.IsNullOrEmpty(searchDate)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
                 links = links.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
             }
-            else if (String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchDate)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                links = links.Where(s => s.NgayKham.ToString().Contains(searchDate)); //lọc theo chuỗi tìm kiếm
-            }
-            else if(!String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchDate)){
-                links = links.Where(s => s.NgayKham.ToString().Contains(searchDate)&& s.BENHNHAN.HoTen.ToString().Contains(searchString));
-            }
-
             return View(links);
-        }
-        public ActionResult MedicalExaminationListNurse() {
-            return View(database.PHIEUKHAMs.Where(s=>s.TinhTrang=="Đã Khám").ToList());
-        }
-        public ActionResult MedicalExaminationNurse(int id)
-        {
-            ViewBag.MaPhieuKham = id;
-            return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList());
+            /*ViewBag.MaPhieuKham = id;*/
+          /*  return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); ;*/
         }
         [HttpGet]
         public ActionResult HoaDon(string searchString)
