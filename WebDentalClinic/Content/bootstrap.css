@@ -5116,7 +5116,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   font-family:'Times New Roman';
 }
     .navbar-inverse .navbar-nav > li > a:hover {
-        color: darkblue;
+        color: #03A9F4;
         background-color: transparent;
     }
 .navbar-inverse .navbar-nav > li > a:focus {

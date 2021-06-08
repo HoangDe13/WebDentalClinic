@@ -54,18 +54,6 @@ namespace WebDentalClinic.Controllers
 
 
         }
-        [HttpGet]
-        public ActionResult Index(string searchString)
-        {
-            var links = from l in database.NHANVIENs // lấy toàn bộ liên kết
-                        select l;
-
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                links = links.Where(s => s.SoDienThoai.Contains(searchString)); //lọc theo chuỗi tìm kiếm
-            }
-            return View(links);
-        }
         public ActionResult Edit(int id)
         {
             return View(database
