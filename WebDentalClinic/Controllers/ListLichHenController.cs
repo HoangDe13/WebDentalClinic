@@ -22,12 +22,19 @@ namespace WebDentalClinic.Controllers
         
         public ActionResult Confirm(int id)
         {
-            var lh = db.LICHHENs.Where(s => s.MaLichHen == id).FirstOrDefault();
-           
-            lh.TinhTrang = "DXN";
-            db.Entry(lh).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("ListLichHen", "ListLichHen");
+            try
+            {
+                var lh = db.LICHHENs.Where(s => s.MaLichHen == id).FirstOrDefault();
+
+                lh.TinhTrang = "DXN";
+                db.Entry(lh).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ListLichHen", "ListLichHen");
+            }
+            catch
+            {
+                return Content("Xác nhận thất bai");
+            }
         }
         public ActionResult Edit(int id)
         {
