@@ -43,7 +43,7 @@ namespace WebDentalClinic.Models
         [DataType(DataType.Time)]
         public string GioKham { get; set; }
         [Display(Name = "Ngày Tái Khám")]
-        /*[DataType(DataType.Date)]*/
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> NgayTaiKham { get; set; }
         [Display(Name = "Triệu Chứng")]

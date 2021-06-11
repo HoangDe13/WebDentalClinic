@@ -47,11 +47,14 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult Edit(int id)
         {
-            return View(database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault());
+            var link=database.PHIEUKHAMs.Where(s => s.MaPhieuKham == id).FirstOrDefault();
+            
+            return View(link);
         }
         [HttpPost]
         public ActionResult Edit( PHIEUKHAM pk)
         {
+           
             database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
             return RedirectToAction("Index");
