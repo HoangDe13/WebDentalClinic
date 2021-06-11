@@ -28,6 +28,7 @@
                                 <div class="col-md-5">
                                     @{Html.RenderAction("SelectNhanVien", "PhieuKham");
                                     }
+                                    @Html.ValidationMessageFor(model => model.MaNhanVien, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 

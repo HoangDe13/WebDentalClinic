@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<WebDentalClinic.Models.LICHHEN>
-@using WebDentalClinic.Models;
-@using PagedList.Mvc;
-@model PagedList.PagedList.IPagedList<KeyValuePair<WebDentalClinic.Models.LICHHEN, IEnumerable<WebDentalClinic.Models.LICHHEN>>>
+@{
     ViewBag.Title = "ListLichhen";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
@@ -87,11 +85,11 @@
         }
         <p>* CXN= Chưa Xác Nhận</p>
         <p>* DXN= Đã Xác Nhận</p>
+        
 
 
     </table>
     <br />
-    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    
 </div>
 
