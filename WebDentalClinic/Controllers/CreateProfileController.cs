@@ -141,5 +141,23 @@ namespace WebDentalClinic.Controllers
             ViewBag.MaBenhNhan = id;
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TaoPhieuKham(PHIEUKHAM pk)
+        {
+
+          
+                database.Configuration.ValidateOnSaveEnabled = false;
+                database.PHIEUKHAMs.Add(pk);
+                database.SaveChanges();
+                return RedirectToAction("Index","PhieuKham");
+            
+          
+            }
+
+
+
+
+        
     }
 }
