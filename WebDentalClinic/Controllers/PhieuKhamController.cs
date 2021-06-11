@@ -54,10 +54,16 @@ namespace WebDentalClinic.Controllers
         [HttpPost]
         public ActionResult Edit( PHIEUKHAM pk)
         {
-           
-            database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
-            database.SaveChanges();
-            return RedirectToAction("Index");
+            if (pk.MaNhanVien == null)
+            {
+                return Content("Vui lòng chọn bác sĩ");
+            }
+            else
+            {
+                database.Entry(pk).State = System.Data.Entity.EntityState.Modified;
+                database.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
         public ActionResult Delete(int id)
         {
