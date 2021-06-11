@@ -14,57 +14,57 @@
 {
     @Html.AntiForgeryToken()
 
-<div style="margin-left:30%">
-    <div class="col-md-12">
-        <div class="wrap-login100" style="text-align:center;">
+    <div style="margin-left:30%">
+        <div class="col-md-12">
+            <div class="wrap-login100" style="text-align:center;">
 
-            <div class="form-horizontal">
+                <div class="form-horizontal">
 
-                <hr />
+                    <hr />
 
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NgayLap, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.NgayLap, new { htmlAttributes = new { @class = "form-control", @Value = Ngay } })
-                        @Html.ValidationMessageFor(model => model.NgayLap, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NgayLap, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.NgayLap, new { htmlAttributes = new { @class = "form-control", @Value = Ngay } })
+                            @Html.ValidationMessageFor(model => model.NgayLap, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.MaPhieuKham, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.MaPhieuKham, new { htmlAttributes = new { @class = "form-control", @Value = MaPhieuKham } })
-                        @Html.ValidationMessageFor(model => model.MaPhieuKham, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MaPhieuKham, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.MaPhieuKham, new { htmlAttributes = new { @class = "form-control", @Value = MaPhieuKham } })
+                            @Html.ValidationMessageFor(model => model.MaPhieuKham, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.TongTien, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.TongTien, new { htmlAttributes = new { @class = "form-control", @Value = Tong } })
-                        @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TongTien, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.TongTien, new { htmlAttributes = new { @class = "form-control", @Value = Tong } })
+                            @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.Label("Dịch Vụ", htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.ActionLink("Chi Tiết", "ChiTietHoaDon", new { id = MaPhieuKham })
+                    <div class="form-group">
+                        @Html.Label("Dịch Vụ", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.ActionLink("Chi Tiết", "ChiTietHoaDon", new { id = MaPhieuKham })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Lập Hóa Đơn" class="btn btn-success" />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Lập Hóa Đơn" class="btn btn-success" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
-
-
-</div>
-    }
+}
 
 <div>
     @Html.ActionLink("Quay Lại", "MedicalExaminationListNurse")

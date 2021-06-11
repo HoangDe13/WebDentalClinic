@@ -24,6 +24,9 @@
 
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DICHVU.DonGia)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.GhiChu)
             </th>
         </tr>
@@ -32,25 +35,29 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DICHVU.TenDichVu)
 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GhiChu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DICHVU.DonGia)
 
-                </td>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GhiChu)
 
-                <td>
-                    @Html.ActionLink("Cập Nhật", "EditChiTiet", new { id = item.MaChiTietPhieuKham }) |
-                    @Html.ActionLink("Xóa", "DeleteChiTiet", new { id = item.MaChiTietPhieuKham })
-                </td>
-            </tr>
+        </td>
+
+        <td>
+            @Html.ActionLink("Cập Nhật", "EditChiTiet", new { id = item.MaChiTietPhieuKham }) |
+            @Html.ActionLink("Xóa", "DeleteChiTiet", new { id = item.MaChiTietPhieuKham })
+        </td>
+    </tr>
         }
 
     </table>

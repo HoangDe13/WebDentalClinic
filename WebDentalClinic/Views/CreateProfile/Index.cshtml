@@ -1,6 +1,7 @@
-
 ﻿@model IEnumerable<WebDentalClinic.Models.BENHNHAN>
-
+@*@using WebDentalClinic.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<KeyValuePair<WebDentalClinic.Models.BENHNHAN, IEnumerable<WebDentalClinic.Models.BENHNHAN>>>*@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
@@ -27,9 +28,9 @@
     <h2>Danh Sách Bệnh Nhân</h2>
 
     <p>
-        @Html.ActionLink("Tạo Mới Bệnh Nhân", "Create", null, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Tạo Mới Bệnh Nhân", "Create", null, new { @class = "btn btn-primary" }) 
 
-        @Html.ActionLink("Tạo Phiếu Khám", "Create", "PhieuKham", new { @class = "btn btn-success" })
+    
     </p>
     <div class="col-md-12">
         <table class="table">
@@ -101,6 +102,6 @@
         </table>
 
     </div>
-    <br />
-
+   @* Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
 </div>
