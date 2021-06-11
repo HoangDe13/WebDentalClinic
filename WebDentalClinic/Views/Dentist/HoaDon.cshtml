@@ -69,14 +69,14 @@
                         @Html.DisplayFor(modelItem => item.TongTien)
                     </td>
                     @*<td>
-                            <div>
-                                <select>
-                                    <option>Chưa Thanh Toán</option>
-                                    <option>Đã Thanh Toán</option>
-                                </select>
-                                @Html.ActionLink("Lưu Lại", "LưuTrangThai", new {id= item.MaHoaDon})
-                            </div>
-                        </td>*@
+                        <div>
+                            <select>
+                                <option>Chưa Thanh Toán</option>
+                                <option>Đã Thanh Toán</option>
+                            </select>
+                            @Html.ActionLink("Lưu Lại", "LưuTrangThai", new {id= item.MaHoaDon})
+                        </div>
+                    </td>*@
 
                     <td>
                         @Html.ActionLink("Xóa bỏ", "XoaHoaDon", new { id = item.MaHoaDon })|
@@ -86,5 +86,7 @@
             }
 
         </table>
+        <br />
+      
     </div>
-    </div>
+</div>
