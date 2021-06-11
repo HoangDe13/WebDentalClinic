@@ -51,14 +51,25 @@ namespace WebDentalClinic.Controllers
         }
         public ActionResult Delete(int id)
         {
-            return View(database.DICHVUs.Where(s => s.MaDichVu == id).FirstOrDefault());
-        }
-        [HttpPost]
-        public ActionResult Delete(int id, DICHVU dv)
+            try
+            {
+                DICHVU dv = database.DICHVUs.Where(s => s.MaDichVu == id).FirstOrDefault();
+                database.DICHVUs.Remove(dv);
+                database.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return Content(" Dịch Vụ Đang Được Sử Dụng, Không thể xóa !!!");
+            }
+            }
+       /* [HttpPost]
+        public ActionResult Delete( DICHVU dv)
         {
             try
             {
-                dv = database.DICHVUs.Where(s => s.MaDichVu == id).FirstOrDefault();
+               
                 database.DICHVUs.Remove(dv);
                 database.SaveChanges();
                 return RedirectToAction("Index");
@@ -68,7 +79,7 @@ namespace WebDentalClinic.Controllers
                 return Content(" this data is using in other table , error Delete");
             }
         }
-    
+    */
         public PartialViewResult CategoryPartial()
         {
             return PartialView(database.DICHVUs.ToList());

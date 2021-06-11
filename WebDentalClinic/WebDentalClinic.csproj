@@ -138,7 +138,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaoCaoController.cs" />
-    <Compile Include="Controllers\DataSearchController.cs" />
     <Compile Include="Controllers\DentistController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -358,7 +357,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutDentist.cshtml" />
     <Content Include="Views\Dentist\Index.cshtml" />
-    <Content Include="Views\Dentist\MedicalExamination.cshtml" />
     <Content Include="Views\Dentist\Account.cshtml" />
     <Content Include="Views\Dentist\EditPhieuKham.cshtml" />
     <Content Include="Views\Dentist\Logout.cshtml" />
@@ -378,7 +376,6 @@
     <Content Include="Views\Service\Create.cshtml" />
     <Content Include="Views\Service\Details.cshtml" />
     <Content Include="Views\Service\Edit.cshtml" />
-    <Content Include="Views\Service\Delete.cshtml" />
     <Content Include="Views\RegisterEmloyee\Index.cshtml" />
     <Content Include="Views\RegisterEmloyee\Login.cshtml" />
     <Content Include="Views\LichHen\DatLichThanhCongYta.cshtml" />
@@ -428,7 +425,6 @@
     <Content Include="Views\CreateProfile\CreatePhieuKham.cshtml" />
     <Content Include="Views\PhieuKham\DanhSachHoaDon.cshtml" />
     <Content Include="Views\PhieuKham\CreateHoaDon.cshtml" />
-    <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
     <Content Include="Views\ListLichHen\Edit.cshtml" />
     <Content Include="Views\Customer\Profile1.cshtml" />
     <Content Include="Views\Customer\ChangePass.cshtml" />
@@ -450,14 +446,15 @@
     <Content Include="Views\Dentist\MedicalExaminationNurse.cshtml" />
     <Content Include="Views\Dentist\MedicalExaminationListNurse.cshtml" />
     <Content Include="Views\Dentist\ChiTietHoaDon.cshtml" />
-    <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
     <Content Include="Views\Dentist\ChiTietHoaDonDanhSach.cshtml" />
-    <Content Include="Views\Dentist\MedicalExamination.cshtml" />
     <Content Include="Views\BaoCao\BaoCaoDoanhThu.cshtml" />
     <Content Include="Views\ListLichHen\ListLichhen.cshtml" />
     <Content Include="Views\PhieuKham\ChiTietPhieuKhamNurse.cshtml" />
     <Content Include="Views\BaoCao\ChiTietBaoCaoDoanhThu.cshtml" />
     <Content Include="Views\CreateProfile\TaoPhieuKham.cshtml" />
+    <Content Include="Views\Dentist\MedicalExamination.cshtml" />
+    <Content Include="Views\Dentist\TaoHoaDon.cshtml" />
+    <Content Include="Views\Service\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

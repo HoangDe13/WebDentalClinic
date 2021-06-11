@@ -6,9 +6,21 @@
 }
 <div class="container body-content">
     <h2 style="text-align:center">Danh Sách Phiếu Khám</h2>
+    @using (Html.BeginForm("Index", "PhieuKham", FormMethod.Get))
+    {
+<p>
 
+    Nhập Tên Bệnh Nhân :
+
+    @Html.TextBox("SearchString")
+    Nhập Ngày Khám :
+    @Html.TextBox("SearchDate", null, new { @type = "date" })
+    <input type="submit" value="Tìm kiếm" class="btn btn-info" />
+
+</p>
+    }
     <p>
-        @Html.ActionLink("Tạo Phiếu Khám Mới", "Create",null,new { @class="btn btn-success"})
+        @Html.ActionLink("Tạo Phiếu Khám Mới", "Create", null, new { @class = "btn btn-success" })
     </p>
     <table class="table">
         <tr>
@@ -72,4 +84,4 @@
         }
 
     </table>
-    </div>
+</div>

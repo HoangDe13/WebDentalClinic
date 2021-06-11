@@ -20,6 +20,7 @@ namespace WebDentalClinic.Controllers
             {
                 Tong += int.Parse(l.TongTien.ToString());
             }
+            
             string TongGia = Tong.ToString();
             ViewBag.Tong = TongGia;
             return View(list);
@@ -38,8 +39,8 @@ namespace WebDentalClinic.Controllers
                 {
                     Tong += int.Parse(i.TongTien.ToString());
                 }
-
-                string TongGia = Tong.ToString();
+                Convert.ToDecimal(Tong).ToString();
+                string TongGia = Tong.ToString("#,##0");
                 ViewBag.Tong = TongGia;
                 return View(list);
             }
