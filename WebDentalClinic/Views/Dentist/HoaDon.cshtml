@@ -1,5 +1,5 @@
-﻿@model IEnumerable<WebDentalClinic.Models.HOADON>
-
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebDentalClinic.Models.HOADON>
 @{
     ViewBag.Title = "HoaDon";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
@@ -26,23 +26,18 @@
         <table class="table">
             <tr>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.MaHoaDon)*@
                     MÃ HÓA ĐƠN
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.PHIEUKHAM.BENHNHAN.HoTen)*@
                     HỌ TÊN KHÁCH HÀNG
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.NgayLap)*@
                     NGÀY LẬP
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.MaPhieuKham)*@
                     MÃ PHIẾU KHÁM
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.TongTien)*@
                     TỔNG TIỀN
                 </th>
 
@@ -87,6 +82,8 @@
 
         </table>
         <br />
-      
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("HoaDon", new { page }))
     </div>
 </div>

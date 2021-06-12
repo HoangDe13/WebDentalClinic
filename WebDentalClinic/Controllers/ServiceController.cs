@@ -14,10 +14,69 @@ namespace WebDentalClinic.Controllers
     {
         WebPhongKhamNhaKhoaEntities database = new WebPhongKhamNhaKhoaEntities();
         // GET: Service
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(database.DICHVUs.ToList());
+            // 1. Tham số int? dùng để thể hiện null và kiểu int
+            // page có thể có giá trị là null và kiểu int.
+
+            // 2. Nếu page = null thì đặt lại là 1.
+            if (page == null) page = 1;
+
+            // 3. Tạo truy vấn, lưu ý phải sắp xếp theo trường nào đó, ví dụ OrderBy
+            // theo LinkID mới có thể phân trang.
+            var links = (from l in database.DICHVUs
+                         select l).OrderBy(x => x.MaDichVu).ToList();
+
+            //Lay het trong lich hen trong DB
+            List<DICHVU> listPK = new List<DICHVU>();
+            foreach (var x in database.DICHVUs)
+            {
+                listPK.Add(x);
+            }
+
+            // 4. Tạo kích thước trang (pageSize) hay là số Link hiển thị trên 1 trang
+            int pageSize = 10;
+
+            // 4.1 Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+            // 5. Trả về các Link được phân trang theo kích thước và số trang.
+            return View(listPK.ToPagedList(pageNumber, pageSize));
         }
+        [HttpGet]
+        public ActionResult Index(string searchString, int? page)
+        {
+
+            var links = from l in database.DICHVUs // lấy toàn bộ liên kết
+                        select l;
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.TenDichVu.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            if (page == null) page = 1;
+
+            // 3. Tạo truy vấn, lưu ý phải sắp xếp theo trường nào đó, ví dụ OrderBy
+            // theo LinkID mới có thể phân trang.
+
+            //Lay het trong lich hen trong DB
+            List<DICHVU> listPK = new List<DICHVU>();
+            foreach (var x in links)
+            {
+                listPK.Add(x);
+            }
+            // 4. Tạo kích thước trang (pageSize) hay là số Link hiển thị trên 1 trang
+            int pageSize = 10;
+
+            // 4.1 Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+            // 5. Trả về các Link được phân trang theo kích thước và số trang.
+
+            return View(listPK.ToPagedList(pageNumber, pageSize));
+        }
+
+
         public ActionResult Create()
         {
             return View();
@@ -87,17 +146,17 @@ namespace WebDentalClinic.Controllers
         {
             return PartialView(database.DICHVUs.ToList());
         }
-        [HttpGet]
-        public ActionResult Index(string searchString)
-        {
-            var links = from l in database.DICHVUs // lấy toàn bộ liên kết
-                        select l;
+        //[HttpGet]
+        //public ActionResult Index(string searchString)
+        //{
+        //    var links = from l in database.DICHVUs // lấy toàn bộ liên kết
+        //                select l;
 
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                links = links.Where(s => s.TenDichVu.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
-            }
-            return View(links);
-        }
+        //    if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+        //    {
+        //        links = links.Where(s => s.TenDichVu.ToString().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+        //    }
+        //    return View(links);
+        //}
     }
 }

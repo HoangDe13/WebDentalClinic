@@ -98,8 +98,7 @@ namespace WebDentalClinic.Controllers
             }
         }
         public ActionResult MedicalExaminationListHistory(PHIEUKHAM pk)
-        {
-                                       
+        {    
                 return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Đã Khám").ToList());                          
         }
 
@@ -108,6 +107,24 @@ namespace WebDentalClinic.Controllers
             int id = (int)Session["MaNhanVien"];
             return View(database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám"&&s.MaNhanVien==id).ToList());
         }
+
+        [HttpGet]
+        public ActionResult MedicalExaminationList(string searchString)
+        {
+
+            int id = (int)Session["MaNhanVien"];
+            var links = database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám" && s.MaNhanVien == id).ToList();
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                var search = database.PHIEUKHAMs.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString) && s.MaNhanVien == id && s.TinhTrang == "Chưa khám"); //lọc theo chuỗi tìm kiếm
+                return View(search);
+            }
+            return View(links);
+        }
+
+
+
+
         public ActionResult MedicalExamination(int id)
         {
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList()); 
@@ -129,11 +146,72 @@ namespace WebDentalClinic.Controllers
 
 
 
-        public ActionResult HoaDon()
+        public ActionResult HoaDon(int? page)
         {
 
-            return View(database.HOADONs.ToList());
+            // 1. Tham số int? dùng để thể hiện null và kiểu int
+            // page có thể có giá trị là null và kiểu int.
+
+            // 2. Nếu page = null thì đặt lại là 1.
+            if (page == null) page = 1;
+
+            // 3. Tạo truy vấn, lưu ý phải sắp xếp theo trường nào đó, ví dụ OrderBy
+            // theo LinkID mới có thể phân trang.
+            var links = (from l in database.HOADONs
+                         select l).OrderBy(x => x.MaHoaDon).ToList();
+
+            //Lay het trong lich hen trong DB
+            List<HOADON> listPK = new List<HOADON>();
+            foreach (var x in database.HOADONs)
+            {
+                listPK.Add(x);
+            }
+
+            // 4. Tạo kích thước trang (pageSize) hay là số Link hiển thị trên 1 trang
+            int pageSize = 10;
+
+            // 4.1 Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+            // 5. Trả về các Link được phân trang theo kích thước và số trang.
+            return View(listPK.ToPagedList(pageNumber, pageSize));
         }
+        [HttpGet]
+        public ActionResult HOADON(string searchString, int? page)
+        {
+
+            var links = from l in database.HOADONs // lấy toàn bộ liên kết
+                        select l;
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+
+                links = links.Where(s => s.NgayLap.Value.ToString() == searchString); //lọc theo chuỗi tìm kiếm
+            }
+            if (page == null) page = 1;
+
+            // 3. Tạo truy vấn, lưu ý phải sắp xếp theo trường nào đó, ví dụ OrderBy
+            // theo LinkID mới có thể phân trang.
+
+            //Lay het trong lich hen trong DB
+            List<HOADON> listPK = new List<HOADON>();
+            foreach (var x in links)
+            {
+                listPK.Add(x);
+            }
+            // 4. Tạo kích thước trang (pageSize) hay là số Link hiển thị trên 1 trang
+            int pageSize = 10;
+
+            // 4.1 Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+            // 5. Trả về các Link được phân trang theo kích thước và số trang.
+
+            return View(listPK.ToPagedList(pageNumber, pageSize));
+        }
+
+
+
 
         public ActionResult TaoHoaDon(int id)
             
@@ -230,19 +308,7 @@ namespace WebDentalClinic.Controllers
             ViewBag.MaPhieuKham = id;
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList());
         }
-        [HttpGet]
-        public ActionResult MedicalExaminationList(string searchString)
-        {
-
-            int id = (int)Session["MaNhanVien"];
-            var links =database.PHIEUKHAMs.Where(s => s.TinhTrang == "Chưa khám" && s.MaNhanVien == id).ToList();
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                var search = database.PHIEUKHAMs.Where(s => s.BENHNHAN.HoTen.ToString().Contains(searchString)&& s.MaNhanVien == id&& s.TinhTrang == "Chưa khám"); //lọc theo chuỗi tìm kiếm
-                return View(search);
-            }
-            return View(links);
-        }
+        
         [HttpGet]
         public ActionResult MedicalExaminationListHistory(string searchString,string searchDate)
         {
@@ -271,19 +337,25 @@ namespace WebDentalClinic.Controllers
             ViewBag.MaPhieuKham = id;
             return View(database.CHITIETPHIEUKHAMs.Where(s => s.MaPhieuKham == id).ToList());
         }
-        [HttpGet]
-        public ActionResult HoaDon(string searchString)
-        {
-            var links = from l in database.HOADONs // lấy toàn bộ liên kết
-                        select l;
 
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
 
-                links = links.Where(s => s.NgayLap.Value.ToString() == searchString); //lọc theo chuỗi tìm kiếm
-            }
-            return View(links);
-        }
+
+        //[HttpGet]
+        //public ActionResult HoaDon(string searchString)
+        //{
+        //    var links = from l in database.HOADONs // lấy toàn bộ liên kết
+        //                select l;
+
+        //    if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+        //    {
+
+        //        links = links.Where(s => s.NgayLap.Value.ToString() == searchString); //lọc theo chuỗi tìm kiếm
+        //    }
+        //    return View(links);
+        //}
+
+
+
         //[HttpPost]
         //public ActionResult ChiTietHoaDon(HOADON hd)
         //{

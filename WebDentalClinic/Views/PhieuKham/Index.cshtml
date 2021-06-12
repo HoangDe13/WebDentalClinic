@@ -1,23 +1,22 @@
-﻿@model IEnumerable<WebDentalClinic.Models.PHIEUKHAM>
-
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebDentalClinic.Models.PHIEUKHAM>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
-<div class="container body-content">
+<div class="container body-content"> 
     <h2 style="text-align:center">Danh Sách Phiếu Khám</h2>
-    @using (Html.BeginForm("Index", "PhieuKham", FormMethod.Get))
+    @using (Html.BeginForm("Index", "PhieuKham",FormMethod.Get))
     {
-<p>
+        <p>
 
-    Nhập Tên Bệnh Nhân :
+            Nhập Tên Bệnh Nhân :
+            @Html.TextBox("SearchString")
+            Nhập Ngày Khám :
+            @Html.TextBox("SearchDate", null, new { @type = "date" })
+            <input type="submit" value="Tìm kiếm" class="btn btn-info" />
 
-    @Html.TextBox("SearchString")
-    Nhập Ngày Khám :
-    @Html.TextBox("SearchDate", null, new { @type = "date" })
-    <input type="submit" value="Tìm kiếm" class="btn btn-info" />
-
-</p>
+        </p>
     }
     <p>
         @Html.ActionLink("Tạo Phiếu Khám Mới", "Create", null, new { @class = "btn btn-success" })
@@ -25,26 +24,26 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BENHNHAN.HoTen)
+                <p>Họ tên</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayKham)
+                <p>Ngày khám</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GioKham)
+                <p>Giờ khám</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayTaiKham)
+                <p>Ngày tái khám</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MoTaTrieuChung)
+                <p>Mô tả triệu chứng</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TinhTrang)
+               <p>Tình trạng</p>
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.NHANVIEN.HoTen)
+                <p>Bác sĩ</p>
             </th>
             <th></th>
         </tr>
@@ -84,4 +83,7 @@
         }
 
     </table>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>

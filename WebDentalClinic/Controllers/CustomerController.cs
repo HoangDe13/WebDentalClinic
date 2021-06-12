@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -114,12 +115,26 @@ namespace WebDentalClinic.Controllers
         {
             return View();
         }
-        public ActionResult LichSuKham()
-
+        public ActionResult LichSuKham(int? page)
         {
             int maBN = (int)Session["MaBenhNhan"];
-            var listPK = db.PHIEUKHAMs.OrderByDescending(x => x.MaBenhNhan).Where(x => x.MaBenhNhan == maBN);
-            return View(listPK);
+            if (page == null) page = 1;
+
+
+            //var links = (from l in db.PHIEUKHAMs
+            //select l).OrderBy(x => x.MaPhieuKham).ToList();
+
+            var links = db.PHIEUKHAMs.OrderByDescending(x => x.MaBenhNhan).Where(x => x.MaBenhNhan == maBN);
+            List<PHIEUKHAM> listPK = new List<PHIEUKHAM>();
+            foreach (var x in db.PHIEUKHAMs)
+            {
+                listPK.Add(x);
+            }
+            int pageSize = 10;
+            
+            int pageNumber = (page ?? 1);
+            
+            return View(links.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult ChiTietphieukham(int id)
         {

@@ -1,77 +1,78 @@
-﻿@model IEnumerable<WebDentalClinic.Models.DICHVU>
-
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebDentalClinic.Models.DICHVU>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/Layout_Nurse.cshtml";
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
-<br />
-<br />
-<h2 style="text-align:center">Danh Sách Dịch Vụ</h2>
+    <br />
+    <br />
+    <h2 style="text-align:center">Danh Sách Dịch Vụ</h2>
 
-<div class="container body-content">
-    @using (Html.BeginForm("Index", "Service", FormMethod.Get))
-    {
-        <p style="padding-left:100px;">
-
-            Nhập Tên Dịch Vụ :
-
-            @Html.TextBox("SearchString")
-            <input type="submit" value="Tìm kiếm" class="btn btn-info" />
-
-        </p>
-    }
-
-
-    <p>
-        @Html.ActionLink("Thêm Mới Dịch Vụ", "Create", null, new { @class = "btn btn-success" })
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MaDichVu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenDichVu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DonGia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LoaiDichVu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GhiChu)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
+    <div class="container body-content">
+        @using (Html.BeginForm("Index", "Service", FormMethod.Get))
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaDichVu)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TenDichVu)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DonGia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LoaiDichVu)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GhiChu)
-                </td>
-                <td>
-                    @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaDichVu }) |
-                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaDichVu }) |
-                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaDichVu })
-                </td>
-            </tr>
+            <p style="padding-left:100px;">
+
+                Nhập Tên Dịch Vụ :
+                @Html.TextBox("SearchString")
+                <input type="submit" value="Tìm kiếm" class="btn btn-info" />
+
+            </p>
         }
 
-    </table>
-    <br />
-   
-</div>
+
+        <p>
+            @Html.ActionLink("Thêm Mới Dịch Vụ", "Create", null, new { @class = "btn btn-success" })
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    <p>Mã dịch vụ</p>
+                </th>
+                <th>
+                    <p>Tên dịch vụ</p>
+                </th>
+                <th>
+                    <p>Đơn giá</p>
+                </th>
+                <th>
+                    <p>Loại dịch vụ</p>
+                </th>
+                <th>
+                    <p>Ghi chú</p>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaDichVu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenDichVu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonGia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoaiDichVu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GhiChu)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaDichVu }) |
+                        @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaDichVu }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaDichVu })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <br />
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>

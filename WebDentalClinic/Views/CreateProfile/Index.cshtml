@@ -1,7 +1,6 @@
-﻿@model IEnumerable<WebDentalClinic.Models.BENHNHAN>
-@*@using WebDentalClinic.Models;
-@using PagedList.Mvc;
-@model PagedList.IPagedList<KeyValuePair<WebDentalClinic.Models.BENHNHAN, IEnumerable<WebDentalClinic.Models.BENHNHAN>>>*@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebDentalClinic.Models.BENHNHAN>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
@@ -16,7 +15,6 @@
     {
 
         <p style="padding-left:100px;">
-
             Nhập Số Điện Thoại :
             <span style="border:solid;"> @Html.Editor("SearchString")</span>
             <input type="submit" value="Tìm kiếm" class="btn btn-info" />
@@ -28,9 +26,9 @@
     <h2>Danh Sách Bệnh Nhân</h2>
 
     <p>
-        @Html.ActionLink("Tạo Mới Bệnh Nhân", "Create", null, new { @class = "btn btn-primary" }) 
+        @Html.ActionLink("Tạo Mới Bệnh Nhân", "Create", null, new { @class = "btn btn-primary" })
 
-    
+
     </p>
     <div class="col-md-12">
         <table class="table">
@@ -93,7 +91,7 @@
                         @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = item.MaBenhNhan }) |
 
                         @Html.ActionLink("Chi Tiết", "LichSuKham", new { id = item.MaBenhNhan })
-                       @Html.ActionLink("Lập Phiếu Khám", "TaoPhieuKham", new { id = item.MaBenhNhan },new { @class="btn btn-success"})
+                        @Html.ActionLink("Lập Phiếu Khám", "TaoPhieuKham", new { id = item.MaBenhNhan }, new { @class = "btn btn-success" })
                     </td>
                 </tr>
             }
@@ -102,6 +100,7 @@
         </table>
 
     </div>
-   @* Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
