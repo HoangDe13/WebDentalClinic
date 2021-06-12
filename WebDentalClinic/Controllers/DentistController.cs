@@ -90,7 +90,7 @@ namespace WebDentalClinic.Controllers
                 ctPK = database.CHITIETPHIEUKHAMs.Where(s => s.MaChiTietPhieuKham == id).FirstOrDefault();
                 database.CHITIETPHIEUKHAMs.Remove(ctPK);
                 database.SaveChanges();
-                return RedirectToAction("MedicalExaminationList");
+                return RedirectToAction("MedicalExaminationList"); //mới add à chưa commit
             }
             catch
             {

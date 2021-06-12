@@ -1,7 +1,8 @@
-﻿@model IEnumerable<WebDentalClinic.Models.LICHHEN>
-@using WebDentalClinic.Models;
-@using PagedList.Mvc;
-@model PagedList.PagedList.IPagedList<KeyValuePair<WebDentalClinic.Models.LICHHEN, IEnumerable<WebDentalClinic.Models.LICHHEN>>>
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebDentalClinic.Models.LICHHEN>
+
+
+@{
     ViewBag.Title = "ListLichhen";
     Layout = "~/Views/Shared/Layout_Nurse.cshtml";
 }
@@ -12,7 +13,6 @@
     <p style="padding-left:300px;">
 
         Chọn Ngày :
-
         @Html.TextBox("SearchString", null, new { @type = "date" })
         <input type="submit" value="Tìm kiếm" class="btn btn-info" />
 
@@ -25,28 +25,28 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MaLichHen)
+                <p>Mã Lịch Hẹn</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HoTen)
+                <p>Họ Tên</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SoDienThoai)
+                <p>Số Điện Thoại</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayHen)
+                <p>Ngày Hẹn</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GioHen)
+                <p>Giờ Hẹn</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TinhTrang)
+                <p>Tình Trạng</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MaNhanVien)
+                <p>Mã Nhân Viên</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GhiChu)
+                <p>Ghi Chú</p>
             </th>
             <th></th>
         </tr>
@@ -87,11 +87,11 @@
         }
         <p>* CXN= Chưa Xác Nhận</p>
         <p>* DXN= Đã Xác Nhận</p>
-
-
     </table>
     <br />
     Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+    @Html.PagedListPager(Model, page => Url.Action("ListLichhen", new { page }))
+
 </div>
 
